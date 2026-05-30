@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日AI精选 · 2026年5月30日</title>
+<style>
+:root {
+  --page:      #fdfaf3;
+  --surface:   #fcfaf5;
+  --border:    #e8dcc8;
+  --text:      #2c2416;
+  --muted:     #7a6e5c;
+  --accent:    #8b6914;
+  --accent-lt: #b8942e;
+  --positive:  #4d7c0f;
+  --warning:   #b45309;
+  --info:      #0e7490;
+  --code-bg:   #fdf6ea;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans SC", "PingFang SC", sans-serif;
+  line-height: 1.75; background: var(--page); color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3 { font-family: ui-serif, Georgia, "Noto Serif SC", serif; letter-spacing: -0.01em; }
+h1 { font-weight: 800; } h2 { font-weight: 700; } h3 { font-weight: 600; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.container { max-width: 880px; margin: 0 auto; padding: 60px 40px; }
+
+.hero { text-align: center; padding: 60px 0 40px; border-bottom: 1px solid var(--border); margin-bottom: 40px; }
+.hero-badge { display: inline-block; background: var(--accent); color: #fff; font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; padding: 4px 14px; border-radius: 20px; margin-bottom: 14px; }
+.hero h1 { font-size: clamp(28px, 5vw, 42px); }
+.hero h1 span { color: var(--accent); }
+.hero .subtitle { font-size: 15px; color: var(--muted); margin-top: 6px; }
+.hero .sources { margin-top: 16px; font-size: 12px; color: var(--muted); }
+
+.section { margin-bottom: 40px; }
+.section > h2 { font-size: 22px; margin-bottom: 14px; padding-bottom: 8px; border-bottom: 2px solid rgba(139,105,20,.08); }
+.section > h3 { font-size: 18px; margin: 20px 0 8px; }
+
+p { margin: 6px 0; }
+
+.blockquote {
+  background: linear-gradient(135deg, #fef9ef, #fdf5e6);
+  border: 1px solid var(--border); border-left: 4px solid var(--accent);
+  border-radius: 10px; padding: 18px 24px; margin: 12px 0;
+}
+
+.tag { display: inline-block; font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 10px; margin-right: 4px; }
+.tag.ph { background: rgba(218,85,47,.1); color: #da552f; }
+.tag.hn { background: rgba(255,102,0,.1); color: #ff6600; }
+.tag.reddit { background: rgba(255,69,0,.1); color: #ff4500; }
+.tag.ih { background: rgba(14,115,144,.1); color: var(--info); }
+.tag.x { background: rgba(29,161,242,.1); color: #1da1f2; }
+.tag.yc { background: rgba(252,100,5,.1); color: #fc6405; }
+
+.news-item {
+  padding: 12px 0; border-bottom: 1px solid rgba(232,220,200,.5);
+  display: flex; gap: 14px; align-items: baseline;
+}
+.news-item .idx { font-family: ui-monospace, monospace; font-size: 12px; color: var(--muted); min-width: 24px; }
+.news-item .body { flex: 1; }
+.news-item .body .title { font-weight: 600; font-size: 14px; }
+.news-item .body .desc { font-size: 13px; color: var(--muted); margin-top: 2px; }
+.news-item .tags { white-space: nowrap; }
+
+.dive {
+  background: #fff; border: 1px solid var(--border); border-radius: 12px;
+  padding: 24px 28px; margin-bottom: 16px;
+}
+.dive h3 { font-size: 17px; margin-bottom: 10px; }
+.dive h3 .num { color: var(--accent); margin-right: 6px; }
+.dive p { font-size: 14px; line-height: 1.75; color: var(--text); margin: 8px 0; }
+.dive .links { margin-top: 10px; font-size: 13px; }
+
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; margin: 12px 0; }
+.stat { background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 14px; text-align: center; }
+.stat .num { font-family: ui-serif, Georgia, serif; font-size: 24px; font-weight: 700; color: var(--accent); }
+.stat .label { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+.footer { text-align: center; color: var(--muted); font-size: 12px; padding-top: 28px; border-top: 1px solid var(--border); margin-top: 40px; opacity: .7; line-height: 1.8; }
+
+@media (max-width: 600px) {
+  .container { padding: 24px 16px; }
+  .dive { padding: 16px 18px; }
+  .news-item { flex-direction: column; gap: 2px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="hero">
+  <div class="hero-badge">2026.05.30 · 星期六</div>
+  <h1>每日AI<span>精选</span></h1>
+  <p class="subtitle">从 7 个顶级信息源筛选 · 14 条精选 · 3 个深度分析</p>
+  <div class="sources">
+    Product Hunt · Hacker News · Reddit r/LocalLLaMA · r/ArtificialIntelligence · Indie Hackers · X · Y Combinator
+  </div>
+</div>
+
+<div class="stats">
+  <div class="stat"><div class="num">7</div><div class="label">信息源</div></div>
+  <div class="stat"><div class="num">14</div><div class="label">今日精选</div></div>
+  <div class="stat"><div class="num">3</div><div class="label">深度分析</div></div>
+  <div class="stat"><div class="num">~3K</div><div class="label">总字数</div></div>
+</div>
+
+<!-- ═══ Today's Picks ═══ -->
+<div class="section">
+  <h2>📰 今日精选</h2>
+
+  <div class="news-item">
+    <div class="idx">01</div>
+    <div class="body">
+      <div class="title"><a href="https://x.com/i/status/2060392249402552457">Grok Build 发布：终端优先的 AI 编程 Agent</a></div>
+      <div class="desc">xAI 推出 CLI 原生 coding agent，$1-2/M token 激进定价，已集成 Cursor、OpenRouter、Hermes Agent</div>
+    </div>
+    <div class="tags"><span class="tag x">X</span><span class="tag hn">HN</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">02</div>
+    <div class="body">
+      <div class="title"><a href="https://old.reddit.com/r/artificial/comments/1tr0chv/">Anthropic 以 $9650 亿估值超越 OpenAI</a></div>
+      <div class="desc">新一轮 $650 亿融资，Claude Opus 4.8 coding agent 评分 61.4（4.6: 51.7 → 4.7: 57.3 → 4.8: 61.4）</div>
+    </div>
+    <div class="tags"><span class="tag reddit">Reddit</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">03</div>
+    <div class="body">
+      <div class="title"><a href="https://x.com/Goenka_Tushar1/status/2060263331651608763">酒店 AI 升温：AI 管家获 $400-600 万融资</a></div>
+      <div class="desc">WhatsApp AI 管家、动态定价、多 Agent 酒店系统受投资者热捧</div>
+    </div>
+    <div class="tags"><span class="tag x">X</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">04</div>
+    <div class="body">
+      <div class="title"><a href="https://x.com/i/status/2060473355447496724">OpenJarvis：Stanford 发布本地优先 Agent 框架</a></div>
+      <div class="desc">专为 Ollama 构建的 local-first agent framework，来自 HazyResearch + Scaling Intelligence</div>
+    </div>
+    <div class="tags"><span class="tag x">X</span><span class="tag reddit">Reddit</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">05</div>
+    <div class="body">
+      <div class="title"><a href="https://x.com/BainCapVC/status/2060383125205930195">Devin 获 $10 亿 D 轮，估值 $260 亿</a></div>
+      <div class="desc">Cognition 89% 代码由 Devin 自己写，Fiserv 核心银行系统现代化大单</div>
+    </div>
+    <div class="tags"><span class="tag x">X</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">06</div>
+    <div class="body">
+      <div class="title"><a href="https://koenvangilst.nl/lab/mistral-ai-now-summit">Mistral AI Now Summit 笔记</a></div>
+      <div class="desc">Mistral 最新动态摘要，开源模型路线图更新</div>
+    </div>
+    <div class="tags"><span class="tag hn">HN 389pts</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">07</div>
+    <div class="body">
+      <div class="title"><a href="https://old.reddit.com/r/LocalLLaMA/comments/1tr9vzn/">Qwen3.6-27B 量化基准测试出炉</a></div>
+      <div class="desc">Q8 到 Q2 全量化级别 pk，llama.cpp perplexity 对比，本地部署选型必读</div>
+    </div>
+    <div class="tags"><span class="tag reddit">Reddit</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">08</div>
+    <div class="body">
+      <div class="title"><a href="https://old.reddit.com/r/artificial/comments/1trxgvc/">开源 Agentic DevOps 交互式指南发布</a></div>
+      <div class="desc">多 Agent 系统从本地 notebook 到生产的完整路径，开源可交互</div>
+    </div>
+    <div class="tags"><span class="tag reddit">Reddit</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">09</div>
+    <div class="body">
+      <div class="title"><a href="https://www.producthunt.com/products/crew44">Crew44：把 coding agent 变成专家团队</a></div>
+      <div class="desc">代码审查、架构、测试分别分配专门 Agent，类似 Subagent 的产品化</div>
+    </div>
+    <div class="tags"><span class="tag ph">PH</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">10</div>
+    <div class="body">
+      <div class="title"><a href="https://old.reddit.com/r/LocalLLaMA/comments/1trkze4/">本地推理 GPU 横评大火帖</a></div>
+      <div class="desc">RTX PRO 6000、Intel Arc B70、RTX 5070 Ti、Mac Studio 全规格对比，带宽不是唯一</div>
+    </div>
+    <div class="tags"><span class="tag reddit">Reddit</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">11</div>
+    <div class="body">
+      <div class="title"><a href="https://www.producthunt.com/products/hyper-11">Hyper：把 AI Agent 从实习生变成老兵</a></div>
+      <div class="desc">Garry Tan 背书，Agent 编排 + 经验积累层，YC 系工具</div>
+    </div>
+    <div class="tags"><span class="tag ph">PH</span><span class="tag yc">YC</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">12</div>
+    <div class="body">
+      <div class="title"><a href="https://www.producthunt.com/products/gps-2">GPS：LLM 记忆层，存 repo 规则 + 历史教训</a></div>
+      <div class="desc">类似 CLAUDE.md 但更结构化，跨项目共享经验</div>
+    </div>
+    <div class="tags"><span class="tag ph">PH</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">13</div>
+    <div class="body">
+      <div class="title"><a href="https://old.reddit.com/r/artificial/comments/1trx8p4/">G7 就开源 AI 定义达成共识</a></div>
+      <div class="desc">open-source AI 和 open weights AI 正式区分，政策信号</div>
+    </div>
+    <div class="tags"><span class="tag reddit">Reddit</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">14</div>
+    <div class="body">
+      <div class="title"><a href="https://old.reddit.com/r/LocalLLaMA/comments/1trw5ym/">Fulloch V2：100% 本地语音助手</a></div>
+      <div class="desc">Qwen3.5-9B + Qwen3-1.7B ASR/TTS, 16GB VRAM，Home Assistant + Obsidian 集成</div>
+    </div>
+    <div class="tags"><span class="tag reddit">Reddit</span></div>
+  </div>
+</div>
+
+<!-- ═══ Deep Dives ═══ -->
+<div class="section">
+  <h2>🔬 深度分析</h2>
+
+  <div class="dive">
+    <h3><span class="num">01</span> AI Coding Agent 三分天下：Grok Build 入局，格局已变</h3>
+    <p>5 月 29 日 xAI 发布的 <strong>Grok Build</strong> 是本周最重要的 Agent 新闻。这是一个 CLI 原生的编程 Agent，定价 $1/M 输入 + $2/M 输出 token——直接对标 Claude Code 和 Codex CLI，但价格只有 Claude Opus 的 1/5。</p>
+    <p>几个关键信号：<strong>第一</strong>，它已经集成了 Cursor、OpenRouter、Vercel AI Gateway，并明确列出 Hermes Agent 作为集成方——这意味着 Hermes 用户可以直接调用 Grok Build 作为后端 coding agent。对 H.OS 来说，这是多一个低成本选项。<strong>第二</strong>，它使用了 parallel sub-agents 机制，和 Claude Code 的 Subagent 是同一种思路，说明"主 Agent 拆任务、子 Agent 并行干"已经成为行业标准模式。<strong>第三</strong>，同一天 Claude Opus 4.8 的 coding agent 评分涨到 61.4（3 个版本从 51.7→57.3→61.4），Devin 拿了 $10 亿 D 轮——AI coding agent 市场正在从"谁能写代码"进入"谁能替你管项目"的阶段。</p>
+    <p>对 James 来说，这意味着：你不需要在 Claude Code 一棵树上吊着。Grok Build + Hermes Agent 的组合已经可用，价格更低。而且 coding agent 的 Subagent 模式完全可以直接映射到 H.OS 的多 Agent 编排——前台的 check-in 交给 Front Desk Agent，房态更新交给 Housekeeping Agent，和 coding agent 拆任务是同一套逻辑。</p>
+    <div class="links">
+      📎 <a href="https://x.com/i/status/2060392249402552457">Grok Build 发布</a> ·
+      <a href="https://x.com/aipulseda1ly/status/2060500280240644252">Claude Opus 4.8 评分</a> ·
+      <a href="https://x.com/BainCapVC/status/2060383125205930195">Devin $1B D 轮</a> ·
+      <a href="https://www.producthunt.com/products/crew44">Crew44</a>
+    </div>
+  </div>
+
+  <div class="dive">
+    <h3><span class="num">02</span> 酒店 AI 正从概念走向融资：H.OS 的时机到了</h3>
+    <p>今天 X 上多条信息指向同一个趋势：<strong>酒店/服务业 AI 正在获得真金白银</strong>。Hulp（AI concierge）在谈 $400-600 万融资轮，WhatsApp-based AI 管家、动态定价、维修协调等多 Agent 系统受投资者热捧。同时，Vertical AI agencies 开始以 $1,500+/月的 retainer 向服务企业（包括酒店/短租）收取部署+维护费。</p>
+    <p>和半年前最大的区别：<strong>投资者不再问"AI 能管酒店吗"，而是问"你的多 Agent 架构怎么设计"</strong>。这意味着 H.OS 的 12-Agent 架构设计（Front Desk + Housekeeping + F&B + Maintenance + ...）不是过度设计——市场正在往这个方向走。Supervisor 编排 + 领域 Agent 的分层，恰恰是投资者现在想看到的东西。</p>
+    <p>但要注意：Vertical AI agency 的 $1,500/mo 定价意味着竞争已经开始了。如果他们的模式是"一个通用 Agent + 简单定制"，H.OS 的差异化在两点：<strong>① 蒸馏真实酒店 GM 经验的 Supervisor 人格</strong>（不是通用 prompt）；<strong>② 共享语义核心</strong>（不是每个酒店重新搭一次）。这两点如果落地，别人抄不了。</p>
+    <div class="links">
+      📎 <a href="https://x.com/Goenka_Tushar1/status/2060263331651608763">酒店 AI 融资动态</a> ·
+      <a href="https://x.com/polsia/status/2060485286061298094">Vertical AI 商业化</a>
+    </div>
+  </div>
+
+  <div class="dive">
+    <h3><span class="num">03</span> Agent 基础设施层正在标准化：MCP + 本地优先 + 记忆层</h3>
+    <p>如果把 Grok Build、Devin、Claude Code 看作 Agent 应用层，那这一周底层基础设施有三个值得关注的方向：</p>
+    <p><strong>① MCP 生态成熟：</strong>Openstatus 出了 MCP Health Checker（不只 ping，而是模拟真实 AI 客户端测试 MCP server），MCP Bridge by Appfactor 让任何 API 一键接入 Agent。MCP 正在从"Anthropic 的一个协议"变成"Agent 互联的事实标准"——这对 Hermes 的 MCP 支持是利好。</p>
+    <p><strong>② 本地优先崛起：</strong>Stanford 的 OpenJarvis 专为 Ollama 构建，100% 本地运行；Fulloch V2 全本地语音助手在 16GB VRAM 上跑通。搭配 Qwen3.6-27B 的量化方案成熟、llama.cpp 推出统一 binary 和官网——本地 Agent 的硬件+模型+框架三层都齐了。H.OS 的本地部署方案有了更可靠的基础。</p>
+    <p><strong>③ 记忆层产品化：</strong>GPS（存 repo 规则和历史教训）、Memori（从 agent trace 提炼持久记忆）、Hyper（Agent 经验积累层）——"给 Agent 配记忆"不再是研究课题，而是产品功能。这和 CLAUDE.md 的思路一致，但更加结构化和自动化。H.OS 的长期记忆层设计可以参考这些产品的方向。</p>
+    <div class="links">
+      📎 <a href="https://x.com/i/status/2060473355447496724">OpenJarvis</a> ·
+      <a href="https://www.producthunt.com/products/openstatus-2">MCP Health Checker</a> ·
+      <a href="https://www.producthunt.com/products/gps-2">GPS 记忆层</a> ·
+      <a href="https://www.producthunt.com/products/memori-labs">Memori</a>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  JMOKSZ/daily-ai-digest · 自动生成 · <a href="https://jmoksz.github.io/daily-ai-digest">GitHub Pages</a><br>
+  2026年5月30日 · 数据来源实时采集 · 仅供参考不构成投资建议
+</div>
+
+</div>
+</body>
+</html>
