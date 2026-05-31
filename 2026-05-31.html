@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日AI精选 · 2026年5月31日</title>
+<style>
+:root {
+  --page:      #fdfaf3;
+  --surface:   #fcfaf5;
+  --border:    #e8dcc8;
+  --text:      #2c2416;
+  --muted:     #7a6e5c;
+  --accent:    #8b6914;
+  --accent-lt: #b8942e;
+  --positive:  #4d7c0f;
+  --warning:   #b45309;
+  --info:      #0e7490;
+  --code-bg:   #fdf6ea;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans SC", "PingFang SC", sans-serif;
+  line-height: 1.75; background: var(--page); color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3 { font-family: ui-serif, Georgia, "Noto Serif SC", serif; letter-spacing: -0.01em; }
+h1 { font-weight: 800; } h2 { font-weight: 700; } h3 { font-weight: 600; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.container { max-width: 880px; margin: 0 auto; padding: 60px 40px; }
+
+.hero { text-align: center; padding: 60px 0 40px; border-bottom: 1px solid var(--border); margin-bottom: 40px; }
+.hero-badge { display: inline-block; background: var(--accent); color: #fff; font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; padding: 4px 14px; border-radius: 20px; margin-bottom: 14px; }
+.hero h1 { font-size: clamp(28px, 5vw, 42px); }
+.hero h1 span { color: var(--accent); }
+.hero .subtitle { font-size: 15px; color: var(--muted); margin-top: 6px; line-height: 1.6; }
+.hero .sources { margin-top: 16px; font-size: 12px; color: var(--muted); }
+
+.section { margin-bottom: 40px; }
+.section > h2 { font-size: 22px; margin-bottom: 14px; padding-bottom: 8px; border-bottom: 2px solid rgba(139,105,20,.08); }
+.section > h3 { font-size: 18px; margin: 20px 0 8px; }
+
+p { margin: 6px 0; }
+
+.blockquote {
+  background: linear-gradient(135deg, #fef9ef, #fdf5e6);
+  border: 1px solid var(--border); border-left: 4px solid var(--accent);
+  border-radius: 10px; padding: 18px 24px; margin: 12px 0;
+}
+
+.tag { display: inline-block; font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 10px; margin-right: 4px; }
+.tag.ph { background: rgba(218,85,47,.1); color: #da552f; }
+.tag.hn { background: rgba(255,102,0,.1); color: #ff6600; }
+.tag.reddit { background: rgba(255,69,0,.1); color: #ff4500; }
+.tag.ih { background: rgba(14,115,144,.1); color: var(--info); }
+.tag.x { background: rgba(29,161,242,.1); color: #1da1f2; }
+.tag.yc { background: rgba(252,100,5,.1); color: #fc6405; }
+
+.news-item {
+  padding: 12px 0; border-bottom: 1px solid rgba(232,220,200,.5);
+  display: flex; gap: 14px; align-items: baseline;
+}
+.news-item .idx { font-family: ui-monospace, monospace; font-size: 12px; color: var(--muted); min-width: 24px; }
+.news-item .body { flex: 1; }
+.news-item .body .title { font-weight: 600; font-size: 14px; }
+.news-item .body .desc { font-size: 13px; color: var(--muted); margin-top: 2px; }
+.news-item .body .meta { font-size: 11px; color: var(--accent-lt); margin-top: 1px; }
+.news-item .tags { white-space: nowrap; }
+
+.dive {
+  background: #fff; border: 1px solid var(--border); border-radius: 12px;
+  padding: 24px 28px; margin-bottom: 16px;
+}
+.dive h3 { font-size: 17px; margin-bottom: 10px; }
+.dive h3 .num { color: var(--accent); margin-right: 6px; }
+.dive p { font-size: 14px; line-height: 1.75; color: var(--text); margin: 8px 0; }
+.dive .links { margin-top: 10px; font-size: 13px; }
+.dive .links a { margin-right: 12px; }
+
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; margin: 12px 0; }
+.stat { background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 14px; text-align: center; }
+.stat .num { font-size: 22px; font-weight: 700; color: var(--accent); }
+.stat .label { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+.footer { text-align: center; color: var(--muted); font-size: 12px; padding-top: 32px; border-top: 1px solid var(--border); margin-top: 48px; opacity: .7; line-height: 1.8; }
+
+@media (max-width: 600px) {
+  .container { padding: 24px 16px; }
+  .hero h1 { font-size: 24px; }
+  .dive { padding: 16px 18px; }
+  .news-item { flex-direction: column; gap: 4px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="hero">
+  <div class="hero-badge">每日AI精选</div>
+  <h1>2026年5月<span>31日</span> · 周六</h1>
+  <p class="subtitle">OpenRouter 获 $1.13 亿 B 轮 · 领域知识成 AI 时代护城河 · MCP 工具生态爆发 · Agent 基础设施标准化加速</p>
+  <div class="sources">
+    Product Hunt · Hacker News · Indie Hackers · HN Algolia
+  </div>
+</div>
+
+<div class="section">
+  <h2>📰 今日精选 <span style="font-weight:400;font-size:14px;color:var(--muted)">— 12 条</span></h2>
+
+  <div class="news-item">
+    <div class="idx">01</div>
+    <div class="body">
+      <div class="title">🏆 OpenRouter 获 $1.13 亿 B 轮融资，AI 模型路由成为关键基础设施</div>
+      <div class="desc">CapitalG（Alphabet 旗下）领投，NVIDIA、ServiceNow、MongoDB、Snowflake、Databricks 等战略投资方全部入局。周 token 量从 5 万亿飙升至 25 万亿，800 万+ 开发者使用 400+ 模型。全面支持文本/图像/音频/视频/语音/嵌入多模态。</div>
+      <div class="meta">HN 350pts · 166 comments</div>
+    </div>
+    <div class="tags"><span class="tag hn">HN</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">02</div>
+    <div class="body">
+      <div class="title">领域知识才是 AI 时代真正的护城河</div>
+      <div class="desc">Agentic AI 切断了「写代码」和「理解领域」之间的联系。物流调度员、精算师等非技术专家能直接让 AI 生成可用的系统；而无领域经验的工程师无法判断 AI 输出是否正确。约束条件从「能不能做」变成了「知不知道做什么」。</div>
+      <div class="meta">HN 242pts · 158 comments</div>
+    </div>
+    <div class="tags"><span class="tag hn">HN</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">03</div>
+    <div class="body">
+      <div class="title">Thaw: LLM 的 Git 分支 — fork agent、跳过 prefill</div>
+      <div class="desc">开源工具，可快照一个正在运行的 LLM session（权重+KV cache+scheduler+prefix-hash），然后 hydrate N 个分支子进程跳过 prefill。面向 RL rollouts、多 agent 推理、并行 coding agent 场景。pip install thaw-vllm 即可使用。</div>
+      <div class="meta">HN Show · github.com/thaw-ai/thaw</div>
+    </div>
+    <div class="tags"><span class="tag hn">HN</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">04</div>
+    <div class="body">
+      <div class="title">HermesBench: 个人 AI Agent 工作流可靠性评测框架</div>
+      <div class="desc">评测完整 Hermes 配置：prompt、模型/provider、工具、AgentSkills、memory、gateway、安全、延迟、稳定性。当前公开基线 78.2 分（27 个 agent recipe），附带可审查的脱敏 trace。</div>
+      <div class="meta">HN Show · verkyyi.github.io/hermesbench</div>
+    </div>
+    <div class="tags"><span class="tag hn">HN</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">05</div>
+    <div class="body">
+      <div class="title">Accenture 收购 Ookla，加码网络数据+AI 企业智能</div>
+      <div class="desc">Ookla 即 Speedtest 母公司，拥有全球网络性能数据。Accenture 意在将网络智能与 AI 结合，为企业客户提供数据驱动的网络体验优化和预测服务。</div>
+      <div class="meta">HN 235pts · 120 comments</div>
+    </div>
+    <div class="tags"><span class="tag hn">HN</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">06</div>
+    <div class="body">
+      <div class="title">Starbucks 废弃 AI 库存工具：连数都数不清</div>
+      <div class="desc">星巴克部署的 AI 库存管理系统无法准确计数，最终被放弃。又一个企业 AI 部署失败的典型案例——模型再强，数据和场景理解不到位照样翻车。</div>
+      <div class="meta">HN 15pts · Gizmodo</div>
+    </div>
+    <div class="tags"><span class="tag hn">HN</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">07</div>
+    <div class="body">
+      <div class="title">Step 3.7 Flash — StepFun 发布新模型</div>
+      <div class="desc">国产 AI 公司 StepFun（阶跃星辰）发布 Step 3.7 Flash，主打快速推理场景。延续 Flash 系列的轻量高效路线。</div>
+      <div class="meta">Product Hunt</div>
+    </div>
+    <div class="tags"><span class="tag ph">PH</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">08</div>
+    <div class="body">
+      <div class="title">Agent A by Ahrefs — 垂直 AI Agent 做 SEO</div>
+      <div class="desc">知名 SEO 工具 Ahrefs 推出 AI Agent 产品，自动执行关键词研究、内容优化、竞争对手分析等 SEO 任务。垂直领域 Agent 商业化的又一案例。</div>
+      <div class="meta">Product Hunt</div>
+    </div>
+    <div class="tags"><span class="tag ph">PH</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">09</div>
+    <div class="body">
+      <div class="title">Openstatus MCP Health Checker — 像真实 AI 客户端一样测试 MCP 服务器</div>
+      <div class="desc">不只是 ping，而是模拟真实 AI agent 的调用方式测试 MCP 服务器的健康状态。MCP 生态工具链日趋成熟。</div>
+      <div class="meta">Product Hunt · openstatus.dev</div>
+    </div>
+    <div class="tags"><span class="tag ph">PH</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">10</div>
+    <div class="body">
+      <div class="title">mcp-doctor: MCP 供应链信任扫描器 — 14 小时构建，开源+$19/mo Pro</div>
+      <div class="desc">独立开发者在 14 小时内构建的 MCP server 安全扫描工具，检查 MCP 供应链中的信任问题。$19/mo Pro 层已上线。MCP 安全成为独立开发者的新利基。</div>
+      <div class="meta">Indie Hackers</div>
+    </div>
+    <div class="tags"><span class="tag ih">IH</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">11</div>
+    <div class="body">
+      <div class="title">AI SoloHR: AI 合规盾牌替代 HR 电子表格</div>
+      <div class="desc">为小企业打造的 AI HR 合规工具，自动追踪劳动法变化、生成合规报告。用 AI 替代容易被忽视的 HR 合规流程。</div>
+      <div class="meta">Indie Hackers</div>
+    </div>
+    <div class="tags"><span class="tag ih">IH</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">12</div>
+    <div class="body">
+      <div class="title">RevAI: 流失预测 API 替代 $40K 企业方案</div>
+      <div class="desc">独立开发者因为朋友付不起 $40K 的企业流失预测方案，自己用 AI 构建了平替 API。典型的「AI 让 SaaS 民主化」案例。</div>
+      <div class="meta">Indie Hackers</div>
+    </div>
+    <div class="tags"><span class="tag ih">IH</span></div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>🔍 深度分析</h2>
+
+  <div class="dive">
+    <h3><span class="num">#1</span> OpenRouter $1.13 亿 B 轮：AI 模型路由成为关键基础设施</h3>
+    <p>OpenRouter 本轮融资的投资方阵容是一张 AI 基础设施的全明星名单：CapitalG（Alphabet 的独立增长基金）领投，NVIDIA 的企业风投 NVentures、ServiceNow Ventures、MongoDB Ventures、Snowflake Ventures、Databricks Ventures 全部参与，加上现有投资方 a16z 和 Menlo Ventures。</p>
+    <p><strong>为什么这个组合很重要？</strong> 这不是普通的财务投资——每家投资方都是企业已经在用的基础设施公司。ServiceNow 是 IT 服务管理、MongoDB 是数据库、Snowflake 是数据仓库、Databricks 是数据+AI 平台。这意味着 <strong>企业级 AI 部署已经从「选一个模型」进化到「管理多个模型」阶段</strong>，而 OpenRouter 正处在这个转型的中心位置。</p>
+    <p>技术上值得关注的是 OpenRouter 已经超越了纯文本路由：支持图像、音频、语音、转录、嵌入、视频等多模态。Workspaces、guardrails、zero-data-retention 等企业功能也已经上线。智能路由正在从简单的负载均衡进化到 <strong>质量感知路由</strong>——根据请求内容自动选择最佳模型和供应商。</p>
+    <p><strong>行业影响：</strong> AI 模型层正在变成类似云计算 IaaS 的格局——多供应商、按需切换、通过路由层抽象。这个赛道未来很可能出现「AI 模型路由」这个新的基础设施品类，就像 CDN 之于内容分发。</p>
+    <div class="links">
+      <a href="https://openrouter.ai/announcements/series-b">📄 OpenRouter 官方公告</a>
+      <a href="https://news.ycombinator.com/item?id=48338660">💬 HN 讨论 (166 comments)</a>
+    </div>
+  </div>
+
+  <div class="dive">
+    <h3><span class="num">#2</span> 领域知识即护城河：AI 时代的开发者价值重构</h3>
+    <p>这篇 HN 热门文章（242pts）提出了一个正在发生的结构性转变：<strong>Agentic AI 切断了「写代码」和「理解领域」之间的必然联系。</strong></p>
+    <p>作者的核心论点：以前，写软件最难的不是写代码本身，而是在大脑中建立领域模型。做 payroll 系统需要理解扣款规则、税前扣除、跨周期费率变更。代码只是领域模型的外化。但现在 AI agent 可以直接产出代码，而不需要开发者先建立那个领域模型——<strong>这打破了一个整个软件行业赖以组织的前提假设。</strong></p>
+    <p>结果就是出现了两类赢家：一是 <strong>无编程背景的领域专家</strong>——物流调度员、临床编码员、精算师——他们能一眼看出 AI 生成的调度方案或医疗编码是否正确，而工程师看不出。二是 <strong>懂领域的工程师</strong>——能同时建立领域模型和系统架构的人。纯粹的通才工程师面临最大挑战，因为 AI 已经把「我能做」的门槛拉到了零，剩下的唯一问题是「我知道该做什么」。</p>
+    <p><strong>对 James 的启示：</strong> 酒店行业的 AI 应用正是这个逻辑的完美案例。酒店运营的领域知识（房态管理、定价策略、客户偏好、合规要求）才是真正的壁垒，AI 编程能力正在加速商品化。拥有深厚行业认知 + AI 工具能力的人将获得不对称优势。</p>
+    <div class="links">
+      <a href="https://www.brethorsting.com/blog/2026/05/domain-expertise-has-always-been-the-real-moat/">📄 原文</a>
+      <a href="https://news.ycombinator.com/item?id=48318402">💬 HN 讨论 (158 comments)</a>
+    </div>
+  </div>
+
+  <div class="dive">
+    <h3><span class="num">#3</span> MCP 生态爆发：Agent 基础设施标准化浪潮</h3>
+    <p>今天的消息流中出现了一个清晰的信号：<strong>MCP（Model Context Protocol）生态正在从协议规范阶段进入工具链和商业化阶段。</strong></p>
+    <p>三个独立产品在同一天出现：<strong>Openstatus MCP Health Checker</strong> 模拟真实 AI agent 的调用方式测试 MCP 服务器；<strong>mcp-doctor</strong> 是开源 MCP 供应链信任扫描器，14 小时构建，已有 $19/mo 的 Pro 付费层；更早的 <strong>MCP Bridge by Appfactor</strong> 提供 MCP 集成能力。</p>
+    <p><strong>这说明了什么？</strong> 就像 Kubernetes 催生了 Helm、Prometheus、Istio 等一整套云原生工具链，MCP 协议正在催生自己的工具生态。安全扫描、健康检查、集成桥接——这些都是基础设施成熟的标志。独立开发者已经在这个赛道中找到商业化机会（mcp-doctor 的 $19/mo Pro 层），说明市场需求真实存在。</p>
+    <p><strong>值得关注的趋势：</strong> MCP 正在成为 AI agent 的「USB-C 接口」——标准化 agent 与外部工具/数据的连接方式。对于 James 关注的 Hermes agent 生态，MCP 兼容性将是决定 agent 能力边界的关键因素。HermesBench 的出现也说明 agent 评测的标准化需求正在浮现。</p>
+    <div class="links">
+      <a href="https://www.producthunt.com/products/openstatus-2">🔗 Openstatus MCP Health Checker</a>
+      <a href="https://www.indiehackers.com">🔗 mcp-doctor (Indie Hackers)</a>
+      <a href="https://github.com/thaw-ai/thaw">🔗 Thaw: LLM fork 工具</a>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>📊 今日数据</h2>
+  <div class="stats">
+    <div class="stat"><div class="num">12</div><div class="label">精选条目</div></div>
+    <div class="stat"><div class="num">3</div><div class="label">深度分析</div></div>
+    <div class="stat"><div class="num">6</div><div class="label">信息源</div></div>
+    <div class="stat"><div class="num">$113M</div><div class="label">OpenRouter B 轮</div></div>
+    <div class="stat"><div class="num">25T</div><div class="label">周 token 量</div></div>
+  </div>
+</div>
+
+<div class="footer">
+  JMOKSZ/daily-ai-digest · 2026-05-31 自动生成 · <a href="index.html">← 返回首页</a> · <a href="https://github.com/JMOKSZ/daily-ai-digest">GitHub</a>
+</div>
+
+</div>
+</body>
+</html>
