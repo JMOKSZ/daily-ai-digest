@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日AI精选 · 2026年6月2日</title>
+<style>
+:root {
+  --page:      #fdfaf3;
+  --surface:   #fcfaf5;
+  --border:    #e8dcc8;
+  --text:      #2c2416;
+  --muted:     #7a6e5c;
+  --accent:    #8b6914;
+  --accent-lt: #b8942e;
+  --positive:  #4d7c0f;
+  --warning:   #b45309;
+  --info:      #0e7490;
+  --code-bg:   #fdf6ea;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans SC", "PingFang SC", sans-serif;
+  line-height: 1.75; background: var(--page); color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3 { font-family: ui-serif, Georgia, "Noto Serif SC", serif; letter-spacing: -0.01em; }
+h1 { font-weight: 800; } h2 { font-weight: 700; } h3 { font-weight: 600; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.container { max-width: 880px; margin: 0 auto; padding: 60px 40px; }
+
+.hero { text-align: center; padding: 60px 0 40px; border-bottom: 1px solid var(--border); margin-bottom: 40px; }
+.hero-badge { display: inline-block; background: var(--accent); color: #fff; font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; padding: 4px 14px; border-radius: 20px; margin-bottom: 14px; }
+.hero h1 { font-size: clamp(28px, 5vw, 42px); }
+.hero h1 span { color: var(--accent); }
+.hero .subtitle { font-size: 15px; color: var(--muted); margin-top: 6px; line-height: 1.6; }
+.hero .sources { margin-top: 16px; font-size: 12px; color: var(--muted); }
+
+.section { margin-bottom: 40px; }
+.section > h2 { font-size: 22px; margin-bottom: 14px; padding-bottom: 8px; border-bottom: 2px solid rgba(139,105,20,.08); }
+.section > h3 { font-size: 18px; margin: 20px 0 8px; }
+
+p { margin: 6px 0; }
+
+.blockquote {
+  background: linear-gradient(135deg, #fef9ef, #fdf5e6);
+  border: 1px solid var(--border); border-left: 4px solid var(--accent);
+  border-radius: 10px; padding: 18px 24px; margin: 12px 0;
+}
+
+.tag { display: inline-block; font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 10px; margin-right: 4px; }
+.tag.hn { background: rgba(255,102,0,.1); color: #ff6600; }
+.tag.reddit { background: rgba(255,69,0,.1); color: #ff4500; }
+.tag.x { background: rgba(29,161,242,.1); color: #1da1f2; }
+.tag.ph { background: rgba(218,85,47,.1); color: #da552f; }
+.tag.ih { background: rgba(34,197,94,.1); color: #22c55e; }
+
+.news-item {
+  padding: 12px 0; border-bottom: 1px solid rgba(232,220,200,.5);
+  display: flex; gap: 14px; align-items: baseline;
+}
+.news-item .idx { font-family: ui-monospace, monospace; font-size: 12px; color: var(--muted); min-width: 24px; text-align: right; }
+.news-item .body { flex: 1; }
+.news-item .body .title { font-weight: 600; font-size: 14px; }
+.news-item .body .desc { font-size: 13px; color: var(--muted); margin-top: 2px; }
+.news-item .body .meta { font-size: 11px; color: var(--accent-lt); margin-top: 1px; }
+.news-item .tags { white-space: nowrap; }
+
+.dive {
+  background: #fff; border: 1px solid var(--border); border-radius: 12px;
+  padding: 24px 28px; margin-bottom: 16px;
+}
+.dive h3 { font-size: 17px; margin-bottom: 10px; }
+.dive h3 .num { color: var(--accent); margin-right: 6px; }
+.dive p { font-size: 14px; line-height: 1.75; color: var(--text); margin: 8px 0; }
+.dive .links { margin-top: 10px; font-size: 13px; }
+.dive .links a { margin-right: 12px; }
+
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; margin: 12px 0; }
+.stat { background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 14px; text-align: center; }
+.stat .num { font-size: 22px; font-weight: 700; color: var(--accent); }
+.stat .label { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+.footer { text-align: center; color: var(--muted); font-size: 12px; padding-top: 32px; border-top: 1px solid var(--border); margin-top: 48px; opacity: .7; line-height: 1.8; }
+
+@media (max-width: 600px) {
+  .container { padding: 24px 16px; }
+  .hero h1 { font-size: 24px; }
+  .dive { padding: 16px 18px; }
+  .news-item { flex-direction: column; gap: 4px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="hero">
+  <div class="hero-badge">每日AI精选</div>
+  <h1>2026年6月<span>2日</span></h1>
+  <p class="subtitle">
+    NVIDIA AI PC芯片发布 · 开源Agent模型三国杀 · Anthropic秘密冲刺IPO<br>
+    12条精选 + 3个深度分析
+  </p>
+  <div class="sources">来源: X · Hacker News · Product Hunt · Indie Hackers · Y Combinator</div>
+</div>
+
+<!-- ══════════ 今日看点 ══════════ -->
+<div class="blockquote">
+  <strong>📌 今日主题:</strong> 开源Agent模型军备竞赛白热化——MiniMax M3、NVIDIA Nemotron 3 Ultra、JetBrains Mellum2在24小时内集中亮相。NVIDIA首款AI PC芯片RTX Spark发布，本地Agent推理进入消费级硬件时代。Anthropic秘密提交IPO申请冲刺万亿估值，Alphabet以$800亿AI基建融资回应。AI行业从模型层到硬件层全面加速，Vibe Coding时代终结——系统化交付成为新共识。
+</div>
+
+<!-- ══════════ 精选新闻 ══════════ -->
+<div class="section">
+  <h2>🔖 精选新闻 · 12条</h2>
+
+  <div class="news-item">
+    <div class="idx">01</div>
+    <div class="body">
+      <div class="title">NVIDIA RTX Spark AI PC芯片发布 — 128GB统一内存，本地Agent算力突破</div>
+      <div class="desc">NVIDIA首款专用AI PC芯片RTX Spark亮相，128GB统一内存、~1 petaflop本地AI性能、全天电池续航。支持24/7本地Agent运行，无需联网。被视为AI PC从概念到消费级的分水岭——"其他人会跟进复刻"。</div>
+      <div class="meta">NVIDIA · RTX Spark · 128GB · ~1PF · 本地Agent</div>
+    </div>
+    <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">02</div>
+    <div class="body">
+      <div class="title">MiniMax M3 — 首个开源前沿级Agent模型，59% SWE-Bench Pro，1M上下文</div>
+      <div class="desc">MiniMax发布M3模型，宣称首个同时具备三大前沿能力的开源模型：精英级编程/Agent性能（59% SWE-Bench Pro、66% Terminal Bench）、1M上下文（稀疏注意力）、原生多模态（零步训练）。API已上线，权重+完整技术报告10天后发布。</div>
+      <div class="meta">MiniMax · M3 · 59% SWE-Bench · 1M上下文 · 多模态</div>
+    </div>
+    <div class="tags"><span class="tag x">X</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">03</div>
+    <div class="body">
+      <div class="title">Anthropic 秘密提交IPO申请 — 目标$1T估值，刚完成$65B融资</div>
+      <div class="desc">Anthropic向SEC秘密提交S-1草案，估值$965B超越OpenAI成全球最有价值AI公司，目标IPO估值$1T。Claude Code/Coworker企业采用率推动订阅收入增长，安全优先策略意外成为商业差异化优势。</div>
+      <div class="meta">Anthropic · S-1 · $965B · IPO · HN 447pts</div>
+    </div>
+    <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">04</div>
+    <div class="body">
+      <div class="title">NVIDIA Nemotron 3 Ultra — 550B MoE开源模型，专为Agent工作流优化</div>
+      <div class="desc">Computex上NVIDIA发布Nemotron 3 Ultra，550B参数MoE架构开源权重模型，专为高性能Agent工作流和复杂逻辑推理优化。号称美国最强开源模型，含完整训练数据和配方，吞吐量5x提升、成本降低30%。</div>
+      <div class="meta">NVIDIA · Nemotron 3 Ultra · 550B MoE · Computex</div>
+    </div>
+    <div class="tags"><span class="tag x">X</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">05</div>
+    <div class="body">
+      <div class="title">JetBrains Mellum2 开源 — 12B MoE Agent路由模型，Apache 2.0</div>
+      <div class="desc">JetBrains开源Mellum2，12B MoE仅2.5B活跃参数/Token，专为Agent路由、RAG、子Agent编排和低延迟推理设计。LiveCodeBench ~70%，比同规模稠密模型快2x。可在单GPU/MacBook上运行。</div>
+      <div class="meta">JetBrains · Mellum2 · 12B MoE · Apache 2.0 · HF</div>
+    </div>
+    <div class="tags"><span class="tag x">X</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">06</div>
+    <div class="body">
+      <div class="title">Alphabet $800亿股权融资 — AI基础设施和计算能力大扩张</div>
+      <div class="desc">Google母公司Alphabet宣布$80B股权融资计划用于AI基础设施扩张，是科技史上最大规模融资之一。华尔街信号明确：AI基础设施投资窗口已开启，谁先建好谁掌握主动权。</div>
+      <div class="meta">Alphabet · $80B · AI基础设施 · HN 94pts</div>
+    </div>
+    <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">07</div>
+    <div class="body">
+      <div class="title">OpenAI前沿模型+Codex登陆AWS — 企业AI部署格局改变</div>
+      <div class="desc">OpenAI宣布前沿模型和Codex在AWS上可用。打破以往Azure独占局面，企业可通过已有AWS基础设施部署GPT系列模型——多云AI时代正式开启。</div>
+      <div class="meta">OpenAI · AWS · Codex · HN 105pts</div>
+    </div>
+    <div class="tags"><span class="tag hn">HN</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">08</div>
+    <div class="body">
+      <div class="title">Forge — 开源工具调用层让小模型Agent成功率从53%飙升至99%+</div>
+      <div class="desc">Forge项目大幅提升小型模型在Agent任务上的工具调用可靠性。社区报告8B模型从53%成功率跃升至99%+，让廉价自托管编程Agent真正可用。小模型+高质量编排层正在成为新范式。</div>
+      <div class="meta">Forge · 工具调用 · 99%+ 成功率 · 开源</div>
+    </div>
+    <div class="tags"><span class="tag x">X</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">09</div>
+    <div class="body">
+      <div class="title">Vibe Coding时代终结 — AI编程工作流向"系统化交付"范式转移</div>
+      <div class="desc">社区共识明确：代码生成从来不是瓶颈，模糊规划、幻觉数据、上下文膨胀、安全漏洞、部署痛苦才是。新范式工具栈成形——GStack验证方案、Firecrawl获取真数据、Composio精准工具加载、Vibe Sec安全检查。从"看我用AI 10分钟搭了个原型"→"看我系统化地交付了产品"。</div>
+      <div class="meta">Vibe Coding · 系统化交付 · 工具栈 · 范式转移</div>
+    </div>
+    <div class="tags"><span class="tag x">X</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">10</div>
+    <div class="body">
+      <div class="title">Nous Research Hermes MCP工具目录 — 一键安装预审Agent工具</div>
+      <div class="desc">Nous Research发布Hermes MCP工具目录，提供预审过的一键安装Agent工具，配合细粒度权限控制。Wayforth MCP项目入选HyperAgent Founding 500，提供5000+ API的单一路径发现和付费——MCP协议正成为Agent工具互操作标准。</div>
+      <div class="meta">Nous Research · Hermes · MCP · Wayforth</div>
+    </div>
+    <div class="tags"><span class="tag x">X</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">11</div>
+    <div class="body">
+      <div class="title">Vast(Tripo AI)获$2亿融资成新晋AI独角兽 — 3D生成赛道升温</div>
+      <div class="desc">中国3D生成AI初创Vast（Tripo AI平台）完成近$2亿融资，估值超$10亿，服务9万客户。规划推出"互动版TikTok"消费级3D生成应用。继物理AI热潮后，3D内容生成成为最新独角兽孵化赛道。</div>
+      <div class="meta">Vast · Tripo AI · $200M · 独角兽 · 3D生成</div>
+    </div>
+    <div class="tags"><span class="tag x">X</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">12</div>
+    <div class="body">
+      <div class="title">Launch HN: Expanse(YC P26) — 释放全球闲置GPU算力</div>
+      <div class="desc">YC新项目Expanse搭建GPU算力市场，通过聚合闲置计算资源降低AI推理成本。在AI基础设施投资狂潮中，Expanse代表另一种思路——盘活存量而非一味增量。</div>
+      <div class="meta">Expanse · YC P26 · GPU市场 · HN 68pts</div>
+    </div>
+    <div class="tags"><span class="tag hn">HN</span></div>
+  </div>
+</div>
+
+<!-- ══════════ 今日数据 ══════════ -->
+<div class="section">
+  <h2>📊 今日数据</h2>
+  <div class="stats">
+    <div class="stat"><div class="num">$965B</div><div class="label">Anthropic估值</div></div>
+    <div class="stat"><div class="num">$80B</div><div class="label">Alphabet融资</div></div>
+    <div class="stat"><div class="num">59%</div><div class="label">M3 SWE-Bench</div></div>
+    <div class="stat"><div class="num">550B</div><div class="label">Nemotron参数</div></div>
+    <div class="stat"><div class="num">12B/2.5B</div><div class="label">Mellum2 MoE</div></div>
+    <div class="stat"><div class="num">99%+</div><div class="label">Forge成功率</div></div>
+  </div>
+</div>
+
+<!-- ══════════ Deep Dive ══════════ -->
+<div class="section">
+  <h2>🔬 深度分析 · 3篇</h2>
+
+  <div class="dive">
+    <h3><span class="num">01</span> 代理模型三国杀：MiniMax M3 vs Nemotron 3 Ultra vs Mellum2 — 开源Agent模型军备竞赛</h3>
+    <p>
+      2026年6月2日，可能是开源Agent模型史上最重要的一天。24小时内，三家不同背景的机构发布了三个定位迥异的"Agent-first"模型：<strong>MiniMax M3</strong>（中国创业公司，前沿级全能型，59% SWE-Bench Pro）、<strong>NVIDIA Nemotron 3 Ultra</strong>（美国芯片巨头，550B MoE巨人，完整训练数据公开）、<strong>JetBrains Mellum2</strong>（欧洲工具厂商，12B轻量级路由层，Apache 2.0）。
+    </p>
+    <p>
+      这三款模型揭示了开源Agent生态的三个关键分层：<strong>M3是"大脑"</strong>——负责复杂推理和端到端任务执行；<strong>Nemotron 3是"重型武器"</strong>——对需要极致性能的企业场景，且以最开放姿态（含训练配方）发布；<strong>Mellum2是"神经系统"</strong>——轻量级、高速路由，决定把什么任务发给什么模型，是Agent编排的关键中间件。
+    </p>
+    <p>
+      深层信号：<strong>中国开源模型持续引领前沿能力开放</strong>（M3 vs Kimi K2.6vs Qwen脉络），<strong>硬件公司开始垂直整合模型层</strong>（NVIDIA不再满足于卖铲子），<strong>工具链厂商发现模型即产品</strong>（JetBrains从IDE扩展到模型）。三股力量的交汇意味着：Agent模型不再由少数闭源玩家垄断，开源生态正在构建一个分层、可组合的Agent基础设施栈。
+    </p>
+    <div class="links">
+      <a href="https://x.com/i/status/2061266317815296322" target="_blank">X: MiniMax M3 发布</a>
+      <a href="https://x.com/ainews_24_7/status/2061611876966916213" target="_blank">X: Nemotron 3 Ultra</a>
+      <a href="https://x.com/i/status/2061444430884675791" target="_blank">X: JetBrains Mellum2</a>
+    </div>
+  </div>
+
+  <div class="dive">
+    <h3><span class="num">02</span> 从Vibe Coding到系统化交付：AI编程工作流的范式转移</h3>
+    <p>
+      "看我用AI 10分钟搭了个原型"——这个2025年的经典叙事正在被替代。2026年6月，X上最火的开发者讨论不再是"AI帮我写了什么"，而是<strong>"AI写的代码我能信任吗？"</strong>Vibe Coding（速写原型然后祈祷能跑）的时代正在被<strong>系统化交付</strong>取代。
+    </p>
+    <p>
+      新的工具栈已经成形：<strong>GStack</strong>在写代码前验证想法可行性，<strong>Firecrawl</strong>从真实网站提取数据（而非幻觉），<strong>Composio</strong>精准加载需要的工具（不再污染上下文），<strong>Humanizer</strong>让AI输出像真人，<strong>Vibe Sec</strong>在部署前抓出安全漏洞。这一整套工具的出现，标志着AI编程从"魔法体验"走向"工业级工程"。
+    </p>
+    <p>
+      核心洞察：<strong>代码生成从来不是瓶颈</strong>——模糊规划、幻觉数据、上下文膨胀、机器人般的文档、被忽视的安全、痛苦的部署才是真正杀死项目的元凶。Forge项目让小模型Agent成功率从53%跃升到99%+，证明了另一件事：<strong>编排层的质量比模型的规模更重要。</strong>Vibe Coding是AI编程的青春期，系统化交付是它的成年礼。下一个阶段的赢家将是那些掌握"AI+架构+数据管道+安全+品味UX"全栈能力的人——而不是那些只会让AI写代码的人。
+    </p>
+    <div class="links">
+      <a href="https://x.com/techwith_ram/status/2061294684933337291" target="_blank">X: Vibe Coding→系统化交付</a>
+      <a href="https://x.com/HaseebMir91/status/2061242809110434020" target="_blank">X: Forge 工具调用突破</a>
+    </div>
+  </div>
+
+  <div class="dive">
+    <h3><span class="num">03</span> Anthropic的万亿之路：IPO前的战略布局与AI安全哲学的资本化</h3>
+    <p>
+      Anthropic向SEC秘密提交S-1草案——这是这家成立仅5年的AI公司走向公开市场的关键一步。$965B估值、$65B最新融资、$1T IPO目标——一个"原则驱动的万亿公司"正在成形。与OpenAI的"move fast"形成鲜明对比的是，Anthropic正在将<strong>"安全优先"叙事资本化</strong>：因网络安全顾虑撤回模型、与五角大楼就护栏展开法律斗争——这些看似商业上不理性的决定，反而成为企业客户信任的理由。
+    </p>
+    <p>
+      Claude Code/Coworker的企业采用率推动订阅收入增长，证明了安全叙事确实转化为了商业价值。但风险同样巨大：<strong>估值反映的是AI替代人类劳动的远期预期折现</strong>，而非当前现金流。如果Agent工作流被过度炒作，或者安全护栏过度限制模型能力导致开发者流失，万亿估值将面临修正。此外，OpenAI向AWS开放、中国开源模型以极致性价比追赶，都会对Anthropic的高端定价模式形成压力。
+    </p>
+    <p>
+      一个值得关注的细节：Anthropic的IPO文件是<strong>秘密提交</strong>的，这意味着我们无法在短期内看到其真实财务数据。市场对Anthropic的万亿热情，目前建立在一个不透明的财务基础之上——这是一场关于AI行业的集体信仰测试。
+    </p>
+    <div class="links">
+      <a href="https://www.anthropic.com/news/confidential-draft-s1-sec" target="_blank">Anthropic: S-1 公告</a>
+      <a href="https://x.com/TeksCreate/status/2061342798226305303" target="_blank">X: 估值分析</a>
+      <a href="https://x.com/sama/status/2061562575322492937" target="_blank">X: Sama AI韧性基金</a>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  JMOKSZ/daily-ai-digest · 自动生成于 2026-06-02 09:07 CST<br>
+  数据来源: X · Hacker News · Product Hunt · Y Combinator · Indie Hackers<br>
+  <a href="index.html">← 返回目录</a> · <a href="https://github.com/JMOKSZ/daily-ai-digest">GitHub</a>
+</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,81 @@
+{
+  "date": "2026-06-01",
+  "source": "Reddit (r/LocalLLaMA, r/artificial, r/MachineLearning)",
+  "total_posts_scraped": 57,
+  "curated_count": 8,
+  "note": "r/ArtificialIntelligence appears to be unavailable (page not found). Used r/artificial as substitute. Reddit JSON API blocked at network level; data scraped from old.reddit.com HTML.",
+  "posts": [
+    {
+      "rank": 1,
+      "title": "(YT) PewDiePie released his harness/webui",
+      "url": "https://reddit.com/r/LocalLLaMA/comments/1tsz4ji/yt_pewdiepie_released_his_harnesswebui/",
+      "upvotes": 521,
+      "comments": 325,
+      "subreddit": "r/LocalLLaMA",
+      "topic": "Tools & UI"
+    },
+    {
+      "rank": 2,
+      "title": "Stepfun 3.7 Flash is very good",
+      "url": "https://reddit.com/r/LocalLLaMA/comments/1tss9nq/stepfun_37_flash_is_very_good/",
+      "upvotes": 253,
+      "comments": 79,
+      "subreddit": "r/LocalLLaMA",
+      "topic": "Model Review"
+    },
+    {
+      "rank": 3,
+      "title": "Dell confirms XPS laptop with NVIDIA N1X at Computex (basically a DGX Spark GB10 for consumers with Windows)",
+      "url": "https://reddit.com/r/LocalLLaMA/comments/1tsifgs/dell_confirms_xps_laptop_with_nvidia_n1x_at/",
+      "upvotes": 171,
+      "comments": 89,
+      "subreddit": "r/LocalLLaMA",
+      "topic": "Hardware"
+    },
+    {
+      "rank": 4,
+      "title": "13 abliterated Gemma 4 E2B variants, 44 GPU hours, Benchmark and Comparison - Abliterlitics",
+      "url": "https://reddit.com/r/LocalLLaMA/comments/1tsvs3j/13_abliterated_gemma_4_e2b_variants_44_gpu_hours/",
+      "upvotes": 65,
+      "comments": 36,
+      "subreddit": "r/LocalLLaMA",
+      "topic": "Model Fine-tuning"
+    },
+    {
+      "rank": 5,
+      "title": "I ported NVIDIA Parakeet (speech-to-text) to ggml: same output as NeMo, faster, GGUF-quantized, no Python",
+      "url": "https://reddit.com/r/LocalLLaMA/comments/1tt6oja/i_ported_nvidia_parakeet_speechtotext_to_ggml/",
+      "upvotes": 61,
+      "comments": 23,
+      "subreddit": "r/LocalLLaMA",
+      "topic": "Open Source / ggml"
+    },
+    {
+      "rank": 6,
+      "title": "Can you actually feel when something was written by ChatGPT even without checking?",
+      "url": "https://reddit.com/r/artificial/comments/1tsu37g/can_you_actually_feel_when_something_was_written/",
+      "upvotes": 58,
+      "comments": 100,
+      "subreddit": "r/artificial",
+      "topic": "AI Detection & Perception"
+    },
+    {
+      "rank": 7,
+      "title": "mudler/Qwen3.6-35B-A3B-Claude-4.7-Opus-Reasoning-Distilled-APEX-MTP-GGUF just released!",
+      "url": "https://reddit.com/r/LocalLLaMA/comments/1tslv3b/mudlerqwen3635ba3bclaude47opusreasoningdistilledap/",
+      "upvotes": 50,
+      "comments": 42,
+      "subreddit": "r/LocalLLaMA",
+      "topic": "Model Release"
+    },
+    {
+      "rank": 8,
+      "title": "Flash Attention for llama.cpp on RDNA3: 47% less KV VRAM than Vulkan f16 K, KLD almost lossless on F16 K / q4_0 V. Part 1.",
+      "url": "https://reddit.com/r/LocalLLaMA/comments/1tss1ca/flash_attention_for_llamacpp_on_rdna3_47_less_kv/",
+      "upvotes": 25,
+      "comments": 11,
+      "subreddit": "r/LocalLLaMA",
+      "topic": "Technical Optimization"
+    }
+  ]
+}

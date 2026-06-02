@@ -1,0 +1,401 @@
+[
+  {
+    "title": "(YT) PewDiePie released his harness/webui",
+    "url": "https://reddit.com/r/LocalLLaMA/comments/1tsz4ji/yt_pewdiepie_released_his_harnesswebui/",
+    "score": 521,
+    "comments": 325,
+    "subreddit": "LocalLLaMA"
+  },
+  {
+    "title": "It's funny how everything changes, yet somehow stays the same.",
+    "url": "https://reddit.com/r/LocalLLaMA/comments/1tsjgol/its_funny_how_everything_changes_yet_somehow/",
+    "score": 313,
+    "comments": 56,
+    "subreddit": "LocalLLaMA"
+  },
+  {
+    "title": "Stepfun 3.7 Flash is very good",
+    "url": "https://reddit.com/r/LocalLLaMA/comments/1tss9nq/stepfun_37_flash_is_very_good/",
+    "score": 253,
+    "comments": 79,
+    "subreddit": "LocalLLaMA"
+  },
+  {
+    "title": "My home data center",
+    "url": "https://reddit.com/r/LocalLLaMA/comments/1tshmxa/my_home_data_center/",
+    "score": 185,
+    "comments": 72,
+    "subreddit": "LocalLLaMA"
+  },
+  {
+    "title": "Dell confirms XPS laptop with NVIDIA N1X at Computex ( basically a DGX Spark GB10 for consumers with Windows )",
+    "url": "https://reddit.com/r/LocalLLaMA/comments/1tsifgs/dell_confirms_xps_laptop_with_nvidia_n1x_at/",
+    "score": 171,
+    "comments": 89,
+    "subreddit": "LocalLLaMA"
+  },
+  {
+    "title": "All DGX Station GB300 OEM systems side-by-side in one image (roughly actual size)",
+    "url": "https://reddit.com/r/LocalLLaMA/comments/1tshdcy/all_dgx_station_gb300_oem_systems_sidebyside_in/",
+    "score": 71,
+    "comments": 47,
+    "subreddit": "LocalLLaMA"
+  },
+  {
+    "title": "13 abliterated Gemma 4 E2B variants, 44 GPU hours, Benchmark and Comparison - Abliterlitics",
+    "url": "https://reddit.com/r/LocalLLaMA/comments/1tsvs3j/13_abliterated_gemma_4_e2b_variants_44_gpu_hours/",
+    "score": 65,
+    "comments": 36,
+    "subreddit": "LocalLLaMA"
+  },
+  {
+    "title": "I ported NVIDIA Parakeet (speech-to-text) to ggml: same output as NeMo, faster, GGUF-quantized, no Python",
+    "url": "https://reddit.com/r/LocalLLaMA/comments/1tt6oja/i_ported_nvidia_parakeet_speechtotext_to_ggml/",
+    "score": 61,
+    "comments": 23,
+    "subreddit": "LocalLLaMA"
+  },
+  {
+    "title": "God dammit Qwen",
+    "url": "https://reddit.com/r/LocalLLaMA/comments/1tt7bf4/god_dammit_qwen/",
+    "score": 50,
+    "comments": 52,
+    "subreddit": "LocalLLaMA"
+  },
+  {
+    "title": "mudler/Qwen3.6-35B-A3B-Claude-4.7-Opus-Reasoning-Distilled-APEX-MTP-GGUF just released !",
+    "url": "https://reddit.com/r/LocalLLaMA/comments/1tslv3b/mudlerqwen3635ba3bclaude47opusreasoningdistilledap/",
+    "score": 50,
+    "comments": 42,
+    "subreddit": "LocalLLaMA"
+  },
+  {
+    "title": "We might have a winner with the upcoming N1X",
+    "url": "https://reddit.com/r/LocalLLaMA/comments/1tsyzeb/we_might_have_a_winner_with_the_upcoming_n1x/",
+    "score": 34,
+    "comments": 43,
+    "subreddit": "LocalLLaMA"
+  },
+  {
+    "title": "Llama Studio v0.2.0",
+    "url": "https://reddit.com/r/LocalLLaMA/comments/1tt4pag/llama_studio_v020/",
+    "score": 26,
+    "comments": 1,
+    "subreddit": "LocalLLaMA"
+  },
+  {
+    "title": "Flash Attention for llama.cpp on RDNA3: 47% less KV VRAM than Vulkan f16 K, KLD almost losselss on F16 K / q4_0 V. Part 1.",
+    "url": "https://reddit.com/r/LocalLLaMA/comments/1tss1ca/flash_attention_for_llamacpp_on_rdna3_47_less_kv/",
+    "score": 25,
+    "comments": 11,
+    "subreddit": "LocalLLaMA"
+  },
+  {
+    "title": "<Think> toggle button for llama.cp web chat for QWEN3.6",
+    "url": "https://reddit.com/r/LocalLLaMA/comments/1tsrpn4/think_toggle_button_for_llamacp_web_chat_for/",
+    "score": 26,
+    "comments": 20,
+    "subreddit": "LocalLLaMA"
+  },
+  {
+    "title": "Added an old 2070 Super to my rig and I can't go back...worse, now I need more",
+    "url": "https://reddit.com/r/LocalLLaMA/comments/1tsxul2/added_an_old_2070_super_to_my_rig_and_i_cant_go/",
+    "score": 22,
+    "comments": 35,
+    "subreddit": "LocalLLaMA"
+  },
+  {
+    "title": "Best small model right now (~4B params) that is good with agentic tasks for personal assistant?",
+    "url": "https://reddit.com/r/LocalLLaMA/comments/1tskbf9/best_small_model_right_now_4b_params_that_is_good/",
+    "score": 19,
+    "comments": 59,
+    "subreddit": "LocalLLaMA"
+  },
+  {
+    "title": "Minimax M3 seems to be rolling out on the API",
+    "url": "https://reddit.com/r/LocalLLaMA/comments/1ttc0f9/minimax_m3_seems_to_be_rolling_out_on_the_api/",
+    "score": 16,
+    "comments": 10,
+    "subreddit": "LocalLLaMA"
+  },
+  {
+    "title": "Get you some GPUs, it's not worth the hacks around lack of RAM",
+    "url": "https://reddit.com/r/LocalLLaMA/comments/1ttboo2/get_you_some_gpus_its_not_worth_the_hacks_around/",
+    "score": 16,
+    "comments": 16,
+    "subreddit": "LocalLLaMA"
+  },
+  {
+    "title": "G7 agrees on shared language around open-source AI and open weights AI",
+    "url": "https://reddit.com/r/LocalLLaMA/comments/1tt7t1x/g7_agrees_on_shared_language_around_opensource_ai/",
+    "score": 14,
+    "comments": 5,
+    "subreddit": "LocalLLaMA"
+  },
+  {
+    "title": "Qwen3.6-35B vs Gemma4-26B on 7900 XTX",
+    "url": "https://reddit.com/r/LocalLLaMA/comments/1tszlsa/qwen3635b_vs_gemma426b_on_7900_xtx/",
+    "score": 12,
+    "comments": 10,
+    "subreddit": "LocalLLaMA"
+  },
+  {
+    "title": "Made a program using LocalLLM based on llama.cpp for fellow Book Lovers!",
+    "url": "https://reddit.com/r/LocalLLaMA/comments/1tslzyc/made_a_program_using_localllm_based_on_llamacpp/",
+    "score": 13,
+    "comments": 10,
+    "subreddit": "LocalLLaMA"
+  },
+  {
+    "title": "DIY Local 2x DGX Spark cluster cooler with automatic temperature controlled fan.",
+    "url": "https://reddit.com/r/LocalLLaMA/comments/1tsufmm/diy_local_2x_dgx_spark_cluster_cooler_with/",
+    "score": 11,
+    "comments": 6,
+    "subreddit": "LocalLLaMA"
+  },
+  {
+    "title": "GPU Prices. Buy now, or buy later?",
+    "url": "https://reddit.com/r/LocalLLaMA/comments/1tt9r8j/gpu_prices_buy_now_or_buy_later/",
+    "score": 11,
+    "comments": 42,
+    "subreddit": "LocalLLaMA"
+  },
+  {
+    "title": "What's this sub geebral opinion on quantisizing the KV cache",
+    "url": "https://reddit.com/r/LocalLLaMA/comments/1tt5gqv/whats_this_sub_geebral_opinion_on_quantisizing/",
+    "score": 9,
+    "comments": 66,
+    "subreddit": "LocalLLaMA"
+  },
+  {
+    "title": "MiMo 2.5 Q6 vs DS 3.2 Q8 vs GLM 5.1 Q8",
+    "url": "https://reddit.com/r/LocalLLaMA/comments/1tss22r/mimo_25_q6_vs_ds_32_q8_vs_glm_51_q8/",
+    "score": 9,
+    "comments": 1,
+    "subreddit": "LocalLLaMA"
+  },
+  {
+    "title": "Can you actually feel when something was written by ChatGPT even without checking?",
+    "url": "https://reddit.com/r/artificial/comments/1tsu37g/can_you_actually_feel_when_something_was_written/",
+    "score": 58,
+    "comments": 100,
+    "subreddit": "artificial"
+  },
+  {
+    "title": "In 1997 I built a chatbot for an IRC channel. I shut it down when people started preferring it to talking to each other.",
+    "url": "https://reddit.com/r/artificial/comments/1tt2bwx/in_1997_i_built_a_chatbot_for_an_irc_channel_i/",
+    "score": 53,
+    "comments": 12,
+    "subreddit": "artificial"
+  },
+  {
+    "title": "What happens when anyone can train an AI model?",
+    "url": "https://reddit.com/r/artificial/comments/1tt66iy/what_happens_when_anyone_can_train_an_ai_model/",
+    "score": 8,
+    "comments": 35,
+    "subreddit": "artificial"
+  },
+  {
+    "title": "Has AI become too \"safe\" to actually be useful for creative work?",
+    "url": "https://reddit.com/r/artificial/comments/1tszhx5/has_ai_become_too_safe_to_actually_be_useful_for/",
+    "score": 8,
+    "comments": 14,
+    "subreddit": "artificial"
+  },
+  {
+    "title": "What actually is \"Prompt Engineering\"?",
+    "url": "https://reddit.com/r/artificial/comments/1tt03d8/what_actually_is_prompt_engineering/",
+    "score": 5,
+    "comments": 27,
+    "subreddit": "artificial"
+  },
+  {
+    "title": "I Tried to Sell My House With a Chatbot",
+    "url": "https://reddit.com/r/artificial/comments/1tsuqf2/i_tried_to_sell_my_house_with_a_chatbot/",
+    "score": 5,
+    "comments": 2,
+    "subreddit": "artificial"
+  },
+  {
+    "title": "Best AI for help with work",
+    "url": "https://reddit.com/r/artificial/comments/1tt82tx/best_ai_for_help_with_work/",
+    "score": 3,
+    "comments": 2,
+    "subreddit": "artificial"
+  },
+  {
+    "title": "The Most Dangerous Procurement Agent Is the One That Works Perfectly",
+    "url": "https://reddit.com/r/artificial/comments/1tswa8e/the_most_dangerous_procurement_agent_is_the_one/",
+    "score": 3,
+    "comments": 2,
+    "subreddit": "artificial"
+  },
+  {
+    "title": "Llama Surgery: Continuous Sparsification of Pre-Trained Language Models via Differentiable Ultrametric Topology Injection",
+    "url": "https://reddit.com/r/artificial/comments/1tshkls/llama_surgery_continuous_sparsification_of/",
+    "score": 3,
+    "comments": 3,
+    "subreddit": "artificial"
+  },
+  {
+    "title": "can the grid keep up with all the new ai data centers coming up?",
+    "url": "https://reddit.com/r/artificial/comments/1tt9okq/can_the_grid_keep_up_with_all_the_new_ai_data/",
+    "score": 2,
+    "comments": 5,
+    "subreddit": "artificial"
+  },
+  {
+    "title": "local AI solution for film dubbing",
+    "url": "https://reddit.com/r/artificial/comments/1tt7v0a/local_ai_solution_for_film_dubbing/",
+    "score": 2,
+    "comments": 0,
+    "subreddit": "artificial"
+  },
+  {
+    "title": "Marwell Zoo and University of Surrey launch AI camera project",
+    "url": "https://reddit.com/r/artificial/comments/1tsvici/marwell_zoo_and_university_of_surrey_launch_ai/",
+    "score": 2,
+    "comments": 0,
+    "subreddit": "artificial"
+  },
+  {
+    "title": "Society Is About To Change. And No One Is Ready | Richard Hames meets Garrison Lovely",
+    "url": "https://reddit.com/r/artificial/comments/1tss605/society_is_about_to_change_and_no_one_is_ready/",
+    "score": 3,
+    "comments": 1,
+    "subreddit": "artificial"
+  },
+  {
+    "title": "Question for people running long-lived agents:",
+    "url": "https://reddit.com/r/artificial/comments/1tt3yjc/question_for_people_running_longlived_agents/",
+    "score": 1,
+    "comments": 7,
+    "subreddit": "artificial"
+  },
+  {
+    "title": "The AI alignment paradigm is behaviorism with better PR",
+    "url": "https://reddit.com/r/artificial/comments/1tt15lr/the_ai_alignment_paradigm_is_behaviorism_with/",
+    "score": 1,
+    "comments": 5,
+    "subreddit": "artificial"
+  },
+  {
+    "title": "Bit-Mass Theory \u2013 The Container Principle",
+    "url": "https://reddit.com/r/artificial/comments/1tt0ftg/bitmass_theory_the_container_principle/",
+    "score": 1,
+    "comments": 0,
+    "subreddit": "artificial"
+  },
+  {
+    "title": "The attack on AI agents that no security tool catches",
+    "url": "https://reddit.com/r/artificial/comments/1tt05nf/the_attack_on_ai_agents_that_no_security_tool/",
+    "score": 1,
+    "comments": 4,
+    "subreddit": "artificial"
+  },
+  {
+    "title": "How does AI help with Job productivity?",
+    "url": "https://reddit.com/r/artificial/comments/1tswbg4/how_does_ai_help_with_job_productivity/",
+    "score": 0,
+    "comments": 38,
+    "subreddit": "artificial"
+  },
+  {
+    "title": "Google\u2019s AI mode is threatening me\u2026 i was just trying to look up a family guy clip\u2026",
+    "url": "https://reddit.com/r/artificial/comments/1tsocyj/googles_ai_mode_is_threatening_me_i_was_just/",
+    "score": 0,
+    "comments": 1,
+    "subreddit": "artificial"
+  },
+  {
+    "title": "mlx-code \u2014 local LLM coding agent for Apple Silicon",
+    "url": "https://reddit.com/r/artificial/comments/1tshkvj/mlxcode_local_llm_coding_agent_for_apple_silicon/",
+    "score": 1,
+    "comments": 0,
+    "subreddit": "artificial"
+  },
+  {
+    "title": "These AI models are free, private, and will never say 'no'",
+    "url": "https://reddit.com/r/artificial/comments/1tt4jm1/these_ai_models_are_free_private_and_will_never/",
+    "score": 0,
+    "comments": 2,
+    "subreddit": "artificial"
+  },
+  {
+    "title": "Estou fazendo um experimento comparando respostas de diferentes IAs.",
+    "url": "https://reddit.com/r/artificial/comments/1tt0oe4/estou_fazendo_um_experimento_comparando_respostas/",
+    "score": 0,
+    "comments": 1,
+    "subreddit": "artificial"
+  },
+  {
+    "title": "Why learning will be best choice even after 5 years in this era of AI? Also tell why it can be a bad choice?",
+    "url": "https://reddit.com/r/artificial/comments/1tsxkol/why_learning_will_be_best_choice_even_after_5/",
+    "score": 0,
+    "comments": 0,
+    "subreddit": "artificial"
+  },
+  {
+    "title": "Has anyone here actually switched from Opus to GPT-5.5 for daily coding?",
+    "url": "https://reddit.com/r/artificial/comments/1tsv8od/has_anyone_here_actually_switched_from_opus_to/",
+    "score": 1,
+    "comments": 9,
+    "subreddit": "artificial"
+  },
+  {
+    "title": "Robot foundation models keep hiding behind fine-tuning numbers. Wall-OSS-0.5 is trying a different approach",
+    "url": "https://reddit.com/r/artificial/comments/1tsnsta/robot_foundation_models_keep_hiding_behind/",
+    "score": 0,
+    "comments": 0,
+    "subreddit": "artificial"
+  },
+  {
+    "title": "UAI Results are out [R]",
+    "url": "https://reddit.com/r/MachineLearning/comments/1tt9xbt/uai_results_are_out_r/",
+    "score": 6,
+    "comments": 11,
+    "subreddit": "MachineLearning"
+  },
+  {
+    "title": "Bayesian Opt. GPs vs Linear models and Neural Networks for parameter optimizations [R]",
+    "url": "https://reddit.com/r/MachineLearning/comments/1tsi17b/bayesian_opt_gps_vs_linear_models_and_neural/",
+    "score": 6,
+    "comments": 5,
+    "subreddit": "MachineLearning"
+  },
+  {
+    "title": "When are ICML openreviews made public? [R]",
+    "url": "https://reddit.com/r/MachineLearning/comments/1tsuk34/when_are_icml_openreviews_made_public_r/",
+    "score": 2,
+    "comments": 7,
+    "subreddit": "MachineLearning"
+  },
+  {
+    "title": "How would you model this \"strand\" clustering problem? [P]",
+    "url": "https://reddit.com/r/MachineLearning/comments/1tst8w4/how_would_you_model_this_strand_clustering/",
+    "score": 5,
+    "comments": 6,
+    "subreddit": "MachineLearning"
+  },
+  {
+    "title": "I built a tool to browse and plan CVPR workshop/tutorial days [P]",
+    "url": "https://reddit.com/r/MachineLearning/comments/1tsy7rz/i_built_a_tool_to_browse_and_plan_cvpr/",
+    "score": 1,
+    "comments": 0,
+    "subreddit": "MachineLearning"
+  },
+  {
+    "title": "[D] Monthly Who's Hiring and Who wants to be Hired?",
+    "url": "https://reddit.com/r/MachineLearning/comments/1tsipvv/d_monthly_whos_hiring_and_who_wants_to_be_hired/",
+    "score": 0,
+    "comments": 0,
+    "subreddit": "MachineLearning"
+  },
+  {
+    "title": "Arabic ASR model struggling to converge during training [D]",
+    "url": "https://reddit.com/r/MachineLearning/comments/1tt7jt2/arabic_asr_model_struggling_to_converge_during/",
+    "score": 0,
+    "comments": 4,
+    "subreddit": "MachineLearning"
+  }
+]
