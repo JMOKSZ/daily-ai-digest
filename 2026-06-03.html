@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日AI精选 · 2026年6月3日</title>
+<style>
+:root {
+  --page:      #fdfaf3;
+  --surface:   #fcfaf5;
+  --border:    #e8dcc8;
+  --text:      #2c2416;
+  --muted:     #7a6e5c;
+  --accent:    #8b6914;
+  --accent-lt: #b8942e;
+  --positive:  #4d7c0f;
+  --warning:   #b45309;
+  --info:      #0e7490;
+  --code-bg:   #fdf6ea;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans SC", "PingFang SC", sans-serif;
+  line-height: 1.75; background: var(--page); color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3 { font-family: ui-serif, Georgia, "Noto Serif SC", serif; letter-spacing: -0.01em; }
+h1 { font-weight: 800; } h2 { font-weight: 700; } h3 { font-weight: 600; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.container { max-width: 880px; margin: 0 auto; padding: 60px 40px; }
+
+.hero { text-align: center; padding: 60px 0 40px; border-bottom: 1px solid var(--border); margin-bottom: 40px; }
+.hero-badge { display: inline-block; background: var(--accent); color: #fff; font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; padding: 4px 14px; border-radius: 20px; margin-bottom: 14px; }
+.hero h1 { font-size: clamp(28px, 5vw, 42px); }
+.hero h1 span { color: var(--accent); }
+.hero .subtitle { font-size: 15px; color: var(--muted); margin-top: 6px; line-height: 1.6; }
+.hero .sources { margin-top: 16px; font-size: 12px; color: var(--muted); }
+
+.section { margin-bottom: 40px; }
+.section > h2 { font-size: 22px; margin-bottom: 14px; padding-bottom: 8px; border-bottom: 2px solid rgba(139,105,20,.08); }
+.section > h3 { font-size: 18px; margin: 20px 0 8px; }
+
+p { margin: 6px 0; }
+
+.blockquote {
+  background: linear-gradient(135deg, #fef9ef, #fdf5e6);
+  border: 1px solid var(--border); border-left: 4px solid var(--accent);
+  border-radius: 10px; padding: 18px 24px; margin: 12px 0;
+}
+
+.tag { display: inline-block; font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 10px; margin-right: 4px; }
+.tag.hn { background: rgba(255,102,0,.1); color: #ff6600; }
+.tag.reddit { background: rgba(255,69,0,.1); color: #ff4500; }
+.tag.x { background: rgba(29,161,242,.1); color: #1da1f2; }
+.tag.ph { background: rgba(218,85,47,.1); color: #da552f; }
+.tag.ih { background: rgba(34,197,94,.1); color: #22c55e; }
+.tag.ma { background: rgba(0,120,212,.1); color: #0078d4; }
+
+.news-item {
+  padding: 12px 0; border-bottom: 1px solid rgba(232,220,200,.5);
+  display: flex; gap: 14px; align-items: baseline;
+}
+.news-item .idx { font-family: ui-monospace, monospace; font-size: 12px; color: var(--muted); min-width: 24px; text-align: right; }
+.news-item .body { flex: 1; }
+.news-item .body .title { font-weight: 600; font-size: 14px; }
+.news-item .body .desc { font-size: 13px; color: var(--muted); margin-top: 2px; }
+.news-item .body .meta { font-size: 11px; color: var(--accent-lt); margin-top: 1px; }
+.news-item .tags { white-space: nowrap; }
+
+.dive {
+  background: #fff; border: 1px solid var(--border); border-radius: 12px;
+  padding: 24px 28px; margin-bottom: 16px;
+}
+.dive h3 { font-size: 17px; margin-bottom: 10px; }
+.dive h3 .num { color: var(--accent); margin-right: 6px; }
+.dive p { font-size: 14px; line-height: 1.75; color: var(--text); margin: 8px 0; }
+.dive .links { margin-top: 10px; font-size: 13px; }
+.dive .links a { margin-right: 12px; }
+
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; margin: 12px 0; }
+.stat { background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 14px; text-align: center; }
+.stat .num { font-size: 22px; font-weight: 700; color: var(--accent); }
+.stat .label { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+.footer { text-align: center; color: var(--muted); font-size: 12px; padding-top: 32px; border-top: 1px solid var(--border); margin-top: 48px; opacity: .7; line-height: 1.8; }
+
+@media (max-width: 600px) {
+  .container { padding: 24px 16px; }
+  .hero h1 { font-size: 24px; }
+  .dive { padding: 16px 18px; }
+  .news-item { flex-direction: column; gap: 4px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="hero">
+  <div class="hero-badge">每日AI精选</div>
+  <h1>2026年6月<span>3日</span></h1>
+  <p class="subtitle">
+    Microsoft Build 2026发布7款MAI模型 · NVIDIA RTX Spark AI PC芯片登场 · Anthropic秘密提交S-1冲刺万亿IPO<br>
+    12条精选 + 3个深度分析
+  </p>
+  <div class="sources">来源: X · Hacker News · Product Hunt · Indie Hackers · Y Combinator · Reddit</div>
+</div>
+
+<!-- ══════════ 今日看点 ══════════ -->
+<div class="blockquote">
+  <strong>📌 今日主题:</strong> Microsoft Build 2026 成为本周最大事件——7款MAI模型从推理到代码到多模态全面覆盖，联合NVIDIA RTX Spark AI PC芯片和Project Solara Agent OS，微软正从消费层到硅片层构建完整AI栈。Anthropic秘密IPO冲刺$1T，SoftBank €75B押注法国核能AI数据中心，全球AI基础设施竞赛进入冲刺阶段。
+</div>
+
+<!-- ══════════ 精选新闻 ══════════ -->
+<div class="section">
+  <h2>🔖 精选新闻 · 12条</h2>
+
+  <div class="news-item">
+    <div class="idx">01</div>
+    <div class="body">
+      <div class="title">Microsoft Build 2026: 发布7款MAI模型 — 从自研推理到代码、图像、语音全栈</div>
+      <div class="desc">微软在Build 2026发布自有MAI模型家族：MAI-Thinking-1（35B活跃参数推理模型，97% AIME 2025）、MAI-Code-1-Flash（137B参数，SWE-Bench 71.6%、SWE-Bench Pro 51.2%）、MAI-Image-2.5/Flash、MAI-Transcribe-1.5（43语言）、MAI-Voice-2/Flash。全部从零训练，强调清洁数据、无蒸馏、完全可追溯的训练管线。标志着微软从OpenAI依赖转向自建AI栈。</div>
+      <div class="meta">Microsoft · MAI · Build 2026 · 7 Models · HN 388pts</div>
+    </div>
+    <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">02</div>
+    <div class="body">
+      <div class="title">NVIDIA RTX Spark AI PC芯片发布 — 128GB统一内存，本地120B模型推理</div>
+      <div class="desc">NVIDIA与微软联合发布RTX Spark，首款专用AI PC超级芯片：Grace ARM CPU + Blackwell GPU混合架构，128GB统一内存、~1 petaflop本地AI算力，可运行120B参数模型本地离线。Microsoft同步推出Surface RTX Spark Dev Box（100W铝壳桌面系统）。被视为30年来笔记本架构最大变革——AI Agent从云端走向本地。</div>
+      <div class="meta">NVIDIA · RTX Spark · 128GB · ~1PF · 本地Agent · Computex 2026</div>
+    </div>
+    <div class="tags"><span class="tag x">X</span><span class="tag hn">HN</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">03</div>
+    <div class="body">
+      <div class="title">Anthropic秘密提交S-1 — $965B估值冲刺$1T IPO</div>
+      <div class="desc">Anthropic向SEC秘密提交S-1草案。此前刚完成$65B Series H轮融资，估值$965B超越OpenAI。市场关注其$8-12B ARR、毛利率、计算成本、Amazon/Google依赖性。Binance快速上线ANTHROPICUSDT永续合约。哈佛法学院分析警告：安全使命可能在华尔街面前碰壁。</div>
+      <div class="meta">Anthropic · S-1 · $965B · IPO · HN 682pts</div>
+    </div>
+    <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">04</div>
+    <div class="body">
+      <div class="title">OpenAI前沿模型和Codex登陆AWS Bedrock — 多云AI时代开启</div>
+      <div class="desc">OpenAI宣布前沿模型和Codex在Amazon Bedrock上线。打破此前Azure独占局面，企业可通过已有AWS基础设施部署GPT系列模型，配合IAM、审计、合规工作流。讽刺的是Bedrock也是Anthropic Claude主阵地——两大竞争对手模型在同一平台同台竞技。</div>
+      <div class="meta">OpenAI · AWS · Bedrock · Codex · HN 358pts</div>
+    </div>
+    <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">05</div>
+    <div class="body">
+      <div class="title">SoftBank €75亿（$87亿）投资法国AI数据中心 — 5GW核能算力</div>
+      <div class="desc">SoftBank承诺史上最大欧洲科技投资：€75亿在法国建设5GW AI数据中心，主要利用法国核能。首期€45亿/3.1GW计划2031年前投运，合作方包括EDF电力公司。法国总统马克龙称此为法国成为欧洲AI算力领导者的关键一步。</div>
+      <div class="meta">SoftBank · €75B · 法国 · 核能数据中心 · HN</div>
+    </div>
+    <div class="tags"><span class="tag x">X</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">06</div>
+    <div class="body">
+      <div class="title">Trump签署缩水版AI行政令 — 聚焦网络安全基准</div>
+      <div class="desc">经过数周的反复和缩水，Trump签署AI行政令：要求建立AI网络安全性能基准、优先起诉网络犯罪、鼓励联邦机构使用AI改善安全。HN评论认为实质内容有限——缺乏资金和强制力。但仍标志着美国联邦AI治理的实质性推进。</div>
+      <div class="meta">Trump · AI EO · 网络安全 · HN 175pts</div>
+    </div>
+    <div class="tags"><span class="tag hn">HN</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">07</div>
+    <div class="body">
+      <div class="title">Microsoft Project Solara — 设备运行AI Agent替代传统App</div>
+      <div class="desc">微软内部项目Solara曝光：全新平台让设备运行AI Agents而非传统应用程序。这标志着从App Store模式到Agent-native设备体验的根本转变。结合RTX Spark和MAI模型，微软正在构建从芯片到OS到Agent的完整闭环。</div>
+      <div class="meta">Microsoft · Project Solara · Agent OS · 应用模式变革</div>
+    </div>
+    <div class="tags"><span class="tag x">X</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">08</div>
+    <div class="body">
+      <div class="title">AI Agent编排生态成熟 — MCP已成事实标准，9400+公开服务器</div>
+      <div class="desc">MCP（Model Context Protocol）在2026年成为Agent-工具连接的事实标准。9400+公开MCP服务器在运行，DocuSign、Google（mcp-toolbox）、Mulesoft等大厂均已原生支持。生态焦点从'如何连接'转向'如何在生产环境安全可靠地编排'——身份认证、权限控制、可观测性成为新战场。</div>
+      <div class="meta">MCP · Agent Orchestration · 9400+ servers · 标准化</div>
+    </div>
+    <div class="tags"><span class="tag x">X</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">09</div>
+    <div class="body">
+      <div class="title">RSS复兴：AI Agent需要像RSS一样的东西</div>
+      <div class="desc">HN文章'Now AI agents need what RSS does'引发热议。AI Agents需要可编程的结构化信息消费协议——RSS恰好满足：轻量、结构化、可订阅、程序友好。LLM驱动的Agent正在推动RSS生态的二次复兴，许多网站因Agent消费需求重新提供RSS输出。</div>
+      <div class="meta">RSS · AI Agents · 结构化消费 · HN 59pts</div>
+    </div>
+    <div class="tags"><span class="tag hn">HN</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">10</div>
+    <div class="body">
+      <div class="title">斯坦福研究：AI在法学院考试中超越法学教授</div>
+      <div class="desc">Stanford Law发布研究，AI模型在法学院标准化考试中表现超越教授。这是AI在专业领域超越人类专家的又一里程碑。HN讨论聚焦于法律行业的就业冲击和AI法律评估的可靠性。引发'AI法官是否可信'的深层讨论。</div>
+      <div class="meta">Stanford · AI > Law Professors · HN 83pts</div>
+    </div>
+    <div class="tags"><span class="tag hn">HN</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">11</div>
+    <div class="body">
+      <div class="title">超60%的人用AI做心理支持 — AXA年度心理健康报告</div>
+      <div class="desc">AXA发布2026年度心理健康报告：全球超过6/10的人已使用AI聊天机器人获取心理支持。RAND研究补充：美国1/5的青少年和年轻人使用AI聊天机器人做心理疏导。AI心理健康市场规模正在爆炸式增长——也引发了对隐私和AI替代人类治疗师的担忧。</div>
+      <div class="meta">AI心理健康 · AXA · RAND · 60% · HN 46pts</div>
+    </div>
+    <div class="tags"><span class="tag hn">HN</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">12</div>
+    <div class="body">
+      <div class="title">谷歌悄悄从Play Store开发者购买代码训练AI</div>
+      <div class="desc">404 Media调查揭露：谷歌通过第三方中介，向Play Store开发者支付费用获取代码用于AI训练。协议要求开发者不公开谷歌的身份。引发关于训练数据来源透明性和版权的争议——科技巨头在数据获取方式上越来越隐蔽。</div>
+      <div class="meta">Google · Play Store · 训练数据 · HN 6pts</div>
+    </div>
+    <div class="tags"><span class="tag hn">HN</span></div>
+  </div>
+
+</div>
+
+<!-- ══════════ 今日数据 ══════════ -->
+<div class="section">
+  <h2>📊 今日数据</h2>
+  <div class="stats">
+    <div class="stat"><div class="num">7</div><div class="label">微软MAI模型</div></div>
+    <div class="stat"><div class="num">$965B</div><div class="label">Anthropic估值</div></div>
+    <div class="stat"><div class="num">1PF</div><div class="label">RTX Spark算力</div></div>
+    <div class="stat"><div class="num">€75B</div><div class="label">SoftBank法国投资</div></div>
+    <div class="stat"><div class="num">71.6%</div><div class="label">MAI-Code SWE-Bench</div></div>
+    <div class="stat"><div class="num">9400+</div><div class="label">MCP服务器</div></div>
+  </div>
+</div>
+
+<!-- ══════════ Deep Dive ══════════ -->
+<div class="section">
+  <h2>🔬 深度分析 · 3篇</h2>
+
+  <div class="dive">
+    <h3><span class="num">01</span> Microsoft Build 2026: 从模型到芯片到OS的全栈AI帝国</h3>
+    <p>
+      2026年6月2日的Microsoft Build大会，可能是微软历史上最具AI分量的一天。<strong>7款自研MAI模型</strong>同时发布——从推理（MAI-Thinking-1，35B活跃参数，97% AIME）、代码（MAI-Code-1-Flash，SWE-Bench 71.6%）、图像（MAI-Image-2.5）、语音到转录——覆盖了AI能力的每一层。更关键的是，所有模型都是从零训练的，明确标注"无AI生成数据参与预训练"，强调清洁、可追溯的数据管线。这不仅仅是产品发布，更是一份独立宣言：微软不再甘心做OpenAI模型的管道工。
+    </p>
+    <p>
+      但真正让这一天变得特殊的是<strong>硬件层面的配合</strong>。与NVIDIA联合发布的RTX Spark AI PC芯片将128GB统一内存和~1 petaflop算力塞进笔记本，让120B参数模型可以在本地离线运行。Microsoft同步推出Surface RTX Spark Dev Box——一台专为AI开发者设计的紧凑桌面系统。而<strong>Project Solara</strong>的曝光则揭示了终端愿景：设备运行AI Agent而非传统App，彻底重构人机交互模式。从硅片到模型到OS到应用层，微软正在构建一个完整的"AI-first"技术栈，与OpenAI形成越来越明确的竞争关系。
+    </p>
+    <p>
+      <strong>深层信号:</strong> 微软的MAI模型虽然目前对标Claude Haiku级别（而非Sonnet/Opus），但考虑到其从零训练的困难度和"clean data"的长期优势，这条垂直整合路径的长期价值不容小觑。结合Satya Nadella强调的"Frontier Tuning"概念——帮助企业在基础模型之上做定制优化——微软正在把AI从"买谁家的模型"变成"用谁家的平台"。加上Majorana 2量子芯片的进展，这家公司正在下一盘比任何竞争对手都大的棋。
+    </p>
+    <div class="links">
+      <a href="https://microsoft.ai/news/building-a-hillclimbing-machine-launching-seven-new-mai-models/" target="_blank">Microsoft AI: 7 MAI模型发布</a>
+      <a href="https://x.com/nvidia/status/2061885990705271191" target="_blank">X: NVIDIA RTX Spark发布</a>
+      <a href="https://x.com/dAAAb/status/2061984452059005436" target="_blank">X: Project Solara细节</a>
+    </div>
+  </div>
+
+  <div class="dive">
+    <h3><span class="num">02</span> Anthropic万亿IPO：安全叙事的资本化与华尔街的信任测试</h3>
+    <p>
+      Anthropic向SEC秘密提交S-1——这家成立仅5年的AI公司距离公开市场又近了一步。$965B估值、$65B最新融资、$1T IPO目标——但市场真正在关注的是：<strong>安全优先战略能否在季度财报压力下存活？</strong>哈佛法学院已经在预警：Anthropic的公益使命结构（Public Benefit Corporation）可能在华尔街面前碰壁。
+    </p>
+    <p>
+      与IPO同步推进的是<strong>Project Glasswing</strong>的扩张——Anthropic的核心安全与对齐研究项目。在IPO前的敏感时期扩大安全投入，既是商业叙事（安全=企业信任=高定价权），也是原则坚守。这形成了Anthropic独特的双重叙事：一方面，Claude Code/Coworker的企业采用率证明安全确实有商业价值；另一方面，IPO后的股东压力可能迫使公司重新定义"安全"的边界——什么程度的护栏是可接受的，什么程度的审查会被视为"增长障碍"。
+    </p>
+    <p>
+      <strong>一个值得对照的观察点：</strong>与此同时，OpenAI通过AWS向更广泛的企业分发模型，Anthropic的高端定价模式面临开放生态的竞争压力。$1T的估值反映的是AI替代人类劳动远期预期的折现，而非当前现金流。如果Agent工作流出现"幻觉级"的企业事故，或者监管要求大幅增加合规成本，万亿估值可能面临修正。Binance早早推出ANTHROPICUSDT永续合约，本身就说明市场对这张短期价格波动的期待——而非对其长期商业护城河的信心。
+    </p>
+    <div class="links">
+      <a href="https://www.anthropic.com/news/confidential-draft-s1-sec" target="_blank">Anthropic: S-1公告</a>
+      <a href="https://www.anthropic.com/news/expanding-project-glasswing" target="_blank">Anthropic: Project Glasswing扩张</a>
+      <a href="https://www.axios.com/2026/06/02/anthropic-ipo-ai-sticker-shock-spending-usage" target="_blank">Axios: IPO前支出审查</a>
+    </div>
+  </div>
+
+  <div class="dive">
+    <h3><span class="num">03</span> Agent基础设施的成熟时刻：从连接协议到生产系统</h3>
+    <p>
+      2026年中的AI Agent生态呈现出清晰的成熟化信号。<strong>MCP已从实验性协议演变为连接层的"USB-C标准"</strong>——9400+公开服务器，DocuSign、Google、Mulesoft企业级支持。这意味着Agent不再需要为每个工具编写定制适配器，而是通过标准化协议自动发现和调用能力。这种基础设施层的标准化正在改变游戏规则：差异化竞争从"能不能连接"转移到了"能不能安全、可靠、可审计地运行"。
+    </p>
+    <p>
+      <strong>新的基础设施层正在成形：</strong>Agent身份和权限系统（KairosAI等初创公司专注）、Agent心理监测仪表盘（观察信心度、辩论质量、幻觉风险）、不可篡改的审计日志（AgenticOS通过密码学验证状态转换）、以及Human-in-the-loop的升级协议。在Indie Hackers上，"用Claude 11天做了个App"的帖子获得大量关注——同时社区也在反思：这到底是进步还是新的陷阱？
+    </p>
+    <p>
+      <strong>核心洞察：</strong>AI Agent正经历从"演示惊艳"到"生产可靠"的痛苦转型。就像90年代末的互联网从静态网页走向电商和SaaS，Agent也需要一套完整的"运行时"基础设施才能实现真正的商业价值。RSS的意外复兴是一个有趣的侧面信号——最老牌的结构化内容协议因为Agent的崛起重获生命力。这场基础设施竞赛的赢家，将决定下一个十年软件的构建方式。在微软全力构建Agent-native OS、MCP生态继续扩张、Agent身份/安全/可观测性创业公司兴起的交汇点上，2026年6月很可能是Agent从"实验品"到"基础设施"的分水岭。
+    </p>
+    <div class="links">
+      <a href="https://julienreszka.com/blog/rss-is-back-ai-agents-are-reading-it/" target="_blank">HN: RSS复兴与AI Agent</a>
+      <a href="https://news.ycombinator.com/item?id=48378312" target="_blank">HN: AgenticOS</a>
+      <a href="https://x.com/KairosAIStudio/status/2061989931958854006" target="_blank">X: Agent身份基础设施</a>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  JMOKSZ/daily-ai-digest · 自动生成于 2026-06-03 09:07 CST<br>
+  数据来源: X · Hacker News · Product Hunt · Y Combinator · Indie Hackers · Reddit<br>
+  <a href="index.html">← 返回目录</a> · <a href="https://github.com/JMOKSZ/daily-ai-digest">GitHub</a>
+</div>
+
+</div>
+</body>
+</html>
