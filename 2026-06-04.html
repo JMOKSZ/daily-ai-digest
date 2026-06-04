@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日AI精选 · 2026年6月4日</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --page:      #fdfaf3;
+  --surface:   #fcfaf5;
+  --surface2:  #fff;
+  --border:    #e8dcc8;
+  --text:      #2c2416;
+  --muted:     #7a6e5c;
+  --accent:    #8b6914;
+  --accent-lt: #b8942e;
+  --positive:  #4d7c0f;
+  --warning:   #b45309;
+  --info:      #0e7490;
+  --red:       #b91c1c;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family: 'Noto Sans SC', -apple-system, sans-serif;
+  background: var(--page);
+  color: var(--text);
+  line-height: 1.7;
+  padding: 0;
+}
+.container { max-width: 720px; margin: 0 auto; padding: 40px 24px 80px; }
+
+/* Hero */
+.hero { text-align: center; margin-bottom: 40px; }
+.badge {
+  display: inline-block;
+  background: var(--accent); color: #fff;
+  font-weight: 700; font-size: 13px; letter-spacing: .12em;
+  padding: 6px 16px; border-radius: 100px; margin-bottom: 16px;
+}
+.hero h1 { font-size: 36px; font-weight: 900; color: var(--text); margin-bottom: 8px; letter-spacing: -.02em; }
+.hero .subtitle {
+  font-size: 15px; color: var(--muted); margin-bottom: 12px;
+}
+.hero .top-three {
+  font-size: 14px; color: var(--accent); font-weight: 500;
+  background: rgba(139,105,20,.08); display: inline-block;
+  padding: 8px 20px; border-radius: 8px; margin-bottom: 12px;
+}
+.hero .sources {
+  font-size: 12px; color: var(--muted);
+  display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;
+}
+.hero .sources span {
+  background: var(--surface2); border: 1px solid var(--border);
+  padding: 3px 10px; border-radius: 20px;
+}
+
+/* Theme */
+.theme {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 36px;
+}
+.theme .label { font-weight: 700; font-size: 13px; color: var(--accent); margin-bottom: 6px; }
+.theme p { font-size: 14px; color: var(--text); line-height: 1.8; }
+
+/* Section header */
+.section-title {
+  font-size: 20px; font-weight: 800; margin-bottom: 20px;
+  display: flex; align-items: center; gap: 8px;
+}
+.section-title .count {
+  font-size: 13px; font-weight: 400; color: var(--muted);
+  background: var(--surface2); border: 1px solid var(--border);
+  padding: 2px 10px; border-radius: 20px;
+}
+
+/* News item */
+.news-item {
+  display: flex; gap: 16px; padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+  align-items: flex-start;
+}
+.news-item:last-of-type { border-bottom: none; }
+.news-item .idx {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px; font-weight: 500; color: var(--muted);
+  min-width: 28px;
+}
+.news-item .body { flex: 1; }
+.news-item .title {
+  font-size: 15px; font-weight: 700; color: var(--text);
+  margin-bottom: 4px; line-height: 1.5;
+}
+.news-item .desc {
+  font-size: 13px; color: var(--muted);
+  margin-bottom: 6px; line-height: 1.6;
+}
+.news-item .meta {
+  font-size: 11px; color: var(--muted);
+  display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+}
+.tag {
+  display: inline-block; font-size: 10px; font-weight: 600;
+  padding: 2px 8px; border-radius: 20px; letter-spacing: .02em;
+}
+.tag.hn { background: rgba(255,102,0,.1); color: #cc5200; }
+.tag.x { background: rgba(29,161,242,.1); color: #1a8cd8; }
+.tag.ph { background: rgba(218,85,47,.1); color: #c44a28; }
+.tag.ih { background: rgba(34,197,94,.1); color: #16a34a; }
+.tag.ma { background: rgba(0,120,212,.1); color: #005a9e; }
+.tag.hot { background: rgba(185,28,28,.1); color: var(--red); }
+
+/* Stats grid */
+.stats {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 12px; margin-bottom: 36px;
+}
+.stat {
+  background: var(--surface2); border: 1px solid var(--border);
+  border-radius: 12px; padding: 16px; text-align: center;
+}
+.stat .num { font-size: 22px; font-weight: 800; color: var(--accent); margin-bottom: 2px; }
+.stat .label { font-size: 11px; color: var(--muted); line-height: 1.4; }
+.stat .sub { font-size: 10px; color: var(--muted); margin-top: 4px; }
+
+/* Deep dives */
+.dive {
+  background: var(--surface2); border: 1px solid var(--border);
+  border-radius: 12px; padding: 24px; margin-bottom: 20px;
+}
+.dive h3 {
+  font-size: 17px; font-weight: 800; margin-bottom: 16px;
+  display: flex; align-items: center; gap: 12px;
+}
+.dive h3 .num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px; color: var(--accent);
+  background: rgba(139,105,14,.08);
+  width: 30px; height: 30px; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+}
+.dive p { font-size: 14px; color: var(--text); margin-bottom: 12px; line-height: 1.8; }
+.dive .links {
+  margin-top: 12px; display: flex; gap: 8px; flex-wrap: wrap;
+}
+.dive .links a {
+  font-size: 12px; color: var(--accent-lt);
+  text-decoration: none; border: 1px solid var(--border);
+  padding: 4px 12px; border-radius: 20px;
+  transition: all .15s;
+}
+.dive .links a:hover { background: rgba(139,105,14,.06); border-color: var(--accent-lt); }
+
+/* Footer */
+.footer {
+  text-align: center; padding: 40px 0 0;
+  border-top: 1px solid var(--border); margin-top: 40px;
+}
+.footer p { font-size: 12px; color: var(--muted); margin-bottom: 4px; }
+.footer a { color: var(--accent-lt); text-decoration: none; }
+.footer a:hover { text-decoration: underline; }
+
+@media (max-width: 600px) {
+  .container { padding: 24px 16px 60px; }
+  .hero h1 { font-size: 28px; }
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  .news-item { gap: 10px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Hero -->
+<div class="hero">
+  <div class="badge">📰 每日AI精选</div>
+  <h1>2026年6月4日</h1>
+  <div class="subtitle">12条精选新闻 · 3篇深度分析</div>
+  <div class="top-three">Anthropic秘密提交IPO · Microsoft Build发布Agent-first OS · Google开源Gemma 4</div>
+  <div class="sources">
+    <span>🗞️ Hacker News</span>
+    <span>🐦 X/Twitter</span>
+    <span>📹 Indie Hackers</span>
+  </div>
+</div>
+
+<!-- Theme -->
+<div class="theme">
+  <div class="label">📌 今日主题</div>
+  <p>AI产业迎来多线共振：Anthropic以近万亿估值推进IPO，标志着前沿AI公司正式叩响公开市场大门；微软Build 2026发布Project Solara（Agent-first OS）和Scout（永不掉线智能体），将AI从"工具"升级为"操作系统"；Google开源Gemma 4 12B无编码器多模态模型，推动边缘AI落地。与此同时，Broadcom Q2 AI半导体收入突破百亿美元年化，$30B+的季度订单量印证基础设施投资进入超速档。产业资本、平台级产品、开源生态三者同步狂飙。</p>
+</div>
+
+<!-- News -->
+<div class="section-title">
+  📋 精选新闻
+  <span class="count">12条</span>
+</div>
+
+<div class="news-item">
+  <div class="idx">01</div>
+  <div class="body">
+    <div class="title">Anthropic秘密提交IPO，估值逼近万亿</div>
+    <div class="desc">向SEC提交S-1草案，选定摩根士丹利和高盛牵头，估值约$9650亿，年收入约$470亿。若成功上市，将成为AI领域最大规模IPO。</div>
+    <div class="meta">
+      <span class="tag x">X</span>
+      <span class="tag hn">HN</span>
+      <span>估值 $965B · 年收入 $47B</span>
+    </div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">02</div>
+  <div class="body">
+    <div class="title">微软Build 2026发布Project Solara Agent-first OS</div>
+    <div class="desc">从零构建的Agent-first操作系统，Android底层但以智能体为中心，设备覆盖徽章、耳机等小型穿戴。同时发布Scout——永不掉线"副驾驶"和MAI系列基础模型。</div>
+    <div class="meta">
+      <span class="tag x">X</span>
+      <span>MAI模型 · Scout · Qualcomm/NVIDIA合作</span>
+    </div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">03</div>
+  <div class="body">
+    <div class="title">Google开源Gemma 4 12B——无编码器多模态模型</div>
+    <div class="desc">采用encoder-free架构，原始图像块直接送入decoder-only transformer，可本地运行（~16GB RAM），Apache 2.0许可。HN上674点赞，288评论。</div>
+    <div class="meta">
+      <span class="tag hn">HN</span>
+      <span class="tag x">X</span>
+      <span>674 pts · Apache 2.0 · 边缘设备适用</span>
+    </div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">04</div>
+  <div class="body">
+    <div class="title">Broadcom Q2: AI半导体收入$10.8B，同比+143%</div>
+    <div class="desc">季度订单超$300亿（book-to-bill >2.8x），指引FY2027 AI半导体收入超$1000亿。客户包括Google、Meta、OpenAI、Anthropic等，GW级部署推进中。</div>
+    <div class="meta">
+      <span class="tag x">X</span>
+      <span>Q2收入 $22.2B · AI占比49% · FY2027 >$100B</span>
+    </div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">05</div>
+  <div class="body">
+    <div class="title">"一键窃取GitHub Token"——VSCode高危漏洞曝光</div>
+    <div class="desc">安全研究员披露VSCode扩展系统缺陷，攻击者可利用恶意扩展一键窃取GitHub凭据。HN上633点赞，引发开发者社区广泛讨论。</div>
+    <div class="meta">
+      <span class="tag hn">HN</span>
+      <span class="tag hot">🔥</span>
+      <span>633 pts · 95 comments</span>
+    </div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">06</div>
+  <div class="body">
+    <div class="title">斯坦福研究: AI在法律案例分析上超越法学教授</div>
+    <div class="desc">最新实验显示主流AI模型在法律案例分析任务上表现优于人类法学教授。文章引发AI替代知识工作者的热议，HN 392点赞，354评论。</div>
+    <div class="meta">
+      <span class="tag hn">HN</span>
+      <span>392 pts · Stanford Law</span>
+    </div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">07</div>
+  <div class="body">
+    <div class="title">DDR5价格飙升——AI短缺冲击PC装机市场</div>
+    <div class="desc">32GB DDR5现价$375，AI对HBM和DDR5产能的挤占持续推高PC内存价格。HN 374点赞，342评论，社区对"AI税"怨声载道。</div>
+    <div class="meta">
+      <span class="tag hn">HN</span>
+      <span>374 pts · 32GB $375 · AI产能挤占</span>
+    </div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">08</div>
+  <div class="body">
+    <div class="title">Ideogram 4.0发布——最强开源图像生成模型</div>
+    <div class="desc">称霸开源图像生成领域，权重文件可下载、微调、本地运行，照片级真实感和文字生成能力大幅提升，部分基准超越闭源模型。</div>
+    <div class="meta">
+      <span class="tag x">X</span>
+      <span>开源权重 · 照片级 · 本地可运行</span>
+    </div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">09</div>
+  <div class="body">
+    <div class="title">OpenAI Codex "Sites": 一句话生成交互网站</div>
+    <div class="desc">用户可将想法、文档或计划一键转为完整交互式网站/应用，托管于可分享URL。同时Codex和Frontier模型已在AWS Bedrock上GA，面向企业安全合规场景。</div>
+    <div class="meta">
+      <span class="tag x">X</span>
+      <span>Business/Enterprise · AWS Bedrock GA</span>
+    </div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">10</div>
+  <div class="body">
+    <div class="title">Meta发布Business Agent——跨平台AI商业助手</div>
+    <div class="desc">支持Instagram、WhatsApp、Messenger三大平台，可自动处理客户问答、商品推荐、预约和销售转化。已集成Shopify、Zendesk和ServiceNow。</div>
+    <div class="meta">
+      <span class="tag x">X</span>
+      <span>跨平台 · Shopify/Zendesk集成</span>
+    </div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">11</div>
+  <div class="body">
+    <div class="title">Uber $1,500/月AI预算上限——一个行业信号</div>
+    <div class="desc">Simon Willison分析Uber为员工设$1,500/月的AI工具使用上限，认为这反映了企业级AI工具定价的关键阈值。HN 362点赞，463评论引爆讨论。</div>
+    <div class="meta">
+      <span class="tag hn">HN</span>
+      <span class="tag x">X</span>
+      <span>362 pts · 463 comments · 定价信号</span>
+    </div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">12</div>
+  <div class="body">
+    <div class="title">Pwnd Blaster——通过扬声器隔空黑掉电脑</div>
+    <div class="desc">安全研究展示利用音频信号远程攻击电脑的新型攻击面——无需物理接触，只需扬声器即可完成入侵。HN 645点赞，104评论。</div>
+    <div class="meta">
+      <span class="tag hn">HN</span>
+      <span>645 pts · 音频攻击面 · 104 comments</span>
+    </div>
+  </div>
+</div>
+
+<!-- Stats -->
+<div class="section-title" style="margin-top:36px;">
+  📊 今日数据
+</div>
+<div class="stats">
+  <div class="stat">
+    <div class="num">$965B</div>
+    <div class="label">Anthropic IPO估值</div>
+    <div class="sub">AI公司最大IPO</div>
+  </div>
+  <div class="stat">
+    <div class="num">$10.8B</div>
+    <div class="label">Broadcom Q2 AI收入</div>
+    <div class="sub">同比+143%</div>
+  </div>
+  <div class="stat">
+    <div class="num">$30B+</div>
+    <div class="label">Broadcom Q2 AI订单</div>
+    <div class="sub">book-to-bill >2.8x</div>
+  </div>
+  <div class="stat">
+    <div class="num">674</div>
+    <div class="label">Gemma 4 HN点赞</div>
+    <div class="sub">Apache 2.0开源</div>
+  </div>
+  <div class="stat">
+    <div class="num">$375</div>
+    <div class="label">32GB DDR5价格</div>
+    <div class="sub">AI产能挤占</div>
+  </div>
+  <div class="stat">
+    <div class="num">687</div>
+    <div class="label">Meta追踪门HN最高分</div>
+    <div class="sub">652条评论</div>
+  </div>
+</div>
+
+<!-- Deep dives -->
+<div class="section-title">
+  🔍 深度分析
+  <span class="count">3篇</span>
+</div>
+
+<div class="dive">
+  <h3><span class="num">01</span> Anthropic IPO: AI时代的"世纪IPO"即将到来</h3>
+  <p><strong>发生了什么。</strong> Anthropic已于6月1日左右向SEC秘密提交S-1草案，选定摩根士丹利和高盛牵头承销。估值约$9650亿，年收入预计达$470亿——这个数字意味着Anthropic在收入规模上已可对标部分FAANG级别的科技公司。若按计划在2026年秋季完成上市，将成为史上最大的AI公司IPO。</p>
+  <p><strong>为什么是现在。</strong> 秘密提交S-1的时机选择意味深长。就在几周前，Anthropic刚完成一轮$650亿级别的融资；竞争对手OpenAI也迟迟未明确上市时间表；而SpaceX更以$1.77万亿估值筹备IPO。三家"AI+太空"前沿公司争先恐后涌向公开市场，说明这个行业已经到了一个临界点——风投已经无法满足前沿AI千亿级别的资金需求，公开市场是唯一的出路。摩根士丹利和高盛的承销组合也表明这是"大票"级别的交易。</p>
+  <p><strong>信号与影响。</strong> Anthropic的IPO将是对AI行业估值逻辑的一次公开市场检验。$9650亿意味着什么？它超过了许多传统科技巨头的市值，建立在一个成立仅几年的AI公司之上。如果IPO成功并且股价稳定，将打开更多AI公司上市的大门，包括OpenAI和xAI。反之，若市场对如此高估值持怀疑态度，可能推迟整个AI赛道的资本退出节奏。此外，$ANTC这个传言中的股票代码若成真，将成为散户参与AI投资的最直接通道之一。</p>
+  <div class="links">
+    <a href="https://x.com/grok/status/2062238893043241334" target="_blank">X: S-1确认</a>
+    <a href="https://x.com/SyntellectAi/status/2062308960560963760" target="_blank">X: 估值$965B</a>
+    <a href="https://news.ycombinator.com/item?id=1" target="_blank">HN讨论帖</a>
+  </div>
+</div>
+
+<div class="dive">
+  <h3><span class="num">02</span> Microsoft Build 2026: Agent-first 操作系统的蓝图</h3>
+  <p><strong>发生了什么。</strong> 微软在Build 2026上发布了三件互相关联的大事：Project Solara——一个从零构建的Agent-first操作系统（基于Android但以智能体为中心），支持徽章、耳机等小型穿戴设备；Scout——由MAI-Thinking-1推理模型驱动的"永不掉线"个人智能体，深度集成Outlook、Teams和Copilot；以及MAI系列基础模型（推理、代码、图像、语音）。英伟达和高通作为芯片合作伙伴。</p>
+  <p><strong>为什么是现在。</strong> 这三件事合在一起，指向一个清晰的叙事：微软认为AI的下一个形态不是更聪明的Chat bot，而是一个始终在线、主动工作、跨越所有终端和应用的"智能层"。Project Solara是硬件层——Agent-first设备；Scout是软件层——Agent-as-OS；MAI模型是基础层——算力保障。这比苹果Vision Pro或Meta Quest更激进的"后智能手机"押注，因为微软直接要替代的不是手机，而是整个操作系统的交互范式。</p>
+  <p><strong>行业影响。</strong> 微软选择了Android作为Solara的基础——这意味着兼容现有Android应用生态，大幅降低了开发者和用户的迁移成本。但更重要的是，Solara暗示了微软对AI智能体未来物理形态的判断：不是手机或PC，而是遍布日常的微型设备。如果Scout真的能像描述中那样跨Teams、Outlook、OneDrive主动工作而不需要用户"打开应用"，那它将从根本上改变企业SaaS的交互逻辑——从"用户主动操作"变成"智能体自动完成"。OpenClaw for Windows的同步发布，则确保企业级安全治理不会成为AI agent落地的绊脚石。</p>
+  <div class="links">
+    <a href="https://x.com/constellationr/status/2062308400986484840" target="_blank">X: Project Solara详情</a>
+    <a href="https://x.com/indianbluess/status/2062221929311093231" target="_blank">X: Build总结</a>
+    <a href="https://x.com/rise_raise_ai/status/2062196318068465889" target="_blank">X: OpenClaw治理</a>
+  </div>
+</div>
+
+<div class="dive">
+  <h3><span class="num">03</span> Broadcom的"AI时刻": 从$10.8B到$100B只用了两年</h3>
+  <p><strong>发生了什么。</strong> Broadcom 2026财年Q2报告了一个惊人的数字：AI半导体收入$10.8亿，同比+143%。但这还不是最惊人的——季度AI订单超过$300亿（book-to-bill >2.8x），意味着需求是交付能力的近三倍。公司指引整个FY2026 AI收入$560亿，而FY2027直接跳到$1000亿以上。客户包括Google（TPU，合同延至2031）、Meta（MTIA定制芯片初始1GW订单）、OpenAI和Anthropic。</p>
+  <p><strong>为什么重要。</strong> Broadcom不是NVIDIA。它不卖GPU，而是做定制AI加速器（XPU/TPU）和高速网络芯片。$10.8B的季度AI收入意味着即便排除NVIDIA，全球对AI芯片的需求已经在以每年翻倍以上的速度增长。更重要的是，Broadcom的客户名单揭示了一个趋势：科技巨头正在从购买通用GPU转向自研/定制AI芯片。Google用TPU、Meta用MTIA、微软也有自研芯片路线图——NVIDIA虽然仍是最大赢家，但蛋糕正在被切分。</p>
+  <p><strong>深层信号。</strong> Broadcom的$300亿季度订单发出了一个清晰的信号：AI基础设施投资正在以"超指数"速度增长。Book-to-bill 2.8x意味着客户在下单时已经提前预定未来几个季度的产能，这种需求密度只能用"军备竞赛"来形容。SoftBank随后宣布的€750亿欧洲AI投资计划，以及Jensen Huang关于"AI基础设施ROI insane"的言论，都在讲述同一个故事：2026年是AI从"实验"到"全面基础设施建设"的分水岭。而Broadcom作为"AI管道"提供者，站在了每一个超大规模部署的背后。</p>
+  <div class="links">
+    <a href="https://x.com/i/status/2062286816762331203" target="_blank">X: Broadcom Q2财报</a>
+    <a href="https://x.com/aleabitoreddit/status/2062322546809381094" target="_blank">X: 深度分析</a>
+    <a href="https://x.com/Nakelton/status/2062321658971426894" target="_blank">X: 市场反应</a>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>📰 每日AI精选 · 2026年6月4日</p>
+  <p>数据来源: Hacker News · X/Twitter · Indie Hackers</p>
+  <p>
+    <a href="index.html">← 返回首页</a>
+    &nbsp;·&nbsp;
+    <a href="https://github.com/James4Ever0/daily-ai-digest" target="_blank">GitHub</a>
+  </p>
+  <p style="margin-top:8px;font-size:10px;color:#b8b0a0;">由 Hermes Agent 自动生成</p>
+</div>
+
+</div>
+</body>
+</html>
