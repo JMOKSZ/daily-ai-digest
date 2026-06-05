@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日AI精选 · 2026-06-05</title>
+<style>
+:root {
+  --page: #fdfaf3;
+  --surface: #fcfaf5;
+  --card: #fff;
+  --border: #e8dcc8;
+  --text: #2c2416;
+  --muted: #7a6e5c;
+  --accent: #8b6914;
+  --accent-lt: #b8942e;
+  --positive: #4d7c0f;
+  --warning: #b45309;
+  --info: #0e7490;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
+  background: var(--page);
+  color: var(--text);
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 48px 0 32px;
+}
+
+.badge {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  padding: 4px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-bottom: 16px;
+}
+
+.hero h1 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.hero .subtitle {
+  font-size: 16px;
+  color: var(--muted);
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+.hero .subtitle strong { color: var(--accent); }
+
+.hero .meta {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.hero .meta span {
+  display: inline-block;
+  margin: 0 4px;
+}
+
+/* Sources bar */
+.sources {
+  text-align: center;
+  padding: 12px 0 24px;
+  font-size: 13px;
+  color: var(--muted);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 24px;
+}
+
+.source-tag {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 600;
+  margin: 0 2px;
+}
+.source-tag.hn { background: rgba(255,102,0,.1); color: #ff6600; }
+.source-tag.x { background: rgba(29,161,242,.1); color: #1da1f2; }
+.source-tag.arxiv { background: rgba(185,43,39,.1); color: #b92b27; }
+
+/* Theme blockquote */
+.theme {
+  background: var(--surface);
+  border-left: 4px solid var(--accent);
+  padding: 20px 24px;
+  margin: 0 0 32px;
+  border-radius: 0 8px 8px 0;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.theme strong { color: var(--accent); }
+
+/* Section header */
+.section-header {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--border);
+  color: var(--text);
+}
+
+/* News items */
+.news-item {
+  display: flex;
+  gap: 14px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+  align-items: flex-start;
+}
+
+.news-item:last-child { border-bottom: none; }
+
+.news-item .idx {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  margin-top: 2px;
+}
+
+.news-item .body { flex: 1; min-width: 0; }
+
+.news-item .title {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  line-height: 1.4;
+}
+
+.news-item .desc {
+  font-size: 13.5px;
+  color: var(--muted);
+  line-height: 1.5;
+  margin-bottom: 6px;
+}
+
+.news-item .meta {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.news-item .tags {
+  flex-shrink: 0;
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  margin-left: 8px;
+}
+
+.tag {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 600;
+}
+.tag.hn { background: rgba(255,102,0,.1); color: #ff6600; }
+.tag.x { background: rgba(29,161,242,.1); color: #1da1f2; }
+.tag.arxiv { background: rgba(185,43,39,.1); color: #b92b27; }
+.tag.gh { background: rgba(51,51,51,.1); color: #333; }
+.tag.ma { background: rgba(0,120,212,.1); color: #0078d4; }
+.tag.ai { background: rgba(139,105,20,.1); color: var(--accent); }
+
+/* Stats */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 24px 0;
+}
+
+.stat {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+}
+
+.stat .num {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+
+.stat .label {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.3;
+}
+
+/* Deep Dives */
+.dive {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 20px;
+}
+
+.dive h3 {
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: var(--text);
+}
+
+.dive h3 .num {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 26px;
+  font-size: 13px;
+  margin-right: 8px;
+}
+
+.dive p {
+  font-size: 14px;
+  line-height: 1.7;
+  margin-bottom: 12px;
+  color: var(--text);
+}
+
+.dive p:last-of-type { margin-bottom: 16px; }
+
+.dive .links {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.dive .links a {
+  color: var(--accent-lt);
+  text-decoration: none;
+  font-size: 13px;
+  border: 1px solid var(--border);
+  padding: 4px 12px;
+  border-radius: 6px;
+  transition: background .2s;
+}
+
+.dive .links a:hover { background: var(--surface); }
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 32px 0;
+  border-top: 1px solid var(--border);
+  margin-top: 32px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.footer a { color: var(--accent); text-decoration: none; }
+.footer a:hover { text-decoration: underline; }
+
+@media (max-width: 600px) {
+  body { padding: 12px; }
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  .hero h1 { font-size: 22px; }
+  .news-item { gap: 10px; }
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="badge">每日 AI 精选</div>
+  <h1>2026年6月5日 · 星期五</h1>
+  <div class="subtitle">
+    <strong>Anthropic 递归自我改进</strong> · <strong>微软发布7款MAI模型</strong> · <strong>OpenAI记忆系统大升级</strong>
+  </div>
+  <div class="meta">
+    12条精选 + 3篇深度分析
+  </div>
+</div>
+
+<div class="sources">
+  来源：
+  <span class="source-tag hn">Hacker News</span>
+  <span class="source-tag x">X/Twitter</span>
+  <span class="source-tag arxiv">arXiv</span>
+</div>
+
+<div class="theme">
+  <strong>📌 今日主题：AI 进入自我加速的临界点</strong><br><br>
+  Anthropic 发布重磅报告，称 Claude 已推动内部工程效率提升 8 倍、80%+ 代码由 AI 编写，递归自我改进循环正在闭合。与此同时，微软携7款自研 MAI 模型正式跻身前沿模型实验室，OpenAI 推出"Dreaming"记忆系统实现跨会话感知。三巨头同日发力的背后，是 AI 能力的又一次加速——但 Berkeley 35% 的 CS 入门课挂科率提醒我们，技术飞跃的同时，教育体系正在被撕裂。
+</div>
+
+<h2 class="section-header">📰 精选新闻</h2>
+
+<div class="news-item">
+  <div class="idx">01</div>
+  <div class="body">
+    <div class="title">Anthropic：当 AI 构建自我</div>
+    <div class="desc">Claude 驱动的递归自我改进——工程师效率提升8倍，80%+合并代码由AI撰写，开放工程任务成功率从26%飙升至76%，研究决策中比人类选对方向64%</div>
+    <div class="meta">前沿模型 · 331 points · 438 comments</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">02</div>
+  <div class="body">
+    <div class="title">微软发布7款自研MAI模型</div>
+    <div class="desc">MAI-Thinking-1（1T参数/35B激活MoE，SWE-Bench Pro 53%）、MAI-Code-1-Flash、MAI-Image-2.5、MAI-Voice-2等，发布109页技术报告，强调零蒸馏、纯企业数据训练</div>
+    <div class="meta">模型发布 · Frontier Tuning · 部分开源</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span><span class="tag ma">MA</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">03</div>
+  <div class="body">
+    <div class="title">OpenAI 推出"Dreaming"记忆系统</div>
+    <div class="desc">跨会话记忆大升级：时间感知（理解7月旅行是过去/现在/未来）、记忆摘要面板可编辑、召回率41.5%→82.8%、Plus/Pro用户可用</div>
+    <div class="meta">产品更新 · Plus/Pro · 美国先行</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span><span class="tag ai">AI</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">04</div>
+  <div class="body">
+    <div class="title">VoidZero 加入 Cloudflare</div>
+    <div class="desc">Evan You 的 JS 工具链全家桶（Vite/Vitest/Rolldown/Oxc）归入 Cloudflare，项目保持开源，Cloudflare 投入100万美元生态基金</div>
+    <div class="meta">收购 · 开发者工具 · 572 points</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">05</div>
+  <div class="body">
+    <div class="title">Berkeley CS 挂科率飙升，AI 过度使用成罪魁</div>
+    <div class="desc">CS 10 课程挂科率达 35.3%（往年不足10%），CS 61A 达10.6%，教授指出学生过度依赖LLM完成作业、考试时缺乏独立解题能力、数学基础下滑</div>
+    <div class="meta">教育 · 732 points · 715 comments</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">06</div>
+  <div class="body">
+    <div class="title">Anthropic 开源 AI 漏洞发现框架</div>
+    <div class="desc">"Defending Code Reference Harness" 基于 Glasswing/Mythos 项目内部经验，提供自主扫描、识别和推理代码漏洞的 Agent 安全循环参考实现</div>
+    <div class="meta">安全 · 开源 · 266 points</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span><span class="tag gh">GitHub</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">07</div>
+  <div class="body">
+    <div class="title">Transformers 真的需要三个投影矩阵吗？</div>
+    <div class="desc">arXiv 论文系统研究 QKV 变体：2-projection、1-projection 甚至无投影变体的性能表现，挑战 Transformer 架构基础假设</div>
+    <div class="meta">研究 · 89 points</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span><span class="tag arxiv">arXiv</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">08</div>
+  <div class="body">
+    <div class="title">阿里开源 AI 代码审查 CLI 工具</div>
+    <div class="desc">"Open Code Review" —— 基于 AI 的代码审查命令行工具，帮助开发者自动检测代码质量、风格和潜在问题</div>
+    <div class="meta">开源 · 工具 · 30 points</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span><span class="tag gh">GitHub</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">09</div>
+  <div class="body">
+    <div class="title">"它们由权重构成"</div>
+    <div class="desc">一篇关于神经网络权重的诗意技术文章登顶 HN，1399 分创当日最高，从权重本质探讨 AI 的物理实在性</div>
+    <div class="meta">思想 · 1399 points · 624 comments</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">10</div>
+  <div class="body">
+    <div class="title">花 $1500 测试 LLM 能否攻破你的应用</div>
+    <div class="desc">开发者故意构建有漏洞的应用，投入$1500测试多种LLM的黑客能力，揭示AI在安全测试中的现状与局限</div>
+    <div class="meta">安全 · 实验 · 379 points</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">11</div>
+  <div class="body">
+    <div class="title">Anthropic 谈如何在产品中"管控"Claude</div>
+    <div class="desc">深入解读 Anthropic 跨产品的安全控制机制——如何确保 Claude 在多种场景下保持安全可控，含94条热评讨论</div>
+    <div class="meta">安全 · 治理 · 221 points</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">12</div>
+  <div class="body">
+    <div class="title">Meta 为已停产的 Portal 设备开启 ADB</div>
+    <div class="desc">Meta 在已停止支持的 Portal 智能屏幕上启用 Android Debug Bridge，变废为宝供开发者探索利用</div>
+    <div class="meta">硬件 · 逆向 · 44 points</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span></div>
+</div>
+
+<h2 class="section-header" style="margin-top: 32px;">📊 今日数据</h2>
+
+<div class="stats">
+  <div class="stat">
+    <div class="num">8×</div>
+    <div class="label">Anthropic 工程师<br>AI 辅助效率提升</div>
+  </div>
+  <div class="stat">
+    <div class="num">80%+</div>
+    <div class="label">Anthropic 代码库<br>由 Claude 撰写</div>
+  </div>
+  <div class="stat">
+    <div class="num">35.3%</div>
+    <div class="label">Berkeley CS 10<br>挂科率</div>
+  </div>
+  <div class="stat">
+    <div class="num">53%</div>
+    <div class="label">MAI-Thinking-1<br>SWE-Bench Pro</div>
+  </div>
+  <div class="stat">
+    <div class="num">82.8%</div>
+    <div class="label">OpenAI 记忆<br>召回率（提升后）</div>
+  </div>
+  <div class="stat">
+    <div class="num">1T</div>
+    <div class="label">MAI-Thinking-1<br>总参数量</div>
+  </div>
+</div>
+
+<h2 class="section-header">🔍 深度分析</h2>
+
+<div class="dive">
+  <h3><span class="num">01</span> AI 开始自我加速：Anthropic 的递归自我改进意味着什么</h3>
+  <p>Anthropic 在〈When AI Builds Itself〉报告中披露了一组令人震惊的数据：Claude 现在负责撰写超过80%的合并代码，工程师的产出效率达到2024年的8倍，开放式工程任务的成功率在6个月内从26%跃升至76%——这些数字指向一个核心事实：递归自我改进的循环正在快速闭合。当 AI 不仅能写代码，还能在研究人员走错方向时选择更好的下一步（64%胜率），这意味着 AI 开发 AI 已不再是理论。</p>
+  <p>与 Anthropic 同一天，微软发布了7款自研 MAI 模型，包括 1T 参数的 MAI-Thinking-1 和 137B/5B 激活的 MAI-Code-1-Flash，OpenAI 推出了能跨会话感知时间的 Dreaming 记忆系统——三巨头在同一天各自向前迈了一大步。这并非巧合：当一家实验室开始自我加速，其他所有玩家必须跟上节奏。Anthropic 特意强调他们不是"虚假警报"，并呼吁全球关注这一进程——包括可能的暂停。</p>
+  <p>更深层的信号在于：递归自我改进可能改变整个 AI 行业的竞争格局。如果 Claude 能持续帮助自身迭代，那么人才密度、资金规模这些传统优势会被自动化的研发飞轮快速抹平。Anthropic 对 Glasswing/Mythos 项目的内部经验催生了开源的漏洞发现框架，也是这一加速的外溢——AI 安全工具的进步本身就在加速。我们可能正在进入一个"超线性进步"阶段，而今天的这些数字只是开始。</p>
+  <div class="links">
+    <a href="https://www.anthropic.com/research/when-ai-builds-itself" target="_blank">Anthropic 原文</a>
+    <a href="https://news.ycombinator.com/item?id=40588219" target="_blank">HN 讨论</a>
+    <a href="https://github.com/anthropics/defending-code-reference-harness" target="_blank">开源框架</a>
+  </div>
+</div>
+
+<div class="dive">
+  <h3><span class="num">02</span> 微软携7款自研模型入场：AI 战场新局面</h3>
+  <p>微软 AI 部门（Mustafa Suleyman 领导）在 Build 2026 上一口气发布了7款自研 MAI 模型，涵盖推理、编码、图像、语音和转录全模态。旗舰模型 MAI-Thinking-1 以 1T 总参数/35B 激活的 MoE 架构取得了 SWE-Bench Pro 53% 的成绩（与 Claude Opus 4.6 竞争），AIME 2025 达97%。更关键的是，微软强调"零蒸馏"——所有训练数据均为干净、授权的企业数据，这在行业普遍从其他模型蒸馏知识的大环境下是一记重拳。</p>
+  <p>Frontier Tuning 是微软的另一张王牌：企业客户可以在私有数据上对 MAI 模型进行 RL 微调，创建专有的 Agent，效率宣称可达通用前沿模型的10倍。微软同时披露了与 McKinsey、Mayo Clinic 等大客户的合作案例。MAI-Code-1-Flash 已在 VS Code 和 GitHub Copilot 中部署——微软正在将其 AI 能力嵌入整个开发者生态。</p>
+  <p>战略意义上，这是微软从"投资+云服务商"向"前沿模型实验室"转型的标志。Mustafa Suleyman 说"通往前沿没有捷径"，而 MAI 模型与自研 Maia 200 芯片的协同形成了全栈闭环。值得注意的是，部分较小模型将开源——微软在押注一种混合策略：用开源吸引生态，用 Frontier Tuning 绑定企业客户。当 Anthropic 展示递归加速、OpenAI 升级记忆系统、微软亮出全栈模型矩阵，2026年的 AI 竞争进入了全面战争阶段。</p>
+  <div class="links">
+    <a href="https://x.com/mustafasuleyman/status/2062609054405447785" target="_blank">Mustafa 公告</a>
+    <a href="https://x.com/minchoi/status/2062368040226820322" target="_blank">分析解读</a>
+    <a href="https://x.com/i/status/2062525234193052109" target="_blank">模型综述</a>
+  </div>
+</div>
+
+<div class="dive">
+  <h3><span class="num">03</span> Berkeley CS 挂科率 35%：AI 时代的"三年级危机"</h3>
+  <p>UC Berkeley 的 CS 10 课程在2026年春季学期挂科率达到 35.3%，CS 61A 也达到 10.6%，而此前这些数字长期低于 10%。《Daily Californian》的报道将矛头指向了一个日益严重的问题：学生过度依赖 LLM 完成作业，导致根本性缺乏独立解题能力。一位教授直言："学生们对 LLM 依赖太重，到了考试时完全没有准备。"伴随而来的是基础数学能力的显著下滑——一些学生甚至无法在没有 AI 帮助的情况下完成基本线性代数。</p>
+  <p>这一现象在整个技术社区引发了激烈讨论。Hacker News 上该帖子获得了732分、715条评论。开发者们分享了自己的亲身经历：长期 AI 辅助编程后，手写线性代数能力严重退化。有人质疑："如果毕业生缺乏扎实的基础，CS 学位作为能力信号还可靠吗？"这场辩论触及了 AI 时代教育的深层矛盾——AI 工具极大提升生产力，但同时也让学习者绕过了培养基础理解的核心学习过程。</p>
+  <p>这里有个极具讽刺意味的注脚：线性代数正是训练 LLM 的核心数学工具。学生们在利用 AI 工具的同时，却在遗忘理解这些工具如何工作所需的数学基础。这不仅是 Berkeley 的问题——全球计算机教育都面临同样的拷问：是禁止 AI、改革考核方式（增加手写/监考部分），还是将 AI 素养本身纳入课程设计？文章提到助教和教师短缺也是因素之一，但 AI 过度依赖是新变量中最具破坏力的一个。教育体系与技术进步之间的裂痕，正在以挂科率的形式被曝光。</p>
+  <div class="links">
+    <a href="https://www.dailycal.org/2026/06/04/failing-grades-soar-with-ai-usage" target="_blank">Daily Cal 原文</a>
+    <a href="https://news.ycombinator.com/item?id=40587427" target="_blank">HN 讨论</a>
+    <a href="https://x.com/hoofnagle/status/2062497287935246360" target="_blank">X 讨论</a>
+  </div>
+</div>
+
+<div class="footer">
+  <p>📅 2026年6月5日 · 每日AI精选</p>
+  <p>来源：Hacker News · X/Twitter · arXiv</p>
+  <p><a href="index.html">← 返回目录</a> · <a href="https://github.com/macmini_j/daily-ai-digest">GitHub</a></p>
+  <p style="margin-top: 8px; font-size: 12px;">由 Hermes Agent 自动生成 · 每天 09:07 更新</p>
+</div>
+
+</body>
+</html>
