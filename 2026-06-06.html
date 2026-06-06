@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日AI精选 — 2026年6月6日</title>
+<style>
+:root {
+  --page:      #fdfaf3;
+  --surface:   #fcfaf5;
+  --border:    #e8dcc8;
+  --text:      #2c2416;
+  --muted:     #7a6e5c;
+  --accent:    #8b6914;
+  --accent-lt: #b8942e;
+  --positive:  #4d7c0f;
+  --warning:   #b45309;
+  --info:      #0e7490;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+  background: var(--page);
+  color: var(--text);
+  line-height: 1.7;
+  padding: 0;
+}
+.container { max-width: 720px; margin: 0 auto; padding: 32px 20px 60px; }
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 48px 0 32px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 32px;
+}
+.badge {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  font-size: 13px;
+  letter-spacing: 2px;
+  padding: 4px 16px;
+  border-radius: 20px;
+  margin-bottom: 16px;
+}
+.hero h1 { font-size: 32px; font-weight: 700; margin-bottom: 8px; }
+.hero .subtitle { font-size: 16px; color: var(--muted); margin-bottom: 12px; }
+.hero .key-stories {
+  font-size: 14px;
+  color: var(--accent-lt);
+  margin-bottom: 8px;
+}
+.hero .sources {
+  font-size: 12px;
+  color: var(--muted);
+}
+.hero .sources span { margin: 0 4px; }
+
+/* Theme blockquote */
+.theme {
+  background: var(--surface);
+  border-left: 4px solid var(--accent);
+  padding: 20px 24px;
+  margin-bottom: 32px;
+  border-radius: 0 8px 8px 0;
+  font-size: 15px;
+  color: var(--text);
+  line-height: 1.8;
+}
+.theme strong { color: var(--accent); }
+
+/* Section header */
+.sec-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding-top: 8px;
+}
+.sec-header h2 {
+  font-size: 20px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.sec-header .line {
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+.sec-header .count {
+  font-size: 13px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+/* News items */
+.news-item {
+  display: flex;
+  gap: 14px;
+  padding: 16px 0;
+  border-bottom: 1px solid #f0e8d8;
+}
+.news-item:last-child { border-bottom: none; }
+.news-item .idx {
+  width: 32px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent);
+  flex-shrink: 0;
+  text-align: right;
+  line-height: 1.5;
+}
+.news-item .body { flex: 1; min-width: 0; }
+.news-item .title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  line-height: 1.4;
+}
+.news-item .desc {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 6px;
+  line-height: 1.5;
+}
+.news-item .meta {
+  font-size: 12px;
+  color: var(--muted);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+.news-item .tags {
+  display: flex;
+  gap: 4px;
+  flex-shrink: 0;
+  align-items: flex-start;
+  padding-top: 2px;
+}
+.tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 1px 8px;
+  border-radius: 10px;
+  letter-spacing: 0.3px;
+}
+.tag.hn { background: rgba(255,102,0,.1); color: #ff6600; }
+.tag.x  { background: rgba(29,161,242,.1); color: #1da1f2; }
+.tag.ph { background: rgba(218,85,47,.1); color: #da552f; }
+.tag.ma { background: rgba(0,120,212,.1); color: #0078d4; }
+.tag.gh { background: rgba(51,51,51,.1); color: #333; }
+
+/* Stats grid */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 32px;
+}
+.stat {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+}
+.stat .num {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+.stat .label {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+/* Deep dives */
+.dive {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 16px;
+}
+.dive h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.dive h3 .num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 50%;
+  font-size: 13px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+.dive p {
+  font-size: 15px;
+  line-height: 1.8;
+  margin-bottom: 12px;
+  color: var(--text);
+}
+.dive p:last-of-type { margin-bottom: 14px; }
+.dive .links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 13px;
+}
+.dive .links a {
+  color: var(--accent-lt);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--border);
+}
+.dive .links a:hover { color: var(--accent); }
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 32px 0 16px;
+  border-top: 1px solid var(--border);
+  margin-top: 32px;
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 2;
+}
+.footer a {
+  color: var(--accent-lt);
+  text-decoration: none;
+}
+.footer a:hover { text-decoration: underline; }
+
+@media (max-width: 600px) {
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  .container { padding: 20px 16px 40px; }
+  .hero h1 { font-size: 26px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Hero -->
+<div class="hero">
+  <div class="badge">每日AI精选</div>
+  <h1>2026年6月6日 · 星期六</h1>
+  <div class="subtitle">12条精选新闻 + 3篇深度分析</div>
+  <div class="key-stories">AI自我进化临界点 · 本地Agent爆发 · 算力军备竞赛</div>
+  <div class="sources">
+    来源：<span>Hacker News</span> · <span>X/Twitter</span> · <span>GitHub</span>
+  </div>
+</div>
+
+<!-- Today's Theme -->
+<div class="theme">
+  <strong>📌 今日主题：AI 进入"自我进化"临界点</strong><br><br>
+  Anthropic 公开通向递归自我改进（RSI）的路线图，Claude 已编写其 80% 以上的生产代码；Google 推出 Gemma 4 12B 和 QAT 压缩版本，实现笔记本电脑级别的离线多模态 AI；字节跳动开源 TARS 桌面 Agent（29k Stars），全套本地运行。与此同步，Anthropic 获得 350 亿美元债务融资用于 TPU 租赁，TSMC 警告芯片供不应求将持续数年——AI 的能力、基础模型和基础设施正同步迈入新纪元。
+</div>
+
+<!-- 精选新闻 -->
+<div class="sec-header">
+  <h2>精选新闻</h2>
+  <div class="line"></div>
+  <span class="count">12 条</span>
+</div>
+
+<div class="news-item">
+  <div class="idx">01</div>
+  <div class="body">
+    <div class="title">Anthropic 铺路递归自我改进 AI</div>
+    <div class="desc">Claude 已编写 Anthropic 80%+ 生产代码，公司正式规划 RSI 路线图——AI 自主设计更好的后代</div>
+    <div class="meta">AI 进化 · 自主智能 · <span class="tag x">X</span><span class="tag hn">HN</span></div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">02</div>
+  <div class="body">
+    <div class="title">Google Gemma 4 12B 正式发布</div>
+    <div class="desc">多模态模型（视觉+语音+推理），16GB 内存即可本地运行，Apache 2.0 开源，无需独立编码器</div>
+    <div class="meta">模型发布 · 本地 AI · <span class="tag x">X</span><span class="tag hn">HN</span><span class="tag ma">MA</span></div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">03</div>
+  <div class="body">
+    <div class="title">Gemma 4 QAT：移动端量化压缩</div>
+    <div class="desc">Google 发布 QAT 版本，26B 模型压缩至 7.2GB、E2B 压缩至 1GB，面向 Apple NPU 优化</div>
+    <div class="meta">模型优化 · 端侧部署 · <span class="tag hn">HN</span><span class="tag x">X</span></div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">04</div>
+  <div class="body">
+    <div class="title">字节跳动开源 TARS 桌面 Agent</div>
+    <div class="desc">29K GitHub Stars，100% 本地运行，纯视觉操作桌面（无 API 依赖），支持预订机票/编辑表格</div>
+    <div class="meta">开源 · Agent · 隐私 · <span class="tag x">X</span><span class="tag gh">GH</span></div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">05</div>
+  <div class="body">
+    <div class="title">OpenAI 全面升级 ChatGPT 记忆系统</div>
+    <div class="desc">新增可查看/编辑的记忆摘要，支持离线记忆整合，用户可主动控制模型记住什么</div>
+    <div class="meta">产品更新 · 用户体验 · <span class="tag x">X</span></div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">06</div>
+  <div class="body">
+    <div class="title">Anthropic 获 $350 亿债务融资</div>
+    <div class="desc">Apollo + Blackstone 联合出资，Broadcom 提供后盾支持，用于大规模租赁 TPU 算力</div>
+    <div class="meta">融资 · 算力 · 基础设施 · <span class="tag x">X</span><span class="tag hn">HN</span></div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">07</div>
+  <div class="body">
+    <div class="title">TSMC：AI 芯片需求将多年供不应求</div>
+    <div class="desc">台积电公开表示 AI 芯片产能扩张速度无法跟上需求增长，"瓶颈将持续数年"</div>
+    <div class="meta">硬件 · 供应链 · <span class="tag x">X</span><span class="tag hn">HN</span></div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">08</div>
+  <div class="body">
+    <div class="title">Microsoft 开源 pg_durable</div>
+    <div class="desc">基于 PostgreSQL 的持久化执行引擎，无需外部协调器，307 点 HN 榜首，最适合 AI 工作流</div>
+    <div class="meta">开源 · 基础设施 · <span class="tag hn">HN</span><span class="tag x">X</span></div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">09</div>
+  <div class="body">
+    <div class="title">阿里巴巴开源 Open Code Review</div>
+    <div class="desc">内部使用 2 年、排查数百万缺陷的 AI 代码审查 CLI 工具，确定性+Agent 混合架构</div>
+    <div class="meta">开源 · DevOps · <span class="tag hn">HN</span><span class="tag gh">GH</span></div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">10</div>
+  <div class="body">
+    <div class="title">Claude rsync 争议：数据说了什么</div>
+    <div class="desc">独立分析显示 Claude 参与的 rsync 提交 bug 率（2.50/10次）低于历史基线（5.52/10次），p=0.48</div>
+    <div class="meta">AI 编码 · 争议 · <span class="tag hn">HN</span><span class="tag x">X</span></div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">11</div>
+  <div class="body">
+    <div class="title">机器人 + Agent 流量超越人类互联网流量</div>
+    <div class="desc">Cloudflare CEO 披露：自动化流量（Bot + AI Agent）已正式超过人类用户产生的流量</div>
+    <div class="meta">行业标志 · 互联网生态 · <span class="tag x">X</span></div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">12</div>
+  <div class="body">
+    <div class="title">NVIDIA 密集开源模型矩阵</div>
+    <div class="desc">Alpamayo（自动驾驶 VLA）、Nemotron 系列（长时 Agent）、SANA-WM（世界模型）等密集发布</div>
+    <div class="meta">开源 · 模型 · 生态 · <span class="tag x">X</span></div>
+  </div>
+</div>
+
+<!-- Stats -->
+<div class="sec-header" style="margin-top: 32px;">
+  <h2>今日数据</h2>
+  <div class="line"></div>
+</div>
+
+<div class="stats">
+  <div class="stat">
+    <div class="num">80%+</div>
+    <div class="label">Anthropic 生产代码<br>由 Claude 编写</div>
+  </div>
+  <div class="stat">
+    <div class="num">29K</div>
+    <div class="label">TARS 桌面 Agent<br>GitHub Stars</div>
+  </div>
+  <div class="stat">
+    <div class="num">$35B</div>
+    <div class="label">Anthropic 债务融资<br>TPU 租赁</div>
+  </div>
+  <div class="stat">
+    <div class="num">~55%</div>
+    <div class="label">Claude rsync bug率<br>较基线下降</div>
+  </div>
+  <div class="stat">
+    <div class="num">307</div>
+    <div class="label">pg_durable<br>HN 点数</div>
+  </div>
+  <div class="stat">
+    <div class="num">12B</div>
+    <div class="label">Gemma 4 参数量<br>本地多模态</div>
+  </div>
+</div>
+
+<!-- Deep Dives -->
+<div class="sec-header">
+  <h2>深度分析</h2>
+  <div class="line"></div>
+  <span class="count">3 篇</span>
+</div>
+
+<div class="dive">
+  <h3><span class="num">01</span> 本地 AI Agent 全面爆发：从 Gemma 4 到 TARS</h3>
+  <p>本周最清晰的结构性信号来自 Google 的 Gemma 4 12B 和字节跳动的 TARS 桌面 Agent。前者以 Apache 2.0 开源了一个在 16GB 统一内存上即可运行的完整多模态模型——视觉直接嵌入 LLM 骨干，无需独立编码器，意味着用户可以在离线笔记本上获得与云端相当的理解能力。配合 QAT 量化版本（E2B 压缩至 1GB），端侧部署的门槛已从"实验性"降低到"产品级"。</p>
+  <p>而 TARS 的横空出世展示了更激进的可能性：一个完全本地运行、仅凭视觉截图操作桌面 GUI 的 Agent，29K Stars 验证了开发者社区对"隐私优先+自主操控"的强烈需求。它不依赖 DOM 解析或平台 API，意味着未来任何应用——无论是否提供 API——都可以被 Agent 操控。这标志着 Computer Use Agent 的范式从云端的"远程控制"转向本地的"无缝代理"。</p>
+  <p>深层信号：这两个项目合在一起定义了 2026 年 Q3 的竞争基线——<strong>多模态 + 本地化 + 离线运行 + 可操控一切</strong>。云 API 的"按 token 收费"模型面临挑战：当模型能在本地免费运行、无需网络、保护隐私，为什么还要为每次对话付费？预计未来三个月内，每个主流模型家族都会推出本地 Agent 版本。这将对 SaaS 商业模式和用户数据主权产生深远影响。</p>
+  <div class="links">
+    <a href="https://blog.google" target="_blank">Google AI Blog</a>
+    <a href="https://github.com/bytedance/TARS" target="_blank">TARS GitHub</a>
+    <a href="https://news.ycombinator.com/item?id=40575000" target="_blank">HN Discussion</a>
+  </div>
+</div>
+
+<div class="dive">
+  <h3><span class="num">02</span> 递归自我改进：AI 进化的"起飞点"临近</h3>
+  <p>Anthropic 的 RSI 路线图可能是一个历史节点。其核心主张是：一旦 AI 系统能够可靠地帮助改进 AI 系统本身（包括架构设计、训练策略、数据筛选），进步速度将从"线性"变为"指数级"。Claude 目前已编写 Anthropic 超过 80% 的生产代码——这不只是辅助编程，而是 AI 深度参与自身基础设施的构建。RSI 的关键前提（AI 在其他系统上展示出接近人类的推理和改进能力）正在被多个实证数据支撑。</p>
+  <p>同时，Claude rsync 数据分析提供了重要佐证：在核心里程碑级的 C 代码库上，AI 辅助的提交不仅没有增加 bug，反而将 bug 率降至历史基线的 45% 左右（尽管统计显著性有限）。这与 Alibaba Open Code Review 的内部结论一致——经过两年、数百万缺陷的验证，AI 代码审查在工程化后实现了比纯人工审查更高的一致性。</p>
+  <p>RSI 的更大含义是经济层面的。<strong>当 AI 本身成为 AI 研发中最具生产力的"员工"</strong>，人才市场的价值将从"会编程的人"转向"能定义问题、设计奖励函数、构建评估框架的人"。同时，"超级对齐"问题的紧迫性急剧上升——一个自主改进的系统，如果在初始阶段有微小的偏向，可能在自循环中被指数级放大。Anthropic 与竞争实验室在生物武器防御上的合作，正是对这一风险的早期响应。</p>
+  <div class="links">
+    <a href="https://x.com/TheRundownAI/status/2062844467237773725" target="_blank">The Rundown AI</a>
+    <a href="https://x.com/AiDevCraft/status/2062977150685524447" target="_blank">Rsync 数据分析</a>
+    <a href="https://github.com/alibaba/open-code-review" target="_blank">Open Code Review</a>
+  </div>
+</div>
+
+<div class="dive">
+  <h3><span class="num">03</span> 算力军备竞赛：$350 亿押注与芯片瓶颈</h3>
+  <p>Anthropic 获得 350 亿美元债务融资（Apollo + Blackstone + Broadcom），专门用于租赁 TPU 算力——这是 AI 公司历史上最大规模的融资之一。结合 TSMC 明确表态"AI 芯片需求将连续多年超过供应"，两条新闻共同勾勒出当前 AI 行业的根本矛盾：<strong>模型能力仍在快速增长，但支撑其运行的物理资源正在成为稀缺瓶颈</strong>。</p>
+  <p>这种供给紧张正在重塑整个行业结构。Broadcom 作为 Anthropic 交易的后盾方，表明芯片设计公司正在从"卖芯片"转向"租算力"的金融化模式。这与此前 Microsoft 与 OpenAI 的算力租赁模式一脉相承。Cloudflare CEO 的"Bot + Agent 流量超越人类"则从另一个角度印证了这一趋势：计算不再是"人类使用软件"的成本，而是"AI 运行基础设施"的成本。</p>
+  <p>展望：当训练算力被锁定在长期金融合约中，小型创业公司和研究机构的进入壁垒会进一步抬高。但这也催生了另一条路径——本地模型优化（如 Gemma 4 QAT 带来的 10 倍压缩）和更高效的架构（MoE、蒸馏等）。<strong>未来 12-18 个月，AI 行业的竞争将从"谁的模型最大"转向"谁的单位算力产出最高"</strong>——无论是在云端租赁还是在本地运行。PG_durable 这样的基础设施工具，则是在应用层面最大化利用有限算力的微观案例。</p>
+  <div class="links">
+    <a href="https://x.com/ainews_24_7/status/2063048216350691752" target="_blank">Anthropic $35B 融资</a>
+    <a href="https://x.com/theneurondaily/status/2062901657067737169" target="_blank">TSMC 芯片供给</a>
+    <a href="https://github.com/microsoft/pg_durable" target="_blank">pg_durable GitHub</a>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  每日AI精选 · 2026年6月6日<br>
+  <a href="index.html">← 返回目录</a> · 
+  <a href="https://github.com/macmini-j/daily-ai-digest" target="_blank">GitHub 仓库</a><br>
+  数据来源：Hacker News · X/Twitter · GitHub
+</div>
+
+</div>
+</body>
+</html>
