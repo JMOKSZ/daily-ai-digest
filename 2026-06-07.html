@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日AI精选 · 2026年6月7日</title>
+<style>
+:root {
+  --page: #fdfaf3;
+  --surface: #fcfaf5;
+  --border: #e8dcc8;
+  --text: #2c2416;
+  --muted: #7a6e5c;
+  --accent: #8b6914;
+  --accent-lt: #b8942e;
+  --positive: #4d7c0f;
+  --warning: #b45309;
+  --info: #0e7490;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
+  background: var(--page);
+  color: var(--text);
+  line-height: 1.6;
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 40px 20px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 32px;
+}
+.badge {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  padding: 6px 18px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+}
+.hero h1 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.hero .subtitle {
+  font-size: 15px;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+.hero .subtitle strong { color: var(--accent); }
+.hero .tags {
+  margin-top: 10px;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.hero .tag-item {
+  display: inline-block;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 4px 12px;
+  border-radius: 14px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.hero .sources {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 12px;
+}
+
+/* Theme quote */
+.theme {
+  background: var(--surface);
+  border-left: 4px solid var(--accent);
+  padding: 16px 20px;
+  margin-bottom: 32px;
+  border-radius: 0 8px 8px 0;
+}
+.theme .label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+.theme p {
+  font-size: 15px;
+  color: var(--text);
+}
+
+/* Section title */
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--border);
+}
+
+/* News items */
+.news-list { display: flex; flex-direction: column; gap: 12px; margin-bottom: 40px; }
+
+.news-item {
+  display: flex;
+  gap: 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px;
+  transition: border-color .2s;
+}
+.news-item:hover { border-color: var(--accent-lt); }
+
+.idx {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.body { flex: 1; min-width: 0; }
+.body .title {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 3px;
+}
+.body .desc {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+.body .meta {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 5px;
+}
+
+.tags {
+  flex-shrink: 0;
+  display: flex;
+  gap: 5px;
+  align-items: flex-start;
+}
+
+.tag {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 600;
+}
+.tag.hn { background: rgba(255,102,0,.1); color: #ff6600; }
+.tag.x  { background: rgba(29,161,242,.1); color: #1da1f2; }
+.tag.ph { background: rgba(218,85,47,.1); color: #da552f; }
+.tag.ma { background: rgba(0,120,212,.1); color: #0078d4; }
+.tag.ch { background: rgba(139,105,20,.1); color: var(--accent); }
+
+/* Stats */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 40px;
+}
+.stat {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 18px 14px;
+  text-align: center;
+}
+.stat .num {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+.stat .label {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* Deep dives */
+.dives { margin-bottom: 40px; }
+.dive {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 16px;
+}
+.dive h3 {
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.dive h3 .num {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 26px;
+  font-size: 13px;
+  margin-right: 8px;
+}
+.dive p {
+  font-size: 14px;
+  color: #444;
+  margin-bottom: 10px;
+  line-height: 1.7;
+}
+.dive .links {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
+.dive .links a {
+  display: inline-block;
+  margin-right: 12px;
+  font-size: 13px;
+  color: var(--accent-lt);
+  text-decoration: none;
+}
+.dive .links a:hover { text-decoration: underline; }
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 24px;
+  border-top: 1px solid var(--border);
+  font-size: 13px;
+  color: var(--muted);
+}
+.footer a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+@media (max-width: 600px) {
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  .hero h1 { font-size: 26px; }
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="badge">每日AI精选</div>
+  <h1>2026年6月7日 · 周日</h1>
+  <div class="subtitle">
+    S&P 500拒绝AI三巨头 · Google×SpaceX $300亿算力交易 · DeepSeek $74亿融资
+  </div>
+  <div class="tags">
+    <span class="tag-item">🔥 15条精选</span>
+    <span class="tag-item">📊 3个深度分析</span>
+    <span class="tag-item">💰 资本博弈</span>
+    <span class="tag-item">🤖 Agent崛起</span>
+  </div>
+  <div class="sources">来源: Hacker News · X · TechCrunch · Ars Technica</div>
+</div>
+
+<div class="theme">
+  <div class="label">📌 今日主题</div>
+  <p>AI行业的资本结构正在经历前所未有的重塑。S&P 500拒绝SpaceX、OpenAI和Anthropic，揭示了高估值与盈利能力之间的根本矛盾；而Google每月向SpaceX支付$9.2亿租用GPU，又暴露了算力供应链的极度紧张。另一边，DeepSeek以$590亿估值完成$74亿融资，证明"高效开源"路线已成为全球AI竞争的重要一极。资本市场、算力基建、开源生态三线同时共振，AI行业正在进入"大分化"阶段。</p>
+</div>
+
+<div class="section-title">精选新闻 · 15条</div>
+
+<div class="news-list">
+
+<div class="news-item">
+  <div class="idx">01</div>
+  <div class="body">
+    <div class="title">S&P 500拒绝SpaceX、OpenAI和Anthropic准入</div>
+    <div class="desc">标普500拒绝为SpaceX破例，同时因持续亏损拒绝对OpenAI和Anthropic给予资格豁免。三家公司均不满足连续四季度GAAP盈利要求。</div>
+    <div class="meta">资本市场 · 估值 $350B+ · SpaceX营收$87亿仍亏损 · 1361 HN点</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">02</div>
+  <div class="body">
+    <div class="title">Google每月支付SpaceX $9.2亿租用算力</div>
+    <div class="desc">SEC文件披露Google以约$920M/月租用SpaceX约11万块NVIDIA GPU，合同至2029年6月，总额约$300亿。被指"循环融资"引发争议。</div>
+    <div class="meta">算力基建 · $920M/月 · 110K GPU · 合同到2029 · 405 HN点</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">03</div>
+  <div class="body">
+    <div class="title">DeepSeek完成$74亿融资，估值达$590亿</div>
+    <div class="desc">腾讯、宁德时代及国资基金参投，创始人梁文锋个人出资约$30亿保持控制权。DeepSeek凭借MoE架构和极低推理成本在美国企业市场快速增长。</div>
+    <div class="meta">融资 · $59B估值 · MoE架构 · 美国企业采用率飙升</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">04</div>
+  <div class="body">
+    <div class="title">Meta确认数千Instgram账户被AI聊天机器人入侵</div>
+    <div class="desc">黑客利用Meta AI聊天机器人的漏洞绕过验证系统，攻击数千Instagram账户。引发对AI安全边界的广泛讨论。</div>
+    <div class="meta">AI安全 · 393 HN点 · 144评论 · 账户劫持</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">05</div>
+  <div class="body">
+    <div class="title">NVIDIA提出Windows PC"怪兽级"CPU方案</div>
+    <div class="desc">NVIDIA正在推动一款面向Windows PC的高性能CPU系统设计，引发422条评论热议。或将重塑AI PC的硬件格局。</div>
+    <div class="meta">AI硬件 · 225 HN点 · 422评论 · Computex背景</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">06</div>
+  <div class="body">
+    <div class="title">Base推出MCP Gateway：AI代理接入链上DeFi</div>
+    <div class="desc">Coinbase L2推出MCP Gateway，让Claude/ChatGPT等AI通过OAuth认证执行Uniswap兑换、Morpho借贷等链上操作，用户手动授权。</div>
+    <div class="meta">Agent经济 · DeFi · Base L2 · OAuth · 自然语言交易</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">07</div>
+  <div class="body">
+    <div class="title">Google发布Gemma 4 12B多模态模型</div>
+    <div class="desc">优化端侧部署的多模态模型，支持QAT量化感知训练，体积压缩至约1GB。已支持Ollama、vLLM等推理框架。</div>
+    <div class="meta">模型发布 · 12B参数 · 多模态 · 端侧部署 · ~1GB</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">08</div>
+  <div class="body">
+    <div class="title">OpenAI与特朗普政府商谈美国政府持股</div>
+    <div class="desc">OpenAI正在探讨美国政府以捐赠形式获得公司股权的方案，可能使美国纳税人拥有OpenAI的部分所有权。标志性政策动向。</div>
+    <div class="meta">政策·融资 · 政府持股 · 主权基金 · 纳税人权益</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">09</div>
+  <div class="body">
+    <div class="title">Suno完成$4亿融资，估值$54亿</div>
+    <div class="desc">AI音乐生成赛道持续升温，Suno以$54亿估值完成新一轮融资，验证AI在创意产业领域的商业价值。</div>
+    <div class="meta">融资 · AI音乐 · $5.4B估值 · 创意AI</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">10</div>
+  <div class="body">
+    <div class="title">TSMC警告：AI芯片需求将供不应求数年</div>
+    <div class="desc">台积电发出警告，AI芯片产能扩张速度跟不上需求爆炸式增长，供应瓶颈在可预见的未来难以缓解。</div>
+    <div class="meta">半导体 · 产能瓶颈 · 供应紧张</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">11</div>
+  <div class="body">
+    <div class="title">OpenAI发布Codex"Vibe Coding"功能</div>
+    <div class="desc">Harness工程博文详解Codex在Agent-first世界的实践，Cursor同步跟进。自然语言编程工具链加速成熟。</div>
+    <div class="meta">开发工具 · Agent · Cursor · 自然语言编程</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">12</div>
+  <div class="body">
+    <div class="title">纽约州首创AI生成内容强制披露法</div>
+    <div class="desc">美国首个要求AI生成人物、图片、声音必须明确披露的州级法案生效，为AI监管树立里程碑式先例。</div>
+    <div class="meta">政策监管 · 纽约 · AI披露 · 立法先例</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">13</div>
+  <div class="body">
+    <div class="title">OpenAI重塑ChatGPT记忆，加入"Dreaming"组件</div>
+    <div class="desc">ChatGPT记忆系统重大升级，新增"Dreaming"组件使模型能对存储信息进行联想和推理，而非简单检索。</div>
+    <div class="meta">产品更新 · ChatGPT · 记忆系统 · 推理</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">14</div>
+  <div class="body">
+    <div class="title">Ask HN：你的GenAI"oh shit"时刻是什么？</div>
+    <div class="desc">Hacker News发起的大型反思帖，939条评论分享GenAI出错的惊人案例，从代码幻觉到错误决策。</div>
+    <div class="meta">反思 · 541 HN点 · 939评论 · AI可靠性</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">15</div>
+  <div class="body">
+    <div class="title">AI药物Rentosertib抗纤维化Phase 2结果强劲</div>
+    <div class="desc">AI设计的Rentosertib（抗纤维化药物）在二期临床试验中展示出强劲疗效，显著缩短传统药物研发时间线。</div>
+    <div class="meta">AI制药 · Phase 2 · 临床验证 · 纤维化</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+</div>
+
+<div class="section-title">今日数据</div>
+
+<div class="stats">
+  <div class="stat">
+    <div class="num">$300亿</div>
+    <div class="label">Google×SpaceX算力合同</div>
+  </div>
+  <div class="stat">
+    <div class="num">$7.4B</div>
+    <div class="label">DeepSeek本轮融资</div>
+  </div>
+  <div class="stat">
+    <div class="num">$59B</div>
+    <div class="label">DeepSeek估值</div>
+  </div>
+  <div class="stat">
+    <div class="num">1,361</div>
+    <div class="label">S&P 500拒绝帖 HN点</div>
+  </div>
+  <div class="stat">
+    <div class="num">939</div>
+    <div class="label">"oh shit"帖评论数</div>
+  </div>
+  <div class="stat">
+    <div class="num">110K</div>
+    <div class="label">SpaceX租出GPU数量</div>
+  </div>
+</div>
+
+<div class="section-title">深度分析</div>
+
+<div class="dives">
+
+<div class="dive">
+  <h3><span class="num">01</span> 资本市场 vs AI基建：S&P 500站台与Google的$300亿算力押注</h3>
+  <p>6月6日曝出的两条消息看似独立，实则指向同一个核心矛盾：AI行业正在以"烧钱换增长"的模式狂奔，但资本市场传统规则已经跟不上。S&P 500拒绝SpaceX、OpenAI和Anthropic的准入，原因简单而残酷——这三家全球估值最高的科技公司没有一家实现GAAP盈利。SpaceX年营收$87亿仍亏损，OpenAI和Anthropic合计亏损超数十亿美元。这意味着$12-13万亿的被动指数基金无法自动买入这些公司。</p>
+  <p>与此同时，Google披露每月向SpaceX支付$9.2亿租用11万块NVIDIA GPU，合同至2029年总额约$300亿。这笔交易暴露了两个真相：一是就连Google这种级别的超大规模云厂商也面临严重的算力短缺，必须向外寻求GPU集群；二是SpaceX正在将xAI的Colossus集群等算力资产货币化，年化收入或达$260亿，为潜在IPO铺路。但批评者指责这是"循环融资"——Google持有SpaceX约6%股份，大额支付可能人为推高其估值。</p>
+  <p><strong>信号解读</strong>：AI行业的资本结构正在进入"分裂期"。一边是公开市场用传统盈利标准丈量AI公司，导致它们无法享受指数基金红利；另一边是AI算力需求驱动着远超正常水平的天价合同和私募融资。这加大了市场泡沫风险——如果AI增长放缓，缺乏公开市场支撑的高估值将面临剧烈调整。DeepSeek以$590亿估值融资而未被公开市场"审判"，恰恰说明当前资本的流向正在绕过传统通道。</p>
+  <div class="links">
+    <a href="https://arstechnica.com/" target="_blank">Ars Technica: S&P 500拒绝详情</a>
+    <a href="https://techcrunch.com/" target="_blank">TechCrunch: Google×SpaceX交易</a>
+    <a href="https://news.ycombinator.com/front" target="_blank">Hacker News讨论帖</a>
+  </div>
+</div>
+
+<div class="dive">
+  <h3><span class="num">02</span> Base MCP Gateway：AI Agent的金融基础设施时刻</h3>
+  <p>Coinbase的Layer 2网络Base推出MCP Gateway，让AI代理通过自然语言直接执行链上DeFi操作——用Claude说一句"把500 USDC换成ETH"，经OAuth授权后即可在Uniswap上完成交易。这不是一个普通的API集成，它标志着AI代理从"信息助理"向"金融行动者"的关键跃迁。MCP（Model Context Protocol）作为Anthropic推广的开放标准，正在成为AI连接外部世界的"USB-C接口"。</p>
+  <p>其设计精妙之处在于安全模型：AI不持有私钥，所有交易通过Base账户OAuth认证发起，最终需要用户手动批准。这既实现了"AI建议→用户执行"到"AI发起→用户审批"的流程升级，又保留了关键的安全边界。上线已支持Uniswap、Aerodrome（兑换）、Morpho（借贷）、Avantis（永续合约）等主流DeFi协议，开发者可通过自定义Skill扩展。</p>
+  <p><strong>信号解读</strong>：Base MCP Gateway是"Agent金融"的早期基础设施。结合Cursor/Codex的Vibe Coding功能、Vercel的600K+ Skills API、Apple将iMessage变成"Agent商店"的传闻——我们正在目睹AI Agent从编程助手扩展到金融、消费、社交等垂直领域的系统化进程。当Agent能自动管理投资组合、执行DeFi策略、并与Coinbase的合规框架结合时，"自主AI财务顾问"将不再是概念，而是可用的产品。这或许比下一个大模型发布更具长期影响力。</p>
+  <div class="links">
+    <a href="https://x.com/miyoshi_iam/status/2063401824129011742" target="_blank">Base MCP Gateway宣布帖</a>
+    <a href="https://base.org/" target="_blank">Base官网</a>
+    <a href="https://x.com/agentnative_/status/2063406421996081351" target="_blank">Agent工具生态汇总</a>
+  </div>
+</div>
+
+<div class="dive">
+  <h3><span class="num">03</span> DeepSeek $74亿 vs Gemma 4：开源模型的两条路</h3>
+  <p>同一天，两种截然不同的"开源AI"路线同时取得重要进展。DeepSeek以$590亿估值完成$74亿融资，腾讯、宁德时代和国资基金入局，创始人梁文锋自掏$30亿维持控制权。而Google推出了Gemma 4 12B——一款面向端侧部署的多模态小模型，支持QAT量化至~1GB，已适配Ollama和vLLM。它们都代表"开放权重"，但战略定位完全不同。</p>
+  <p>DeepSeek走的是"效率型前沿"路线：没有消费者App，没有语音/视频模型，纯API/Infrastructure打法。凭借MoE架构和稀疏化设计，DeepSeek在推理成本上碾压同等能力的西方模型——这也是为什么它在美国企业采用率指数级增长的原因。对于注重数据隐私和推理成本的企业来说，DeepSeek正成为OpenAI/Anthropic之外的第三选择。而Gemma 4 12B则代表了Google的"端侧渗透"战略——在设备本地运行多模态AI，无需联网，覆盖更广泛的使用场景。</p>
+  <p><strong>信号解读</strong>：AI开源生态正在分化为"高效能前沿"和"嵌入式端侧"两条差异化赛道。DeepSeek证明了"被制裁反而倒逼创新"的逻辑——美国芯片出口限制迫使中国团队在算法效率上做到极致。而Gemma 4则显示Google正在从云端大模型向全栈覆盖延伸。对开发者而言，关键问题不再是"开源还是闭源"，而是"你的场景需要多大模型、多少成本、多低延迟"。2026年下半年，这两条路线的竞争将直接决定AI成本曲线的下降速度。</p>
+  <div class="links">
+    <a href="https://x.com/ChinaAIDispatch/status/2063261172233892223" target="_blank">DeepSeek融资详情</a>
+    <a href="https://x.com/zangoalpha/status/2063258348376506388" target="_blank">Gemma 4 12B发布汇总</a>
+    <a href="https://huggingface.co/google" target="_blank">HuggingFace: Gemma 4</a>
+  </div>
+</div>
+
+</div>
+
+<div class="footer">
+  <p>每日AI精选 · 2026年6月7日</p>
+  <p>来源: Hacker News · X · TechCrunch · Ars Technica</p>
+  <p><a href="index.html">← 返回每日精选首页</a> · <a href="https://github.com/your-repo">GitHub 仓库</a></p>
+  <p style="margin-top: 8px; font-size: 12px; color: #aaa;">自动生成 · 内容仅供参考，不构成投资建议</p>
+</div>
+
+</body>
+</html>
