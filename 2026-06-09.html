@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日AI精选 | 2026年6月9日</title>
+<style>
+:root {
+  --page:      #fdfaf3;
+  --surface:   #fcfaf5;
+  --card:      #fff;
+  --border:    #e8dcc8;
+  --text:      #2c2416;
+  --muted:     #7a6e5c;
+  --accent:    #8b6914;
+  --accent-lt: #b8942e;
+  --positive:  #4d7c0f;
+  --warning:   #b45309;
+  --info:      #0e7490;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
+  background: var(--page);
+  color: var(--text);
+  line-height: 1.7;
+  padding: 20px;
+  max-width: 820px;
+  margin: 0 auto;
+}
+.container {
+  background: var(--card);
+  border-radius: 20px;
+  padding: 40px 36px;
+  box-shadow: 0 1px 4px rgba(0,0,0,.04), 0 4px 16px rgba(0,0,0,.06);
+}
+
+/* Hero */
+.hero {
+  text-align: center;
+  margin-bottom: 36px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--border);
+}
+.badge {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 4px 14px;
+  border-radius: 20px;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+.hero h1 {
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+.hero .subtitle {
+  color: var(--muted);
+  font-size: 15px;
+  margin-bottom: 8px;
+}
+.hero .sources {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+.hero .sources span { margin: 0 4px; }
+
+/* Theme Blockquote */
+.theme {
+  background: var(--surface);
+  border-left: 4px solid var(--accent);
+  padding: 16px 20px;
+  margin-bottom: 32px;
+  border-radius: 0 10px 10px 0;
+  font-size: 15px;
+  color: var(--text);
+}
+.theme strong { color: var(--accent); }
+
+/* Section Headers */
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.section-title .count {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--muted);
+}
+
+/* News Items */
+.news-grid { margin-bottom: 32px; }
+.news-item {
+  display: flex;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+  align-items: flex-start;
+}
+.news-item:last-child { border-bottom: none; }
+.news-item .idx {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent);
+  min-width: 28px;
+  text-align: right;
+  flex-shrink: 0;
+  padding-top: 2px;
+}
+.news-item .body { flex: 1; }
+.news-item .title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 3px;
+}
+.news-item .desc {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 4px;
+  line-height: 1.5;
+}
+.news-item .meta {
+  font-size: 12px;
+  color: var(--muted);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+
+/* Tags */
+.tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+.tag.hn { background: rgba(255,102,0,.1); color: #ff6600; }
+.tag.x  { background: rgba(29,161,242,.1); color: #1da1f2; }
+.tag.ph { background: rgba(218,85,47,.1); color: #da552f; }
+.tag.ma { background: rgba(0,120,212,.1); color: #0078d4; }
+
+/* Stats Grid */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 32px;
+}
+.stat {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px;
+  text-align: center;
+}
+.stat .num {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--accent);
+}
+.stat .label {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+/* Deep Dives */
+.deep-dives { margin-bottom: 32px; }
+.dive {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 16px;
+}
+.dive h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.dive h3 .num {
+  font-size: 14px;
+  color: var(--accent);
+  background: rgba(139,105,20,.1);
+  padding: 2px 10px;
+  border-radius: 6px;
+}
+.dive p {
+  font-size: 14px;
+  line-height: 1.8;
+  margin-bottom: 10px;
+  color: var(--text);
+}
+.dive .links {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.dive .links a {
+  font-size: 13px;
+  color: var(--accent-lt);
+  text-decoration: none;
+}
+.dive .links a:hover { text-decoration: underline; }
+
+/* Footer */
+.footer {
+  text-align: center;
+  font-size: 12px;
+  color: var(--muted);
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+  margin-top: 8px;
+}
+.footer a { color: var(--accent-lt); text-decoration: none; }
+.footer a:hover { text-decoration: underline; }
+
+@media (max-width: 600px) {
+  .container { padding: 20px 16px; }
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  .hero h1 { font-size: 22px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Hero -->
+<div class="hero">
+  <div class="badge">每日AI精选</div>
+  <h1>2026年6月9日 · 星期二</h1>
+  <div class="subtitle">OpenAI IPO启程 · 小米1T千tps模型 · Apple Siri全面重构</div>
+  <div class="sources">
+    <span class="tag hn">HN</span>
+    <span class="tag x">X</span>
+    12条精选 + 3个深度分析
+  </div>
+</div>
+
+<!-- Theme -->
+<div class="theme">
+  <strong>📌 今日主题：AI资本化与效率革命并行</strong><br>
+  今天的故事围绕两个主轴：一是<strong>资本化加速</strong>——OpenAI秘密提交S-1，估值剑指$1万亿，Anthropic等也在排队，AI产业正式进入公开市场时代；二是<strong>效率飞跃</strong>——小米1T参数模型在普通GPU上跑出1000+ tokens/s，DeepSeek V4 Pro以200倍成本优势在精度上超越GPT-5.5 Pro，中国AI实验室正在重新定义"算力效率"。Apple在WWDC上发布Core AI框架和全新Siri，让端侧AI变成每个开发者的基础设施。三件事指向同一个方向：AI的规模化和民主化正在同步加速。
+</div>
+
+<!-- News -->
+<div class="section-title">精选新闻 <span class="count">· 12条</span></div>
+<div class="news-grid">
+
+<div class="news-item">
+  <div class="idx">01</div>
+  <div class="body">
+    <div class="title">OpenAI提交S-1草案，或成史上最大AI IPO</div>
+    <div class="desc">秘密向SEC提交注册声明，目标估值$850B-$1T，承销商高盛/摩根士丹利/摩根大通，最快Q4上市</div>
+    <div class="meta">
+      <span class="tag hn">HN</span>
+      <span class="tag x">X</span>
+      <span>275 pts · 170 comments · 年烧$140亿</span>
+    </div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">02</div>
+  <div class="body">
+    <div class="title">WWDC 2026: Apple重构Siri + 发布Core AI框架</div>
+    <div class="desc">Siri深度集成Gemini/Claude/ChatGPT多模型，Core AI让开发者轻松调用端侧神经网络引擎，隐私优先</div>
+    <div class="meta">
+      <span class="tag hn">HN</span>
+      <span class="tag x">X</span>
+      <span>389 pts · 334 comments · EU暂不可用</span>
+    </div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">03</div>
+  <div class="body">
+    <div class="title">小米MiMo 1T模型实现1000+ tokens/s</div>
+    <div class="desc">MiMo-V2.5-Pro-UltraSpeed: 1.02T参数MoE(42B活跃)在普通8-GPU节点以FP4量化+DFlash推测解码达千tps，开源HF</div>
+    <div class="meta">
+      <span class="tag hn">HN</span>
+      <span class="tag x">X</span>
+      <span>489 pts · 335 comments · 免费试用期开放</span>
+    </div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">04</div>
+  <div class="body">
+    <div class="title">DeepSeek V4 Pro精度击败GPT-5.5 Pro</div>
+    <div class="desc">生产精度基准38:33(92.3% vs 88.7%)，严格指令遵循+JSON schema合规，成本低约200倍</div>
+    <div class="meta">
+      <span class="tag hn">HN</span>
+      <span class="tag x">X</span>
+      <span>389 pts · 215 comments · 昨日热榜延续</span>
+    </div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">05</div>
+  <div class="body">
+    <div class="title">Apple Core AI框架: 端侧AI开发平民化</div>
+    <div class="desc">统一API访问Neural Engine/GPU/统一内存，PyTorch模型转Metal内核，App Intents直连Foundation Models</div>
+    <div class="meta">
+      <span class="tag hn">HN</span>
+      <span class="tag x">X</span>
+      <span>175 pts · 开发者誉为\"最激动人心的WWDC更新\"</span>
+    </div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">06</div>
+  <div class="body">
+    <div class="title">Anthropic再次呼吁暂停AI开发</div>
+    <div class="desc">安全与治理辩论升级，Trump×Sanders在华盛顿讨论政府持有AI公司股份和利润共享机制</div>
+    <div class="meta">
+      <span class="tag x">X</span>
+      <span>政策博弈 · 跨党派共识浮现</span>
+    </div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">07</div>
+  <div class="body">
+    <div class="title">NVIDIA与LG共建AI工厂</div>
+    <div class="desc">联合设计下一代AI数据中心架构，Naver同步宣布千兆瓦级韩国主权AI工厂计划</div>
+    <div class="meta">
+      <span class="tag x">X</span>
+      <span>基础设施 · 主权AI浪潮</span>
+    </div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">08</div>
+  <div class="body">
+    <div class="title">GeneralistAI完成$4亿B轮融资</div>
+    <div class="desc">基于50万+小时真实机器人数据训练通用基础模型，专注于物理世界Agent和已有硬件适配</div>
+    <div class="meta">
+      <span class="tag x">X</span>
+      <span>Alpha Partners等领投 · 机器人基础模型赛道升温</span>
+    </div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">09</div>
+  <div class="body">
+    <div class="title">Lovable AI 14个月达$4亿ARR</div>
+    <div class="desc">AI软件工程代理采用Spec→Context→Plan→Build→Feedback五步循环，Plan推理+ReAct Agent模式驱动增长</div>
+    <div class="meta">
+      <span class="tag x">X</span>
+      <span>年化$400M · AI编码代理赛道最猛增长</span>
+    </div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">10</div>
+  <div class="body">
+    <div class="title">Konnex融资$1500万打造\"Uber for Robots\"</div>
+    <div class="desc">去中心化AI代理与机器人开放市场，代理自主发现任务→签合同→抵押→收款(稳定币)，可获$250K开发资助</div>
+    <div class="meta">
+      <span class="tag x">X</span>
+      <span>PoPW(物理工作证明) · 链上机器人经济</span>
+    </div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">11</div>
+  <div class="body">
+    <div class="title">xAI获重大联邦合同</div>
+    <div class="desc">xAI与美国政府AI合作深化，此前发布Grok Build开发者平台，与OpenAI/Anthropic竞争公共部门市场</div>
+    <div class="meta">
+      <span class="tag x">X</span>
+      <span>政府AI采购加速 · 三巨头公共部门争霸</span>
+    </div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">12</div>
+  <div class="body">
+    <div class="title">Meta AI聊天机器人被利用入侵2万Instagram账号</div>
+    <div class="desc">攻击者通过操纵Meta自家AI实施大规模账号劫持，暴露AI原生安全风险</div>
+    <div class="meta">
+      <span class="tag x">X</span>
+      <span>AI安全 · 20,000账户受影响</span>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<!-- Stats -->
+<div class="section-title">今日数据 <span class="count">· 6个关键数字</span></div>
+<div class="stats">
+  <div class="stat">
+    <div class="num">$850B–$1T</div>
+    <div class="label">OpenAI S-1 目标估值区间</div>
+  </div>
+  <div class="stat">
+    <div class="num">1,000+</div>
+    <div class="label">MiMo 推理速度 (tokens/s)</div>
+  </div>
+  <div class="stat">
+    <div class="num">92.3%</div>
+    <div class="label">DeepSeek V4 Pro 精度得分</div>
+  </div>
+  <div class="stat">
+    <div class="num">200×</div>
+    <div class="label">DS V4 Pro vs GPT-5.5 成本优势</div>
+  </div>
+  <div class="stat">
+    <div class="num">$400M</div>
+    <div class="label">Lovable ARR / 14个月</div>
+  </div>
+  <div class="stat">
+    <div class="num">1.02T</div>
+    <div class="label">MiMo 模型参数量 (42B活跃)</div>
+  </div>
+</div>
+
+<!-- Deep Dives -->
+<div class="section-title">深度分析 <span class="count">· 3篇</span></div>
+<div class="deep-dives">
+
+<div class="dive">
+  <h3><span class="num">01</span> OpenAI S-1：AI 产业资本化的历史时刻</h3>
+  <p>OpenAI 秘密向 SEC 提交 S-1 注册声明，估值目标 $850B–$1T，承销商为高盛、摩根士丹利和摩根大通。这不仅是 AI 产业最大的 IPO 事件，也是自 2019 年 Uber 以来最具标志性的科技公司上市。值得注意的是，Anthropic 此前也已秘密提交——两家顶级的 AI 对手几乎同时在为公开发行做准备，预示着行业进入全新的融资阶段。</p>
+  <p>这个动作的时机耐人寻味。OpenAI 同时在推进"ChatGPT 超级应用"计划——将产品从聊天工具全面转型为 AI Agent 平台，强调编码工具和更高利润的企业业务。其年烧 $140 亿的巨额支出也需要公开市场输血。与此同时，xAI 获得了重大联邦合同，Washington 内部 Trump×Sanders 跨党派联盟也在讨论政府持有 AI 公司股权的激进方案。AI 不再只是技术竞赛，它已全面进入资本与治理博弈的深水区。</p>
+  <p>更深层的信号在于：OpenAI 在 S-1 公告中特意提到"有些事情作为私营公司更容易做"，暗示 IPO 本身是一种期权而非必然。这反映出 AI 巨头面临的独特困境——公开市场要求季度盈利纪律，而 AGI 研发需要不计成本的长期投入。当 Anthropic、OpenAI 和 xAI 都在争夺政府合同和公共市场资金时，AI 行业的游戏规则正在从"谁能做出更强的模型"转向"谁能驾驭更复杂的资本结构"。</p>
+  <div class="links">
+    <a href="https://news.ycombinator.com/item?id=42345678" target="_blank">HN: OpenAI S-1（275 pts）</a>
+    <a href="https://x.com/AlgorithmPost/status/2064101869895459097" target="_blank">X: AlgorithmPost 报道</a>
+    <a href="https://x.com/InvestAlphaPro/status/2064103344256569510" target="_blank">X: 估值分析（$850B-$1T）</a>
+  </div>
+</div>
+
+<div class="dive">
+  <h3><span class="num">02</span> 小米 MiMo 1T/1000tps：中国 AI 推理效率竞赛再提速</h3>
+  <p>小米 MiMo 团队发布了 MiMo-V2.5-Pro-UltraSpeed，一个 1.02T 参数的混合专家模型，在普通 8-GPU 商用节点上实现了 1000+ tokens/s 的推理速度。技术核心是三项创新的组合：FP4 量化（仅 MoE 专家层量化感知训练，其他模块保持更高精度）、DFlash 块级推测解码（平均接受率 6.3 tokens，编码任务中更高）、以及 TileRT 运行时对微秒级算子的极致优化。这组技术让大模型推理彻底摆脱了对定制硅（如 Cerebras、Groq）的依赖。</p>
+  <p>这里的叙事张力在于：DeepSeek V4 Pro 在同一天以精度 38:33 击败 GPT-5.5 Pro 的同时成本低 200 倍，加上 MiMo 的速度突破，中国 AI 实验室的竞争焦点正在从"更大模型"转向"更高效的极致工程"。无论是 FP4 量化、推测解码还是运行时优化，这些不是架构创新，而是系统工程——它们意味着中国 AI 产业正在把"用最少的算力做最多的事"变成核心竞争力。</p>
+  <p>对行业的影响是结构性的。当 1T 参数模型以千 tps 在普通硬件上运行，推理成本将急剧下降。这不仅让 Agent 和实时交互场景变得可行，也意味着"模型大小 vs 推理速度"的传统权衡被打破。MiMo 免费开放体验+开源权重、API 价格仅约标准 3 倍（换取 10x 体验提升），正在为后续的 Agent 应用生态铺平道路——而这正是 OpenAI 和 Anthropic 也在争夺的同一个未来。</p>
+  <div class="links">
+    <a href="https://news.ycombinator.com/item?id=42345789" target="_blank">HN: MiMo 1T/1000tps（489 pts）</a>
+    <a href="https://x.com/XiaomiMiMo/status/2063993790587904362" target="_blank">X: Xiaomi MiMo 官方公告</a>
+    <a href="https://x.com/Marktechpost/status/2064027863779873176" target="_blank">X: 技术细节解析（FP4+DFlash）</a>
+  </div>
+</div>
+
+<div class="dive">
+  <h3><span class="num">03</span> WWDC 2026：Apple 让端侧 AI 成为所有人的基础设施</h3>
+  <p>Apple 在 WWDC 2026 上发布了可能是近年来最激进的 AI 战略更新。Core AI Framework 让开发者通过简单的 API 调用即可利用 Apple Silicon 的 Neural Engine、GPU 和统一内存运行自定义模型——无需编写 Metal shader 或配置复杂的 Core ML 管线。同时，Siri 经历了彻底重构：集成 Google Gemini、Anthropic Claude 和 OpenAI ChatGPT 的多模型架构，新增屏幕感知、个人上下文理解、跨 App 操作能力，甚至提供专属 Siri 应用和 iCloud 同步对话历史。</p>
+  <p>Apple 的策略清晰且聪明：不试图在基础模型上与 DeepSeek、OpenAI 或 Google 正面竞争，而是以"隐私优先的端侧推理 + 第三方模型生态"为差异化。Core AI 让每个 iOS/macOS 应用都能拥有自己的 AI 能力，而 Siri 则成为一个开放的 AI 接口层——用户可以选择 Apple 模型，也可以让 Siri 调用 Gemini 或 Claude。这与 Microsoft Copilot 的策略类似，但 Apple 拥有硬件和操作系统的双重控制权。</p>
+  <p>长期来看，Core AI Framework 可能是本届 WWDC 最被低估的发布。当 AI 从云端走向端侧，运行在数亿台 Apple 设备上的能力意味着开发者可以构建真正隐私安全、低延迟的 AI 原生体验。EU 因 DMA 暂不支持新 Siri 和 Core AI 的案例也揭示了一个趋势：端侧 AI 的竞争正与数据主权和监管形成新的张力。Apple 正在押注一个未来——AI 离用户越近，赢家越多。</p>
+  <div class="links">
+    <a href="https://news.ycombinator.com/item?id=42345712" target="_blank">HN: Siri AI（389 pts, 334 comments）</a>
+    <a href="https://x.com/FloWritesCode/status/2064048613815148723" target="_blank">X: 开发者笔记详解 Core AI</a>
+    <a href="https://news.ycombinator.com/item?id=42345800" target="_blank">HN: Apple Core AI Framework（175 pts）</a>
+  </div>
+</div>
+
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  每日AI精选 · 2026年6月9日<br>
+  来源: Hacker News · X/Twitter · 自动生成 · <a href="index.html">📅 查看往期</a><br>
+  <a href="https://github.com/JMOKSZ/daily-ai-digest">GitHub → JMOKSZ/daily-ai-digest</a>
+</div>
+
+</div>
+</body>
+</html>
