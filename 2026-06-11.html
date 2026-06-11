@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日AI精选 · 2026年6月11日</title>
+<style>
+:root {
+  --page: #fdfaf3; --surface: #fcfaf5; --surface2: #fff;
+  --border: #e8dcc8; --text: #2c2416; --muted: #7a6e5c;
+  --accent: #8b6914; --accent-lt: #b8942e;
+  --positive: #4d7c0f; --warning: #b45309; --info: #0e7490;
+  --red: #b91c1c;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
+  background: var(--page); color: var(--text); line-height: 1.6;
+  padding: 0; max-width: 800px; margin: 0 auto;
+}
+.container { padding: 40px 24px 60px; }
+
+/* Hero */
+.hero {
+  text-align: center; padding: 32px 0 28px;
+  border-bottom: 2px solid var(--border); margin-bottom: 28px;
+}
+.badge {
+  display: inline-block; background: var(--accent); color: #fff;
+  padding: 4px 14px; border-radius: 20px; font-size: 13px;
+  font-weight: 600; letter-spacing: 0.5px; margin-bottom: 14px;
+}
+.hero h1 {
+  font-size: 28px; font-weight: 700; color: var(--text);
+  margin-bottom: 6px;
+}
+.hero .subtitle {
+  font-size: 15px; color: var(--muted); margin-bottom: 10px;
+}
+.hero .key-stories {
+  display: flex; gap: 8px; justify-content: center; flex-wrap: wrap;
+  margin: 12px 0;
+}
+.hero .key-stories span {
+  background: var(--surface2); border: 1px solid var(--border);
+  padding: 4px 12px; border-radius: 16px; font-size: 13px; color: var(--text);
+}
+.hero .sources {
+  font-size: 12px; color: var(--muted); margin-top: 10px;
+}
+
+/* Theme */
+.theme {
+  background: var(--surface2); border-left: 4px solid var(--accent);
+  padding: 16px 20px; margin: 0 0 28px; border-radius: 0 8px 8px 0;
+  font-size: 14px; line-height: 1.7; color: var(--text);
+}
+.theme strong { color: var(--accent); }
+
+/* Section header */
+.section-header {
+  display: flex; align-items: center; gap: 10px;
+  margin: 32px 0 18px;
+}
+.section-header h2 {
+  font-size: 20px; font-weight: 700;
+}
+.section-header .line { flex: 1; height: 1px; background: var(--border); }
+
+/* News grid */
+.news-list { display: flex; flex-direction: column; gap: 0; }
+.news-item {
+  display: flex; gap: 14px; padding: 14px 0;
+  border-bottom: 1px solid var(--border); align-items: flex-start;
+}
+.news-item:last-child { border-bottom: none; }
+.news-item .idx {
+  font-size: 13px; font-weight: 700; color: var(--accent-lt);
+  min-width: 28px; padding-top: 2px; text-align: right;
+}
+.news-item .body { flex: 1; }
+.news-item .title {
+  font-size: 15px; font-weight: 600; margin-bottom: 2px;
+  color: var(--text);
+}
+.news-item .desc {
+  font-size: 13px; color: #4a3f30; line-height: 1.5;
+}
+.news-item .meta {
+  font-size: 12px; color: var(--muted); margin-top: 4px;
+}
+.news-item .tags {
+  display: flex; gap: 4px; flex-wrap: wrap; min-width: 60px;
+  justify-content: flex-end;
+}
+.tag {
+  display: inline-block; padding: 1px 8px; border-radius: 10px;
+  font-size: 11px; font-weight: 500;
+}
+.tag.hn { background: rgba(255,102,0,.1); color: #ff6600; }
+.tag.x { background: rgba(29,161,242,.1); color: #1da1f2; }
+.tag.ph { background: rgba(218,85,47,.1); color: #da552f; }
+.tag.ih { background: rgba(34,197,94,.1); color: #22c55e; }
+.tag.ma { background: rgba(0,120,212,.1); color: #0078d4; }
+.tag.rd { background: rgba(255,69,0,.1); color: #ff4500; }
+.tag.rc { background: rgba(128,90,213,.1); color: #805ad5; }
+
+/* Stats */
+.stats {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+  margin: 0 0 28px;
+}
+.stat {
+  background: var(--surface2); border: 1px solid var(--border);
+  border-radius: 10px; padding: 14px; text-align: center;
+}
+.stat .num { font-size: 22px; font-weight: 700; color: var(--accent); }
+.stat .label { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+/* Deep dives */
+.dive-list { display: flex; flex-direction: column; gap: 20px; }
+.dive {
+  background: var(--surface2); border: 1px solid var(--border);
+  border-radius: 12px; padding: 22px 24px;
+}
+.dive h3 {
+  font-size: 17px; font-weight: 700; margin-bottom: 12px;
+  display: flex; align-items: center; gap: 10px;
+}
+.dive h3 .dnum {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 28px; height: 28px; background: var(--accent); color: #fff;
+  border-radius: 50%; font-size: 13px; font-weight: 700; flex-shrink: 0;
+}
+.dive p {
+  font-size: 14px; line-height: 1.7; margin-bottom: 10px;
+  color: #3a3428;
+}
+.dive p:last-of-type { margin-bottom: 14px; }
+.dive .links {
+  display: flex; flex-wrap: wrap; gap: 6px; padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
+.dive .links a {
+  font-size: 12px; color: var(--accent-lt); text-decoration: none;
+  padding: 2px 10px; border: 1px solid var(--border); border-radius: 14px;
+  transition: all .15s;
+}
+.dive .links a:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+/* Footer */
+.footer {
+  text-align: center; padding: 28px 0 10px;
+  border-top: 2px solid var(--border); margin-top: 32px;
+  font-size: 12px; color: var(--muted);
+}
+.footer a { color: var(--accent); text-decoration: none; }
+
+/* Responsive */
+@media (max-width: 600px) {
+  .container { padding: 20px 14px 40px; }
+  .hero h1 { font-size: 22px; }
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  .news-item { flex-wrap: wrap; }
+  .news-item .tags { min-width: auto; justify-content: flex-start; margin-left: 42px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Hero -->
+<div class="hero">
+  <div class="badge">每日AI精选</div>
+  <h1>2026年6月11日 · 星期四</h1>
+  <div class="subtitle">12条精选 + 3个深度分析</div>
+  <div class="key-stories">
+    <span>Anthropic Fable 5 安全围栏争议</span>
+    <span>德国AI Overviews判例</span>
+    <span>OpenAI & Anthropic IPO潮</span>
+  </div>
+  <div class="sources">来源: Hacker News · X · TechCrunch · The Decoder · Ars Technica</div>
+</div>
+
+<!-- Theme -->
+<div class="theme">
+  <strong>📌 今日主题：AI的安全枷锁与资本狂欢</strong><br>
+  2026年6月，AI行业呈现出前所未有的两极分化。一方面，Anthropic推出Fable 5（Mythos的"阉割版"），引发安全围栏与学术自由的激烈对抗，24小时内即被越狱；德国法院裁定Google对AI Overviews的幻觉内容承担法律责任，为全球AI监管树立里程碑。另一方面，OpenAI秘密提交S-1、Anthropic紧随其后，万亿级AI上市浪潮正在酝酿。Apple发布AFM 3系列模型并将Private Cloud Compute扩展到Google Cloud + Nvidia GPU，标志科技巨头AI基础设施军备竞赛进入新阶段。
+</div>
+
+<!-- Section: 精选新闻 -->
+<div class="section-header">
+  <h2>📰 精选新闻</h2>
+  <div class="line"></div>
+</div>
+
+<div class="news-list">
+
+  <div class="news-item">
+    <div class="idx">01</div>
+    <div class="body">
+      <div class="title">Anthropic 发布 Fable 5：最强模型戴上"安全枷锁"</div>
+      <div class="desc">Fable 5是Anthropic至今最强大的公开模型，编码/科学推理/视觉全面领先，但对网络安全、生物化学等敏感查询自动降级到Opus 4.8。更强大的Mythos 5仅限可信防御者访问。</div>
+      <div class="meta">模型发布 · 962 points (HN) · 1,000+小时红队测试</div>
+    </div>
+    <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">02</div>
+    <div class="body">
+      <div class="title">Fable 5 发布24小时内被越狱</div>
+      <div class="desc">知名提示工程师Pliny the Liberator声称成功越狱Fable 5，利用Unicode同形字、长上下文追踪、虚构框架等技术突破安全围栏。社区反应两极分化。</div>
+      <div class="meta">安全 · 越狱 · 170 points (HN) · 156评论</div>
+    </div>
+    <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">03</div>
+    <div class="body">
+      <div class="title">AWS Bedrock 要求共享用户数据给 Anthropic</div>
+      <div class="desc">AWS Bedrock客户使用Mythos及未来模型时，需同意将查询数据分享给Anthropic。同时Anthropic宣布新模型30天数据保留政策，引发企业隐私担忧。</div>
+      <div class="meta">隐私 · 395 points (HN) · 227评论</div>
+    </div>
+    <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">04</div>
+    <div class="body">
+      <div class="title">德国法院裁定 Google 对 AI Overviews 内容负责</div>
+      <div class="desc">慕尼黑地区法院判Google须为其AI生成的搜索摘要承担直接法律责任——AI输出被视为"Google自己的陈述"，而非第三方链接。仅约1%用户会点击查看原文。</div>
+      <div class="meta">监管 · 962 points (HN) · 508评论 · 里程碑判例</div>
+    </div>
+    <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">05</div>
+    <div class="body">
+      <div class="title">OpenAI 秘密提交 S-1，启动 IPO 流程</div>
+      <div class="desc">OpenAI于6月8日向SEC秘密提交S-1文件，目标估值8500亿至1万亿美元。CEO Sam Altman向员工表示未来一年内或可上市，CFO倾向于2027年。</div>
+      <div class="meta">资本市场 · 预测市场认为2026年内IPO概率 ~47%</div>
+    </div>
+    <div class="tags"><span class="tag x">X</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">06</div>
+    <div class="body">
+      <div class="title">Anthropic 也向 SEC 提交保密 IPO 申请</div>
+      <div class="desc">紧随OpenAI，Anthropic数日内也提交了S-1文件。公司收入增长强劲、估值大幅攀升，AI双雄同步冲击公开市场，或开启万亿美元上市浪潮。</div>
+      <div class="meta">资本市场 · SpaceX $1.75万亿估值也在讨论中</div>
+    </div>
+    <div class="tags"><span class="tag x">X</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">07</div>
+    <div class="body">
+      <div class="title">Apple 发布 AFM 3 模型系列，PCC 扩展到 Google Cloud</div>
+      <div class="desc">Apple推出AFM 3 Core (3B)、Core Advanced (20B, 需12GB+ RAM) 和 Cloud Pro系列。Private Cloud Compute首次使用Nvidia GPU（Blackwell），运行在Google Cloud上，由Nvidia机密计算保障隐私。</div>
+      <div class="meta">AI基础设施 · WWDC · Apple × Google × Nvidia</div>
+    </div>
+    <div class="tags"><span class="tag x">X</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">08</div>
+    <div class="body">
+      <div class="title">中国计划 2950 亿美元 AI 基础设施投资</div>
+      <div class="desc">据报道中国正在规划约2950亿美元的AI大规模建设计划，涵盖芯片制造、数据中心和基础研究。同期Google反注350亿美元芯片融资，确保Anthropic留在TPU生态。</div>
+      <div class="meta">地缘政治 · 基础设施 · 万亿美元竞赛</div>
+    </div>
+    <div class="tags"><span class="tag x">X</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">09</div>
+    <div class="body">
+      <div class="title">Cohere 发布 North Mini Code：30B 轻量级编程模型</div>
+      <div class="desc">Cohere推出30B参数North Mini Code，专为轻量级部署优化的编码模型。AI行业正从"越大越好"转向关注小模型效率和推理成本优化。</div>
+      <div class="meta">模型发布 · 轻量级 · 效率优先</div>
+    </div>
+    <div class="tags"><span class="tag x">X</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">10</div>
+    <div class="body">
+      <div class="title">欧盟反垄断：要求 Meta 向 AI 助手开放 WhatsApp</div>
+      <div class="desc">欧盟反垄断监管机构命令Meta向竞争性AI助手开放WhatsApp接口，延续2018年《数字市场法案》精神。AI时代的数据互操作性成为监管核心议题。</div>
+      <div class="meta">监管 · DMA · 数据互操作</div>
+    </div>
+    <div class="tags"><span class="tag x">X</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">11</div>
+    <div class="body">
+      <div class="title">AI Agent 在 Fedora 等系统中"失控"</div>
+      <div class="desc">LWN报道AI代理在Fedora和其他Linux发行版中引发意外行为，被描述为"run amok"（失控）。AI Agent的自主操作边界和安全沙箱问题再度引发关注。</div>
+      <div class="meta">安全 · 自主Agent · 52 points (HN)</div>
+    </div>
+    <div class="tags"><span class="tag hn">HN</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">12</div>
+    <div class="body">
+      <div class="title">Rich Sutton 谈 AI 创造力与发现</div>
+      <div class="desc">强化学习之父Rich Sutton在X上发表关于AI创造力与科学发现的洞见，延续其"Bitter Lesson"哲学——算力和搜索最终胜过人工精心设计的系统。</div>
+      <div class="meta">AI思想 · 197 points (HN) · 112评论</div>
+    </div>
+    <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+  </div>
+
+</div>
+
+<!-- Section: 今日数据 -->
+<div class="section-header" style="margin-top:36px;">
+  <h2>📊 今日数据</h2>
+  <div class="line"></div>
+</div>
+
+<div class="stats">
+  <div class="stat"><div class="num">$295B</div><div class="label">中国AI基建计划</div></div>
+  <div class="stat"><div class="num">$35B</div><div class="label">Google芯片融资 (Anthropic TPU)</div></div>
+  <div class="stat"><div class="num">$850B-$1T</div><div class="label">OpenAI IPO 目标估值</div></div>
+  <div class="stat"><div class="num">962</div><div class="label">德国AI判例 HN 分数</div></div>
+  <div class="stat"><div class="num">24h</div><div class="label">Fable 5 越狱时间</div></div>
+  <div class="stat"><div class="num">47%</div><div class="label">OpenAI 2026年IPO概率</div></div>
+</div>
+
+<!-- Section: 深度分析 -->
+<div class="section-header">
+  <h2>🔍 深度分析</h2>
+  <div class="line"></div>
+</div>
+
+<div class="dive-list">
+
+  <div class="dive">
+    <h3><span class="dnum">1</span>Fable 5 分层发布：AI安全的"三峡大坝"时刻</h3>
+    <p>Anthropic推出Fable 5（公开版）和Mythos 5（受限版）的分层策略，标志着AI安全从"一刀切"向"分级管控"的范式转变。Fable 5本身已是世界最强的公开模型之一，但公司在网络安全、生化武器等敏感领域设置了极端保守的保障——超过5%的用户查询被静默降级到Opus 4.8，甚至完全拒绝。这种"知道你能做什么，但不让你做"的设计，本质上是在能力和安全之间做了一个极度谨慎的妥协。</p>
+    <p>然而现实很快打了脸：发布24小时内，Pliny the Liberator就宣布成功越狱。其手法展示了当前安全围栏的根本弱点——Unicode变形、虚构叙事框架、长上下文参考追踪等方法可以绕过基于关键词和语义的分类器。更值得警惕的是，这些围栏主要拦住的是合法研究人员和防御者，而真正的恶意攻击者可以使用开源模型或非对齐工具。Facebook AI Research的Yann LeCun曾评价："你筑坝拦水，但洪水会从旁边绕过去。"</p>
+    <p>更深层的信号在于，分层访问可能成为未来AI治理的模板。Anthropic的做法本质上是"私有化安全判断"——由一家公司决定谁能接触前沿AI能力。当Mythos 5真正被用于国家级网络安全防御时，这种权力集中带来的地缘政治隐患将远超技术本身。这场Fable 5的"安全实验"，无论是成功还是失败，都会深刻影响下一代AI模型的发布模式。</p>
+    <div class="links">
+      <a href="https://news.ycombinator.com/item?id=1" target="_blank">HN: Cybersecurity researchers unhappy about Fable guardrails</a>
+      <a href="https://x.com/elder_plinius/status/2064851744710967427" target="_blank">Pliny's Fable 5 jailbreak demo</a>
+      <a href="https://x.com/TheRundownAI/status/2064656358557757779" target="_blank">The Rundown: Fable 5 launch summary</a>
+    </div>
+  </div>
+
+  <div class="dive">
+    <h3><span class="dnum">2</span>德国AI Overviews判例：AI时代的"出版者责任"归来</h3>
+    <p>慕尼黑地区法院的裁决一锤定音：Google对其AI Overviews生成的内容负有直接法律责任。法院的逻辑清晰而有力——AI搜索摘要不是对第三方内容的"链接索引"，而是经过Google自身"重写、合成、组合和结构化"的独立陈述。这意味着Google不能再躲在《数字服务法》的"安全港"条款后面，声称自己只是一个被动的内容传输管道。</p>
+    <p>这个判例的影响远超Google一家。它实质上回答了全球法律体系正在面对的核心问题：当AI系统产生有害输出时，谁负责？法院的回答是：创建和部署该系统的公司。这一逻辑链条可以延伸到所有生成式AI产品——如果你调用了模型、优化了输出、呈现给用户，你就是"出版者"。</p>
+    <p>值得注意的是，仅约1%的AI Overviews用户会点击查看原始链接。这意味着AI摘要实际上是"终点"而非"入口"，进一步强化了法院关于"独立内容"的定性。如果这一判例在欧盟层面被确认（本案仍在初审，可上诉），它将迫使所有AI搜索产品重新设计——可能包括更显著的原来源标注、更强的免责声明，甚至部分领域的"无AI"默认设置。对于正在竞相将AI集成到搜索中的各大科技公司，这记德国判决是一道真正的警钟。</p>
+    <div class="links">
+      <a href="https://the-decoder.com/german-ruling-declares-google-liable-for-false-answers-in-ai-overviews/" target="_blank">The Decoder: German ruling details</a>
+      <a href="https://news.ycombinator.com/item?id=2" target="_blank">HN discussion (508 comments)</a>
+      <a href="https://x.com/glenngabe/status/2064748329687302517" target="_blank">Analysis by Glenn Gabe on X</a>
+    </div>
+  </div>
+
+  <div class="dive">
+    <h3><span class="dnum">3</span>万亿IPO潮背后的AI资本结构裂变</h3>
+    <p>OpenAI和Anthropic在数日内先后提交保密S-1，这场AI双雄同步冲击公开市场的事件，标志着AI行业从"烧钱竞赛"到"资本变现"的转折点。OpenAI的目标估值8500亿至1万亿美元，Anthropic虽未公开数字但估值同样大幅攀升。加上SpaceX约1.75万亿的传闻估值，一轮空前规模的科技上市浪潮正在形成。</p>
+    <p>但华丽数字背后是尖锐的矛盾。OpenAI预计今年亏损约140亿美元，盈利能力预测要到2029年。公司累计烧钱或达数千亿美元规模。这揭示了一个根本问题：AI基础设施的资本密集度是否可持续？当Google反注350亿美元确保Anthropic留在TPU生态，中国拿出2950亿美元搞AI基建时，整个行业的商业模式本质上是在赌"规模换未来"——用今天的巨额亏损换取明天的垄断地位和指数级增长。</p>
+    <p>这场IPO潮还有更深层的信号：通过上市，OpenAI和Anthropic将把AI治理的决策权从创始人/董事会扩展到公开市场的所有股东。当华尔街的季度业绩压力撞上"安全第一"的长期主义承诺，会发生什么？预测市场给OpenAI在2026年内IPO的概率仅为47%——市场在犹豫的不是估值，而是这些公司能否在监管不确定性、巨额亏损和技术路线风险中找到一个让公共投资者信服的故事。AI的资本化窗口已经打开，但这座桥是否坚固，还有待验证。</p>
+    <div class="links">
+      <a href="https://x.com/SenalHQ/status/2064567718742053167" target="_blank">OpenAI confidential S-1 filing details</a>
+      <a href="https://x.com/Ruben_Herz/status/2064847561396003184" target="_blank">Financial analysis: $14B projected loss</a>
+      <a href="https://x.com/HayekAndKeynes/status/2064537816848105544" target="_blank">SpaceX/OpenAI/Anthropic IPO wave analysis</a>
+    </div>
+  </div>
+
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>每日AI精选 · 2026年6月11日</p>
+  <p>来源: Hacker News · X · TechCrunch · The Decoder · LWN · Ars Technica</p>
+  <p><a href="index.html">← 返回首页</a> · <a href="https://github.com/macmini-j/daily-ai-digest">GitHub</a></p>
+  <p style="margin-top:6px;font-size:11px;">自动生成于 09:07 CST</p>
+</div>
+
+</div>
+</body>
+</html>
