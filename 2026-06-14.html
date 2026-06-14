@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日AI精选 · 2026年6月14日</title>
+<style>
+:root {
+  --page:      #fdfaf3;
+  --surface:   #fcfaf5;
+  --border:    #e8dcc8;
+  --text:      #2c2416;
+  --muted:     #7a6e5c;
+  --accent:    #8b6914;
+  --accent-lt: #b8942e;
+  --positive:  #4d7c0f;
+  --warning:   #b45309;
+  --info:      #0e7490;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans SC", "PingFang SC", sans-serif;
+  line-height: 1.75; background: var(--page); color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3 { font-family: ui-serif, Georgia, "Noto Serif SC", serif; letter-spacing: -0.01em; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.container { max-width: 880px; margin: 0 auto; padding: 60px 40px; }
+
+.hero { text-align: center; padding: 60px 0 40px; border-bottom: 1px solid var(--border); margin-bottom: 40px; }
+.hero-badge { display: inline-block; background: var(--accent); color: #fff; font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; padding: 4px 14px; border-radius: 20px; margin-bottom: 16px; }
+.hero h1 { font-size: clamp(30px, 5vw, 44px); }
+.hero h1 span { color: var(--accent); }
+.hero .subtitle { font-size: 16px; color: var(--muted); max-width: 620px; margin: 12px auto 4px; }
+.hero .subtitle .tag { display: inline-block; background: rgba(139,105,20,.08); color: var(--accent); font-size: 12px; padding: 2px 10px; border-radius: 12px; margin: 0 3px; }
+.hero .sources { margin-top: 20px; font-size: 13px; color: var(--muted); }
+
+.theme { margin: 32px 0 40px; padding: 24px 32px; background: var(--surface); border-left: 4px solid var(--accent); border-radius: 4px; }
+.theme blockquote { font-size: 17px; line-height: 1.8; color: var(--text); }
+.theme blockquote strong { color: var(--accent); }
+
+.section-title { font-size: 24px; margin-bottom: 20px; padding-bottom: 8px; border-bottom: 2px solid rgba(139,105,20,.08); }
+.section-title span { color: var(--accent); }
+
+.news-list { margin-bottom: 48px; }
+.news-item {
+  display: flex; gap: 16px; padding: 16px 20px; margin-bottom: 8px;
+  background: #fff; border: 1px solid var(--border); border-radius: 8px;
+  transition: background .15s;
+}
+.news-item:hover { background: rgba(139,105,20,.02); }
+.news-item .idx { font-family: ui-monospace, monospace; font-size: 13px; font-weight: 600; color: var(--accent-lt); min-width: 28px; padding-top: 2px; }
+.news-item .body { flex: 1; }
+.news-item .title { font-weight: 600; font-size: 15px; }
+.news-item .desc { font-size: 14px; color: var(--muted); margin-top: 2px; }
+.news-item .meta { font-size: 12px; color: var(--muted); margin-top: 4px; }
+.news-item .tags { display: flex; gap: 4px; align-items: flex-start; flex-wrap: wrap; min-width: 60px; justify-content: flex-end; }
+.tag { display: inline-block; font-size: 10px; font-weight: 600; padding: 2px 7px; border-radius: 10px; letter-spacing: .03em; }
+.tag.hn { background: rgba(255,102,0,.1); color: #ff6600; }
+.tag.x { background: rgba(29,161,242,.1); color: #1da1f2; }
+.tag.ph { background: rgba(218,85,47,.1); color: #da552f; }
+.tag.ma { background: rgba(0,120,212,.1); color: #0078d4; }
+
+.stats-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 48px;
+}
+.stat {
+  background: #fff; border: 1px solid var(--border); border-radius: 8px;
+  padding: 20px 16px; text-align: center;
+}
+.stat .num { font-size: 28px; font-weight: 700; font-family: ui-monospace, monospace; color: var(--accent); line-height: 1.2; }
+.stat .label { font-size: 13px; color: var(--muted); margin-top: 4px; }
+
+.dives { margin-bottom: 48px; }
+.dive {
+  background: #fff; border: 1px solid var(--border); border-radius: 10px;
+  padding: 28px 32px; margin-bottom: 16px;
+}
+.dive h3 { font-size: 19px; margin-bottom: 14px; }
+.dive h3 .num { display: inline-block; background: var(--accent); color: #fff; font-size: 14px; font-weight: 600; width: 26px; height: 26px; border-radius: 50%; text-align: center; line-height: 26px; margin-right: 10px; }
+.dive p { font-size: 15px; color: var(--text); margin-bottom: 10px; }
+.dive .links { margin-top: 14px; display: flex; gap: 12px; flex-wrap: wrap; }
+.dive .links a { font-size: 13px; padding: 3px 10px; border: 1px solid var(--border); border-radius: 6px; transition: background .15s; }
+.dive .links a:hover { background: rgba(139,105,20,.04); text-decoration: none; }
+
+.footer { text-align: center; color: var(--muted); font-size: 12px; padding-top: 32px; border-top: 1px solid var(--border); margin-top: 48px; opacity: .7; line-height: 1.8; }
+
+@media (max-width: 600px) {
+  .container { padding: 24px 16px; }
+  .news-item { flex-direction: column; gap: 6px; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .dive { padding: 20px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="hero">
+  <div class="hero-badge">Daily AI Digest</div>
+  <h1>每日AI<span>精选</span></h1>
+  <p class="subtitle">
+    2026年6月14日 · 星期日
+  </p>
+  <p class="subtitle" style="font-size:14px;color:var(--muted);margin-top:6px;">
+    <span class="tag">🇺🇸 美政府首封AI模型</span>
+    <span class="tag">🇨🇳 中国开源反制</span>
+    <span class="tag">🔧 Agent基建加速</span>
+  </p>
+  <p class="sources">12 条精选 + 3 个深度分析 · 来源: X · HN · YC · Product Hunt</p>
+</div>
+
+<div class="theme">
+  <blockquote>
+    <strong>📌 今日主题：AI 主权博弈加剧</strong><br><br>
+    美国政府历史首次以国家安全为由直接叫停商业AI模型（Anthropic Fable 5/Mythos 5），亚马逊CEO Jassy据报向官员演示越狱技术触发禁令。中国AI实验室迅速反击——GLM-5.2以MIT License开源、Kimi-K2.7-Code（1T参数MoE）已放权重——开源AI声浪冲上HN 1511分。硅谷Agent基础设施也在加速：OpenAI收购Ona让Codex可离线持续运行、上线Chrome DevTools开发者模式、xAI推出Sentry自动修复插件。这是一场关于AI控制权、开源主权和Agent生产力的三方博弈。
+  </blockquote>
+</div>
+
+<h2 class="section-title">📰 精选<span>新闻</span></h2>
+
+<div class="news-list">
+
+  <div class="news-item">
+    <div class="idx">01</div>
+    <div class="body">
+      <div class="title">🇺🇸 美国政府首度叫停商用AI模型：Anthropic Fable 5/Mythos 5 全球下线</div>
+      <div class="desc">美国商务部BIS以国家安全为由，要求Anthropic立即暂停Fable 5和Mythos 5对外国公民开放——因无法精确执行"仅限美国公民"访问控制，Anthropic被迫向所有客户关闭这两个模型。3055点登顶HN历史级热度。</div>
+      <div class="meta"><span style="color:var(--positive)">3055</span> HN points · 2218评论 · 美国首次直接干预商业AI部署</div>
+    </div>
+    <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">02</div>
+    <div class="body">
+      <div class="title">🔍 WSJ爆料：亚马逊CEO Jassy向官员演示越狱，触发禁令</div>
+      <div class="desc">华尔街日报独家报道，Amazon CEO Andy Jassy告诉特朗普政府官员，Amazon研究人员成功越狱Fable 5获取网络攻击信息，直接推动了商务部叫停该模型。亚马逊既是Anthropic大股东（~10-20%）又在AWS上托管其模型。</div>
+      <div class="meta"><span style="color:var(--positive)">517</span> HN points · 384评论 · 投资者与监管举报者的角色冲突</div>
+    </div>
+    <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">03</div>
+    <div class="body">
+      <div class="title">🌍 "开源AI必须赢"运动冲上HN 1511分</div>
+      <div class="desc">Opensourceaimustwin.com 在Fable 5禁令同日登上HN第二，1511点。社区呼吁开源AI作为对抗政策风险的基础设施——当商业模型被政治切断时，开源权重是最后的保险。</div>
+      <div class="meta"><span style="color:var(--positive)">1511</span> HN points · 462评论 · 开源与主权AI的交叉点</div>
+    </div>
+    <div class="tags"><span class="tag hn">HN</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">04</div>
+    <div class="body">
+      <div class="title">🇨🇳 GLM-5.2 发布：1M上下文，下周MIT开源</div>
+      <div class="desc">智谱AI发布GLM-5.2旗舰模型，支持100万token上下文，编程和长程Agent任务性能领先。创始人唐杰宣布"下周MIT License全量开源"，时机恰好在Fable 5禁令当天。</div>
+      <div class="meta"><span style="color:var(--positive)">315</span> HN points · 175评论 · "前沿AI必须开源可及"</div>
+    </div>
+    <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">05</div>
+    <div class="body">
+      <div class="title">🇨🇳 Moonshot 开源 Kimi-K2.7-Code：1T参数MoE编码巨兽</div>
+      <div class="desc">MoonShot开源1万亿参数MoE模型（384专家/32B活跃），编程基准提升22-32%，推理token减少30%。Modified MIT许可，几乎无限制商用。</div>
+      <div class="meta">Kimi Code Bench v2 +21.8% · 推理token -30% · 256K上下文</div>
+    </div>
+    <div class="tags"><span class="tag x">X</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">06</div>
+    <div class="body">
+      <div class="title">🛠️ OpenAI 收购 Ona：Codex Agent 可离线持续运行</div>
+      <div class="desc">OpenAI收购云端安全执行初创公司Ona，让Codex Agent在用户合上电脑后仍可运行数小时，支持企业级安全隔离与审计。</div>
+      <div class="meta">Ona团队整体加入Codex · 从"编码辅助"到"持久Agent"</div>
+    </div>
+    <div class="tags"><span class="tag x">X</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">07</div>
+    <div class="body">
+      <div class="title">🧪 OpenAI Codex 上线 Chrome DevTools 开发者模式</div>
+      <div class="desc">Codex现在可直接调用Chrome DevTools Protocol（CDP），实时读取控制台错误、网络请求、DOM状态和JS内存分析——从"编码助手"进化为"浏览器调试Agent"。</div>
+      <div class="meta">全CDP访问 · 用户逐站授权 · 与Ona收购联动</div>
+    </div>
+    <div class="tags"><span class="tag x">X</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">08</div>
+    <div class="body">
+      <div class="title">🤖 xAI 推出 Sentry 插件：AI Agent 自动诊断修复</div>
+      <div class="desc">xAI发布Sentry集成插件，让AI Agent自动检测生产错误、分析堆栈追踪、分类告警并推送修复——标志着AI从"写代码"延伸到"运维代码"。</div>
+      <div class="meta">Agent Error Detection · Stack Trace Analysis · Autonomous Triage</div>
+    </div>
+    <div class="tags"><span class="tag x">X</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">09</div>
+    <div class="body">
+      <div class="title">🏛️ 英国警方调查警察用AI"制造证据"</div>
+      <div class="desc">英国Sky News报道，一名警察因涉嫌在多个案件中使用AI生成虚假证据被调查。208点登上HN第十一位。</div>
+      <div class="meta"><span style="color:var(--positive)">208</span> HN points · 99评论 · AI伪造证据的司法危机</div>
+    </div>
+    <div class="tags"><span class="tag hn">HN</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">10</div>
+    <div class="body">
+      <div class="title">🔬 Google Gemini-SQL2 在BIRD基准达SOTA</div>
+      <div class="desc">Google发布Gemini-SQL2，基于Gemini 3.1 Pro，在竞争激烈的BIRD自然语言到SQL基准测试中取得最佳成绩。同时发布了DiffusionGemma（文本扩散模型）。</div>
+      <div class="meta">BIRD SOTA · 基于Gemini 3.1 Pro · DiffusionGemma并行文本生成</div>
+    </div>
+    <div class="tags"><span class="tag x">X</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">11</div>
+    <div class="body">
+      <div class="title">📱 Google 用旧手机打造低碳计算平台</div>
+      <div class="desc">Google Research发表论文，利用退役安卓手机构建低功耗计算集群。239点HN讨论——当AI算力需求激增时，"废物利用"能否成为绿色计算方案？</div>
+      <div class="meta"><span style="color:var(--positive)">239</span> HN points · 131评论 · 可持续AI基础设施</div>
+    </div>
+    <div class="tags"><span class="tag hn">HN</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">12</div>
+    <div class="body">
+      <div class="title">🐍 Pyodide 314.0：Python包可发布WebAssembly到PyPI</div>
+      <div class="desc">Pyodide 314.0里程碑发布：Python包现在可以直接为WebAssembly编译并发布到PyPI，让Python生态更深度融入浏览器端。</div>
+      <div class="meta"><span style="color:var(--positive)">68</span> HN points · 首次支持Wasm wheels上PyPI</div>
+    </div>
+    <div class="tags"><span class="tag hn">HN</span></div>
+  </div>
+
+</div>
+
+<h2 class="section-title">📊 今日<span>数据</span></h2>
+
+<div class="stats-grid">
+  <div class="stat">
+    <div class="num">3,055</div>
+    <div class="label">Fable 5 HN 最高分</div>
+  </div>
+  <div class="stat">
+    <div class="num">1,511</div>
+    <div class="label">"开源AI必须赢" HN分</div>
+  </div>
+  <div class="stat">
+    <div class="num">1T</div>
+    <div class="label">Kimi-K2.7-Code 参数</div>
+  </div>
+  <div class="stat">
+    <div class="num">1M</div>
+    <div class="label">GLM-5.2 上下文长度</div>
+  </div>
+  <div class="stat">
+    <div class="num">+21.8%</div>
+    <div class="label">K2.7-Code 编程基准提升</div>
+  </div>
+  <div class="stat">
+    <div class="num">-30%</div>
+    <div class="label">K2.7-Code 推理token</div>
+  </div>
+</div>
+
+<h2 class="section-title">🔍 深度<span>分析</span></h2>
+
+<div class="dives">
+
+  <div class="dive">
+    <h3><span class="num">1</span> Fable 5 禁令：AI政策的"斯普特尼克时刻"还是"过度反应"？</h3>
+    <p>6月12日，美国商务部BIS向Anthropic发出指令：立即暂停Claude Fable 5和Mythos 5对所有外国公民的访问——包括Anthropic内部的外籍员工。这不仅是美国首次直接干预商业AI部署，更是对"视同出口"原则（deemed export）在前沿模型领域的最激进运用。Anthropic表示原因为一个"非通用越狱技术"让模型能在代码审计中发现已知漏洞，但这一能力并非Fable 5独有。</p>
+    <p>更戏剧性的是WSJ独家报道：这场禁令的导火索来自Anthropic最大投资者Amazon的CEO Andy Jassy。他向官员展示了Amazon研究员成功越狱Fable 5的证据——投资者同时也是监管"举报者"，这在硅谷引发激烈争论。支持者认为这是负责任的信息共享（AWS有政府合同义务），反对者则质疑亚马逊是否借监管之手削弱被投公司自主权。</p>
+    <p>深层信号：这预示着AI监管正从"自下而上"的安全治理转向"自上而下"的国家安全控制。当商业竞争通过监管渠道介入时，AI公司面临的不再仅仅是技术安全挑战，而是复杂的地缘政治和三角关系。Anthropic的困境——最大客户/投资者/云提供商亚马逊=举报者——将成为AI行业公司治理的经典案例。欧洲和亚洲加速"主权AI"建设已是必然响应。</p>
+    <div class="links">
+      <a href="https://news.ycombinator.com/item?id=43766555" target="_blank">HN: 3055点讨论</a>
+      <a href="https://www.wsj.com/tech/ai/amazon-ceos-talks-with-u-s-officials-triggered-crackdown-on-anthropic-models-dcc90578" target="_blank">WSJ: 亚马逊CEO触发禁令</a>
+      <a href="https://www.anthropic.com/news/statement-on-us-government-directive" target="_blank">Anthropic: 官方声明</a>
+    </div>
+  </div>
+
+  <div class="dive">
+    <h3><span class="num">2</span> 中国AI开源浪潮反攻：GLM-5.2 + Kimi-K2.7-Code 的"主权AI"叙事</h3>
+    <p>Fable 5禁令消息传出的同一天，中国两大AI实验室同时亮剑。智谱AI创始人唐杰发布GLM-5.2，强调"前沿智能必须保持开源、可及，属于人民"，并承诺下周MIT开源全量权重。几乎同时，Moonshot的Kimi-K2.7-Code（1T参数MoE/32B活跃/384专家）已发布到HuggingFace，Modified MIT许可近乎无限制商用。代码基准+21.8%，推理token减少30%。</p>
+    <p>这不是巧合。唐杰的发布声明明确提及"某些前沿模型因非技术原因被限制"，将开源定义为对抗政策不确定性的战略保险。两种策略形成鲜明对比：Anthropic（美国封闭前沿模型被政府切断）vs 中国实验室（顶级模型开放权重，全球可用）。"开源AI必须赢"（opensourceaimustwin.com）以1511点冲上HN第二，本质上是对这一格局的社区背书。</p>
+    <p>但需冷静看待：中国开源模型的"Modified MIT"仍保留对超大规模用户的额外条款，HuggingFace上已有用户发现K2.7-Code在某些agentic基准上与o5/Claude 5仍有差距。真正值得关注的不是"谁更强"，而是生态锁定效应的逆转——当全球开发者可以自由下载、微调、部署GLM-5.2和K2.7-Code，而Fable 5需要用VPN才能访问，开发者自然会流向开源生态。这是地缘政治加速开源替代的经典案例。</p>
+    <div class="links">
+      <a href="https://x.com/jietang/status/2065784751345287314" target="_blank">唐杰: GLM-5.2发布声明</a>
+      <a href="https://huggingface.co/moonshotai/Kimi-K2.7-Code" target="_blank">HuggingFace: Kimi-K2.7-Code</a>
+      <a href="https://opensourceaimustwin.com" target="_blank">Open Source AI Must Win</a>
+    </div>
+  </div>
+
+  <div class="dive">
+    <h3><span class="num">3</span> Agent基础设施三重加速：OpenAI Ona + Codex DevTools + xAI Sentry</h3>
+    <p>本周AI Agent基础设施出现了范式级别的三重跃迁。OpenAI收购Ona让Codex Agent获得"持久云工作区"——用户关闭电脑后Agent可继续运行数小时，从会话式交互转向委托式协作。同期发布的Codex Chrome DevTools模式更进一步：Agent直接通过CDP读取实时控制台、网络请求、DOM状态和性能分析，不再需要人类手动描述bug。</p>
+    <p>xAI的Sentry插件则补齐了最后一环——Agent不再只是写代码，而是自动检测并修复生产环境的错误。三家公司同时从三个维度（持久执行、深度调试、运维自愈）推进Agent自主性，这不是巧合，而是基础设施成熟后的必然爆发。当Agent能"写完→调试→部署→监控→修复"全链路闭环，开发者角色从"写代码的人"转变为"定义目标的人"。</p>
+    <p>更宏观的意义：这三步动作共同定义了"Agent OS"的基本雏形——一个可以持续运行、深度接入浏览器/IDE生态、具备自我修复能力的数字劳动力。OpenAI的Ona收购提供了"计算层"，CDP集成提供了"感知层"，xAI的Sentry提供了"反馈层"。接下来6-12个月，我们很可能会看到Agent与开发环境、生产环境的深度融合，形成新的编程范式——写Prompt而不是写代码的开发者，将成为主流。</p>
+    <div class="links">
+      <a href="https://openai.com/index/openai-to-acquire-ona/" target="_blank">OpenAI: 收购Ona公告</a>
+      <a href="https://x.com/Agos_Labs/status/2065817633455272272" target="_blank">X: Codex Chrome DevTools详解</a>
+      <a href="https://x.com/i/status/2065596654468894890" target="_blank">X: xAI Sentry Agent插件</a>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  每日AI精选 · 2026年6月14日 · <a href="index.html">📅 所有期次</a> · <a href="https://github.com/JMOKSZ/daily-ai-digest">GitHub</a>
+</div>
+
+</div>
+</body>
+</html>
