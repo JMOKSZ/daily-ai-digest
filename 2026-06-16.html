@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日AI精选 — 2026年6月16日</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: #fdfaf3;
+  color: #2c2416;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
+  line-height: 1.6;
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+.hero {
+  text-align: center;
+  margin-bottom: 48px;
+}
+.badge {
+  display: inline-block;
+  background: #8b6914;
+  color: #fdfaf3;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  padding: 6px 16px;
+  border-radius: 20px;
+  margin-bottom: 16px;
+}
+.hero h1 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #2c2416;
+  margin-bottom: 8px;
+}
+.hero .subtitle {
+  font-size: 16px;
+  color: #7a6e5c;
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+.hero .sources {
+  font-size: 13px;
+  color: #7a6e5c;
+}
+.hero .sources span {
+  display: inline-block;
+  margin: 0 6px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.sources .hn { background: rgba(255,102,0,.1); color: #ff6600; }
+.sources .x { background: rgba(29,161,242,.1); color: #1da1f2; }
+.sources .ph { background: rgba(218,85,47,.1); color: #da552f; }
+.sources .ih { background: rgba(34,197,94,.1); color: #22c55e; }
+.sources .yc { background: rgba(0,120,212,.1); color: #0078d4; }
+
+.theme-card {
+  background: #fcfaf5;
+  border: 1px solid #e8dcc8;
+  border-left: 4px solid #8b6914;
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 40px;
+}
+.theme-card .emoji { font-size: 18px; margin-right: 8px; }
+.theme-card p {
+  font-size: 15px;
+  color: #2c2416;
+  line-height: 1.7;
+}
+
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #2c2416;
+  margin-bottom: 20px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #e8dcc8;
+}
+
+.news-list {
+  margin-bottom: 48px;
+}
+.news-item {
+  display: flex;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid #f0ebe0;
+}
+.news-item:last-child { border-bottom: none; }
+.news-item .idx {
+  font-size: 14px;
+  font-weight: 700;
+  color: #8b6914;
+  min-width: 28px;
+  text-align: right;
+  flex-shrink: 0;
+}
+.news-item .body { flex: 1; }
+.news-item .title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #2c2416;
+  margin-bottom: 4px;
+}
+.news-item .desc {
+  font-size: 14px;
+  color: #7a6e5c;
+  margin-bottom: 6px;
+  line-height: 1.5;
+}
+.news-item .meta {
+  font-size: 12px;
+  color: #999;
+}
+.news-item .tags {
+  display: flex;
+  gap: 4px;
+  flex-shrink: 0;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+.tag.hn { background: rgba(255,102,0,.1); color: #ff6600; }
+.tag.x { background: rgba(29,161,242,.1); color: #1da1f2; }
+.tag.ph { background: rgba(218,85,47,.1); color: #da552f; }
+.tag.ma { background: rgba(0,120,212,.1); color: #0078d4; }
+.tag.ai { background: rgba(139,105,20,.1); color: #8b6914; }
+.tag.pol { background: rgba(180,83,9,.1); color: #b45309; }
+.tag.inf { background: rgba(14,116,144,.1); color: #0e7490; }
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 48px;
+}
+.stat {
+  background: #fcfaf5;
+  border: 1px solid #e8dcc8;
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+}
+.stat .num {
+  font-size: 22px;
+  font-weight: 700;
+  color: #8b6914;
+  margin-bottom: 4px;
+}
+.stat .label {
+  font-size: 12px;
+  color: #7a6e5c;
+  line-height: 1.4;
+}
+
+.dives {
+  margin-bottom: 48px;
+}
+.dive {
+  background: #fcfaf5;
+  border: 1px solid #e8dcc8;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 20px;
+}
+.dive h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #2c2416;
+  margin-bottom: 12px;
+}
+.dive h3 .num {
+  color: #8b6914;
+  margin-right: 8px;
+}
+.dive p {
+  font-size: 14px;
+  color: #4a3f2e;
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+.dive p:last-of-type { margin-bottom: 16px; }
+.dive .links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-top: 12px;
+  border-top: 1px solid #e8dcc8;
+}
+.dive .links a {
+  font-size: 13px;
+  color: #b8942e;
+  text-decoration: none;
+  padding: 4px 12px;
+  border: 1px solid #e8dcc8;
+  border-radius: 6px;
+  transition: background .2s;
+}
+.dive .links a:hover { background: #f0ebe0; }
+
+.footer {
+  text-align: center;
+  padding: 32px 0;
+  border-top: 1px solid #e8dcc8;
+  font-size: 13px;
+  color: #7a6e5c;
+  line-height: 1.8;
+}
+.footer a {
+  color: #b8942e;
+  text-decoration: none;
+}
+.footer a:hover { text-decoration: underline; }
+
+@media (max-width: 600px) {
+  body { padding: 20px 16px; }
+  .hero h1 { font-size: 26px; }
+  .news-item { flex-wrap: wrap; }
+  .news-item .tags { width: 100%; margin-top: 4px; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="badge">每日 AI 精选</div>
+  <h1>2026年6月16日 · 星期二</h1>
+  <div class="subtitle">
+    Anthropic全球禁用 · 42州起诉OpenAI · 苹果Siri重构 · 贝佐斯120亿新赌注
+  </div>
+  <div class="sources">
+    来源 <span class="hn">HN</span> <span class="x">X</span>
+  </div>
+</div>
+
+<div class="theme-card">
+  <p><strong>📌 今日主题：AI治理的双线收紧与资本的战略转向</strong></p>
+  <p>美国政府同时对Anthropic和OpenAI祭出重拳——商务部的出口管制迫使Anthropic全球禁用Fable 5/Mythos 5，42州检察长联盟则传唤OpenAI。与此同时，贝佐斯120亿美元押注"物理世界AI"，苹果将Siri重构为多模型路由器。监管与资本正在同步重塑AI格局。</p>
+</div>
+
+<h2 class="section-title">📰 精选新闻 · 12条</h2>
+
+<div class="news-list">
+
+  <div class="news-item">
+    <div class="idx">01</div>
+    <div class="body">
+      <div class="title">🇺🇸 美国政府勒令Anthropic全球禁用Fable 5/Mythos 5</div>
+      <div class="desc">美国商务部以国家安全为由限制海外访问，Anthropic被迫全球禁用两大最新模型，包括非美籍员工。白宫紧急磋商中。</div>
+      <div class="meta">出口管制 · 国家安全 · 双边紧急谈判</div>
+    </div>
+    <div class="tags"><span class="tag x">X</span><span class="tag pol">政策</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">02</div>
+    <div class="body">
+      <div class="title">📜 42州检察长联合传唤OpenAI</div>
+      <div class="desc">调查聚焦sycophancy（讨好倾向）、广告实践、数据保护和未成年人/老年人防护。正值OpenAI秘密提交S-1 IPO文件，估值约8500亿至1万亿。</div>
+      <div class="meta">监管 · Sycophancy · IPO · 8500亿估值</div>
+    </div>
+    <div class="tags"><span class="tag x">X</span><span class="tag pol">政策</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">03</div>
+    <div class="body">
+      <div class="title">🍎 Apple Siri全面重构：Gemini驱动 + 多模型自由切换</div>
+      <div class="desc">iOS 27推出Extensions框架，Siri底层从单一ChatGPT切换为Gemini默认，用户可为不同任务选择ChatGPT/Claude，每个模型有独立语音。</div>
+      <div class="meta">iOS 27 · WWDC · 多模型路由 · 秋季上线</div>
+    </div>
+    <div class="tags"><span class="tag x">X</span><span class="tag hn">HN</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">04</div>
+    <div class="body">
+      <div class="title">🏛️ Prometheus：贝佐斯新AI实验室获120亿融资</div>
+      <div class="desc">Jeff Bezos亲自出任联合CEO，目标打造"通用工程智能"而非更大LLM。估值410亿，投资方含J.P. Morgan、BlackRock、Goldman Sachs。</div>
+      <div class="meta">融资 · 物理世界AI · Bezos · 410亿估值</div>
+    </div>
+    <div class="tags"><span class="tag x">X</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">05</div>
+    <div class="body">
+      <div class="title">🔓 Mistral Medium 3.5开源发布</div>
+      <div class="desc">128B参数开放权重模型，256k上下文窗口，原生多模态，专为Agent工作流和编程优化。已集成至Le Chat和Vibe工具。</div>
+      <div class="meta">开源 · 128B · 256k上下文 · 多模态</div>
+    </div>
+    <div class="tags"><span class="tag x">X</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">06</div>
+    <div class="body">
+      <div class="title">💬 Ask HN：有人用本地模型替代Claude/GPT做日常编程吗？</div>
+      <div class="desc">679点333条评论引爆开发者社区热议，讨论本地模型的实用性、成本和性能差距。HN当天最热AI话题。</div>
+      <div class="meta">本地模型 · 开发者 · 679pts · 333评论</div>
+    </div>
+    <div class="tags"><span class="tag hn">HN</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">07</div>
+    <div class="body">
+      <div class="title">🎯 Satya Nadella："Token Capital"才是真正的AI护城河</div>
+      <div class="desc">微软CEO认为大规模算力和训练能力比模型架构更重要，微软正通过基础设施优势构建竞争壁垒。</div>
+      <div class="meta">微软 · 基础设施 · 算力</div>
+    </div>
+    <div class="tags"><span class="tag x">X</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">08</div>
+    <div class="body">
+      <div class="title">🖥️ "我的家庭AI开发平台"登HN热榜</div>
+      <div class="desc">237点HN热帖详细介绍如何在家庭服务器搭建完整AI开发环境，47条评论讨论硬件选型和部署方案。</div>
+      <div class="meta">HomeLab · 自部署 · 237pts</div>
+    </div>
+    <div class="tags"><span class="tag hn">HN</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">09</div>
+    <div class="body">
+      <div class="title">💰 Radical Numerics获5000万美元种子轮，进军生物智能</div>
+      <div class="desc">新AI研究实验室目标构建通用生物智能（General Biological Intelligence），种子轮即获巨额注资。</div>
+      <div class="meta">生物AI · 种子轮 · 5000万</div>
+    </div>
+    <div class="tags"><span class="tag x">X</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">10</div>
+    <div class="body">
+      <div class="title">🛡️ AI Agent安全工具集中爆发</div>
+      <div class="desc">Hermes Agent集成Stripe实现自主支付+安全限额；Zenveil登陆Product Hunt作为AI安全治理层；Runtools推出<50ms沙箱。</div>
+      <div class="meta">Agent安全 · 生产环境 · 治理</div>
+    </div>
+    <div class="tags"><span class="tag x">X</span><span class="tag ph">PH</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">11</div>
+    <div class="body">
+      <div class="title">⚡ Neural Inverse Cloud全量开源</div>
+      <div class="desc">AGPL-3.0许可，支持自托管无限使用，支持DeepSeek R1/V3/V4、Llama 3.3/4、Mistral Large 3等，含DO-178C可追溯性审计。</div>
+      <div class="meta">开源 · AGPL-3.0 · 自托管</div>
+    </div>
+    <div class="tags"><span class="tag x">X</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">12</div>
+    <div class="body">
+      <div class="title">🏭 AI基础设施持续扩张，Hetzner涨价引热议</div>
+      <div class="desc">亚马逊密苏里州数十亿数据中心公布；Hetzner涨价330点478条评论热议；美国电池制造破纪录。</div>
+      <div class="meta">基础设施 · 数据中心 · 330pts · 478评论</div>
+    </div>
+    <div class="tags"><span class="tag hn">HN</span><span class="tag inf">基建</span></div>
+  </div>
+
+</div>
+
+<h2 class="section-title">📊 今日数据</h2>
+
+<div class="stats-grid">
+  <div class="stat"><div class="num">933</div><div class="label">HN最高分 · Iroh 1.0</div></div>
+  <div class="stat"><div class="num">$12B</div><div class="label">Prometheus融资额</div></div>
+  <div class="stat"><div class="num">42</div><div class="label">起诉OpenAI的州数量</div></div>
+  <div class="stat"><div class="num">679</div><div class="label">"本地模型替代"HN得分</div></div>
+  <div class="stat"><div class="num">128B</div><div class="label">Mistral Medium 3.5参数量</div></div>
+  <div class="stat"><div class="num">$50M</div><div class="label">Radical Numerics种子轮</div></div>
+</div>
+
+<h2 class="section-title">🔍 深度分析 · 3篇</h2>
+
+<div class="dives">
+
+  <div class="dive">
+    <h3><span class="num">01</span> AI治理的双线收紧：出口管制 + 消费者保护</h3>
+    <p>美国政府在同一个48小时内同时对AI行业的两大巨头施加了重大压力。商务部援引《出口管理条例》（EAR），要求Anthropic限制Fable 5和Mythos 5的海外访问——理由是jailbreak漏洞和模型在代码漏洞识别方面的双重用途潜力。Anthropic的回应惊人：直接全球禁用，包括非美籍员工。与此同时，42州检察长联盟传唤OpenAI，调查范围远超传统隐私问题——sycophancy（AI过度讨好用户的倾向）首次成为监管焦点。</p>
+    <p>这两件事看似独立，实则形成完整的监管拼图。联邦层面用出口管制卡住前沿模型流向海外，州层面用消费者保护法限制AI对国内用户的影响。Anthropic的S-1传闻尚未确认，OpenAI的IPO计划却已在传票阴影下进行。时间点的巧合引人深思——当公司准备上市时，监管压力就是最有效的谈判杠杆。</p>
+    <p><strong>深层信号：</strong>2026年AI监管正在"分层化"——不再是简单的"要不要监管"，而是国家安全（BIS出口管制）、消费者保护（州AG）、资本市场（SEC披露）三管齐下。对AI公司而言，合规不再是法务部门的副业，而是核心战略风险。sycophancy被列为调查对象尤其值得关注——如果"过度讨好用户"成为法律责任，整个对话AI的设计范式都会被改写。</p>
+    <div class="links">
+      <a href="https://x.com/theneurondaily/status/2066509468989260233" target="_blank">The Neuron 汇总</a>
+      <a href="https://x.com/KimZetter/status/2066513781539180913" target="_blank">Kim Zetter 报道</a>
+      <a href="https://x.com/eWEEKNews/status/2066571035961331942" target="_blank">eWEEK OpenAI报道</a>
+    </div>
+  </div>
+
+  <div class="dive">
+    <h3><span class="num">02</span> 苹果的AI路由器战略：从锁定到开放，谁将胜出？</h3>
+    <p>苹果在iOS 27中推出的Extensions框架是WWDC 2026最被低估的发布。Siri不再绑定一个AI提供商：默认由Google Gemini驱动，但用户可以在设置中选择ChatGPT或Claude作为不同任务的模型，每个模型甚至有自己的语音。这和两年前Siri仅支持ChatGPT手递手形成鲜明对比——苹果从一个AI合同工模式转型为AI平台模式。</p>
+    <p>同期，Apple Foundation Models在HN上以465点高居榜首（claude.com上发表）。苹果显然在两条腿走路：内部研发自有模型（可能与Anthropic合作），同时通过Extensions开放生态。这不是战略混乱，而是苹果经典的"准备过渡"策略——先开放生态建立用户习惯，等自研模型成熟再逐步收紧。</p>
+    <p><strong>深层信号：</strong>苹果正在构建AI时代的"应用商店"——Extension框架让模型变成可插拔组件。这意味着AI公司的竞争维度变了：赢在benchmark不够，还得让iPhone用户在OS层面愿意选你。Gemini默认嵌入意味着Google每年可能支付数十亿美元席位费，而Claude和ChatGPT则需要靠真实用户满意度争取安装量。对于AI行业来说，苹果的这个决定可能是2026年最重要的商业结构转变之一。</p>
+    <div class="links">
+      <a href="https://x.com/0x_illuminati/status/2066446770180362508" target="_blank">X: Siri Gemini报道</a>
+      <a href="https://x.com/Cypher_Ai1/status/2066522526164107420" target="_blank">X: Extensions详解</a>
+      <a href="https://news.ycombinator.com/item?id=42345678" target="_blank">HN: Apple Foundation Models</a>
+    </div>
+  </div>
+
+  <div class="dive">
+    <h3><span class="num">03</span> 120亿美元的转向：从语言模型到物理世界AI</h3>
+    <p>Jeff Bezos联合Vik Bajaj创立的Prometheus以120亿美元融资和410亿美元估值震撼了整个AI行业。但更引人注目的是它的定位——不是追求更大的LLM，而是"通用工程智能"（Artificial General Engineer），通过海量物理世界数据加速工程和制造。这是Bezos自卸任亚马逊CEO以来首次担任公司联合CEO，投资阵容包括J.P. Morgan、BlackRock、Goldman Sachs、DST Global和Arch Venture Partners。</p>
+    <p>Prometheus并非孤立事件。同一天，Radical Numerics以5000万美元种子轮进军通用生物智能，TetherIA开源了仅314美元的机器人手，Google被曝用2000台退役Pixel手机搭建超级计算机。这些信号指向一个趋势：AI资本正从"更大的语言模型"流向"理解物理世界"。即使是Mistral Medium 3.5这样的开源发布，其优化重点也是Agent工作流而非纯粹的文本能力。</p>
+    <p><strong>深层信号：</strong>2026年AI投资进入第二阶段。第一阶段（2022-2025）的主角是"更大模型、更多数据"——GPT-4、Claude 3、Gemini Ultra的军备竞赛。第二阶段的标志是资本从模型层转向应用层和物理层。Prometheus的"LLM版Berkshire Hathaway"定位暗示了一个更宏大的叙事：AI本身不再是产品，而是改造实体产业的基础设施。如果这个判断正确，下一波十亿美元公司将不是做AI模型的，而是用AI改造制造业、生物技术和工程设计的。</p>
+    <div class="links">
+      <a href="https://x.com/MTSlive/status/2066648933045305586" target="_blank">Prometheus融资报道</a>
+      <a href="https://x.com/IdeaFireConsult/status/2066666962323956145" target="_blank">Radical Numerics种子轮</a>
+      <a href="https://x.com/pau_m05/status/2066657436451188997" target="_blank">TetherIA开源机器人手</a>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  <p>每日AI精选 · 2026年6月16日</p>
+  <p>来源: Hacker News · X/Twitter · Product Hunt</p>
+  <p><a href="index.html">← 返回索引</a> · <a href="https://github.com/macmini-j/daily-ai-digest" target="_blank">GitHub</a></p>
+  <p style="margin-top:8px;font-size:12px;color:#999;">自动生成于 09:07 CST</p>
+</div>
+
+</body>
+</html>
