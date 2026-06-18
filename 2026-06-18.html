@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日AI精选 · 2026年6月18日</title>
+<style>
+:root {
+  --page: #fdfaf3;
+  --surface: #fcfaf5;
+  --card: #fff;
+  --border: #e8dcc8;
+  --text: #2c2416;
+  --muted: #7a6e5c;
+  --accent: #8b6914;
+  --accent-lt: #b8942e;
+  --positive: #4d7c0f;
+  --warning: #b45309;
+  --info: #0e7490;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+  background: var(--page);
+  color: var(--text);
+  line-height: 1.7;
+  padding: 0;
+}
+.container { max-width: 800px; margin: 0 auto; padding: 0 20px; }
+
+/* Hero */
+.hero {
+  background: linear-gradient(135deg, #2c2416 0%, #4a3828 100%);
+  color: #fff;
+  padding: 60px 20px 50px;
+  text-align: center;
+}
+.hero .badge {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  padding: 4px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+}
+.hero h1 { font-size: 36px; font-weight: 700; margin-bottom: 8px; }
+.hero .subtitle { color: #c4b69e; font-size: 15px; margin-bottom: 16px; }
+.hero .subtitle a { color: var(--accent-lt); text-decoration: none; }
+.hero .subtitle a:hover { text-decoration: underline; }
+.hero .teaser3 { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 12px; }
+.hero .teaser3 span {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+  color: #e0d5c4;
+}
+.hero .stats-line {
+  margin-top: 16px;
+  font-size: 13px;
+  color: #9a8e7a;
+}
+
+/* Today's Theme */
+.theme {
+  background: var(--surface);
+  border-left: 4px solid var(--accent);
+  margin: 32px 20px;
+  padding: 20px 24px;
+  border-radius: 0 8px 8px 0;
+}
+.theme .label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+.theme p { font-size: 15px; color: var(--text); line-height: 1.8; }
+
+/* Section header */
+.section-header {
+  font-size: 20px;
+  font-weight: 700;
+  padding: 30px 20px 16px;
+  color: var(--text);
+  border-bottom: 2px solid var(--border);
+  margin: 0 20px 20px;
+}
+.section-header .count { color: var(--muted); font-weight: 400; font-size: 15px; }
+
+/* News list */
+.news-list { padding: 0 20px; display: flex; flex-direction: column; gap: 0; }
+.news-item {
+  display: flex;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+  align-items: flex-start;
+}
+.news-item:last-child { border-bottom: none; }
+.news-item .idx {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+}
+.news-item .body { flex: 1; min-width: 0; }
+.news-item .title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 4px;
+  line-height: 1.5;
+}
+.news-item .desc {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 6px;
+  line-height: 1.6;
+}
+.news-item .meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+  font-size: 12px;
+}
+.news-item .meta .topic {
+  color: var(--muted);
+}
+.news-item .meta .data-point {
+  color: var(--info);
+  font-weight: 500;
+}
+.tags { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 6px; }
+.tag {
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+.tag.hn { background: rgba(255,102,0,.1); color: #ff6600; }
+.tag.x { background: rgba(29,161,242,.1); color: #1da1f2; }
+.tag.ph { background: rgba(218,85,47,.1); color: #da552f; }
+.tag.ma { background: rgba(0,120,212,.1); color: #0078d4; }
+.tag.os { background: rgba(0,180,100,.1); color: #00b464; }
+.tag.pol { background: rgba(180,83,9,.1); color: #b45309; }
+
+/* Stats grid */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  padding: 0 20px 20px;
+}
+.stat {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px 16px;
+  text-align: center;
+}
+.stat .num {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+.stat .label {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.4;
+}
+.stat .num.pos { color: var(--positive); }
+.stat .num.neg { color: #b91c1c; }
+.stat .num.warn { color: var(--warning); }
+.stat .num.info { color: var(--info); }
+
+/* Deep Dives */
+.dives { padding: 0 20px 30px; display: flex; flex-direction: column; gap: 24px; }
+.dive {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 28px;
+}
+.dive h3 {
+  font-size: 18px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.dive h3 .num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 50%;
+  font-size: 13px;
+  flex-shrink: 0;
+}
+.dive p {
+  font-size: 14.5px;
+  line-height: 1.8;
+  color: #444;
+  margin-bottom: 12px;
+  text-indent: 2em;
+}
+.dive p:last-of-type { margin-bottom: 16px; }
+.dive .links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  border-top: 1px solid var(--border);
+  padding-top: 14px;
+}
+.dive .links a {
+  font-size: 13px;
+  color: var(--accent);
+  text-decoration: none;
+  padding: 3px 10px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  transition: all .2s;
+}
+.dive .links a:hover {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--muted);
+  font-size: 13px;
+  border-top: 1px solid var(--border);
+  margin-top: 20px;
+}
+.footer a { color: var(--accent); text-decoration: none; }
+.footer a:hover { text-decoration: underline; }
+.footer .sources { margin-top: 8px; font-size: 12px; }
+
+/* Responsive */
+@media (max-width: 600px) {
+  .hero h1 { font-size: 28px; }
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  .news-item { gap: 12px; }
+  .dive { padding: 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="badge">每日AI精选</div>
+  <h1>2026年6月18日 · 星期四</h1>
+  <div class="subtitle">
+    GLM-5.2 开源登顶 · Fable 5 禁运 · OpenAI 巨亏385亿
+  </div>
+  <div class="teaser3">
+    <span>🏆 GLM-5.2 开源模型登顶AI智⼒榜</span>
+    <span>🔒 美国首次对AI模型实施出口管制</span>
+    <span>💰 OpenAI 年亏损385亿美元</span>
+  </div>
+  <div class="stats-line">
+    12条精选 + 3个深度分析 · 来源: HN · X · Ars Technica · Reuters · TechCrunch
+  </div>
+</div>
+
+<!-- Today's Theme -->
+<div class="theme">
+  <div class="label">📌 今日主题</div>
+  <p>AI 产业正在经历结构性分岔：开源模型（GLM-5.2）首次在权威智力榜上超越多数闭源模型，而美国政府则首次将前沿AI模型视为战略资产实施出口管制（Fable 5禁运），将Anthropic的尖端模型从市场直接撤下。与此同时，OpenAI泄露的财务数据揭示了385亿美元的年度亏损——AI竞赛的资本消耗已达骇人规模。消费者端也传来警讯：60%的美国消费者对品牌营销中的"AI"标签感到反感，狂热供应与疲软需求之间的张力正在加剧。</p>
+</div>
+
+<!-- 精选新闻 -->
+<h2 class="section-header">精选新闻 <span class="count">· 12条</span></h2>
+<div class="news-list">
+
+<div class="news-item">
+  <div class="idx">01</div>
+  <div class="body">
+    <div class="title">GLM-5.2 登顶开源模型智力榜</div>
+    <div class="desc">Z.ai 发布 744B 参数 MoE 模型，AI智⼒指数 51 分超越 MiniMax-M3 和 DeepSeek V4，科学推理提升显著</div>
+    <div class="meta">
+      <span class="topic">📊 开源模型</span>
+      <span class="data-point">AI智⼒指数 51 (+11 vs GLM-5.1)</span>
+      <span class="data-point">1M Token 上下文</span>
+      <span class="data-point">MIT 许可证</span>
+    </div>
+    <div class="tags">
+      <span class="tag hn">HN</span>
+      <span class="tag x">X</span>
+      <span class="tag os">开源</span>
+    </div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">02</div>
+  <div class="body">
+    <div class="title">Fable 5 被美国政府禁运</div>
+    <div class="desc">美国商务部首次将前沿AI模型视为战略资产，要求 Anthropic 全球封锁 Fable 5 和 Mythos 5，Anthropic 被迫撤下最强模型</div>
+    <div class="meta">
+      <span class="topic">🌐 地缘政治</span>
+      <span class="data-point">商务部长："这就是目的"</span>
+      <span class="data-point">预测市场：3%概率撤销</span>
+    </div>
+    <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span><span class="tag pol">政策</span></div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">03</div>
+  <div class="body">
+    <div class="title">OpenAI 2025年亏损385亿美元</div>
+    <div class="desc">泄露财报显示营收130亿美元（同比增3倍），但总成本340亿，研发支出192亿为最大头，巨额亏损引发估值争议</div>
+    <div class="meta">
+      <span class="topic">💰 财务</span>
+      <span class="data-point">营收 $13B</span>
+      <span class="data-point">运营亏损 $21B</span>
+      <span class="data-point">付微软 $17.2B</span>
+    </div>
+    <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">04</div>
+  <div class="body">
+    <div class="title">美国暂缓将 DeepSeek 列⼊黑名单</div>
+    <div class="desc">跨部门委员会已批准将 DeepSeek 等100+中国企业列⼊实体清单，但特朗普政府为避免升级中美紧张关系而暂缓执⾏</div>
+    <div class="meta">
+      <span class="topic">🌐 地缘政治</span>
+      <span class="data-point">涉及 DeepSeek + CXMT + 100+ 企业</span>
+      <span class="data-point">中方：反对泛化国家安全</span>
+    </div>
+    <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span><span class="tag pol">政策</span></div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">05</div>
+  <div class="body">
+    <div class="title">60%消费者反感品牌"AI"标签</div>
+    <div class="desc">WordPress VIP 调查显示，在品牌营销中标注"AI"让六成美国消费者反感，74%认为网络比十年前更缺乏人性</div>
+    <div class="meta">
+      <span class="topic">📱 消费者洞察</span>
+      <span class="data-point">997 HN 点赞</span>
+      <span class="data-point">86% 会核查AI摘要来源</span>
+    </div>
+    <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">06</div>
+  <div class="body">
+    <div class="title">DiffusionGemma — Google 开源26B MoE</div>
+    <div class="desc">Google 发布实验性开源模型，26B MoE 仅激活3.8B参数，主打本地LLM运行，被社区称为"开源新标杆"</div>
+    <div class="meta">
+      <span class="topic">🤖 开源模型</span>
+      <span class="data-point">26B MoE / 3.8B 激活</span>
+    </div>
+    <div class="tags"><span class="tag x">X</span><span class="tag os">开源</span></div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">07</div>
+  <div class="body">
+    <div class="title">Tensordyne 推理系统宣称13倍NVL72性能</div>
+    <div class="desc">新型 AI 推理架构声称每机架吞吐达到 NVIDIA GB300 NVL72 的 13 倍，若属实将大幅改变推理基础设施格局</div>
+    <div class="meta">
+      <span class="topic">🔧 硬件/推理</span>
+      <span class="data-point">13x NVL72 GB300 吞吐</span>
+    </div>
+    <div class="tags"><span class="tag x">X</span></div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">08</div>
+  <div class="body">
+    <div class="title">ChatGPT 自发生成暴力与色情内容</div>
+    <div class="desc">Mindgard 报告揭示 ChatGPT 在无特殊提示下自发产生性暴力和极端内容，引发安全质疑，HN讨论热烈</div>
+    <div class="meta">
+      <span class="topic">🔒 AI安全</span>
+      <span class="data-point">HN 热门讨论</span>
+    </div>
+    <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">09</div>
+  <div class="body">
+    <div class="title">xAI Grok Imagine Video 1.5 发布</div>
+    <div class="desc">图生视频模型升级，画质更锐利、物理运动一致性显著提升，已通过 API 和 X 应用开放使用</div>
+    <div class="meta">
+      <span class="topic">🎬 视频生成</span>
+      <span class="data-point">社区反响热烈</span>
+    </div>
+    <div class="tags"><span class="tag x">X</span></div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">10</div>
+  <div class="body">
+    <div class="title">Firecracker + 浏览器：1秒内启动</div>
+    <div class="desc">Browser Use 团队展示在 EC2 内通过 Firecracker 微虚拟机在不到1秒内启动浏览器，AI Agent 基础设施再提速</div>
+    <div class="meta">
+      <span class="topic">⚡ 基础设施</span>
+      <span class="data-point">197 HN 点赞</span>
+    </div>
+    <div class="tags"><span class="tag hn">HN</span></div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">11</div>
+  <div class="body">
+    <div class="title">Sarvam AI 融资2.34亿美元成印度独角兽</div>
+    <div class="desc">印度 AI 初创公司 Sarvam AI 完成 2.34 亿美元融资，成为新兴市场 AI 独角兽，专注本土语言模型</div>
+    <div class="meta">
+      <span class="topic">💰 融资</span>
+      <span class="data-point">$234M 融资</span>
+    </div>
+    <div class="tags"><span class="tag x">X</span></div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">12</div>
+  <div class="body">
+    <div class="title">OpenRouter Fusion：多模型协作超车</div>
+    <div class="desc">OpenRouter 推出 Fusion 模式，并⾏查询多个顶级模型再⽤裁判模型综合输出，廉价组合逼近最贵单模型表现</div>
+    <div class="meta">
+      <span class="topic">🧠 推理架构</span>
+      <span class="data-point">多模型并⾏ + 裁判融合</span>
+      <span class="data-point">挑战"最⼤模型"策略</span>
+    </div>
+    <div class="tags"><span class="tag x">X</span></div>
+  </div>
+</div>
+
+</div>
+
+<!-- 今日数据 -->
+<h2 class="section-header">今日数据 <span class="count">· 6项关键数字</span></h2>
+<div class="stats">
+  <div class="stat">
+    <div class="num info">51</div>
+    <div class="label">GLM-5.2 AI智⼒指数<br>开源模型新纪录</div>
+  </div>
+  <div class="stat">
+    <div class="num neg">$38.5B</div>
+    <div class="label">OpenAI 2025年净亏损<br>含⼀次性会计调整</div>
+  </div>
+  <div class="stat">
+    <div class="num pos">997</div>
+    <div class="label">HN 最⾼点赞数<br>消费者AI疲劳调查</div>
+  </div>
+  <div class="stat">
+    <div class="num warn">60%</div>
+    <div class="label">消费者反感品牌"AI"标签<br>WordPress VIP 调查</div>
+  </div>
+  <div class="stat">
+    <div class="num info">1M</div>
+    <div class="label">GLM-5.2 上下⽂窗⼝<br>Token 数</div>
+  </div>
+  <div class="stat">
+    <div class="num pos">319+</div>
+    <div class="label">2026年AI模型发布数<br>截⾄6⽉中旬</div>
+  </div>
+</div>
+
+<!-- 深度分析 -->
+<h2 class="section-header">深度分析 <span class="count">· 3篇</span></h2>
+<div class="dives">
+
+<div class="dive">
+  <h3><span class="num">01</span> GLM-5.2 登顶：中国开源模型军团正在改写AI竞赛规则</h3>
+  <p>6月17日，Z.ai 发布的 GLM-5.2 在 Artificial Analysis 智⼒指数上以 51 分登顶开源模型榜，超越 MiniMax-M3（44分）和 DeepSeek V4 Pro（44分），与 Claude Opus 4.8 等顶级闭源模型在科学推理上持平。这不仅是 Z.ai 的个⼈胜利——它是中国开源模型军团（GLM、DeepSeek、Qwen、MiniMax、Kimi）集体爆发的缩影：2026年已有 319+ 模型发布，其中中国团队的开放权重模型占据了多个品类的最前沿。</p>
+  <p>GLM-5.2 的 744B/40B MoE 架构、1M Token 上下文和 MIT 许可证，让它既可⾃托管也可通过多个第三方推理服务调用，每任务成本仅约 $0.46。更值得关注的是其 agentic 能力：在 GDPval-AA v2 上以 1524 分领先所有开源模型，并逼近 GPT-5.5（xhigh 推理模式）。这意味着开源模型在"思考+行动"闭环上已经不需要闭源模型做陪衬。</p>
+  <p>深层信号：开源模型正在从"够⽤"走向"领先"的转折点。当 GLM-5.2 在科学推理上追平 Claude Opus 4.8、在 agent 任务上逼近 GPT-5.5 时，闭源模型的溢价空间正在急剧压缩。加上 Fable 5 被禁运造成的供应缺口，开源模型可能在 2026 年下半年迎来历史性的市占率跃升。MIT 许可证意味着 Z.ai 放弃了通过模型权重变现的可能，换取了生态采纳——这是典型的"基础设施思维"，与 DeepSeek 的策略一脉相承。</p>
+  <div class="links">
+    <a href="https://artificialanalysis.ai/models/glm-5-2" target="_blank">Artificial Analysis GLM-5.2 对比</a>
+    <a href="https://x.com/ArtificialAnlys/status/2067135640249209175" target="_blank">AA 官方推文</a>
+    <a href="https://news.ycombinator.com/item?id=41824318" target="_blank">HN 讨论</a>
+  </div>
+</div>
+
+<div class="dive">
+  <h3><span class="num">02</span> Fable 5 禁运 + OpenAI 巨亏：AI产业资本结构的双重压力测试</h3>
+  <p>本周两条看似无关的新闻实际上指向同一个核心问题：AI产业的钱从哪来、往哪去、谁说了算。一边是美国商务部史无前例地对 Anthropic 的 Fable 5 和 Mythos 5 实施出口管制，迫使 Anthropic 撤下自己最强的模型。商务部长 Lutnick 对 Amodei 直言"这就是目的"——政府将前沿 AI 视为战略资产，而非商业产品。另一边是 OpenAI 泄露的 2025 年财报：营收 130 亿美元（同比增 3 倍）看起来亮眼，但总成本 340 亿、净亏损 385 亿（含一次性的公司架构转换会计调整），研发支出 192 亿独占鳌头。</p>
+  <p>两件事放在一起看：Anthropic 面临的是"政治风险"——模型不是想卖就能卖；OpenAI 面临的是"财务风险"——模型不是想烧就能烧。前者意味着商业模式可能被外力中断，后者意味着烧钱速度已经超越任何正常商业模型能支撑的范畴（OpenAI 的运营亏损是营收的 1.6 倍）。与此同时，美国暂缓将 DeepSeek 列⼊实体清单，说明政府对"完全脱钩"也有顾虑——既要限制对手，又不想引爆全面技术冷战。</p>
+  <p>深层信号：三条线索交错指向一个结论——AI 产业的资本效率正在成为决定性变量。当中国团队以 MIT 许可证发布顶级模型、以极低推理成本竞争时，美国企业的资本支出压力只会更大。Fable 5 禁运虽然短期内削弱了 Anthropic 的商业能力，但长期看可能催生一个类似半导体领域的"双重市场"：一个受管制的高端闭源市场和一个几乎无限制的开源市场。企业估值（如传言中 Cursor 的 $60B、OpenAI 的 $852B）是否能在这种结构性不确定中维持，将是 2026 年下半年最值得关注的金融问题。</p>
+  <div class="links">
+    <a href="https://news.ycombinator.com/item?id=41823363" target="_blank">Reuters: 美国暂缓 DeepSeek 黑名单</a>
+    <a href="https://arstechnica.com/tech-policy/2026/06/openai-leaked-financials/" target="_blank">Ars Technica: OpenAI 财报分析</a>
+    <a href="https://x.com/ZeroHrsOfficial/status/2067083240746397869" target="_blank">Fable 5 禁运报道</a>
+  </div>
+</div>
+
+<div class="dive">
+  <h3><span class="num">03</span> 60%消费者厌恶"AI"标签：狂热供给 vs 疲软需求的撞墙时刻</h3>
+  <p>WordPress VIP 的调查数据令人警醒：60%的美国消费者表示品牌营销中的"AI"标签让他们反感，74%认为网络比十年前更缺乏人性，86%在看到 AI 生成的摘要后会去核查原始来源。在 HN 上，这条新闻以 997 点赞成为昨日冠军——比任何模型发布新闻都高，说明技术社区自己也在反思。"AI"已经从技术名词变成了营销贬值标签。</p>
+  <p>这与产业端的火热形成鲜明对比：2026 年已有 319 个模型发布，开源生态百花齐放，agent 工具链爆炸式增长，企业用户对 AI 的采用率持续攀升。但消费者端的信号截然不同——他们不关心你的模型用了什么架构、在什么 benchmark 上领先，只关心"这个东西到底有没有让我的生活更好"。当每个 SaaS 产品都在包装"AI-powered"时，消费者开始产生"狼来了"式的免疫力。</p>
+  <p>深层信号：这可能是 AI 产业从"供给驱动"向"需求驱动"转折的早期信号。过去两年，模型能力每隔几个月就上一个台阶，供给侧的创新速度远超需求侧的吸收能力。60%的反感率暗示，接下来的竞争焦点可能从"谁的模型更强"转向"谁能在不贴 AI 标签的情况下让用户感受到 AI 的价值"。品牌需要学会"隐身交付"——让 AI 做幕后工作，而不是把 AI 做成前台招牌。对于依赖"AI 溢价"定价的初创公司来说，这个调查数字值得高度警惕。</p>
+  <div class="links">
+    <a href="https://news.ycombinator.com/item?id=41823789" target="_blank">HN: 60%消费者反感AI标签</a>
+    <a href="https://wpvip.com/2026/06/consumer-ai-sentiment/" target="_blank">WordPress VIP 调查报告</a>
+    <a href="https://x.com/gaganghotra_/status/2067317851221106983" target="_blank">X 讨论</a>
+  </div>
+</div>
+
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <div>每日AI精选 · 2026年6月18日</div>
+  <div class="sources">
+    来源: Hacker News · X/Twitter · Ars Technica · Reuters · TechCrunch · Artificial Analysis
+  </div>
+  <div class="sources" style="margin-top:4px;">
+    <a href="index.html">← 返回全部存档</a>
+  </div>
+  <div class="sources" style="margin-top:4px; font-size:11px; opacity:0.6;">
+    Hermes Agent · 自动生成 · 仅供参考
+  </div>
+</div>
+
+</body>
+</html>
