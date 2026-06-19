@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>每日AI精选 · 2026年6月19日</title>
+  <style>
+    :root {
+      --page:      #fdfaf3;
+      --surface:   #fcfaf5;
+      --border:    #e8dcc8;
+      --text:      #2c2416;
+      --muted:     #7a6e5c;
+      --accent:    #8b6914;
+      --accent-lt: #b8942e;
+      --positive:  #4d7c0f;
+      --warning:   #b45309;
+      --info:      #0e7490;
+      --card:      #ffffff;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", PingFang SC, "Noto Sans SC", sans-serif;
+      background: var(--page);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 0;
+    }
+    .container { max-width: 720px; margin: 0 auto; padding: 40px 24px 60px; }
+    
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding: 48px 0 36px;
+      border-bottom: 1px solid var(--border);
+    }
+    .badge {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 4px 14px;
+      border-radius: 20px;
+      letter-spacing: 0.5px;
+      margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .hero .date {
+      font-size: 15px;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .hero .subtitle {
+      font-size: 14px;
+      color: var(--muted);
+      max-width: 520px;
+      margin: 0 auto 4px;
+    }
+    .hero .subtitle em { color: var(--accent); font-style: normal; }
+    .hero .meta-line {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 12px;
+    }
+    
+    /* Today's Theme */
+    .theme-block {
+      margin: 32px 0;
+      padding: 20px 24px;
+      background: var(--surface);
+      border-left: 4px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+    }
+    .theme-block .label {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .theme-block p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text);
+    }
+    
+    /* Section */
+    .section-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin: 40px 0 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .section-title .count { 
+      font-size: 13px; 
+      font-weight: 400; 
+      color: var(--muted); 
+    }
+    
+    /* News items */
+    .news-list { display: flex; flex-direction: column; gap: 10px; }
+    .news-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 14px 16px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      transition: box-shadow 0.15s;
+    }
+    .news-item:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .idx {
+      width: 28px;
+      height: 28px;
+      min-width: 28px;
+      border-radius: 6px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--muted);
+    }
+    .body { flex: 1; min-width: 0; }
+    .title {
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.4;
+      margin-bottom: 2px;
+    }
+    .desc {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .meta {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 4px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      align-items: center;
+    }
+    .tags { display: flex; gap: 4px; flex-wrap: wrap; min-width: 60px; justify-content: flex-end; }
+    .tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 10px;
+      letter-spacing: 0.3px;
+    }
+    .tag.hn { background: rgba(255,102,0,.1); color: #ff6600; }
+    .tag.x { background: rgba(29,161,242,.1); color: #1da1f2; }
+    .tag.ph { background: rgba(218,85,47,.1); color: #da552f; }
+    .tag.ih { background: rgba(34,197,94,.1); color: #22c55e; }
+    .tag.ma { background: rgba(0,120,212,.1); color: #0078d4; }
+    
+    /* Stats */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin: 24px 0;
+    }
+    .stat-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      text-align: center;
+    }
+    .stat-card .num {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.2;
+    }
+    .stat-card .label {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+    
+    /* Deep Dives */
+    .dive-list { display: flex; flex-direction: column; gap: 20px; }
+    .dive {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 24px;
+    }
+    .dive h3 {
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .dive h3 .num {
+      width: 28px;
+      height: 28px;
+      min-width: 28px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+    }
+    .dive p {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+    .dive p:last-of-type { margin-bottom: 14px; }
+    .dive .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+    }
+    .dive .links a {
+      font-size: 12px;
+      color: var(--accent-lt);
+      text-decoration: none;
+      padding: 3px 10px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+    }
+    .dive .links a:hover { background: var(--accent); color: #fff; }
+    
+    /* Footer */
+    .footer {
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .footer a { color: var(--accent-lt); text-decoration: none; }
+    .footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 600px) {
+      .container { padding: 20px 16px 40px; }
+      .hero h1 { font-size: 24px; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="badge">每日AI精选</div>
+    <h1>2026年6月19日 · 星期五</h1>
+    <div class="date">Midjourney Medical · Noam Shazeer → OpenAI · 开源模型三箭齐发</div>
+    <div class="subtitle">
+      <em>12</em> 条精选 + <em>3</em> 个深度分析
+    </div>
+    <div class="meta-line">来源: Hacker News · X · 综合</div>
+  </div>
+
+  <!-- Today's Theme -->
+  <div class="theme-block">
+    <div class="label">📌 今日主题</div>
+    <p>
+      6月18日，AI行业迎来了一波密集信号：<strong>Midjourney</strong> 以一条科幻感十足的预告片宣布进军医疗成像硬件，从AI艺术生成器摇身变为医疗科技公司；<strong>Noam Shazeer</strong>——Transformer论文作者、Google Gemini联合负责人——宣布加入OpenAI，人才战升级；在开源一侧，<strong>GLM-5.2</strong>、<strong>MiniMax M3.0</strong>、<strong>Qwen3.6</strong> 三款模型几乎同时放出消息，在编码、多模态、长上下文上逼近甚至持平闭源前沿。与此同时，DeepSeek V4正式推出视觉能力，Snap发布$2,195的独立AR眼镜Specs——AI的边界正在以不可预测的方式扩展。
+    </p>
+  </div>
+
+  <!-- News -->
+  <div class="section-title">
+    📰 精选新闻 <span class="count">· 12 条</span>
+  </div>
+  <div class="news-list">
+
+    <div class="news-item">
+      <div class="idx">01</div>
+      <div class="body">
+        <div class="title">Midjourney Medical：从生成艺术到全身医疗扫描仪</div>
+        <div class="desc">Midjourney发布预告片，展示一款含50万超声波传感器的水浸式全身扫描仪，60秒生成MRI级影像，无辐射。2027年首店落地旧金山，计划2031年全球部署5万台。</div>
+        <div class="meta"><span class="tag hn">HN</span><span class="tag x">X</span> 1278 points · 844 评论 · 预告片播放量超1100万</div>
+      </div>
+    </div>
+
+    <div class="news-item">
+      <div class="idx">02</div>
+      <div class="body">
+        <div class="title">Noam Shazeer离开Google加盟OpenAI</div>
+        <div class="desc">"Attention Is All You Need" 论文合著者、Character.AI 创始人、Google Gemini 联合负责人跳槽 OpenAI。被普遍视为本轮AI人才争夺战中最具标志性的转会事件。</div>
+        <div class="meta"><span class="tag hn">HN</span><span class="tag x">X</span> OpenAI IPO 前夕 · 此前Google以27亿美元收购Character.AI</div>
+      </div>
+    </div>
+
+    <div class="news-item">
+      <div class="idx">03</div>
+      <div class="body">
+        <div class="title">DeepSeek V4 上线视觉能力</div>
+        <div class="desc">DeepSeek-V4-Pro 和 V4-Flash 新增原生视觉理解，支持图像推理、UI截图→HTML生成、文档识别。MoE架构（1.6T总参/极低激活），输入价格低至$0.44/百万token。</div>
+        <div class="meta"><span class="tag hn">HN</span><span class="tag x">X</span> 448 points · 181 评论 · Web/App 双端上线</div>
+      </div>
+    </div>
+
+    <div class="news-item">
+      <div class="idx">04</div>
+      <div class="body">
+        <div class="title">Snap发布独立AR眼镜 SPECS，售价$2,195</div>
+        <div class="desc">Snap在AWE大会上推出完全独立运行的AI增强现实眼镜，重132g，51°视场角，内置双Snapdragon处理器，续航约4小时。支持上下文AI助手、AR叠加、EyeConnect社交功能。</div>
+        <div class="meta"><span class="tag x">X</span> 2026年秋季发货 · 首批美国/英国/法国</div>
+      </div>
+    </div>
+
+    <div class="news-item">
+      <div class="idx">05</div>
+      <div class="body">
+        <div class="title">GLM-5.2 发布：753B MoE、1M上下文、MIT许可</div>
+        <div class="desc">智谱AI推出GLM-5.2，753B总参/40B激活MoE。IndexShare技术大幅降低长上下文推理成本，AI分析平台Intelligence Index得分51，编码能力逼近Claude Opus 4.8。全栈华为昇腾训练，无需英伟达。</div>
+        <div class="meta"><span class="tag x">X</span> MIT许可 · 四个月内第四次大版本迭代</div>
+      </div>
+    </div>
+
+    <div class="news-item">
+      <div class="idx">06</div>
+      <div class="body">
+        <div class="title">MiniMax M3.0 登顶开源模型排行榜</div>
+        <div class="desc">MiniMax M3.0 在Artificial Analysis开源榜单上位列第一，原生支持文本+图像+音频+视频的统一多模态架构，1M上下文窗口，编码和Agent任务表现突出。</div>
+        <div class="meta"><span class="tag x">X</span> 可免费试用 · 业内称"开源对抗闭源的范式转变"</div>
+      </div>
+    </div>
+
+    <div class="news-item">
+      <div class="idx">07</div>
+      <div class="body">
+        <div class="title">Qwen3.6-35B-A3B：消费级硬件跑出前沿性能</div>
+        <div class="desc">Qwen3.6系列MoE模型（35B总参/3B激活）在开源社区爆火，Apache 2.0许可，RTX 5090和高配Mac即可运行。编码、推理能力被评价为"当前最佳本地模型"。</div>
+        <div class="meta"><span class="tag x">X</span> 支持262K上下文 · 已有 uncensored 版本</div>
+      </div>
+    </div>
+
+    <div class="news-item">
+      <div class="idx">08</div>
+      <div class="body">
+        <div class="title">Vercel Eve：开源的"AI Agent版Next.js"</div>
+        <div class="desc">Vercel 发布 Eve，一个开源框架，旨在成为构建AI Agent应用的标准化基础设施。类似于 Next.js 之于 Web 应用，Eve 封装了 Agent 的路由、状态管理和工具编排。</div>
+        <div class="meta"><span class="tag x">X</span> 开源 · Agent 框架赛道竞争白热化</div>
+      </div>
+    </div>
+
+    <div class="news-item">
+      <div class="idx">09</div>
+      <div class="body">
+        <div class="title">MCP 协议突破9700万安装，移交Linux基金会治理</div>
+        <div class="desc">Anthropic的Model Context Protocol (MCP) 已达到9700万次安装量，正式移交 Linux 基金会进行开放治理。Zero-Touch OAuth 规范同日发布（HN #2），开发者生态加速成熟。</div>
+        <div class="meta"><span class="tag hn">HN</span><span class="tag x">X</span> 81 points · 26 评论 · 行业主要AI厂商已接入</div>
+      </div>
+    </div>
+
+    <div class="news-item">
+      <div class="idx">10</div>
+      <div class="body">
+        <div class="title">Hopkins 发布全自主手术机器人 SRT-H</div>
+        <div class="desc">约翰霍普金斯大学发布SRT-H手术机器人系统，仅用17小时手术视频训练，双AI层实现从视觉输入到精确操作的闭环。在动物模型上实现100%任务成功率，含实时自我纠错。</div>
+        <div class="meta"><span class="tag x">X</span> 活体临床应用仍需数年 · 标志性里程碑</div>
+      </div>
+    </div>
+
+    <div class="news-item">
+      <div class="idx">11</div>
+      <div class="body">
+        <div class="title">Amazon 领投 OdysseyAI 3.1亿美元，押注世界模型</div>
+        <div class="desc">OdysseyAI 完成3.1亿美元融资，由Amazon领投，致力于构建AI"世界模型"——让AI理解物理世界的因果结构和动态演化。被视作通向AGI的关键技术路线之一。</div>
+        <div class="meta"><span class="tag x">X</span> 世界模型赛道 · Aether AI 同日获2000万美元</div>
+      </div>
+    </div>
+
+    <div class="news-item">
+      <div class="idx">12</div>
+      <div class="body">
+        <div class="title">10,000 个GitHub仓库被发现传播木马恶意软件</div>
+        <div class="desc">安全研究员披露在GitHub上发现约1万个仓库以"代码示例"为幌子传播木马。HN热度650分，引发开源供应链安全大规模讨论。影响范围涉及AI工具依赖链。</div>
+        <div class="meta"><span class="tag hn">HN</span> 650 points · 148 评论 · 开源生态信任危机</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Stats -->
+  <div class="section-title">📊 今日数据</div>
+  <div class="stats-grid">
+    <div class="stat-card"><div class="num">1,278</div><div class="label">Midjourney Medical HN得分</div></div>
+    <div class="stat-card"><div class="num">97M</div><div class="label">MCP协议累计安装量</div></div>
+    <div class="stat-card"><div class="num">753B</div><div class="label">GLM-5.2 总参数量</div></div>
+    <div class="stat-card"><div class="num">$2,195</div><div class="label">Snap SPECS 售价</div></div>
+    <div class="stat-card"><div class="num">51</div><div class="label">GLM-5.2 智能指数得分</div></div>
+    <div class="stat-card"><div class="num">1M</div><div class="label">GLM-5.2 / M3.0 上下文窗口</div></div>
+  </div>
+
+  <!-- Deep Dives -->
+  <div class="section-title">🔍 深度分析</div>
+  <div class="dive-list">
+
+    <div class="dive">
+      <h3><span class="num">01</span> Midjourney Medical：创意公司做医疗硬件的深层逻辑</h3>
+      <p>Midjourney 以其惊艳的AI图像生成闻名，年收入约5亿美元、估值超百亿。但创始人David Holz显然不愿意被困在"AI艺术工具"的定位里。6月18日发布的Midjourney Medical宣告了一个惊人的转向：从像素到肉身，从生成图像到生成诊断数据。预告片中，用户被缓缓放入一个充满水的"扫描舱"，被50万个超声波传感器包围，60秒后获得全身3D影像——这种体验与其说是医疗检查，不如说是科幻电影中的一次"净化之旅"。</p>
+      <p>这条消息的真正信号不在于"AI公司做医疗"（这早已有之），而在于Midjourney选择了一条最重的路——自研硬件、自建诊所、自走FDA审批。以Midjourney的AI能力，它完全可以选择只做软件层（比如做AI影像诊断模型），但它选择了一条罕见的"AI公司做医疗硬件+服务"路线。这意味着：第一，Midjourney看到了AI在医疗数据采集端的巨大空白——现有的CT/MRI设备昂贵、有辐射、体验差，无法支撑"预防性全民体检"的愿景；第二，它相信自己能从硬件端拿到别人没有的训练数据——每年数亿人次、纵向追踪的跨时间健康数据。</p>
+      <p>更深层的信号在于"AI公司的范式扩展"。如果Midjourney能成功，它将成为第一个从数字创造跨越到物理世界硬件的AI公司。这比任何模型评测都更有行业范式意义：AI独角兽不再是"做一个更好的模型"，而是用AI能力重新定义一个传统行业的入口。这也是2026年最清晰的信号之一——AI正在从"让软件更智能"走向"让硬件更有用"。</p>
+      <div class="links">
+        <a href="https://x.com/i/status/2067421950314688759" target="_blank">Midjourney Medical 预告片</a>
+        <a href="https://x.com/TraffAlex/status/2067619691296661537" target="_blank">技术细节讨论</a>
+        <a href="https://x.com/IntegralAnswers/status/2067755828359336174" target="_blank">行业分析</a>
+      </div>
+    </div>
+
+    <div class="dive">
+      <h3><span class="num">02</span> Noam Shazeer → OpenAI：Transformer之父的"十年轮回"</h3>
+      <p>Noam Shazeer 在X上写道："我很兴奋地宣布我将加入OpenAI。这是一个艰难的决定。" 这句话的份量，不亚于任何模型发布。作为2017年"Attention Is All You Need"的合著者，Shazeer是现代AI的奠基人之一。他的职业轨迹本身就是一部AI行业简史：在Google工作十余年、创立Character.AI（后被Google以约27亿美元收购）、回归Google担任Gemini联席负责人——然后，在收购不到两年后，再次离开。</p>
+      <p>这已是Shazeer第二次离开Google。他第一次出走创办Character.AI时，带走了对对话AI的独特信念；第二次离开，则标志着Google对人才的"收购式锁定"策略正在失效。即使27亿美元级别的收购+联合负责人头衔，也无法长期留住顶尖研究者。Sam Altman的回应是"只花了10年"——暗示OpenAI从2015年就在追逐Shazeer。这场人才战的意义在于：当"千万年薪+顶级Title"都已不够用时，AI公司靠什么吸引和留住决定未来方向的人？</p>
+      <p>对OpenAI而言，Shazeer的加入正值IPO前夕（传闻OpenAI计划2026年下半年上市）。Transformer架构的奠基人之一加入GPT系列的创造者——这在技术叙事上几乎是一个完美的闭环。对Google而言，这是继Geoffrey Hinton、Jakob Uszkoreit等之后又一次重大人才损失。更深层的信号是：AI人才市场正在从"价格竞争"转向"使命竞争"——顶尖研究者选择的不是钱最多的地方，而是他们认为"未来会发生"的地方。Shazeer选择了OpenAI，这本身就是一票。</p>
+      <div class="links">
+        <a href="https://x.com/NoamShazeer/status/2067400851438932297" target="_blank">Noam Shazeer 入职声明</a>
+        <a href="https://x.com/thenewsdrum/status/2067495545925693585" target="_blank">行业分析</a>
+        <a href="https://x.com/Dipaktomar73/status/2067752653946331458" target="_blank">职业轨迹梳理</a>
+      </div>
+    </div>
+
+    <div class="dive">
+      <h3><span class="num">03</span> 开源模型三箭齐发：闭源优势只剩下多少？</h3>
+      <p>6月18日几乎同时有三款开源/开放权重模型放出重大消息：智谱的GLM-5.2（753B MoE，1M上下文，MIT许可）、MiniMax M3.0（登顶开源排行榜，统一多模态）、以及Qwen3.6-35B-A3B（3B激活即可在消费级GPU上跑出接近前沿的水平）。这三条消息叠加在一起，构成了2026年开源AI最密集的一次"能力证明"。GLM-5.2已在Artificial Analysis的智能指数上拿到51分（从前代的40分跃升），在FrontierSWE编码测试上达到74.4——距离Claude Opus 4.8仅几个百分点。</p>
+      <p>更值得关注的是GLM-5.2从头到尾使用华为昇腾芯片训练，没有用一块英伟达GPU。这不仅证明了国产芯片的可行性，也预示着开源生态正在打破"英伟达垄断"。MiniMax M3.0则走了一条不同的路：统一的多模态架构（文本+图像+音频+视频原生而非拼接），试图证明"开源也能做多模态巨头"。而Qwen3.6系列证明了另一件事：不是你永远需要云端大模型。35B总参/3B激活的极致MoE设计，让RTX 5090或M4 Ultra Mac就能运行接近前沿的模型——"本地模型不能打"这个判断正在被推翻。</p>
+      <p>将这三个消息放在一起看，信号非常清晰：开源模型正在从"追赶者"变成"竞争者"。在编码、推理、长上下文等关键维度上，开源与闭源的差距已缩小到"可用性误差范围"。MiniMax M3.0号称"第一个不需要向闭源低头的开源模型"，GLM-5.2的MIT许可意味着任何人都可以商用。行业格局正在发生结构性变化：如果开源模型的性能足以支撑80%的生产用例，那30-50倍的API价格差异就不再是简单的"性价比"问题，而是"为什么还要用闭源"的问题。当然，OpenAI、Anthropic手里还有系统化推理、超级对齐、多Agent编排等后手牌，但开源距离前沿的直线距离，明显比以前短了。</p>
+      <div class="links">
+        <a href="https://x.com/i/status/2067721713983635640" target="_blank">GLM-5.2 技术细节</a>
+        <a href="https://x.com/i/status/2067754073148010706" target="_blank">MiniMax M3.0 分析</a>
+        <a href="https://x.com/ChipWireMedia/status/2067506018334966215" target="_blank">开源模型排行榜解读</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <p>每日AI精选 · 2026年6月19日 · 自动生成</p>
+    <p>数据来源: Hacker News · X · 综合</p>
+    <p>
+      <a href="index.html">← 返回目录</a>
+    </p>
+  </div>
+
+</div>
+</body>
+</html>
