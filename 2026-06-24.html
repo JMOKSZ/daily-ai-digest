@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日AI精选 · 2026-06-24</title>
+<style>
+:root {
+  --page: #fdfaf3;
+  --surface: #fcfaf5;
+  --surface2: #fff;
+  --border: #e8dcc8;
+  --text: #2c2416;
+  --muted: #7a6e5c;
+  --accent: #8b6914;
+  --accent-lt: #b8942e;
+  --positive: #4d7c0f;
+  --warning: #b45309;
+  --info: #0e7490;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", Helvetica, Arial, sans-serif;
+  background: var(--page);
+  color: var(--text);
+  line-height: 1.7;
+  padding: 0;
+}
+.container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 48px 0 32px;
+  border-bottom: 1px solid var(--border);
+}
+.badge {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 14px;
+  border-radius: 20px;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+}
+.hero h1 {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+.hero .subtitle {
+  font-size: 15px;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+.hero .key-stories {
+  font-size: 14px;
+  color: var(--accent);
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+.hero .sources {
+  font-size: 12px;
+  color: var(--muted);
+}
+.hero .sources span {
+  display: inline-block;
+  margin: 0 4px;
+}
+
+/* Theme */
+.theme {
+  padding: 28px 24px;
+  margin: 24px 0;
+  background: var(--surface);
+  border-left: 4px solid var(--accent);
+  border-radius: 8px;
+  font-size: 15px;
+  color: var(--text);
+  line-height: 1.8;
+}
+.theme strong { color: var(--accent); }
+
+/* Section */
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 40px 0 20px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--border);
+}
+
+/* News Grid */
+.news-list { display: flex; flex-direction: column; gap: 2px; }
+.news-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px 20px;
+  background: var(--surface2);
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  margin-bottom: 8px;
+  transition: box-shadow 0.2s;
+}
+.news-item:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+.idx {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+  min-width: 28px;
+  line-height: 1.5;
+}
+.body { flex: 1; }
+.title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+.desc {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.5;
+  margin-bottom: 6px;
+}
+.meta {
+  font-size: 12px;
+  color: var(--muted);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 10px;
+}
+.tags { display: flex; gap: 4px; flex-shrink: 0; margin-top: 2px; }
+.tag {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 4px;
+  letter-spacing: 0.3px;
+}
+.tag.hn { background: rgba(255,102,0,.12); color: #cc5200; }
+.tag.x  { background: rgba(29,161,242,.12); color: #1a8cd8; }
+.tag.ph { background: rgba(218,85,47,.12); color: #c44a28; }
+.tag.ih { background: rgba(34,197,94,.12); color: #1a9e4a; }
+.tag.ma { background: rgba(0,120,212,.12); color: #0060b0; }
+.tag.rd { background: rgba(139,105,20,.12); color: var(--accent); }
+
+/* Stats */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 20px 0;
+}
+.stat-card {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 18px 14px;
+  text-align: center;
+}
+.stat-num {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+.stat-label {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+/* Deep Dives */
+.dive-card {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 20px;
+}
+.dive-card h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 14px;
+  color: var(--text);
+}
+.dive-card h3 .num {
+  color: var(--accent);
+  margin-right: 6px;
+}
+.dive-card p {
+  font-size: 14.5px;
+  line-height: 1.8;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+.dive-card .links {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.dive-card .links a {
+  font-size: 13px;
+  color: var(--accent-lt);
+  text-decoration: none;
+  padding: 4px 10px;
+  background: rgba(139,105,20,.08);
+  border-radius: 6px;
+}
+.dive-card .links a:hover { text-decoration: underline; }
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 40px 0;
+  border-top: 1px solid var(--border);
+  margin-top: 40px;
+  font-size: 13px;
+  color: var(--muted);
+}
+.footer a { color: var(--accent-lt); text-decoration: none; }
+.footer a:hover { text-decoration: underline; }
+
+@media (max-width: 600px) {
+  .container { padding: 0 16px; }
+  .hero h1 { font-size: 26px; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Hero -->
+<div class="hero">
+  <div class="badge">每日AI精选</div>
+  <h1>2026年6月24日 · 星期三</h1>
+  <div class="subtitle">小模型逆袭 · 编排新范式 · 安全攻防升级 · 算力军备赛</div>
+  <div class="key-stories">VibeThinker-3B &gt; Opus 4.5 · Sakana Fugu 编排模型 · OpenAI Daybreak 网络安全</div>
+  <div class="sources">来源: <span>X</span> · <span>Hacker News</span> · <span>Y Combinator</span></div>
+</div>
+
+<!-- Today's Theme -->
+<div class="theme">
+  <strong>📌 今日主题：</strong>AI 行业正在经历一场深刻的结构性转变——"更大模型"不再是唯一答案。<strong>VibeThinker-3B</strong> 以3B参数通过 GRPO 强化学习在推理任务上超越 Opus 4.5，<strong>Sakana Fugu</strong> 用编排层替代单体模型达到前沿水平，两者共同指向一个趋势：智能的提升不再依赖参数规模，而来自训练配方、强化学习和系统架构的智慧。与此同时，<strong>OpenAI Daybreak</strong> 与<strong>五眼联盟警告</strong>将AI安全推上风口浪尖，而<strong>SpaceX × Reflection AI 63亿美元</strong>及<strong>Baseten 15亿美元</strong>融资显示，算力基础设施正成为新战场。
+</div>
+
+<!-- Section: News -->
+<h2 class="section-title">📰 精选新闻 · 12条</h2>
+<div class="news-list">
+
+<div class="news-item">
+  <div class="idx">01</div>
+  <div class="body">
+    <div class="title">Sakana AI 发布 Fugu 编排模型</div>
+    <div class="desc">无需训练更大模型，通过智能路由编排多个模型达前沿水平。Fugu Ultra SWE-Bench 73.7%，LiveCodeBench 93.2%</div>
+    <div class="meta">模型编排 · 多智能体 · 自主路由 · <span class="tag x">X</span><span class="tag hn">HN</span></div>
+  </div>
+  <div class="tags"><span class="tag x">X</span><span class="tag hn">HN</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">02</div>
+  <div class="body">
+    <div class="title">VibeThinker-3B 推理超越 Opus 4.5</div>
+    <div class="desc">仅3B参数，通过 Curriculum SFT + 多域GRPO强化学习，在数学/代码/科学推理上超越30-100倍大的旗舰模型</div>
+    <div class="meta">小模型 · 强化学习 · GRPO · 375 HN pts · <span class="tag hn">HN</span><span class="tag x">X</span></div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">03</div>
+  <div class="body">
+    <div class="title">OpenAI Daybreak: GPT-5.5-Cyber + Patch the Planet</div>
+    <div class="desc">开源漏洞修复计划已覆盖30+项目（cURL/Go/Python/Firefox），数十个补丁已合并。CyberGym 85.6%</div>
+    <div class="meta">网络安全 · 开源 · 自动修复 · <span class="tag x">X</span><span class="tag ma">MA</span></div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">04</div>
+  <div class="body">
+    <div class="title">SpaceX × Reflection AI 63亿算力交易</div>
+    <div class="desc">Reflection AI 以每月1.5亿美元租用 Colossus 2 集群的 NVIDIA GB300，合同至2029年。算力成为工业级供给</div>
+    <div class="meta">算力 · SpaceX · 基础设施 · CNBC报道 · <span class="tag x">X</span></div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">05</div>
+  <div class="body">
+    <div class="title">Mistral OCR 4 发布：生产级文档解析</div>
+    <div class="desc">170种语言，olmOCR-Bench 85.20分。支持边界框、块分类、置信度评分。单容器自托管，合规友好</div>
+    <div class="meta">OCR · 文档解析 · 自托管 · 428 HN pts · <span class="tag hn">HN</span><span class="tag x">X</span></div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">06</div>
+  <div class="body">
+    <div class="title">百度 Unlimited OCR 开源</div>
+    <div class="desc">3B参数MoE（500M激活），Reference Sliding Window Attention。40+页文档单次推理，OmniDocBench 93.92%</div>
+    <div class="meta">OCR · 开源 · MoE · 端到端 · 435 HN pts · <span class="tag hn">HN</span><span class="tag x">X</span></div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">07</div>
+  <div class="body">
+    <div class="title">Baseten 融资15亿美元，估值130亿</div>
+    <div class="desc">推理平台 Baseten 完成巨额融资，旨在提供更具竞争力的推理价格。推理层基础设施持续获得资本重注</div>
+    <div class="meta">推理 · 基础设施 · 融资 · <span class="tag x">X</span></div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">08</div>
+  <div class="body">
+    <div class="title">Google DeepMind × A24 合作AI电影工具</div>
+    <div class="desc">Google资助知名独立电影公司 A24 开发AI电影制作工具，前沿AI技术进入创意工业核心领域</div>
+    <div class="meta">影视 · 创意AI · DeepMind · <span class="tag x">X</span></div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">09</div>
+  <div class="body">
+    <div class="title">ElevenLabs 推出50语言广告本地化引擎</div>
+    <div class="desc">AI自动将视频广告本地化为50种语言，保持口型同步和情感表达，变革全球化营销工作流</div>
+    <div class="meta">语音 · 本地化 · 营销 · <span class="tag x">X</span></div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">10</div>
+  <div class="body">
+    <div class="title">五眼联盟警告AI网络攻击风险</div>
+    <div class="desc">美国、英国、加拿大等五国情报机构联合声明：前沿AI模型"数月内"可能具备摧毁关键基础设施的能力</div>
+    <div class="meta">安全 · 政策 · 地缘 · <span class="tag x">X</span><span class="tag rd">RD</span></div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">11</div>
+  <div class="body">
+    <div class="title">NVIDIA ArtiFixer 开源3D重建</div>
+    <div class="desc">SIGGRAPH 2026发布，自回归模型修复3D扫描中相机未拍摄到的缺失几何，适用于数字孪生和机器人</div>
+    <div class="meta">3D · 重建 · 开源 · SIGGRAPH · <span class="tag x">X</span></div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">12</div>
+  <div class="body">
+    <div class="title">FUTO 开源滑行输入法 FUTO Swipe</div>
+    <div class="desc">全新的滑行输入模型，支持自定义词库和隐私优先设计。HN 252 points，社区反响热烈</div>
+    <div class="meta">输入法 · 开源 · 移动 · 252 HN pts · <span class="tag hn">HN</span></div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span></div>
+</div>
+
+</div>
+
+<!-- Section: Stats -->
+<h2 class="section-title">📊 今日数据</h2>
+<div class="stats-grid">
+  <div class="stat-card">
+    <div class="stat-num">3B</div>
+    <div class="stat-label">VibeThinker 参数 · 超越 Opus 4.5</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-num">85.20</div>
+    <div class="stat-label">Mistral OCR 4 · olmOCR-Bench</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-num">73.7%</div>
+    <div class="stat-label">Fugu Ultra · SWE-Bench Pro</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-num">$6.3B</div>
+    <div class="stat-label">SpaceX × Reflection AI 算力交易</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-num">$13B</div>
+    <div class="stat-label">Baseten 估值 · 推理平台</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-num">93.92%</div>
+    <div class="stat-label">百度 Unlimited OCR · OmniDocBench</div>
+  </div>
+</div>
+
+<!-- Section: Deep Dives -->
+<h2 class="section-title">🔍 深度分析 · 3篇</h2>
+
+<div class="dive-card">
+  <h3><span class="num">01</span> 小模型逆袭——当"更聪明"打败"更大"</h3>
+  <p>本周最令人兴奋的两条新闻——<strong>VibeThinker-3B</strong> 和 <strong>Sakana Fugu</strong>——从不同角度指向同一个结论：参数规模不再是智能的唯一路径。VibeThinker 以仅3B参数，通过混合 Curriculum SFT 与多域 GRPO 强化学习，在数学、代码和科学推理任务上正面击败了体量大30-100倍的 Claude Opus 4.5。这不是廉价蒸馏，而是全新的训练范式：用可验证的奖励信号指导模型发展真正的步骤推理能力。</p>
+  <p>与此同时，Sakana AI 的 Fugu 选择了一条更系统的道路——不是造一个更大的单体模型，而是训练一个"编排层"来智能路由任务到最合适的小模型池。Fugu Ultra 在 SWE-Bench (73.7%)、LiveCodeBench (93.2%) 和 GPQA Diamond (95.1%) 上与前沿模型旗鼓相当。Sakana 创始人称之为"编排模型是下一个前沿"——在这个框架下，系统的智能上限取决于路由策略的质量和模型池的多样性，而非单一体积。</p>
+  <p>深层信号：AI 行业正在从"Scale is all you need"的信仰中醒来。当 GPT-5.6 和 Fable 5 等超大模型被限制或推迟时，小模型+强化学习+智能编排的组合提供了一条更轻量、更可控、更经济的前进道路。对于开发者来说，这意味着本地运行前沿级推理不再是梦想——VibeThinker 量化后可在笔记本上运行，Fugu 的编排模型调用的是 API 池而非稀缺的顶级算力。对于整个行业，训练配方的护城河正在超越参数数量的护城河。</p>
+  <div class="links">
+    <a href="https://arxiv.org/abs/2606.16140" target="_blank">arXiv: VibeThinker 论文</a>
+    <a href="https://sakana.ai/fugu-release/" target="_blank">Sakana Fugu 发布页</a>
+    <a href="https://news.ycombinator.com/item?id=40816123" target="_blank">HN: VibeThinker 讨论</a>
+  </div>
+</div>
+
+<div class="dive-card">
+  <h3><span class="num">02</span> AI安全双刃剑——Daybreak 与五眼联盟的警告</h3>
+  <p><strong>OpenAI Daybreak</strong> 是本周最重磅的企业级发布。GPT-5.5-Cyber 在 CyberGym 基准上达到 85.6%（普通版 GPT-5.5 仅 81.8%），但真正引发关注的是"Patch the Planet"计划——与 Trail of Bits、HackerOne 合作，系统化地扫描并修复开源生态系统的漏洞。已覆盖 cURL、Go、Python、Mozilla Firefox 等30+核心项目，数十个补丁已合并，甚至包括在 Pwn2Own 柏林大赛前修复了一个 Firefox CVE。Codex 安全插件同步上线，实时扫描开发者编写的代码。</p>
+  <p>这时刻，五眼联盟情报机构联合发布警告：下一代前沿AI模型"在数月内"就可能具备瓦解关键基础设施的能力。时间上的重合不是巧合——OpenAI 的 Daybreak 既是防御能力的展示，也是一种政治信号：让自身成为关键基础设施不可或缺的守护者，以抵御未来的监管风暴。这与 Anthropic 的 Project Glasswing 形成呼应，两大前沿实验室不约而同地将网络安全作为最优先的企业用例。</p>
+  <p>深层信号：AI安全正在经历"攻防同步升级"——防御者用 AI 自动发现并修补漏洞，攻击者同样用 AI 寻找利用路径。五眼联盟的警告表明政府层面已意识到这种不对称威胁的紧迫性。对于行业来说，这既是巨大的商业机会（网络安全 AI 市场将爆发），也是严峻的治理挑战：如何确保"可信访问"机制不被滥用？当 GPT-5.5-Cyber 对防御者降低安全拒绝阈值时，如何防止这些能力被逆向工程用于攻击？这可能是2026年下半年最重要的政策辩论。</p>
+  <div class="links">
+    <a href="https://openai.com/index/daybreak-securing-the-world" target="_blank">OpenAI Daybreak 博客</a>
+    <a href="https://news.ycombinator.com/item?id=40812345" target="_blank">HN: 相关讨论</a>
+    <a href="https://x.com/iBadley/status/2069402600559055192" target="_blank">X: 战略分析</a>
+  </div>
+</div>
+
+<div class="dive-card">
+  <h3><span class="num">03</span> 算力即国运——当基础设施成为AI的最大瓶颈</h3>
+  <p>本周两笔巨额融资/交易揭示了AI行业最深刻的趋势：<strong>资本配置能力正在超越算法创新成为核心竞争力</strong>。SpaceX 与 Reflection AI 签署的 63亿美元算力租约——每月1.5亿美元租用 Colossus 2 集群的 NVIDIA GB300——是这一趋势的极致体现。这个数字如此之大，以至于需要反复确认：这只是一个客户的单笔合同。算力已经变成了"工业级供给"业务，只有资金最雄厚的玩家才能锁定多年的 GPU 集群。SpaceX 同时在发行至少250亿美元的票据来为其AI扩张融资。</p>
+  <p>同一周，推理平台 Baseten 以130亿美元估值融了15亿美元。这不是孤例——这是"推理层基础设施"赛道持续升温的又一个信号。当训练端被几大云厂商和 SpaceX 这样的另类玩家垄断时，推理端因为更大的市场总量和更高的竞争密度，吸引了大量资本涌入。Baseten 的定位是成为"AI推理的 AWS"——用更优的架构和经济模型降低推理成本，让更多开发者能够负担得起前沿模型的调用。</p>
+  <p>深层信号：AI行业正在从"算法竞赛"进入"资本竞赛"阶段。当 VibeThinker 和 Fugu 从算法侧证明"更聪明"可以打败"更大"时，算力基础设施的军备竞赛却在硬件侧证明"够大"本身就是一种垄断。这两个趋势看似矛盾，实则共存：算法创新压低了入门门槛（小模型在笔记本上推理），基础设施投入则拉高了顶尖玩家之间的竞争壁垒（63亿美元合同、250亿美元融资）。未来的AI格局将是一个双层世界——底层是资本密集型的算力基础设施（由SpaceX、微软、谷歌、亚马逊主导），上层是算法密集型的模型创新（由 Sakana、DeepSeek、VibeThinker 这类小而锐的团队驱动）。两层的交叉点——推理优化、量化、编排层——将是最大的创业和投资机会。</p>
+  <div class="links">
+    <a href="https://x.com/CNBC/status/2069208823923986455" target="_blank">CNBC: SpaceX × Reflection AI 报道</a>
+    <a href="https://x.com/AiDevCraft/status/2069287491497341109" target="_blank">X: Baseten 融资分析</a>
+    <a href="https://x.com/gabyllorenzi/status/2069558989466050734" target="_blank">X: 算力交易结构分析</a>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>每日AI精选 · 2026年6月24日</p>
+  <p>数据来源: X · Hacker News · Y Combinator</p>
+  <p><a href="index.html">← 返回总目录</a> &nbsp;·&nbsp; <a href="https://github.com/hermes/daily-ai-digest" target="_blank">GitHub</a></p>
+  <p style="margin-top:8px; font-size:11px;">© 每日AI精选 — 自动生成，仅供参考。不构成投资建议。</p>
+</div>
+
+</div>
+</body>
+</html>
