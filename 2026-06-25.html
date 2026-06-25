@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日AI精选 · 2026-06-25</title>
+<style>
+:root {
+  --page: #fdfaf3;
+  --surface: #ffffff;
+  --surface2: #fcfaf5;
+  --border: #e8dcc8;
+  --text: #2c2416;
+  --muted: #7a6e5c;
+  --accent: #8b6914;
+  --accent-lt: #b8942e;
+  --positive: #4d7c0f;
+  --warning: #b45309;
+  --info: #0e7490;
+  --red: #b91c1c;
+  --green: #15803d;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
+  background: var(--page);
+  color: var(--text);
+  line-height: 1.6;
+  padding: 20px;
+  max-width: 880px;
+  margin: 0 auto;
+}
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 40px 20px 30px;
+  border-bottom: 2px solid var(--border);
+  margin-bottom: 30px;
+}
+.badge {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 5px 16px;
+  border-radius: 20px;
+  letter-spacing: 1px;
+  margin-bottom: 14px;
+}
+.hero h1 {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+.hero .subtitle {
+  font-size: 16px;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+.hero .subtitle strong { color: var(--accent); }
+.hero .meta {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 6px;
+}
+.hero .meta span { margin: 0 6px; }
+
+/* Theme */
+.theme-box {
+  background: var(--surface2);
+  border-left: 4px solid var(--accent);
+  padding: 18px 22px;
+  margin-bottom: 30px;
+  border-radius: 0 8px 8px 0;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text);
+}
+.theme-box::before {
+  content: "📌 今日主题";
+  display: block;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+
+/* Section title */
+.section-title {
+  font-size: 20px;
+  font-weight: 800;
+  margin: 30px 0 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--border);
+}
+
+/* News Grid */
+.news-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 30px; }
+.news-item {
+  display: flex;
+  gap: 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px;
+  align-items: flex-start;
+  transition: box-shadow 0.2s;
+}
+.news-item:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+.idx {
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+}
+.body { flex: 1; min-width: 0; }
+.title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 3px;
+}
+.desc {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 5px;
+  line-height: 1.5;
+}
+.meta {
+  font-size: 12px;
+  color: #9a8e7a;
+}
+.tags {
+  flex-shrink: 0;
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+.tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+.tag.hn { background: rgba(255,102,0,.1); color: #ff6600; }
+.tag.x { background: rgba(29,161,242,.1); color: #1da1f2; }
+.tag.ph { background: rgba(218,85,47,.1); color: #da552f; }
+.tag.ih { background: rgba(34,197,94,.1); color: #22c55e; }
+.tag.ma { background: rgba(0,120,212,.1); color: #0078d4; }
+
+/* Stats Grid */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 30px;
+}
+.stat {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+}
+.stat .num {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+.stat .num.red { color: var(--red); }
+.stat .num.green { color: var(--green); }
+.stat .label {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+/* Deep Dives */
+.dives { display: flex; flex-direction: column; gap: 20px; margin-bottom: 30px; }
+.dive {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 22px;
+}
+.dive h3 {
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.dive h3 .num {
+  display: inline-flex;
+  width: 26px;
+  height: 26px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  flex-shrink: 0;
+}
+.dive p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+.dive .links {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.dive .links a {
+  font-size: 12px;
+  color: var(--info);
+  text-decoration: none;
+}
+.dive .links a:hover { text-decoration: underline; }
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 24px 0;
+  border-top: 2px solid var(--border);
+  font-size: 13px;
+  color: var(--muted);
+}
+.footer a {
+  color: var(--accent);
+  text-decoration: none;
+}
+.footer a:hover { text-decoration: underline; }
+
+@media (max-width: 600px) {
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  .hero h1 { font-size: 22px; }
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="badge">每日 AI 精选</div>
+  <h1>2026 年 6 月 25 日</h1>
+  <div class="subtitle">
+    <strong>OpenAI 首款芯片</strong> · <strong>AI Agent 嵌入 Slack</strong> · <strong>开源智能体新标杆</strong>
+  </div>
+  <div class="meta">
+    <span>15 条精选</span> · <span>3 篇深度分析</span>
+  </div>
+  <div class="meta" style="margin-top:4px;">
+    来源：Hacker News · X · TechCrunch · Bloomberg
+  </div>
+</div>
+
+<div class="theme-box">
+  今天 AI 圈的核心主线是 <strong>硬件与人才的双重军备竞赛</strong>。OpenAI 发布首款自研推理芯片 Jalapeño、Qualcomm 以 $39 亿收购 Modular 挑战 CUDA 霸权、Groq 再融 $6.5 亿——AI 硬件格局正在从"买 Nvidia"走向"造自己的芯片"。与此同时，Claude 直接嵌入 Slack 成为"异步同事"，Gemini 3.5 Flash 原生支持 Computer Use，AI Agent 正式进入企业工作流；而 GLM-5.2 以开源之姿逼近闭源前沿，宣告开源智能体时代的真正到来。
+</div>
+
+<h2 class="section-title">精选新闻 · 15 条</h2>
+
+<div class="news-list">
+
+<div class="news-item">
+  <div class="idx">01</div>
+  <div class="body">
+    <div class="title">OpenAI 发布首款自研推理芯片 "Jalapeño"</div>
+    <div class="desc">与 Broadcom 合作，9 个月完成设计到流片，专为 LLM 推理优化，性能功耗比大幅领先现有方案</div>
+    <div class="meta">芯片 · 509 HN 点赞 · 317 评论</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">02</div>
+  <div class="body">
+    <div class="title">Qualcomm 以 $39 亿收购 Modular</div>
+    <div class="desc">硬件+软件全栈 AI 布局，Modular 的 AI 编译器挑战 Nvidia CUDA 生态，开发者可从边缘到云端一站式部署</div>
+    <div class="meta">收购 · $3.9B · 138 HN 点赞</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">03</div>
+  <div class="body">
+    <div class="title">Claude Tag：Claude 直接嵌入 Slack 成为团队同事</div>
+    <div class="desc">@Claude 就能分配任务，拥有持久记忆和工具调用能力，支持代码评审、数据分析、事故响应等工作流</div>
+    <div class="meta">Agent · 企业协作 · Anthropic</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">04</div>
+  <div class="body">
+    <div class="title">Gemini 3.5 Flash 原生集成 Computer Use</div>
+    <div class="desc">不再需要专门模型，通过标准工具调用即可控制鼠标键盘操作浏览器和桌面，OSWorld 达 78.4%</div>
+    <div class="meta">Agent · 168 HN 点赞 · Flash 速度 · Flash 价格</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">05</div>
+  <div class="body">
+    <div class="title">GLM-5.2 发布：开源智能体首次逼近闭源前沿</div>
+    <div class="desc">744B 参数 MoE 架构，MIT 许可，SWE-Bench 和 Terminal-Bench 接近 Claude Opus，成本仅其 1/5</div>
+    <div class="meta">开源模型 · 124 HN 点赞 · 智谱 AI</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">06</div>
+  <div class="body">
+    <div class="title">Groq 获 $6.5 亿融资扩展 AI 推理云</div>
+    <div class="desc">此前 Nvidia 以 $200 亿获取其 LPU 技术许可和创始团队，Groq 独立运营，目标 2027 年达 200MW 算力</div>
+    <div class="meta">融资 · $650M · 推理芯片</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">07</div>
+  <div class="body">
+    <div class="title">Krea 2 发布：120 亿参数开源图像模型</div>
+    <div class="desc">Diffusion Transformer 架构，Turbo 版 2 秒生成 2K 图像，可在消费级 GPU 运行，含 Raw 版本供微调</div>
+    <div class="meta">开源模型 · 337 HN 点赞 · ComfyUI 支持</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">08</div>
+  <div class="body">
+    <div class="title">Meta 发布 $299 AI 智能眼镜新系列</div>
+    <div class="desc">与 EssilorLuxottica 合作推出 26 款设计，含 Kylie Jenner 联名款，支持实时翻译、免提拍摄、8 小时续航</div>
+    <div class="meta">硬件 · 可穿戴 · AI 翻译</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">09</div>
+  <div class="body">
+    <div class="title">Nvidia 45°C 液冷方案：数据中心近乎零用水</div>
+    <div class="desc">用干冷却器替代蒸发冷却塔，在适宜气候下几乎不消耗水资源，适合北欧等寒冷地区部署 AI 工厂</div>
+    <div class="meta">基础设施 · 181 HN 点赞 · 可持续</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">10</div>
+  <div class="body">
+    <div class="title">DeepMind 两名核心 Gemini 贡献者跳槽 Anthropic</div>
+    <div class="desc">Jonas Adler 和 Alexander Pritzel 离开 Google，Arthur Conmy 等对齐研究员也同期加入，人才外流加速</div>
+    <div class="meta">人才 · Google · Anthropic</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">11</div>
+  <div class="body">
+    <div class="title">Sentient Foundation 启动 $4200 万开源 AGI 计划</div>
+    <div class="desc">Founders Fund、Pantera 等支持，分无股权资助和创始人友好投资两条路径，聚焦智能体基础设施</div>
+    <div class="meta">开源 · 资助 · $42M · 智能体</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">12</div>
+  <div class="body">
+    <div class="title">Samsung 向 12.5 万员工开放 ChatGPT</div>
+    <div class="desc">此前因数据安全担忧禁止内部使用 AI，现逆转政策全面开放，成为企业级 AI 采纳的风向标</div>
+    <div class="meta">企业 · AI 采纳 · Samsung</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">13</div>
+  <div class="body">
+    <div class="title">RubyLLM：覆盖所有主流 AI 提供商的 Ruby 框架</div>
+    <div class="desc">统一的 Ruby 接口对接 OpenAI、Anthropic、Google 等，344 HN 点赞，Ruby 社区 AI 开发的里程碑</div>
+    <div class="meta">开发者工具 · 344 HN 点赞</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">14</div>
+  <div class="body">
+    <div class="title">NEAR AI Cloud 接入 17 个开源项目</div>
+    <div class="desc">TEE 可信执行环境支持的隐私可验证推理，已集成 Goose、Eliza、Vercel AI SDK 等项目</div>
+    <div class="meta">隐私计算 · TEE · 开源</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">15</div>
+  <div class="body">
+    <div class="title">OpenThoughts-Agent：开源智能体训练数据管线</div>
+    <div class="desc">100+ 消融实验验证，10 万样本训练集，在 agentic 任务上提升 3.9 个百分点，数据和工具已公开发布</div>
+    <div class="meta">研究 · 训练数据 · 开源</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+</div>
+
+<h2 class="section-title">今日数据</h2>
+
+<div class="stats">
+  <div class="stat">
+    <div class="num">9 个月</div>
+    <div class="label">OpenAI Jalapeño<br>从设计到流片</div>
+  </div>
+  <div class="stat">
+    <div class="num">$3.9B</div>
+    <div class="label">Qualcomm 收购 Modular<br>全股票交易</div>
+  </div>
+  <div class="stat">
+    <div class="num">$650M</div>
+    <div class="label">Groq 新一轮融资<br>扩展推理云</div>
+  </div>
+  <div class="stat">
+    <div class="num">744B</div>
+    <div class="label">GLM-5.2 总参数量<br>MoE 架构，MIT 许可</div>
+  </div>
+  <div class="stat">
+    <div class="num">78.4%</div>
+    <div class="label">Gemini 3.5 Flash<br>OSWorld-Verified 得分</div>
+  </div>
+  <div class="stat">
+    <div class="num green">$299</div>
+    <div class="label">Meta AI 眼镜起售价<br>26 款设计可选</div>
+  </div>
+</div>
+
+<h2 class="section-title">深度分析 · 3 篇</h2>
+
+<div class="dives">
+
+<div class="dive">
+  <h3><span class="num">01</span> AI 硬件格局重塑：从 "买 Nvidia" 到 "造自己的芯"</h3>
+  <p>2026 年 6 月 24 日，OpenAI 正式发布首款自研推理芯片 Jalapeño，从设计到流片仅用 9 个月。这款全掩模尺寸 ASIC 专为 LLM 推理优化，目标是替代 Nvidia GPU 驱动的推理工作负载——包括 ChatGPT、API、Codex 以及未来的智能体产品。同日，Qualcomm 宣布以 $39 亿全股票收购 Modular（Chris Lattner 创立的 AI 编译器和 Mojo 编程语言背后的公司），直接挑战 Nvidia CUDA 的软件生态霸权。</p>
+  <p>这两件事并非孤立事件。Groq 同日宣布 $6.5 亿融资（此前 Nvidia 已支付约 $200 亿获取其 LPU 技术许可和创始团队），Krea 2 开源图像模型用 DiT 架构在消费级 GPU 上跑出 2K 图像……整个 AI 硬件栈正从"单一依赖 Nvidia"急剧分裂为"多元定制芯片 + 开放软件生态"。OpenAI 亲自下场造芯片、Qualcomm 通过收购补软件短板、Groq 走 LPU 推理专用路线——三大策略并行，标志着 AI 推理市场正式进入差异化竞争时代。</p>
+  <p><strong>深层信号：</strong> 芯片定制化的背后是 AI 成本的残酷经济学。OpenAI 声称 Jalapeño 可节省约 50% 推理成本。当推理开支达到每月数亿美元量级（据报道 Uber 的 Anthropic 账单超过 $5 亿/月），自研芯片从"可选项"变成了"必选项"。对开发者而言，这意味着未来 12-18 个月将看到更多非 Nvidia 的推理选项涌现，硬件选择权正从卖方市场转向买方市场。</p>
+  <div class="links">
+    <a href="https://techcrunch.com" target="_blank">TechCrunch: OpenAI 芯片报道</a>
+    <a href="https://x.com/OpenAI/status/2069770172802773292" target="_blank">OpenAI 官方公告</a>
+    <a href="https://x.com/Qualcomm/status/2069758602420670572" target="_blank">Qualcomm 官方公告</a>
+  </div>
+</div>
+
+<div class="dive">
+  <h3><span class="num">02</span> AI Agent 进入工作流：Claude 在 Slack 里，Gemini 在桌面上</h3>
+  <p>Anthropic 推出 Claude Tag——Claude 不再是网页聊天窗口里的 AI，而是 Slack 频道里一个可以被 @ 的真实"同事"。它拥有持久记忆（记住频道历史、项目上下文），可以调用工具（代码仓库、数据库、文档），还能独立执行多步任务（分析事故、撰写 PR、编排工作流）。与此同时，Google 将 Computer Use 直接内置于 Gemini 3.5 Flash 模型中——不再是昂贵的前沿实验，而是标准工具调用，OSWorld 得分 78.4%，成本和速度均为 Flash 级别。</p>
+  <p>这两个发布共同指向同一趋势：AI Agent 正从"演示级"迈向"工作流级"。Claude Tag 解决的是"协作粘性"——AI 不需要离开聊天窗口就能参与真实工作；Gemini Computer Use 解决的是"执行广度"——AI 可以操作任何桌面软件，无需 API 对接。两者的结合意味着企业不再需要为每个场景定制 AI 集成，AI 可以像人一样"使用现有工具"。</p>
+  <p><strong>深层信号：</strong> 这是 AI 从"回答问题"到"拥有产出"的关键转变。Claude Tag 的持久记忆设计尤为值得关注——当 AI 记住历史对话和项目上下文，它就从一次性对话工具进化为持续学习的组织成员。下一个问题也变得清晰：当你的 Slack 同事里有 3 个 Claude 实例和 5 个人类，谁来决定谁做什么？协调与编排将成为企业 AI 的下一个瓶颈。</p>
+  <div class="links">
+    <a href="https://blog.google" target="_blank">Google Blog: Gemini Computer Use</a>
+    <a href="https://x.com/TheRundownAI/status/2069729830573158896" target="_blank">The Rundown AI 报道</a>
+    <a href="https://x.com/PonderoAI/status/2069816768340840490" target="_blank">Claude Tag 详情</a>
+  </div>
+</div>
+
+<div class="dive">
+  <h3><span class="num">03</span> 开源阵营的转折点：GLM-5.2、人才战争与 $4200 万 AGI 基金</h3>
+  <p>GLM-5.2 带来了一个此前被认为不可能的消息：一个开源模型在智能体任务上逼近了 Claude Opus。744B 参数 MoE 架构、1M 可用上下文窗口、MIT 许可——更关键的是社区实测：在 Cursor 和 Devin 中，GLM-5.2 修复 bug 的成功率和速度甚至超过了 Opus，而推理成本仅为后者的 1/5。开发者社区将其称为"第一个真正能日常使用的开源智能体模型"。</p>
+  <p>同一天的两个新闻为这个转变提供了注脚。一是 DeepMind 核心 Gemini 贡献者 Jonas Adler 和 Alexander Pritzel 跳槽 Anthropic，延续了从 Google 到 Anthropic 的人才外流；二是 Sentient Foundation 启动 $4200 万开源 AGI 计划，Founders Fund 和 Pantera 等顶级风投支持，明确聚焦智能体基础设施和开源工具链。人才从大厂流向 startups，资金从传统风投流向开源基金——两条线索都在指向开源模型的生态成熟。</p>
+  <p><strong>深层信号：</strong> 开源 vs 闭源的叙事正在被重写。过去两年，"开源模型足够好"的说法每年都说，但每年都在"足够好"和"前沿"之间留有明显差距。GLM-5.2 是第一个让人产生"差距可能已经消失"感觉的模型。配合 Sentient $4200 万基金、Zhipu 持续迭代、以及 Qwen3.5 397B 等同期发布，2026 年中期可能成为"开源智能体元年"的起点——闭源模型的护城河正在从"性能"变为"体验和集成"，而后者并非不可复制。</p>
+  <div class="links">
+    <a href="https://interconnects.ai" target="_blank">Interconnects: GLM-5.2 分析</a>
+    <a href="https://x.com/bonsaixbt/status/2069811841262309748" target="_blank">社区实测讨论</a>
+    <a href="https://x.com/rohanpaul_ai/status/2069810822998876330" target="_blank">Sentient 基金公告</a>
+  </div>
+</div>
+
+</div>
+
+<div class="footer">
+  <p>每日 AI 精选 · 2026 年 6 月 25 日</p>
+  <p>来源：Hacker News · X / Twitter · TechCrunch · Bloomberg · VentureBeat</p>
+  <p><a href="index.html">← 返回首页</a> · 自动生成于 09:07 CST</p>
+</div>
+
+</body>
+</html>
