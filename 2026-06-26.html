@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日AI精选 · 2026年6月26日</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --page: #fdfaf3;
+  --surface: #fff;
+  --surface-alt: #fcfaf5;
+  --border: #e8dcc8;
+  --text: #2c2416;
+  --muted: #7a6e5c;
+  --accent: #8b6914;
+  --accent-lt: #b8942e;
+  --positive: #4d7c0f;
+  --warning: #b45309;
+  --info: #0e7490;
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans SC', sans-serif;
+  background: var(--page);
+  color: var(--text);
+  line-height: 1.7;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 24px 20px;
+}
+.badge {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+.hero {
+  padding: 32px 0 20px;
+  border-bottom: 2px solid var(--border);
+}
+.hero h1 {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 4px 0 6px;
+}
+.hero .subtitle {
+  font-size: 15px;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+.hero .subtitle strong { color: var(--accent); }
+.hero .sources {
+  font-size: 13px;
+  color: var(--muted);
+}
+.hero .sources span { display: inline-block; margin-right: 10px; }
+.theme {
+  margin: 20px 0;
+  padding: 16px 20px;
+  background: var(--surface-alt);
+  border-left: 4px solid var(--accent);
+  border-radius: 0 8px 8px 0;
+  font-size: 15px;
+  color: var(--text);
+  line-height: 1.8;
+}
+.theme strong { color: var(--accent); }
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 28px 0 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.section-title .count {
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 400;
+}
+.news-list { list-style: none; padding: 0; }
+.news-item {
+  display: flex;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+  align-items: flex-start;
+}
+.news-item:last-child { border-bottom: none; }
+.idx {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--accent);
+  min-width: 28px;
+  text-align: right;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.body { flex: 1; min-width: 0; }
+.title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 2px;
+}
+.desc {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 4px;
+  line-height: 1.5;
+}
+.meta {
+  font-size: 12px;
+  color: var(--muted);
+}
+.meta .topic-tag {
+  display: inline-block;
+  background: rgba(139,105,20,.08);
+  color: var(--accent);
+  padding: 1px 8px;
+  border-radius: 10px;
+  font-size: 11px;
+  margin-right: 4px;
+}
+.tags {
+  display: flex;
+  gap: 4px;
+  flex-shrink: 0;
+  align-items: center;
+}
+.tag {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 600;
+}
+.tag.hn { background: rgba(255,102,0,.1); color: #ff6600; }
+.tag.x { background: rgba(29,161,242,.1); color: #1da1f2; }
+.tag.ph { background: rgba(218,85,47,.1); color: #da552f; }
+.tag.ma { background: rgba(0,120,212,.1); color: #0078d4; }
+.tag.ih { background: rgba(34,197,94,.1); color: #22c55e; }
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 16px 0 28px;
+}
+.stat {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 12px;
+  text-align: center;
+}
+.stat .num {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--accent);
+}
+.stat .label {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 2px;
+  line-height: 1.4;
+}
+
+.dive-section { margin-top: 8px; }
+.dive {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px 22px;
+  margin-bottom: 16px;
+}
+.dive h3 {
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.dive h3 .num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 50%;
+  font-size: 13px;
+  flex-shrink: 0;
+}
+.dive p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+.dive p:last-of-type { margin-bottom: 12px; }
+.dive .links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
+.dive .links a {
+  font-size: 13px;
+  color: var(--accent-lt);
+  text-decoration: none;
+}
+.dive .links a:hover { text-decoration: underline; }
+
+.footer {
+  margin-top: 32px;
+  padding: 20px 0;
+  border-top: 2px solid var(--border);
+  text-align: center;
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.8;
+}
+.footer a { color: var(--accent); text-decoration: none; }
+.footer a:hover { text-decoration: underline; }
+
+@media (max-width: 600px) {
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  .news-item { gap: 10px; }
+  .idx { min-width: 22px; font-size: 13px; }
+  .hero h1 { font-size: 22px; }
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="badge">每日AI精选</div>
+  <h1>2026年6月26日·星期五</h1>
+  <div class="subtitle">
+    <strong>政府审查</strong> · <strong>芯片革命</strong> · <strong>Agent基建</strong>
+  </div>
+  <div class="sources">
+    <span>📡 来源：Hacker News · X/Twitter · TechCrunch · Bloomberg · Reuters</span>
+  </div>
+</div>
+
+<div class="theme">
+  <strong>📌 今日主题：</strong>政府之手正式介入前沿AI发布，特朗普要求OpenAI分阶段推出GPT-5.6，标志着AI进入许可制时代；硬件端百花齐放——NVIDIA以DGX Station将万亿参数能力推向桌面，OpenAI×Broadcom自研Jalapeño芯片成本直降50%，IBM突破0.7nm物理极限；Agent生态基建融资井喷，Patronus AI、General Intuition、Sentient Foundation三箭齐发，测试、训练与开源三路并进。
+</div>
+
+<div class="section-title">
+  精选新闻 <span class="count">· 15条</span>
+</div>
+
+<ul class="news-list">
+
+<li class="news-item">
+  <div class="idx">01</div>
+  <div class="body">
+    <div class="title">特朗普政府要求OpenAI分阶段推出GPT-5.6</div>
+    <div class="desc">白宫以安全为由要求控制发布节奏，仅限企业有限预览，政府逐客户审批——被视为事实上的AI出口管制</div>
+    <div class="meta"><span class="topic-tag">政策</span><span class="topic-tag">模型</span>The Information · 195 pts HN</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+</li>
+
+<li class="news-item">
+  <div class="idx">02</div>
+  <div class="body">
+    <div class="title">NVIDIA COMPUTEX展示Physical AI与DGX Station桌面超算</div>
+    <div class="desc">Jensen Huang定义Physical AI为下一波浪潮；DGX Station for Windows把万亿参数模型带到企业桌面，支持本地&安全部署</div>
+    <div class="meta"><span class="topic-tag">硬件</span><span class="topic-tag">机器人</span>COMPUTEX 2026 · RTX Spark同步发布</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</li>
+
+<li class="news-item">
+  <div class="idx">03</div>
+  <div class="body">
+    <div class="title">OpenAI×Broadcom发布自研推理芯片Jalapeño</div>
+    <div class="desc">9个月完成设计，推理性能媲美Blackwell、成本降低约50%，年底更大规模部署——OpenAI走上垂直整合之路</div>
+    <div class="meta"><span class="topic-tag">芯片</span><span class="topic-tag">基建</span>与Blackwell/TPU性能对标 · 样品测试中</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</li>
+
+<li class="news-item">
+  <div class="idx">04</div>
+  <div class="body">
+    <div class="title">IBM突破0.7nm芯片技术：1000亿晶体管集成于指甲盖</div>
+    <div class="desc">基于Nanostack 3D堆叠架构，性能提升50%或能效提升70%，预计5年内量产——从"纳米"走向"原子"尺度</div>
+    <div class="meta"><span class="topic-tag">芯片</span><span class="topic-tag">硬件</span>258 pts HN · 比2nm密度翻倍</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+</li>
+
+<li class="news-item">
+  <div class="idx">05</div>
+  <div class="body">
+    <div class="title">DeepMind人才持续流失：Gemini核心研究员投奔Anthropic</div>
+    <div class="desc">Jonas Adler和Alexander Pritzel确认加盟Anthropic，延续包括John Jumper、Noam Shazeer在内的出走潮，DeepMind→Anthropic流动率达11:1</div>
+    <div class="meta"><span class="topic-tag">人才</span><span class="topic-tag">竞争</span>Bloomberg报道 · IPO前股权是主要诱因</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</li>
+
+<li class="news-item">
+  <div class="idx">06</div>
+  <div class="body">
+    <div class="title">Patronus AI获$5000万B轮融资，构建Agent数字训练场</div>
+    <div class="desc">发布Digital World Model，在模拟数字世界中训练Agent应对超长任务，收入同比增长15倍，Lightspeed、Datadog等参投</div>
+    <div class="meta"><span class="topic-tag">Agent</span><span class="topic-tag">融资</span>Greenfield VC领投 · 累计$7000万</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</li>
+
+<li class="news-item">
+  <div class="idx">07</div>
+  <div class="body">
+    <div class="title">General Intuition以$23亿估值融资$3.2亿——游戏数据训练机器人</div>
+    <div class="desc">利用Medal.tv游戏平台的海量玩家操作数据训练空间推理与世界模型，Khosla Ventures领投，Jeff Bezos参投</div>
+    <div class="meta"><span class="topic-tag">机器人</span><span class="topic-tag">融资</span>总融资$4.54亿 · 2026年世界模型赛道已融资$32亿</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</li>
+
+<li class="news-item">
+  <div class="idx">08</div>
+  <div class="body">
+    <div class="title">MiniMax发布M2.5近前沿模型，主打性价比</div>
+    <div class="desc">性能接近前沿、API价格远低于西方竞品；Fable 5受限后，企业加速将中国模型纳入多供应商策略作为替补</div>
+    <div class="meta"><span class="topic-tag">模型</span><span class="topic-tag">开源</span>已上架OpenRouter · M3已在筹备</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</li>
+
+<li class="news-item">
+  <div class="idx">09</div>
+  <div class="body">
+    <div class="title">Sentient Foundation启动$4200万开源AGI资助计划</div>
+    <div class="desc">无股权、无锁定期、无IP索取的纯公益资助，支持在本地硬件上运行的开源AI项目；阿里云、Franklin Templeton、普林斯顿大学参与</div>
+    <div class="meta"><span class="topic-tag">开源</span><span class="topic-tag">融资</span>滚动申请 · 含算力支持和工程援助</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</li>
+
+<li class="news-item">
+  <div class="idx">10</div>
+  <div class="body">
+    <div class="title">Naveen Rao的振荡器计算机：AI推理能效提升1000倍</div>
+    <div class="desc">前Databricks AI负责人推出基于耦合振荡器的新型计算机架构，放弃传统MOSFET，声称可大幅降低LLM运行成本</div>
+    <div class="meta"><span class="topic-tag">硬件</span><span class="topic-tag">架构</span>HN #3 · 与Un-0图像生成同源</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+</li>
+
+<li class="news-item">
+  <div class="idx">11</div>
+  <div class="body">
+    <div class="title">OpenKnowledge：开源AI原生的Notion/Obsidian替代品</div>
+    <div class="desc">195 pts登上HN，AI-first的知识管理工具，支持本地运行、自托管，定位为AI时代的知识库基础设施</div>
+    <div class="meta"><span class="topic-tag">开源</span><span class="topic-tag">工具</span>Show HN · 85条评论</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span></div>
+</li>
+
+<li class="news-item">
+  <div class="idx">12</div>
+  <div class="body">
+    <div class="title">生成式AI全球采用率达53%，创历史纪录</div>
+    <div class="desc">3年达到53%的全球人口采用率，超越PC和互联网的同期速度；采用率与经济发展水平高度正相关</div>
+    <div class="meta"><span class="topic-tag">趋势</span><span class="topic-tag">数据</span>McKinsey/Gartner口径 · Amazon $130亿印度基建</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</li>
+
+<li class="news-item">
+  <div class="idx">13</div>
+  <div class="body">
+    <div class="title">意大利Domyn宣布一年内推出4000亿参数开源前沿模型</div>
+    <div class="desc">欧盟Frontier AI计划的一部分，目标打造可扩展、透明、社区驱动的开源模型，挑战现有封闭巨头格局</div>
+    <div class="meta"><span class="topic-tag">模型</span><span class="topic-tag">开源</span>Reuters报道 · 算力挑战引热议</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</li>
+
+<li class="news-item">
+  <div class="idx">14</div>
+  <div class="body">
+    <div class="title">Amazon承诺$130亿扩建印度AI基础设施</div>
+    <div class="desc">涵盖数据中心和AI计算集群，印度成为AI基建新热点；AWS将持续扩大亚太区算力部署</div>
+    <div class="meta"><span class="topic-tag">基建</span><span class="topic-tag">投资</span>全球AI基建竞赛加剧</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</li>
+
+<li class="news-item">
+  <div class="idx">15</div>
+  <div class="body">
+    <div class="title">Mistral AI推出"Vibe"产品线，加速工业AI布局</div>
+    <div class="desc">法国AI新星持续推进主权AI战略，面向欧洲企业提供工业级AI解决方案，Vibe定位为端到端AI平台</div>
+    <div class="meta"><span class="topic-tag">模型</span><span class="topic-tag">企业</span>欧洲主权AI · 企业级部署</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</li>
+
+</ul>
+
+<div class="section-title">今日数据</div>
+
+<div class="stats">
+  <div class="stat"><div class="num">GPT-5.6</div><div class="label">延迟发布 · 政府逐客户审批<br>事实上的AI许可制</div></div>
+  <div class="stat"><div class="num">1000亿</div><div class="label">IBM 0.7nm芯片晶体管数<br>指甲盖大小</div></div>
+  <div class="stat"><div class="num">53%</div><div class="label">生成式AI全球采用率<br>3年超越PC与互联网</div></div>
+  <div class="stat"><div class="num">$5000万</div><div class="label">Patronus AI B轮融资<br>Agent数字训练场</div></div>
+  <div class="stat"><div class="num">$3.2亿</div><div class="label">General Intuition融资<br>$23亿估值 · 游戏训练机器人</div></div>
+  <div class="stat"><div class="num">50%</div><div class="label">Jalapeño芯片推理成本降幅<br>OpenAI自研路线启动</div></div>
+</div>
+
+<div class="section-title">深度分析 <span class="count">· 3篇</span></div>
+
+<div class="dive-section">
+
+<div class="dive">
+  <h3><span class="num">01</span>政府之手：AI前沿模型进入许可制时代</h3>
+  <p>特朗普政府要求OpenAI分阶段推出GPT-5.6可能是今年AI产业最重大的政策转折。白宫以安全（特别是网络安全）为由，要求OpenAI仅向经过政府审批的企业客户提供有限预览。这不是孤例——类似指令也已向Anthropic的Mythos 5和Fable 5发出。当模型发布需要"customer-by-customer"的联邦批准时，AI就从自由市场竞争进入了出口管制式许可制时代。</p>
+  <p>X上的反应几乎一边倒的负面。加速主义者认为这等于将优势拱手让给中国和开源模型（后者无法被同样封堵）；也有评论指出这本质上是"监管捕获"——大公司获得政府背书的小圈子准入权，而中小企业和全球开发者被挡在门外。值得注意的反叙事是：安全审慎派认为对于即将接近AGI能力的系统，这样的监管是必要的护栏。</p>
+  <p>深层信号：这不是一次性的政策干预，而是制度化的开始。如果GPT-5.6的审批模式成为先例，未来每一代前沿模型都可能需要经过类似审查。这将从根本上重塑AI产业的竞争格局——加速开源生态的繁荣（因为开源无法被封堵），同时推高前沿模型的准入门槛。美国的AI领导地位不再只取决于技术实力，还取决于监管效率。</p>
+  <div class="links">
+    <a href="https://news.ycombinator.com/item?id=" target="_blank">HN讨论</a>
+    <a href="https://x.com/steph_palazzolo/status/2070240190338371994" target="_blank">The Information报道</a>
+    <a href="https://x.com/zubiqo/status/2070283987063631962" target="_blank">X讨论线索</a>
+  </div>
+</div>
+
+<div class="dive">
+  <h3><span class="num">02</span>AI计算的"端侧革命"：从云到桌面的基础设施重构</h3>
+  <p>今天至少有三条独立的故事指向同一个方向：AI计算正在从数据中心大规模走向桌面和边缘。NVIDIA的DGX Station for Windows把万亿参数级别的超算能力带到企业桌面，配套的RTX Spark被Jensen称为"40年来PC最重要的重新发明"；OpenAI与Broadcom联手推出的Jalapeño芯片在推理性能对标Blackwell的同时成本直降50%；IBM的0.7nm Nanostack技术则预示了未来5-10年的芯片演进路径。</p>
+  <p>这些进展背后是同一个商业逻辑：企业需要本地化、安全可控的AI基础设施，不再愿意把所有敏感数据上传到云端。医疗记录分析、蛋白质结构预测、多Agent系统等场景推动了从"云端推理"到"桌面推理"的需求转移。NVIDIA已经发布了具体的行业部署playbook（如安全医疗Agent、本地蛋白质预测），说明这不仅仅是概念演示。</p>
+  <p>深层信号：AI计算的"端侧化"可能比大多数人预想的更快到来。当DGX Station把万亿参数推理能力放到桌面，当Jalapeño芯片把推理成本砍掉一半，当IBM的3D堆叠架构在5年内再翻倍密度——硬件曲线正在追赶软件曲线的增长速度。2026-2027年我们可能看到"AI PC"从营销概念变成真正的生产力革命，而云厂商的GPU定价权将面临前所未有的挑战。</p>
+  <div class="links">
+    <a href="https://x.com/NVIDIAworkstatn/status/2070266122239431008" target="_blank">NVIDIA DGX Station</a>
+    <a href="https://x.com/markintheloop/status/2070272322934596052" target="_blank">Jalapeño芯片详情</a>
+    <a href="https://x.com/ChrissGPT/status/2070175177426538807" target="_blank">IBM 0.7nm技术</a>
+  </div>
+</div>
+
+<div class="dive">
+  <h3><span class="num">03</span>Agent时代的"训练场"竞赛：三方角力</h3>
+  <p>Agent被认为是AI的下一个产品形态，但如何确保Agent在真实世界中可靠运行是一个尚未解决的难题。今天三个独立的融资事件从不同角度回应了这个问题。Patronus AI的$5000万B轮（Digital World Model方向）在模拟数字世界中训练Agent应对超长任务；General Intuition的$3.2亿融资（估值$23亿）利用海量游戏操作数据训练空间推理和世界模型，再将能力迁移到物理机器人上；Sentient Foundation的$4200万开源AGI基金则从另一个方向——确保Agent的基础设施不被封闭。</p>
+  <p>这三个方向恰好构成了Agent生态的三角：Patronus AI代表"测试验证"层（怎么知道Agent不会犯错），General Intuition代表"训练数据"层（怎么让Agent学会真实世界的因果和物理规律），Sentient Foundation代表"开源基础设施"层（怎么确保Agent的底层不被少数公司控制）。三者合计融资超过$4亿，说明行业已经意识到：Agent的瓶颈不在于模型本身，而在于模型之外的训练、测试和生态基础。</p>
+  <p>深层信号：2026年世界模型赛道已融资$32亿，超过了2025年全年总和。这暗示了行业的一个共识转变——下一个突破可能不是来自更大的语言模型，而是来自能让模型"真正理解世界"的训练方法和基础设施。从静态benchmark到动态模拟环境，从文本数据到交互操作数据，AI的训练范式正在发生根本性变化。那些能率先构建可靠的Agent训练和测试基础设施的公司，可能在下一阶段拥有不成比例的竞争优势。</p>
+  <div class="links">
+    <a href="https://x.com/Prathkum/status/2070218769029546157" target="_blank">Patronus AI $50M</a>
+    <a href="https://x.com/GamesBeat/status/2070257083069423700" target="_blank">General Intuition $320M</a>
+    <a href="https://x.com/hieu06730313/status/2070271135858778399" target="_blank">Sentient Foundation $42M</a>
+  </div>
+</div>
+
+</div>
+
+<div class="footer">
+  <p>📡 每日AI精选 · 2026年6月26日</p>
+  <p>数据来源：Hacker News · X/Twitter · TechCrunch · Bloomberg · Reuters · The Information</p>
+  <p><a href="index.html">← 返回目录</a> · <a href="https://github.com/" target="_blank">GitHub</a></p>
+  <p style="margin-top:6px;font-size:11px;color:#b8ad9a;">由Hermes Agent自动生成 · © 2026</p>
+</div>
+
+</body>
+</html>
