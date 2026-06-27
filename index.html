@@ -3,309 +3,43 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>每日AI精选 · Daily AI Digest</title>
+<title>每日AI精选</title>
 <style>
-:root {
-  --page:      #fdfaf3;
-  --surface:   #fcfaf5;
-  --border:    #e8dcc8;
-  --text:      #2c2416;
-  --muted:     #7a6e5c;
-  --accent:    #8b6914;
-  --accent-lt: #b8942e;
-  --positive:  #4d7c0f;
-  --warning:   #b45309;
-  --info:      #0e7490;
-}
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body {
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans SC", "PingFang SC", sans-serif;
-  line-height: 1.75; background: var(--page); color: var(--text);
-  -webkit-font-smoothing: antialiased;
-}
-h1, h2, h3 { font-family: ui-serif, Georgia, "Noto Serif SC", serif; letter-spacing: -0.01em; }
-a { color: var(--accent); text-decoration: none; }
-a:hover { text-decoration: underline; }
-.container { max-width: 880px; margin: 0 auto; padding: 60px 40px; }
-
-.hero { text-align: center; padding: 60px 0 40px; border-bottom: 1px solid var(--border); margin-bottom: 40px; }
-.hero-badge { display: inline-block; background: var(--accent); color: #fff; font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; padding: 4px 14px; border-radius: 20px; margin-bottom: 16px; }
-.hero h1 { font-size: clamp(30px, 5vw, 44px); }
-.hero h1 span { color: var(--accent); }
-.hero .subtitle { font-size: 16px; color: var(--muted); max-width: 560px; margin: 8px auto; }
-.hero .sources { margin-top: 20px; font-size: 13px; color: var(--muted); }
-.hero .sources a { margin: 0 4px; }
-
-.archive { margin-top: 30px; }
-.archive h2 { font-size: 22px; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid rgba(139,105,20,.08); }
-.day-card {
-  display: flex; align-items: center; gap: 20px;
-  background: #fff; border: 1px solid var(--border); border-radius: 10px;
-  padding: 18px 24px; margin-bottom: 10px;
-  transition: background .15s;
-}
-.day-card:hover { background: rgba(139,105,20,.04); }
-.day-card .date { font-family: ui-monospace, monospace; font-size: 15px; font-weight: 600; color: var(--accent); min-width: 100px; }
-.day-card .info { flex: 1; }
-.day-card .info .title { font-weight: 600; font-size: 15px; }
-.day-card .info .desc { font-size: 13px; color: var(--muted); margin-top: 2px; }
-.day-card .arrow { color: var(--accent-lt); font-size: 20px; }
-
-.empty { text-align: center; color: var(--muted); padding: 40px; font-size: 15px; }
-
-.footer { text-align: center; color: var(--muted); font-size: 12px; padding-top: 32px; border-top: 1px solid var(--border); margin-top: 48px; opacity: .7; line-height: 1.8; }
-
-@media (max-width: 600px) {
-  .container { padding: 24px 16px; }
-  .day-card { flex-direction: column; align-items: flex-start; gap: 6px; }
-}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#fdfaf3;color:#2c2416;min-height:100vh}
+.container{max-width:800px;margin:0 auto;padding:40px 20px}
+h1{font-size:28px;margin-bottom:8px;color:#2c2416}
+h1 span{color:#8b6914}
+.subtitle{font-size:15px;color:#7a6e5c;margin-bottom:40px}
+.day-grid{display:flex;flex-direction:column;gap:12px}
+a.day-card{display:flex;align-items:center;padding:18px 20px;background:#fff;border:1px solid #e8dcc8;border-radius:10px;text-decoration:none;transition:all .2s;gap:16px}
+a.day-card:hover{background:#fcfaf5;border-color:#d4c5a8;transform:translateY(-1px);box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.date{font-size:20px;font-weight:700;color:#2c2416;min-width:55px}
+.info{flex:1;min-width:0}
+.title{font-size:15px;font-weight:600;color:#2c2416;margin-bottom:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.desc{font-size:13px;color:#7a6e5c;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.arrow{font-size:18px;color:#b8942e;opacity:.5}
+footer{margin-top:60px;padding-top:20px;border-top:1px solid #e8dcc8;text-align:center;font-size:13px;color:#7a6e5c}
 </style>
 </head>
 <body>
 <div class="container">
+  <h1>📰 <span>每日AI精选</span></h1>
+  <div class="subtitle">Daily AI news digest · 每日更新</div>
+  <div class="day-grid">
 
-<div class="hero">
-  <div class="hero-badge">Daily AI Digest</div>
-  <h1>每日AI<span>精选</span></h1>
-  <p class="subtitle">每天 9:07 · 从 7 个顶级信息源筛选 · 3 个深度分析</p>
-  <div class="sources">
-    Product Hunt · Hacker News · Indie Hackers · Y Combinator · r/LocalLLaMA · r/ArtificialIntelligence · X AI Builder
+<!-- NEW_DIGEST_ENTRY -->
+<a href="2026-06-27.html" class="day-card">
+  <div class="date">06/27</div>
+  <div class="info">
+    <div class="title">GPT-5.6 Sol发布 + 美国政府把关 + Mythos获释</div>
+    <div class="desc">OpenAI三模型发布 · 白宫决定AI准入名单 · Anthropic Mythos交付 · Ornith-1.0开源 · Apple M7转向</div>
   </div>
-</div>
+  <div class="arrow">→</div>
+</a>
 
-<div class="archive">
-  <h2>📅 往期精选</h2>
-  <!-- NEW_DIGEST_ENTRY -->
-  <a href="2026-06-26.html" class="day-card">
-    <div class="date">06/26</div>
-    <div class="info">
-      <div class="title">🚀 政府审查GPT-5.6 + 芯片三连发 + Agent基建井喷</div>
-      <div class="desc">Trump分阶段推出GPT-5.6 · NVIDIA DGX桌面万亿参数超算 · OpenAI Jalapeño芯片降本50% · IBM 0.7nm 1000亿晶体管 · MiniMax M2.5 · Patronus $50M Agent训练场 · General Intuition $320M游戏训练机器人 · Anthropic再挖DeepMind</div>
-    </div>
-    <div class="arrow">→</div>
-  </a>
-  <a href="2026-06-25.html" class="day-card">
-    <div class="date">06/25</div>
-    <div class="info">
-      <div class="title">🔥 OpenAI首款芯片 + AI Agent嵌入Slack + 开源智能体新标杆</div>
-      <div class="desc">OpenAI Jalapeño 9月流片 · Qualcomm $3.9B买Modular · Claude Tag上线Slack · Gemini 3.5 Flash原生CU · GLM-5.2逼近Opus · Groq $650M · Meta $299 AI眼镜 · DeepMind人才流失</div>
-    </div>
-    <div class="arrow">→</div>
-  </a>
-  <a href="2026-06-24.html" class="day-card">
-    <div class="date">06/24</div>
-    <div class="info">
-      <div class="title">🧠 小模型逆袭 + 编排新范式 + OpenAI安全升级 + 算力军备赛</div>
-      <div class="desc">VibeThinker-3B > Opus 4.5 · Sakana Fugu 编排模型 · OpenAI Daybreak GPT-5.5-Cyber · SpaceX $6.3B算力交易 · Baidu Unlimited OCR开源 · Baseten $1.5B融资 · 五眼联盟警告</div>
-    </div>
-    <div class="arrow">→</div>
-  </a>
-  <a href="2026-06-23.html" class="day-card">
-    <div class="date">06/23</div>
-    <div class="info">
-      <div class="title">🔥 Google人才大地震 + GLM-5.2开源登顶 + 日本Fugu多智能体</div>
-      <div class="desc">Shazeer→OpenAI Jumper→Anthropic · GOOGL -7.2%蒸发千亿 · GLM-5.2 744B MoE MIT · Sakana Fugu编排媲美Fable · Moebius 0.2B=10B修复 · Codex日志37TB Bug</div>
-    </div>
-    <div class="arrow">→</div>
-  </a>
-  <a href="2026-06-22.html" class="day-card">
-    <div class="date">06/22</div>
-    <div class="info">
-      <div class="title">🔬 人才大战白热化 + 微软全栈自研 + 主权AI三路并进</div>
-      <div class="desc">John Jumper(Nobel/AlphaFold)→Anthropic · Build 2026 MAI-Thinking-1 97% AIME · Apertus主权AI开源 · Claude强制KYC+报错 · Meta 5000人转AI标注 · GLM 5.2逼近Opus</div>
-    </div>
-    <div class="arrow">→</div>
-  </a>
-  <a href="2026-06-21.html" class="day-card">
-    <div class="date">06/21</div>
-    <div class="info">
-      <div class="title">📊 GPT-5.5幻觉率3倍于GLM-5.2 + Anthropic机器人20x快 + Agent基建三重突破</div>
-      <div class="desc">GPT-5.5 AA-Omniscience幻觉率86% vs GLM-5.2 28% · Opus 4.7自主机器人9.5分钟 · Cloudflare临时Agent账户 · OpenAI $57B Q1 · Sarvam $234M</div>
-    </div>
-    <div class="arrow">→</div>
-  </a>
-  <a href="2026-06-20.html" class="day-card">
-    <div class="date">06/20</div>
-    <div class="info">
-      <div class="title">AI人才大地震 + 现代全资收购波士顿动力 + 挪威全面禁AI进小学</div>
-      <div class="desc">Shazeer转投OpenAI · Jumper加盟Anthropic · DeepSeek $7.4B · 德国AI责任判例</div>
-    </div>
-    <div class="arrow">→</div>
-  </a>
-  <a href="2026-06-19.html" class="day-card">
-    <div class="date">06/19</div>
-    <div class="info">
-      <div class="title">🏥 Midjourney Medical 1278分登顶 + Shazeer转投OpenAI + 开源三箭齐发</div>
-      <div class="desc">Midjourney进军医疗影像全身扫描仪 · Noam Shazeer离开Google加入OpenAI · GLM-5.2/MiniMax M3.0/Qwen3.6同时发力 · DeepSeek V4上线视觉 · Snap SPECS AR眼镜$2,195 · MCP 9700万安装转Linux基金会 · JHU自主手术机器人100%成功率 · OdysseyAI 3.1亿美元</div>
-    </div>
-    <div class="arrow">→</div>
-  </a>
-  <a href="2026-06-18.html" class="day-card">
-    <div class="date">06/18</div>
-    <div class="info">
-      <div class="title">🏆 GLM-5.2 开源登顶 + Fable 5禁运落地 + OpenAI亏损385亿</div>
-      <div class="desc">GLM-5.2以51分登顶开源模型智力榜 · 美国商务部禁运Fable 5/Mythos 5 · OpenAI泄露财报年亏385亿美元 · 美国暂缓DeepSeek黑名单 · 60%消费者反感AI标签 · DiffusionGemma开源 · xAI Grok Imagine Video 1.5 · Tensordyne 13x NVL72 · 开源模型生态大爆发</div>
-    </div>
-    <div class="arrow">→</div>
-  </a>
-  <a href="2026-06-17.html" class="day-card">
-    <div class="date">06/17</div>
-    <div class="info">
-      <div class="title">🚀 SpaceX $60B收购Cursor + Fable 5政府强制下线 + 本地模型实用化拐点</div>
-      <div class="desc">SpaceX以600亿美元全股票收购Cursor · 美国政府首次强制关停前沿AI模型Fable 5 · 本地LLM达到实用化拐点(995pts HN) · Wolfram V15发布 · OpenCode开源 · Apple多Agent API · GitHub Copilot转向Token计费 · Sarvam AI新独角兽</div>
-    </div>
-    <div class="arrow">→</div>
-  </a>
-  <a href="2026-06-16.html" class="day-card">
-    <div class="date">06/16</div>
-    <div class="info">
-      <div class="title">🇺🇸 Anthropic全球禁用Fable 5 + 42州起诉OpenAI + Bezos $12B新赌注</div>
-      <div class="desc">美国商务部勒令Anthropic全球禁用前沿模型 · 42州检察长传唤OpenAI调查sycophancy · 苹果Siri多模型重构iOS 27 · Prometheus获$12B融资 · Mistral Medium 3.5开源128B · Agent安全工具集中爆发</div>
-    </div>
-    <div class="arrow">→</div>
-  </a>
-  <a href="2026-06-15.html" class="day-card">
-    <div class="date">06/15</div>
-    <div class="info">
-      <div class="title">🇺🇸 Fable 5 出口限制 + 里约LLM造假风波 + Meta退购Manus</div>
-      <div class="desc">美商务部禁止所有外国公民访问Fable 5 · 里约"自研"LLM被证为Nex+Qwen线性融合 · Meta放弃$2B收购Manus · OpenAI被多州调查 · KPMG撤回幻觉AI报告 · Zhipu GLM-5.2开源1M上下文 · AMD $3999 AI桌面对标DGX Spark · SpaceX太空AI计算</div>
-    </div>
-    <div class="arrow">→</div>
-  </a>
-  <a href="2026-06-14.html" class="day-card">
-    <div class="date">06/14</div>
-    <div class="info">
-      <div class="title">🇺🇸 美政府首封Fable 5/Mythos 5 + 中国开源反制 + Agent基建三重加速</div>
-      <div class="desc">BIS禁令3055点 · 亚马逊Jassy告密触发 · GLM-5.2 MIT下周开源 · Kimi K2.7-Code 1T开源 · OpenAI收购Ona离线Agent · Codex CDP调试模式 · xAI Sentry自动修复 · 开源AI必须赢1511分</div>
-    </div>
-    <div class="arrow">→</div>
-  </a>
-  <a href="2026-06-13.html" class="day-card">
-    <div class="date">06/13</div>
-    <div class="info">
-      <div class="title">🇺🇸 美政府叫停Fable 5 + 贝索斯$120亿 + OpenAI收购Ona</div>
-      <div class="desc">美国政府下令暂停Fable 5/Mythos 5 · 贝索斯Prometheus $410亿估值 · OpenAI收购云创企Ona · Kimi K2.7开源 · Perplexity Deep Research 83.8% · AI代理破产运营商</div>
-    </div>
-    <div class="arrow">→</div>
-  </a>
-  <a href="2026-06-12.html" class="day-card">
-    <div class="date">06/12</div>
-    <div class="info">
-      <div class="title">Google DiffusionGemma + 小米MiMo Code + Anthropic Fable道歉</div>
-      <div class="desc">Google开源文本扩散模型4×加速 · 小米开源编程Agent 1M上下文 · Anthropic道歉护栏不透明 · JPMorgan AI+20% · HuggingFace复现R1 · Fedora Agent失控 · OpenAI降价 · 80年几何猜破解</div>
-    </div>
-    <div class="arrow">→</div>
-  </a>
-  <a href="2026-06-11.html" class="day-card">
-    <div class="date">06/11</div>
-    <div class="info">
-      <div class="title">Fable 5 安全枷锁争议 + 德国AI Overviews判例 + AI万亿IPO浪潮</div>
-      <div class="desc">Fable 5 24h被越狱 · 德国法院判Google对AI幻觉负责 · OpenAI $850B-$1T S-1 · Anthropic也提交S-1 · Apple AFM 3 + PCC上Google Cloud/Nvidia · 中国$295B AI基建</div>
-    </div>
-    <div class="arrow">→</div>
-  </a>
-  <a href="2026-06-10.html" class="day-card">
-    <div class="date">06/10</div>
-    <div class="info">
-      <div class="title">Claude Fable 5 &#34;神话&#34;降临 + AI资本三巨头上华尔街 + Apple全栈AI平台</div>
-      <div class="desc">Anthropic 1749pts登顶HN · xAI年化$26B GPU租赁REIT · OpenAI/Anthropic秘交S-1 · SpaceX $1.75T IPO · Siri AI+Core AI+容器化</div>
-    </div>
-    <div class="arrow">→</div>
-  </a>
-  <a href="2026-06-09.html" class="day-card">
-    <div class="date">06/09</div>
-    <div class="info">
-      <div class="title">OpenAI IPO启程 + 小米1T千tps + Apple Siri全面重构</div>
-      <div class="desc">OpenAI S-1估值$850B-$1T · MiMo 1T模型1000+ tokens/s开源 · Core AI Framework+多模型Siri · DeepSeek V4 Pro精度击败GPT-5.5 · GeneralistAI $4亿B轮</div>
-    </div>
-    <div class="arrow">→</div>
-  </a>
-  <a href="2026-06-08.html" class="day-card">
-    <div class="date">06/08</div>
-    <div class="info">
-      <div class="title">OpenAI超级应用转型 + NVIDIA Cosmos 3开源 + Google×SpaceX $300亿算力</div>
-      <div class="desc">ChatGPT agent化"chat is dead" · Cosmos 3全模态世界模型 + 训练数据开源 · Google $920M/月租SpaceX 11万GPU · LLM职业焦虑808分 · xAI被指蒸馏Claude · Cursor Design Mode</div>
-    </div>
-    <div class="arrow">→</div>
-  </a>
-  <a href="2026-06-07.html" class="day-card">
-    <div class="date">06/07</div>
-    <div class="info">
-      <div class="title">S&P 500拒绝AI三巨头 + Google×SpaceX $300亿算力 + DeepSeek $74亿融资</div>
-      <div class="desc">标普拒绝SpaceX/OpenAI/Anthropic准入 · Google $920M/月租SpaceX 11万GPU · DeepSeek $59B估值 · Base MCP Agent DeFi · Meta AI入侵 · Gemma 4 12B</div>
-    </div>
-    <div class="arrow">→</div>
-  </a>
-  <a href="2026-06-06.html" class="day-card">
-    <div class="date">06/06</div>
-    <div class="info">
-      <div class="title">AI自我进化临界点 + 本地Agent爆发 + $350亿算力军备竞赛</div>
-      <div class="desc">Anthropic RSI路线图公开 · Gemma 4 12B发布+QAT量化 · 字节TARS 29K Stars本地桌面Agent · Claude写80%生产代码 · pg_durable开源</div>
-    </div>
-    <div class="arrow">→</div>
-  </a>
-  <a href="2026-06-05.html" class="day-card">
-    <div class="date">06/05</div>
-    <div class="info">
-      <div class="title">Anthropic递归自我改进 + 微软7款MAI模型 + OpenAI记忆系统升级</div>
-      <div class="desc">AI自我加速循环闭合 · 微软全栈自研模型 · Dreaming记忆系统 · Berkeley 35%挂科潮 · VoidZero入Cloudflare</div>
-    </div>
-    <div class="arrow">→</div>
-  </a>
-  <a href="2026-06-04.html" class="day-card">
-    <div class="date">06/04</div>
-    <div class="info">
-      <div class="title">Anthropic秘密IPO + Microsoft Solara Agent OS + Gemma 4开源</div>
-      <div class="desc">Anthropic S-1 $965B估值 · Project Solara Agent-first OS · Google Gemma 4 12B Apache 2.0 · Broadcom $30B Q2订单</div>
-    </div>
-    <div class="arrow">→</div>
-  </a>
-  <a href="2026-06-03.html" class="day-card">
-    <div class="date">06/03</div>
-    <div class="info">
-      <div class="title">Microsoft 7 MAI模型 + RTX Spark AI PC + Anthropic S-1</div>
-      <div class="desc">Build 2026全栈AI发布 · NVIDIA AI PC芯片120B本地模型 · SoftBank €75B法国核能投资</div>
-    </div>
-    <div class="arrow">→</div>
-  </a>
-  <a href="2026-06-02.html" class="day-card">
-    <div class="date">06/02</div>
-    <div class="info">
-      <div class="title">NVIDIA AI PC芯片 + 开源Agent三国杀 + Anthropic冲刺万亿IPO</div>
-      <div class="desc">RTX Spark本地Agent芯片亮相 · MiniMax M3 / Nemotron / Mellum2 同天发布 · Vibe Coding时代终结</div>
-    </div>
-    <div class="arrow">→</div>
-  </a>
-  <a href="2026-06-01.html" class="day-card">
-    <div class="date">06/01</div>
-    <div class="info">
-      <div class="title">Anthropic $9650亿封王 + Kimi K2.6 追平GPT-5.5 + 物理AI全面爆发</div>
-      <div class="desc">AI估值进入万亿时代 · 中国开源模型极致性价比 · 机器人与3D生成成为最热赛道</div>
-    </div>
-    <div class="arrow">→</div>
-  </a>
-  <a href="2026-05-31.html" class="day-card">
-    <div class="date">05/31</div>
-    <div class="info">
-      <div class="title">OpenRouter $1.13亿B轮 + 领域知识护城河 + MCP生态爆发</div>
-      <div class="desc">AI模型路由成关键基础设施 · Agent时代开发者价值重构 · MCP工具链商业化</div>
-    </div>
-    <div class="arrow">→</div>
-  </a>
-  <a href="2026-05-30.html" class="day-card">
-    <div class="date">05/30</div>
-    <div class="info">
-      <div class="title">Grok Build 入局 + Anthropic $9650亿 + 酒店 AI 升温</div>
-      <div class="desc">AI Coding Agent 三分天下 · 酒店 AI 融资信号 · Agent 基础设施标准化</div>
-    </div>
-    <div class="arrow">→</div>
-  </a>
-</div>
-
-<div class="footer">
-  JMOKSZ/daily-ai-digest · 自动生成 · <a href="https://github.com/JMOKSZ/daily-ai-digest">GitHub</a>
-</div>
-
+  </div>
+  <footer>每日AI精选 · 自动生成 | <a href="https://github.com/macmini-j/daily-ai-digest" style="color:#8b6914">GitHub</a></footer>
 </div>
 </body>
 </html>
