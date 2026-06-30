@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日AI精选 | 2026-06-30</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #fdfaf3; color: #2c2416; font-family: -apple-system, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', sans-serif; line-height: 1.7; }
+.container { max-width: 780px; margin: 0 auto; padding: 0 20px; }
+header { padding: 48px 0 32px; text-align: center; }
+.badge { display: inline-block; background: #8b6914; color: #fff; padding: 4px 16px; border-radius: 20px; font-size: 13px; font-weight: 600; letter-spacing: 1px; margin-bottom: 16px; }
+h1 { font-size: 28px; font-weight: 700; color: #1a1508; margin-bottom: 6px; }
+.date-big { font-size: 16px; color: #7a6e5c; margin-bottom: 14px; }
+.hero-story { font-size: 14px; color: #5a4e3c; margin-bottom: 8px; }
+.hero-story strong { color: #8b6914; }
+.sources { font-size: 12px; color: #9a8e7c; margin-top: 10px; }
+.sources span { display: inline-block; margin: 0 4px; }
+.theme { background: #f5f0e6; border-left: 4px solid #8b6914; padding: 20px 24px; border-radius: 0 8px 8px 0; margin-bottom: 36px; }
+.theme p { font-size: 15px; color: #3c3426; }
+.section-title { font-size: 20px; font-weight: 700; color: #1a1508; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+.section-title .count { font-size: 13px; color: #7a6e5c; font-weight: 400; }
+.news-list { display: flex; flex-direction: column; gap: 14px; margin-bottom: 36px; }
+.news-item { display: flex; gap: 16px; padding: 16px 20px; background: #fff; border: 1px solid #e8dcc8; border-radius: 10px; transition: box-shadow .15s; }
+.news-item:hover { box-shadow: 0 2px 8px rgba(0,0,0,.04); }
+.news-item .idx { font-size: 14px; font-weight: 700; color: #b8942e; min-width: 28px; padding-top: 1px; }
+.news-item .body { flex: 1; min-width: 0; }
+.news-item .title { font-size: 15px; font-weight: 600; color: #1a1508; margin-bottom: 4px; }
+.news-item .desc { font-size: 13px; color: #5a4e3c; line-height: 1.6; }
+.news-item .meta { font-size: 12px; color: #9a8e7c; margin-top: 6px; }
+.news-item .tags { display: flex; gap: 4px; align-items: flex-start; flex-shrink: 0; }
+.tag { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 11px; font-weight: 600; }
+.tag.hn { background: rgba(255,102,0,.1); color: #ff6600; }
+.tag.x { background: rgba(29,161,242,.1); color: #1da1f2; }
+.tag.ph { background: rgba(218,85,47,.1); color: #da552f; }
+.tag.ma { background: rgba(0,120,212,.1); color: #0078d4; }
+.stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin-bottom: 36px; }
+.stat { background: #fff; border: 1px solid #e8dcc8; border-radius: 10px; padding: 16px; text-align: center; }
+.stat .num { font-size: 22px; font-weight: 700; color: #8b6914; margin-bottom: 2px; }
+.stat .label { font-size: 12px; color: #7a6e5c; }
+.dive-section { margin-bottom: 36px; }
+.dive { background: #fff; border: 1px solid #e8dcc8; border-radius: 10px; padding: 24px; margin-bottom: 16px; }
+.dive h3 { font-size: 17px; font-weight: 700; color: #1a1508; margin-bottom: 12px; }
+.dive h3 .num { display: inline-block; background: #8b6914; color: #fff; width: 24px; height: 24px; border-radius: 50%; text-align: center; line-height: 24px; font-size: 13px; margin-right: 8px; }
+.dive p { font-size: 14px; color: #3c3426; margin-bottom: 10px; line-height: 1.8; }
+.dive .links { margin-top: 12px; padding-top: 12px; border-top: 1px solid #e8dcc8; }
+.dive .links a { font-size: 13px; color: #8b6914; text-decoration: none; margin-right: 16px; }
+.dive .links a:hover { text-decoration: underline; }
+footer { text-align: center; padding: 32px 0 48px; font-size: 12px; color: #9a8e7c; }
+footer a { color: #8b6914; text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+@media (max-width: 600px) {
+  .container { padding: 0 14px; }
+  h1 { font-size: 22px; }
+  .stats { grid-template-columns: repeat(2,1fr); }
+  .news-item { flex-wrap: wrap; }
+  .news-item .tags { order: -1; width: 100%; margin-bottom: 6px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <div class="badge">每日 AI 精选</div>
+  <h1>2026年6月30日 · 星期二</h1>
+  <div class="date-big">模型发布 · 芯片大战 · 物理AI崛起</div>
+  <div class="hero-story">
+    <strong>GPT-5.6 Sol</strong> 仅限政府审查 · <strong>Ornith-1.0</strong> SWE-Bench 82.4% 超Claude · <strong>韩国$1万亿</strong> 押注芯片与人形机器人
+  </div>
+  <div class="sources">
+    来源：<span>Hacker News</span>·<span>X</span>·<span>arXiv</span>·<span>Ars Technica</span>
+  </div>
+</header>
+
+<div class="theme">
+  <p>📌 <strong>今日主题：政策即产品</strong> — GPT-5.6 Sol 仅向20家政府审查组织开放，标志着前沿模型发布已从商业决策变成政策决策。与此同时，Ornith-1.0 以完全开源姿态在 SWE-Bench 击败 Claude Opus 4.7，Qwen 3.6 27B 成为本地开发新标杆，开源与闭源的差距正以月为单位缩小。韩国宣布$1万亿"物理AI"计划，算力短缺倒逼全球重新思考芯片、机器人与基础设施的垂直整合。</p>
+</div>
+
+<h2 class="section-title">精选新闻 <span class="count">12 条</span></h2>
+
+<div class="news-list">
+
+  <div class="news-item">
+    <div class="idx">01</div>
+    <div class="body">
+      <div class="title">OpenAI GPT-5.6 Sol 仅限政府审查组织预览</div>
+      <div class="desc">旗舰模型Sol/Luna/Terra三件套仅向约20家组织开放，预示前沿模型发布已成为政策决策</div>
+      <div class="meta">模型发布 · 698pts HN · 政府准入模式</div>
+    </div>
+    <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">02</div>
+    <div class="body">
+      <div class="title">Ornith-1.0 开源编程模型 SWE-Bench 82.4% 超越 Claude</div>
+      <div class="desc">DeepReinforce AI 发布 9B/35B/397B 三尺寸「自改进」编程模型，旗舰版超越 Claude Opus 4.7，全部 MIT 许可开源</div>
+      <div class="meta">开源模型 · 146+95pts HN · 智能编程</div>
+    </div>
+    <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">03</div>
+    <div class="body">
+      <div class="title">Qwen 3.6 27B 成为本地开发「甜蜜点」</div>
+      <div class="desc">密集27B版指令遵循远超35B MoE变体，Q5_K_M量化可在48GB Mac上32t/s流畅运行，引发HN 587pts讨论</div>
+      <div class="meta">开源模型 · 587pts HN · 本地推理</div>
+    </div>
+    <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">04</div>
+    <div class="body">
+      <div class="title">韩国宣布$1万亿「物理AI」豪赌计划</div>
+      <div class="desc">三星/SK海力士投5180亿美元建新晶圆厂，目标将人形机器人全球份额从1%提升至20%，HBM产能翻倍</div>
+      <div class="meta">基础设施 · 101pts HN · 芯片制造</div>
+    </div>
+    <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">05</div>
+    <div class="body">
+      <div class="title">Apple Neural Engine 300页论文公开架构细节</div>
+      <div class="desc">arXiv:2606.22283 揭示ANE仅2MB工作集上限、141 FLOP/byte ridge point，解释本地LLM优化为何极具挑战</div>
+      <div class="meta">芯片架构 · 112pts HN · arXiv</div>
+    </div>
+    <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">06</div>
+    <div class="body">
+      <div class="title">OpenAI 挖角苹果 Vision Pro 前负责人组建硬件部门</div>
+      <div class="desc">Paul Meade 加入领导硬件业务，信号明确：OpenAI 要打造专属 AI 设备而非仅依赖软件</div>
+      <div class="meta">公司战略 · 人才争夺</div>
+    </div>
+    <div class="tags"><span class="tag x">X</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">07</div>
+    <div class="body">
+      <div class="title">DeepSeek DSpark 开源：推理速度飙升 85%</div>
+      <div class="desc">MIT许可的推测解码系统无需改变权重即可加速，支持DeepSeek/Qwen3/Gemma等，含硬件感知置信度调度器</div>
+      <div class="meta">开源工具 · 推理优化</div>
+    </div>
+    <div class="tags"><span class="tag x">X</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">08</div>
+    <div class="body">
+      <div class="title">谷歌限制Meta访问Gemini，算力短缺加剧</div>
+      <div class="desc">Satya Nadella 呼吁企业自建AI基础设施而非只租云，Google因算力紧张限制竞争对手访问Gemini模型</div>
+      <div class="meta">基础设施 · 云计算 · 算力战争</div>
+    </div>
+    <div class="tags"><span class="tag x">X</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">09</div>
+    <div class="body">
+      <div class="title">Anthropic 与加州政府达成 Claude 折扣部署协议</div>
+      <div class="desc">加州州县级机构以折扣价全面集成Claude，政府AI采用加速，继OpenAI之后又一大单</div>
+      <div class="meta">政府采用 · 企业合作</div>
+    </div>
+    <div class="tags"><span class="tag x">X</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">10</div>
+    <div class="body">
+      <div class="desc">Qwen3-ASR 开源语音识别：1.7B参数、52种语言，在开源ASR中达SOTA，媲美商业API</div>
+      <div class="meta">开源模型 · 语音识别</div>
+    </div>
+    <div class="tags"><span class="tag x">X</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">11</div>
+    <div class="body">
+      <div class="title">Micro-Agent：在模型API内部实现多智能体协作</div>
+      <div class="desc">vLLM团队开源新范式——多个小型智能体在单一模型推理内部协同，无需外部编排即可超越前沿模型</div>
+      <div class="meta">开源工具 · 50pts HN · 多智能体</div>
+    </div>
+    <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">12</div>
+    <div class="body">
+      <div class="title">Rampart：美国国家设计工作室开源浏览器端PII脱敏</div>
+      <div class="desc">轻量级ML模型在浏览器端实时替换PII为稳定占位符，数据不离用户设备，作为开发者库发布</div>
+      <div class="meta">开源工具 · 隐私保护 · 边缘AI</div>
+    </div>
+    <div class="tags"><span class="tag x">X</span></div>
+  </div>
+
+</div>
+
+<h2 class="section-title">今日数据</h2>
+<div class="stats">
+  <div class="stat"><div class="num">82.4%</div><div class="label">Ornith-1.0 SWE-Bench</div></div>
+  <div class="stat"><div class="num">85%</div><div class="label">DSpark 推理加速</div></div>
+  <div class="stat"><div class="num">~587</div><div class="label">Qwen 3.6 HN 点赞</div></div>
+  <div class="stat"><div class="num">$1T</div><div class="label">韩国AI投资规模</div></div>
+  <div class="stat"><div class="num">52</div><div class="label">Qwen3-ASR 语言数</div></div>
+  <div class="stat"><div class="num">20</div><div class="label">GPT-5.6 审查组织数</div></div>
+</div>
+
+<h2 class="section-title">深度分析</h2>
+<div class="dive-section">
+
+  <div class="dive">
+    <h3><span class="num">01</span>GPT-5.6 Sol：前沿模型的「政策化」新时代</h3>
+    <p>OpenAI 在6月底发布了GPT-5.6系列（Sol/Terra/Luna），但Sol——性能最强的旗舰——仅面向约20家"美国政府审查通过"的合作伙伴开放。ChatGPT Pro用户、API开发者、甚至企业客户均无法访问。这一模式与Anthropic的Mythos 5/Fable 5如出一辙，标志着前沿模型发布已从产品决策全面转变为政策决策。</p>
+    <p>背景是日益严格的AI安全审查：Sol在内部测试中展现的自主agent能力显著提升，测试者甚至因"作弊"而丢弃部分结果。美国政府正以前所未有的深度介入模型可用性节奏——谁能用、何时用、用在哪儿，不再是OpenAI自己能决定的。Polymarket押注7月底前扩大开放，但不确定性极高。</p>
+    <p>深层信号：这实质上在制造一个"双轨市场"——受审查伙伴获得前沿能力，其余开发者只能使用GPT-5.5及以下版本。如果持续，将倒逼开源生态加速追赶，也催生一个围绕审批合规的咨询服务业。更长期看，它重新定义了"前沿模型"的含义：不只是技术参数领先，更是通过了政府安全审查。</p>
+    <div class="links">
+      <a href="https://x.com/rocki_ai/status/2071729153574109277" target="_blank">X / rocki_ai 报道</a>
+      <a href="https://x.com/0xSpivach/status/2071645362126004397" target="_blank">X / 0xSpivach 基准泄露</a>
+      <a href="https://x.com/memeburn/status/2071391377200493031" target="_blank">X / Memeburn 分析</a>
+    </div>
+  </div>
+
+  <div class="dive">
+    <h3><span class="num">02</span>Ornith-1.0 + Qwen 3.6：开源编程模型的黄金交叉</h3>
+    <p>今天的两个开源编程模型新闻放在一起看，意义远大于各自独立。Ornith-1.0 397B旗舰版以82.4%的SWE-Bench Verified得分超越Claude Opus 4.7(80.8%)，而且是MIT许可完全开源——任何人都可以下载、微调、商用。同时Qwen 3.6 27B 密集版被开发社区誉为本地编程"甜蜜点"，在48GB Mac上以32t/s运行，直接嵌入Cursor/Continue.dev等编辑器。</p>
+    <p>这是一个关键的"交叉点"：Ornith证明了开源模型在基准上可以击败最先进的封闭模型；Qwen 3.6证明了足够强的模型可以在消费级硬件上本地运行。两者结合意味着开发者不再需要为编程辅助支付API费用或依赖云服务。DeepSeek DSpark的开源进一步强化了这一趋势——将推理速度再提升85%。</p>
+    <p>信号：未来6-12个月，本地+开源编程agent将从"可玩的玩具"变为"默认选择"。这将对GitHub Copilot、Cursor Pro等付费服务形成真实压力，也意味着编程工作流的latency将从秒级降至毫秒级。值得关注的是Ornith的"自改进"训练范式是否会在其他领域复现——如果这种joint scaffold+code优化方法应用到科学、医学等垂直领域，影响将远超编程本身。</p>
+    <div class="links">
+      <a href="https://github.com/deepreinforce-ai/Ornith-1" target="_blank">GitHub / Ornith-1.0</a>
+      <a href="https://huggingface.co/collections/deepreinforce-ai/ornith-10" target="_blank">HuggingFace / 模型合集</a>
+      <a href="https://quesma.com/blog/qwen-36-is-awesome/" target="_blank">Qwen 3.6 深度评测</a>
+      <a href="https://deep-reinforce.com/ornith_1_0.html" target="_blank">Ornith 技术博客</a>
+    </div>
+  </div>
+
+  <div class="dive">
+    <h3><span class="num">03</span>韩国$1万亿豪赌「物理AI」：全球芯片格局的转折点</h3>
+    <p>韩国政府宣布了其历史上最大规模的产业投资计划，总额约$1万亿美元（含企业承诺），聚焦三大方向：半导体（尤其是HBM内存）、AI数据中心、以及人形机器人。三星和SK海力士承诺投入约5180亿美元新建多个晶圆厂，目标在五年内将全球DRAM产能翻倍。同时，韩国计划将人形机器人的全球市场份额从当前的1%提升至20%。</p>
+    <p>这一消息与同日其他两个信号构成完美拼图：谷歌因算力短缺限制Meta访问Gemini；Nadella公开呼吁企业自建AI基础设施。全球正经历一场前所未有的算力饥渴——训练和推理都需要越来越多的芯片、数据中心和能源。韩国凭借其在HBM内存（全球约80%份额）和精密制造上的既有优势，试图在"物理AI"时代复制半导体领域的成功。</p>
+    <p>深层分析：这不仅仅是国家投资，更是一个产业格局的宣言——"物理AI"（具身智能系统）需要的不是更多GPU，而是高度集成的内存+芯片+机器人产业链。韩国认为，当AI从数据中心的纯软件竞赛转向工厂、家庭、街道的物理化部署时，价值将向硬件和制造业回流。Apple Neural Engine论文（2MB工作集限制）也从反面印证了这一点：边缘/终端AI需要芯片级创新，而不仅是模型创新。对于投资者，这是"算力全景图"中不可忽视的重要一块——尤其是在GPT-5.6仅限20家组织访问的背景下，物理化部署更依赖本地智能。</p>
+    <div class="links">
+      <a href="https://arstechnica.com/ai/2026/06/south-korea-to-spend-1t-on-more-memory-chip-production-and-humanoid-robots/" target="_blank">Ars Technica 报道</a>
+      <a href="https://x.com/SarahDiaChen/status/2071719025726341160" target="_blank">X / SarahDiaChen 分析</a>
+      <a href="https://arxiv.org/abs/2606.22283" target="_blank">Apple Neural Engine 论文</a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <p>每日AI精选 · 2026年6月30日 · 自动生成</p>
+  <p>
+    <a href="index.html">← 返回首页</a>
+  </p>
+</footer>
+
+</div>
+</body>
+</html>
