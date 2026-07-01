@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日AI精选 | 2026-07-01</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #fdfaf3; color: #2c2416; font-family: -apple-system, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', sans-serif; line-height: 1.7; }
+.container { max-width: 780px; margin: 0 auto; padding: 0 20px; }
+header { padding: 48px 0 32px; text-align: center; }
+.badge { display: inline-block; background: #8b6914; color: #fff; padding: 4px 16px; border-radius: 20px; font-size: 13px; font-weight: 600; letter-spacing: 1px; margin-bottom: 16px; }
+h1 { font-size: 28px; font-weight: 700; color: #1a1508; margin-bottom: 6px; }
+.date-big { font-size: 16px; color: #7a6e5c; margin-bottom: 14px; }
+.hero-story { font-size: 14px; color: #5a4e3c; margin-bottom: 8px; }
+.hero-story strong { color: #8b6914; }
+.sources { font-size: 12px; color: #9a8e7c; margin-top: 10px; }
+.sources span { display: inline-block; margin: 0 4px; }
+.theme { background: #f5f0e6; border-left: 4px solid #8b6914; padding: 20px 24px; border-radius: 0 8px 8px 0; margin-bottom: 36px; }
+.theme p { font-size: 15px; color: #3c3426; }
+.section-title { font-size: 20px; font-weight: 700; color: #1a1508; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+.section-title .count { font-size: 13px; color: #7a6e5c; font-weight: 400; }
+.news-list { display: flex; flex-direction: column; gap: 14px; margin-bottom: 36px; }
+.news-item { display: flex; gap: 16px; padding: 16px 20px; background: #fff; border: 1px solid #e8dcc8; border-radius: 10px; transition: box-shadow .15s; }
+.news-item:hover { box-shadow: 0 2px 8px rgba(0,0,0,.04); }
+.news-item .idx { font-size: 14px; font-weight: 700; color: #b8942e; min-width: 28px; padding-top: 1px; }
+.news-item .body { flex: 1; min-width: 0; }
+.news-item .title { font-size: 15px; font-weight: 600; color: #1a1508; margin-bottom: 4px; }
+.news-item .desc { font-size: 13px; color: #5a4e3c; line-height: 1.6; }
+.news-item .meta { font-size: 12px; color: #9a8e7c; margin-top: 6px; }
+.news-item .tags { display: flex; gap: 4px; align-items: flex-start; flex-shrink: 0; }
+.tag { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 11px; font-weight: 600; }
+.tag.hn { background: rgba(255,102,0,.1); color: #ff6600; }
+.tag.x { background: rgba(29,161,242,.1); color: #1da1f2; }
+.tag.ph { background: rgba(218,85,47,.1); color: #da552f; }
+.tag.ma { background: rgba(0,120,212,.1); color: #0078d4; }
+.stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin-bottom: 36px; }
+.stat { background: #fff; border: 1px solid #e8dcc8; border-radius: 10px; padding: 16px; text-align: center; }
+.stat .num { font-size: 22px; font-weight: 700; color: #8b6914; margin-bottom: 2px; }
+.stat .label { font-size: 12px; color: #7a6e5c; }
+.dive-section { margin-bottom: 36px; }
+.dive { background: #fff; border: 1px solid #e8dcc8; border-radius: 10px; padding: 24px; margin-bottom: 16px; }
+.dive h3 { font-size: 17px; font-weight: 700; color: #1a1508; margin-bottom: 12px; }
+.dive h3 .num { display: inline-block; background: #8b6914; color: #fff; width: 24px; height: 24px; border-radius: 50%; text-align: center; line-height: 24px; font-size: 13px; margin-right: 8px; }
+.dive p { font-size: 14px; color: #3c3426; margin-bottom: 10px; line-height: 1.8; }
+.dive .links { margin-top: 12px; padding-top: 12px; border-top: 1px solid #e8dcc8; }
+.dive .links a { font-size: 13px; color: #8b6914; text-decoration: none; margin-right: 16px; }
+.dive .links a:hover { text-decoration: underline; }
+footer { text-align: center; padding: 32px 0 48px; font-size: 12px; color: #9a8e7c; }
+footer a { color: #8b6914; text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+@media (max-width: 600px) {
+  .container { padding: 0 14px; }
+  h1 { font-size: 22px; }
+  .stats { grid-template-columns: repeat(2,1fr); }
+  .news-item { flex-wrap: wrap; }
+  .news-item .tags { order: -1; width: 100%; margin-bottom: 6px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <div class="badge">每日 AI 精选</div>
+  <h1>2026年7月1日 · 星期三</h1>
+  <div class="date-big">模型大战 · 隐写争议 · 出口解禁</div>
+  <div class="hero-story">
+    <strong>Anthropic三连发</strong> Sonnet 5·Claude Science·Fable 5解禁 · <strong>Claude Code隐写</strong> 1420pts引爆信任讨论 · <strong>中国模型</strong> 全球Token占比突破60%
+  </div>
+  <div class="sources">
+    来源：<span>Hacker News</span>·<span>X</span>·<span>Anthropic</span>·<span>Google AI</span>
+  </div>
+</header>
+
+<div class="theme">
+  <p>📌 <strong>今日主题：Anthropic的「超级星期三」</strong> — 同一天，Anthropic完成了三件大事：发布最强代理型Sonnet 5、推出面向科研的Claude Science工作台、以及Fable 5/Mythos 5出口管制正式解除。这是Anthropic迄今为止最大规模的生态发布日，从模型能力到垂直产品再到合规准入全面铺开。与此同时，Claude Code隐写标记争议以1420pts登顶HN，中国开源模型在OpenRouter上的Token占比突破60%，标志全球AI格局的深层变化。</p>
+</div>
+
+<h2 class="section-title">精选新闻 <span class="count">12 条</span></h2>
+
+<div class="news-list">
+
+  <div class="news-item">
+    <div class="idx">01</div>
+    <div class="body">
+      <div class="title">Claude Code 被曝对请求进行隐写标记</div>
+      <div class="desc">开发者发现Claude Code在输出中嵌入隐蔽编码用于追溯请求来源，引发大规模隐私与透明度讨论，HN 1420pts当日最高</div>
+      <div class="meta">安全·隐私 · 1420pts HN · 403条评论</div>
+    </div>
+    <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">02</div>
+    <div class="body">
+      <div class="title">Claude Sonnet 5 发布：最强 Agentic Sonnet 问世</div>
+      <div class="desc">API定价$3/$15每百万tokens，8月31日前促销价$2/$10，能力接近Opus 4.8但价格更低，立即成为Free/Pro默认模型</div>
+      <div class="meta">模型发布 · 881pts HN · 496条评论</div>
+    </div>
+    <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">03</div>
+    <div class="body">
+      <div class="title">Claude Science 科研工作台 Beta 上线</div>
+      <div class="desc">Anthropic推出面向科学家的AI工作台，集成60+科研数据库，自动管理计算环境，支持完整可溯源研究流程</div>
+      <div class="meta">产品发布 · 366pts HN · 科研工具</div>
+    </div>
+    <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">04</div>
+    <div class="body">
+      <div class="title">Fable 5 / Mythos 5 出口管制正式解除</div>
+      <div class="desc">美国商务部取消对Anthropic前沿模型Fable 5和Mythos 5的出口限制，7月1日起逐步恢复全球用户访问</div>
+      <div class="meta">政策 · 220pts HN · 出口管制</div>
+    </div>
+    <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">05</div>
+    <div class="body">
+      <div class="title">Google 发布 Nano Banana 2 Lite + Gemini Omni Flash</div>
+      <div class="desc">极速图像生成仅$0.034/千张、SOTA视频编辑$0.10/秒，Google走廉价多模态路线，开发者可即日在AI Studio试用</div>
+      <div class="meta">多模态 · 305pts HN · 低延迟</div>
+    </div>
+    <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">06</div>
+    <div class="body">
+      <div class="title">Meta Brain2Qwerty v2：非侵入式脑机接口达78%准确率</div>
+      <div class="desc">无需手术植入，MEG头盔扫描脑电信号直接转文字，最高78%准确率，Meta开源训练代码加速研究</div>
+      <div class="meta">脑机接口 · 108pts HN · Meta Research</div>
+    </div>
+    <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">07</div>
+    <div class="body">
+      <div class="title">Google TabFM：零样本表格数据基础模型</div>
+      <div class="desc">基于数亿张合成表格预训练，单次前向传播完成分类/回归，无需调参，已集成BigQuery ML，对标XGBoost</div>
+      <div class="meta">基础模型 · Google Research · 企业分析</div>
+    </div>
+    <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">08</div>
+    <div class="body">
+      <div class="title">Mistral 发布 Leanstral 1.5 轻量高效模型</div>
+      <div class="desc">Mistral AI推出轻量级Leanstral 1.5，强调低延迟和强推理能力，官方宣布已有Leanstral原版退役</div>
+      <div class="meta">模型发布 · 100pts HN · Mistral AI</div>
+    </div>
+    <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">09</div>
+    <div class="body">
+      <div class="title">xAI 成功阻止科罗拉多州AI法案生效</div>
+      <div class="desc">xAI在法律挑战中胜诉，阻止科罗拉多州AI监管法案实施，为AI公司在州级监管战中树立重要先例</div>
+      <div class="meta">政策 · xAI · 法律</div>
+    </div>
+    <div class="tags"><span class="tag x">X</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">10</div>
+    <div class="body">
+      <div class="title">中国开源模型全球 Token 占比突破 60%</div>
+      <div class="desc">OpenRouter数据显示美国模型Token占比从70%降至30%以下，GLM-5.2/DeepSeek V4/Qwen3成主流选择，Coinbase默认GLM-5.2节省50%成本</div>
+      <div class="meta">行业趋势 · 开源模型 · 成本革命</div>
+    </div>
+    <div class="tags"><span class="tag x">X</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">11</div>
+    <div class="body">
+      <div class="title">GitHub Copilot 转向按用量计费模式</div>
+      <div class="desc">GitHub Copilot从固定订阅转为按使用量计费，反映AI编程工具市场竞争白热化，开发者可按需付费而非按月订阅</div>
+      <div class="meta">定价 · GitHub · 编程工具</div>
+    </div>
+    <div class="tags"><span class="tag x">X</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">12</div>
+    <div class="body">
+      <div class="title">OpenAI 限制 GPT-5.6 访问范围，GPT-4.5 正式退役</div>
+      <div class="desc">美国政府监督下，OpenAI大幅收紧GPT-5.6系列访问权限，同时宣布GPT-4.5退役，模型供给分层格局形成</div>
+      <div class="meta">模型管理 · OpenAI · 政策</div>
+    </div>
+    <div class="tags"><span class="tag x">X</span></div>
+  </div>
+
+</div>
+
+<h2 class="section-title">今日数据</h2>
+<div class="stats">
+  <div class="stat"><div class="num">1420</div><div class="label">Claude Code 隐写 HN 点赞</div></div>
+  <div class="stat"><div class="num">881</div><div class="label">Sonnet 5 HN 热度</div></div>
+  <div class="stat"><div class="num">$3/M</div><div class="label">Sonnet 5 输出价格</div></div>
+  <div class="stat"><div class="num">78%</div><div class="label">Brain2Qwerty v2 最高准确率</div></div>
+  <div class="stat"><div class="num">60%+</div><div class="label">中国模型 Token 占比</div></div>
+  <div class="stat"><div class="num">$0.034</div><div class="label">Banana 2 Lite 千张图像</div></div>
+</div>
+
+<h2 class="section-title">深度分析</h2>
+<div class="dive-section">
+
+  <div class="dive">
+    <h3><span class="num">01</span>Anthropic 的「超级星期三」：模型 · 产品 · 合规三线齐发</h3>
+    <p>7月1日注定是Anthropic公司历史上最重要的一天。Sonnet 5发布了——被官方称为"迄今最具代理性的Sonnet"，在推理、工具使用和编程上接近Opus 4.8但定价低一个数量级；Claude Science上线了——一个面向科研人员的一体化AI工作台，整合60+学术数据库，自动管理计算环境和GPU资源，每个结果都可溯源；同一天，美国商务部正式解除对Fable 5和Mythos 5的出口管制，全球用户从今天起逐步恢复访问。</p>
+    <p>这三件事互相咬合：Sonnet 5降低了Agentic AI的准入门槛，Claude Science开拓了垂直科研这个高价值场景，Fable/Mythos解禁则让最前沿的能力重新触达全球开发者。这不是三个独立的发布，而是一个完整生态的拼图——模型层（Sonnet/Fable/Mythos）、产品层（Code/Science/Claude.app）、准入层（合规/政策），每一层都在同一天向前推进了一大步。相比OpenAI GPT-5.6 Sol仅限20家政府审查用户的封闭策略，Anthropic选择了更多元、更开放的生态路径。</p>
+    <p>深层信号：Anthropic正在系统性地构建自己的"护城河"——不依赖单一模型优势，而是用产品矩阵（Code/Science）锁定开发者场景，用合规能力（Fable解禁）维系全球用户关系。Sonnet 5的定价策略（$3/$15 vs Opus级模型的数月约束）直接对AWS Bedrock等平台的利润率形成压力。如果Claude Science能复制Claude Code在程序员中的口碑，Anthropic很可能在下半年成为AI行业第一个真正"生态型"玩家。</p>
+    <div class="links">
+      <a href="https://www.anthropic.com/news/claude-sonnet-5" target="_blank">Anthropic Sonnet 5 官方公告</a>
+      <a href="https://claude.com/product/claude-science" target="_blank">Claude Science 产品页</a>
+      <a href="https://x.com/AnthropicAI/status/2072106151890809341" target="_blank">X / Anthropic 出口解禁公告</a>
+    </div>
+  </div>
+
+  <div class="dive">
+    <h3><span class="num">02</span>Claude Code 隐写标记：AI透明度的边界在哪里？</h3>
+    <p>今天登顶HN（1420pts）的最大议题既不是模型发布也不是出口政策，而是一篇名为"Claude Code Is Steganographically Marking Requests"的技术文章。开发者发现Claude Code系统性地在输出中嵌入隐蔽标记——可能是通过空白的格式模式、变量命名的编码规则、或零宽字符等方式——使得另一个Claude实例或下游检测系统可以识别请求的原始来源、上下文甚至用户身份。对于每天用Claude Code写代码的开发者来说，这意味着每一个函数、每一段注释都可能携带一个不可见的"数字指纹"。</p>
+    <p>这场讨论的本质是AI透明度的边界问题。一方面，模型提供商有合法的需求来追踪滥用行为、检测提示注入、或验证输出来源——这类似于新闻机构的水印或软件公司的遥测。另一方面，隐写（steganography）不同于普通水印：它的存在本就是隐蔽的，用户无法感知也无法选择退出。当你在私有仓库中生成的代码也被标记时，这算不算一种隐形的数据收集？当标记格式发生变化或标记本身被攻击者利用来注入指令时，安全风险谁来承担？403条HN评论中，既有认为"这是负责任的AI实践"的支持声，也有"类同于间谍软件"的批评。</p>
+    <p>深层信号：这起争议可能催生一个新的行业规范——"AI输出可标记性披露标准"。就像网站必须披露Cookie使用一样，AI模型将来可能被要求透明地告知：你的输出是否被标记、用什么方式标记、标记包含什么信息。对于开发者而言，这意味着需要关注标记是否会在代码审查中暴露敏感信息，或者是否需要在自己的产品中做隐写检测。短期看，Anthropic很可能会发布回应，调整标记策略以增加用户知悉权和选择权——这场讨论的走向，将影响所有AI编程工具的信任基础。</p>
+    <div class="links">
+      <a href="https://thereallo.dev/blog/claude-code-prompt-steganography" target="_blank">原始分析文章</a>
+      <a href="https://news.ycombinator.com/item?id=48736605" target="_blank">HN 讨论 (1420pts)</a>
+      <a href="https://x.com/betterhn20/status/2071995182908666041" target="_blank">X / betterhn20 报道</a>
+    </div>
+  </div>
+
+  <div class="dive">
+    <h3><span class="num">03</span>中国开源模型 Token 占比超 60%：全球AI格局正在静默重塑</h3>
+    <p>OpenRouter的最新数据揭示了一个被日常新闻淹没的趋势性信号：截至2026年7月，中国开源模型在API平台上的Token消耗占比已超过60%，而美国模型的份额从2025年6月的约70%骤降至30%以下。这一变化的推手是GLM-5.2、DeepSeek V4系列和Qwen3家族——它们在编程、推理、工具使用等实际任务上已经"足够好"，而价格和开放性让它们成为越来越多开发者的默认选择。Coinbase甚至将工程师默认模型切换至GLM-5.2，AI相关花费直接砍半。</p>
+    <p>这个消息与今天的其他新闻形成强烈共振：Anthropic Sonnet 5的定价虽然激进（$3/$15），但中国开源模型运行在Ollama/LM Studio上的边际成本是零。xAI阻止科罗拉多AI法案的意义也更多在于监管环境，而不是技术护城河——因为成本优势已经不在美国玩家这边。与此同时，OpenAI GPT-5.6 Sol仅限20家组织使用，进一步把中长尾开发者推向开源选项。一个"双轨市场"正在形成：前沿推理任务交给美国闭源模型，日常编程和工具使用由中国开源模型覆盖。</p>
+    <p>深层分析：这不是简单的"中国追赶美国"叙事，而是一种结构性替代。当中国开源模型在大多数实际基准上与闭源模型的差距缩小到可忽略的程度，而价格为零、无需API Key、数据不出本地时，决策经济学的天平就会不可逆地倾斜。对投资者而言，最直接的影响是模型API收入的潜在收缩——OpenRouter上美国模型的份额下降意味着即使总市场在扩大，美国玩家的分蛋糕比例在缩小。对开发者而言，这意味着AI编程栈正在从"按月付费"转向"零边际成本"，本地AI将成为默认配置。这一趋势的拐点就是2026年中——而今天的数据正在确认这个拐点已经到来。</p>
+    <div class="links">
+      <a href="https://x.com/OnchainIns5699/status/2072107554134475257" target="_blank">X / OpenRouter 数据报道</a>
+      <a href="https://x.com/VikingQuant/status/2071963681265430988" target="_blank">X / VikingQuant 中国模型评论</a>
+      <a href="https://docs.mistral.ai/models/model-cards/leanstral-1-5-26-06" target="_blank">Mistral Leanstral 1.5 模型卡</a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <p>每日AI精选 · 2026年7月1日 · 自动生成</p>
+  <p>
+    <a href="index.html">← 返回首页</a>
+  </p>
+</footer>
+
+</div>
+</body>
+</html>
