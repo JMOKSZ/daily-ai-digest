@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日AI精选 | 2026-07-02</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #fdfaf3; color: #2c2416; font-family: -apple-system, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', sans-serif; line-height: 1.7; }
+.container { max-width: 780px; margin: 0 auto; padding: 0 20px; }
+header { padding: 48px 0 32px; text-align: center; }
+.badge { display: inline-block; background: #8b6914; color: #fff; padding: 4px 16px; border-radius: 20px; font-size: 13px; font-weight: 600; letter-spacing: 1px; margin-bottom: 16px; }
+h1 { font-size: 28px; font-weight: 700; color: #1a1508; margin-bottom: 6px; }
+.date-big { font-size: 16px; color: #7a6e5c; margin-bottom: 14px; }
+.hero-story { font-size: 14px; color: #5a4e3c; margin-bottom: 8px; }
+.hero-story strong { color: #8b6914; }
+.sources { font-size: 12px; color: #9a8e7c; margin-top: 10px; }
+.sources span { display: inline-block; margin: 0 4px; }
+.theme { background: #f5f0e6; border-left: 4px solid #8b6914; padding: 20px 24px; border-radius: 0 8px 8px 0; margin-bottom: 36px; }
+.theme p { font-size: 15px; color: #3c3426; }
+.section-title { font-size: 18px; font-weight: 700; color: #1a1508; margin-bottom: 20px; display: flex; align-items: center; gap: 8px; }
+.section-title .num { font-size: 13px; color: #7a6e5c; font-weight: 400; }
+
+/* News Grid */
+.news-grid { display: flex; flex-direction: column; gap: 1px; background: #e8dcc8; border-radius: 12px; overflow: hidden; margin-bottom: 40px; }
+.news-item { display: flex; align-items: flex-start; background: #fff; padding: 18px 20px; gap: 14px; transition: background .15s; }
+.news-item:hover { background: #fcfaf5; }
+.idx { font-size: 13px; font-weight: 700; color: #b8942e; min-width: 28px; padding-top: 2px; }
+.body { flex: 1; min-width: 0; }
+.title { font-size: 15px; font-weight: 600; color: #1a1508; margin-bottom: 4px; }
+.desc { font-size: 13px; color: #5a4e3c; margin-bottom: 6px; }
+.meta { font-size: 12px; color: #9a8e7c; }
+.meta .tag { display: inline-block; padding: 1px 8px; border-radius: 10px; font-size: 11px; font-weight: 500; margin-right: 4px; }
+.tag.hn { background: rgba(255,102,0,.1); color: #cc5200; }
+.tag.x { background: rgba(29,161,242,.1); color: #1a8cd8; }
+.tag.ph { background: rgba(218,85,47,.1); color: #c44a28; }
+.tag.ma { background: rgba(0,120,212,.1); color: #0068b8; }
+
+/* Stats */
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 40px; }
+.stat { background: #fff; border: 1px solid #e8dcc8; border-radius: 10px; padding: 18px; text-align: center; }
+.stat .num { font-size: 22px; font-weight: 700; color: #2c2416; margin-bottom: 2px; }
+.stat .num.red { color: #b91c1c; }
+.stat .num.green { color: #4d7c0f; }
+.stat .num.blue { color: #0e7490; }
+.stat .label { font-size: 12px; color: #7a6e5c; }
+.stat .sub { font-size: 11px; color: #9a8e7c; margin-top: 2px; }
+
+/* Deep Dives */
+.dives { margin-bottom: 40px; }
+.dive { background: #fff; border: 1px solid #e8dcc8; border-radius: 12px; padding: 24px; margin-bottom: 16px; }
+.dive h3 { font-size: 17px; font-weight: 700; color: #1a1508; margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
+.dive h3 .dnum { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; background: #8b6914; color: #fff; font-size: 13px; flex-shrink: 0; }
+.dive p { font-size: 14px; color: #3c3426; margin-bottom: 12px; text-indent: 2em; }
+.dive p:last-of-type { margin-bottom: 16px; }
+.dive .links { border-top: 1px solid #eee7db; padding-top: 12px; display: flex; flex-wrap: wrap; gap: 8px; }
+.dive .links a { font-size: 12px; color: #8b6914; text-decoration: none; padding: 2px 10px; border: 1px solid #e8dcc8; border-radius: 6px; transition: all .15s; }
+.dive .links a:hover { background: #f5f0e6; border-color: #d4c5a8; }
+
+/* Footer */
+footer { padding: 32px 0 48px; border-top: 1px solid #e8dcc8; text-align: center; font-size: 13px; color: #7a6e5c; }
+footer a { color: #8b6914; text-decoration: none; }
+
+@media (max-width: 640px) {
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  .news-item { padding: 14px 16px; }
+  h1 { font-size: 24px; }
+  .dive { padding: 18px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div class="badge">每日AI精选</div>
+    <h1>2026年7月2日 星期四</h1>
+    <div class="hero-story">
+      <strong>Fable 5回归</strong> · <strong>中国模型双发</strong> · <strong>韩国$576B豪赌</strong>
+    </div>
+    <div class="sources">
+      <span>📡 HN</span><span>·</span><span>🐦 X</span><span>·</span><span>🏠 Product Hunt</span>
+    </div>
+  </header>
+
+  <div class="theme">
+    <p>📌 今日主题：<strong>模型发布与地缘基建的双线叙事。</strong> 2026年7月的开局日异常密集——Anthropic 连续两日完成 Fable 5 回归与 Sonnet 5 发布，中国阵营以 GLM-5.2 和 LongCat-2.0 两枚开源重磅回应。与此同时，基础设施层面的资本竞赛全面升级：韩国5760亿美元芯片集群、AWS 10亿美元 FDE 工程部队、Etched 50亿美元估值——AI 赛道的竞争已经从模型能力蔓延到资本、芯片、部署和地缘层面。</p>
+  </div>
+
+  <!-- 精选新闻 -->
+  <div class="section-title">精选新闻 <span class="num">· 12 条</span></div>
+  <div class="news-grid">
+
+    <div class="news-item">
+      <div class="idx">01</div>
+      <div class="body">
+        <div class="title">Fable 5 全面回归，出口管制松绑</div>
+        <div class="desc">Anthropic 旗舰模型 Fable 5 恢复全球访问，1M token 上下文，多日自主任务王者</div>
+        <div class="meta"><span class="tag hn">HN</span><span class="tag x">X</span> 模型 · 308pts · 285cmts</div>
+      </div>
+    </div>
+
+    <div class="news-item">
+      <div class="idx">02</div>
+      <div class="body">
+        <div class="title">GLM-5.2 开源 + ZCode 编程IDE同步上线</div>
+        <div class="desc">744B MoE 开源模型 MIT 协议，Terminal Bench 81分，ZCode 发布 mac/Win/Linux 原生客户端</div>
+        <div class="meta"><span class="tag hn">HN</span><span class="tag x">X</span> 开源 · 171pts · 199cmts · ZCode.z.ai</div>
+      </div>
+    </div>
+
+    <div class="news-item">
+      <div class="idx">03</div>
+      <div class="body">
+        <div class="title">Meituan LongCat-2.0：1.6万亿参数纯国产模型</div>
+        <div class="desc">全栈国产芯片训练，SWE-Bench Pro 59.5% 超越 GPT-5.5，API 定价仅 $0.75/$2.95 每百万token</div>
+        <div class="meta"><span class="tag x">X</span><span class="tag hn">HN</span> 开源 · 国产芯片 · API $0.75/M</div>
+      </div>
+    </div>
+
+    <div class="news-item">
+      <div class="idx">04</div>
+      <div class="body">
+        <div class="title">Claude Sonnet 5 首发定价曝光</div>
+        <div class="desc">定位 Agent 主力模型：$2/$10 每百万token入门价持续至8月底，接近 Opus 4.8 Agent 性能但便宜60%</div>
+        <div class="meta"><span class="tag x">X</span><span class="tag hn">HN</span> 模型 · $2/$10 · Agent主力</div>
+      </div>
+    </div>
+
+    <div class="news-item">
+      <div class="idx">05</div>
+      <div class="body">
+        <div class="title">Meta 内部 AI 开销失控：73.7万亿Token / 月</div>
+        <div class="desc">员工"Tokenmaxxing"排行榜致消费暴涨，年化 $26.5亿，紧急关闭排行榜、实施用量上限</div>
+        <div class="meta"><span class="tag x">X</span><span class="tag hn">HN</span> 企业 · $2.65B/年 · Claudeonomics</div>
+      </div>
+    </div>
+
+    <div class="news-item">
+      <div class="idx">06</div>
+      <div class="body">
+        <div class="title">Weave Robotics Isaac 1：$7,999 家用机器人</div>
+        <div class="desc">专注于洗衣、叠被等家务，$449/月订阅可选，今年秋季加州首发交付，明年全美推广</div>
+        <div class="meta"><span class="tag hn">HN</span><span class="tag x">X</span> 机器人 · 68pts · 119cmts · $7,999</div>
+      </div>
+    </div>
+
+    <div class="news-item">
+      <div class="idx">07</div>
+      <div class="body">
+        <div class="title">韩国5760亿美元半导体超级投资</div>
+        <div class="desc">三星+SK海力士共建西南韩芯片集群，4座先进工厂 + 10GW AI数据中心，总统李在明称加速卡位全球竞赛</div>
+        <div class="meta"><span class="tag x">X</span> 基础设施 · $576B · 10GW DC</div>
+      </div>
+    </div>
+
+    <div class="news-item">
+      <div class="idx">08</div>
+      <div class="body">
+        <div class="title">AWS 10 亿美元 FDE 工程部队计划</div>
+        <div class="desc">借鉴 Palantir 模式，千名 AI 工程师嵌入企业客户，45天快速交付 Agent 系统，输出可复用的框架和文档</div>
+        <div class="meta"><span class="tag x">X</span> 企业 · $1B · Palantir模式</div>
+      </div>
+    </div>
+
+    <div class="news-item">
+      <div class="idx">09</div>
+      <div class="body">
+        <div class="title">Etched 估值达 50 亿美元</div>
+        <div class="desc">专用 AI 推理芯片公司年销售额达 10 亿美元，被视为 NVIDIA 在 ASIC 方向的潜在挑战者</div>
+        <div class="meta"><span class="tag x">X</span> 芯片 · $5B 估值 · ASIC 挑战者</div>
+      </div>
+    </div>
+
+    <div class="news-item">
+      <div class="idx">10</div>
+      <div class="body">
+        <div class="title">UBTECH 情感机器人 U-World U1 订单破万</div>
+        <div class="desc">内置"情感 AI 模型"，¥120K 起售价，Lite 至 Ultra 四档配置，主打情感交互与自然对话</div>
+        <div class="meta"><span class="tag x">X</span> 机器人 · 10,000台 · ¥120K起</div>
+      </div>
+    </div>
+
+    <div class="news-item">
+      <div class="idx">11</div>
+      <div class="body">
+        <div class="title">Claude Desktop 正式登陆 Linux</div>
+        <div class="desc">Anthropic 补齐开发者生态关键拼图，Agent / Claude Code 工作流不再依赖 macOS 或 Windows</div>
+        <div class="meta"><span class="tag x">X</span><span class="tag hn">HN</span> 开发者 · Linux · 生态完善</div>
+      </div>
+    </div>
+
+    <div class="news-item">
+      <div class="idx">12</div>
+      <div class="body">
+        <div class="title">OpenAI GeneBench-Pro：AI 科学判断力新基准</div>
+        <div class="desc">专注生物科学领域的模糊推理与决策判断，顶级模型仅得 28.7%，揭示 AI 在真正的科学研究中的天花板</div>
+        <div class="meta"><span class="tag x">X</span> 研究 · GeneBench · 28.7% 天花板</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 今日数据 -->
+  <div class="section-title">今日数据 <span class="num">· 6 个关键数字</span></div>
+  <div class="stats">
+    <div class="stat">
+      <div class="num green">59.5%</div>
+      <div class="label">LongCat-2.0 SWE-Bench Pro</div>
+      <div class="sub">超越 GPT-5.5 (58.6%)</div>
+    </div>
+    <div class="stat">
+      <div class="num blue">81</div>
+      <div class="label">GLM-5.2 Terminal Bench</div>
+      <div class="sub">距 Claude Opus 4.8 仅差1分</div>
+    </div>
+    <div class="stat">
+      <div class="num red">$2.65B</div>
+      <div class="label">Meta AI 年内化 Token 开支</div>
+      <div class="sub">73.7T token / 月引发紧急限流</div>
+    </div>
+    <div class="stat">
+      <div class="num red">$576B</div>
+      <div class="label">韩国芯片集群投资</div>
+      <div class="sub">三星 + SK 海力士联合体</div>
+    </div>
+    <div class="stat">
+      <div class="num">$5B</div>
+      <div class="label">Etched 估值</div>
+      <div class="sub">专用 AI 推理芯片新贵</div>
+    </div>
+    <div class="stat">
+      <div class="num blue">28.7%</div>
+      <div class="label">GeneBench-Pro 顶尖得分</div>
+      <div class="sub">AI 科学判断力仍有天花板</div>
+    </div>
+  </div>
+
+  <!-- 深度分析 -->
+  <div class="section-title">深度分析 <span class="num">· 3 篇</span></div>
+  <div class="dives">
+
+    <div class="dive">
+      <h3><span class="dnum">1</span> Anthropic 的攻守之道：Fable 5 + Sonnet 5 双轮驱动</h3>
+      <p>7月1日至2日，Anthropic 完成了今年最具战略意义的两步棋。Fable 5 在经历出口管制限制后全面回归——这款1M上下文窗口、多日自主任务领先的旗舰模型，被社区称为"人类造过最伟大的 AI 模型"。而就在前一天发布的 Sonnet 5，则定位为成本仅为 Opus 4.8 约40%的 Agent 主力模型，首发 $2/$10 定价直至8月底，引导开发者将日常 Agent 工作负载从昂贵的旗舰模型迁移到经济型模型上。</p>
+      <p>这套"旗舰+量产"的双轨策略，对应了 AI 行业从"哪个模型最强"到"哪个模型能持久跑Agent"的关键转向。Fable 5 负责设定能力上限、建立品牌认知；Sonnet 5 则以一个极具攻击性的价格锚点抢占实际使用场景。这一策略与 OpenAI 的 GPT-5.6 系列分层定价形成直接竞争——但 Anthropic 的节奏更紧凑、意图更清晰：先降成本抢市场，再以能力溢价盈利。</p>
+      <p>更深层的信号在于，Sonnet 5 的定价窗口（8月底前$2/$10）本身就构成了对开发者生态的短期承诺——"现在上车，价格更好"。这不仅仅是定价策略，更是一种开发者关系投资。当竞争对手还在讨论模型能力对比时，Anthropic 已经打响了 Agent 商业化落地的第一枪。</p>
+      <div class="links">
+        <a href="https://x.com/iPhone_News/status/2072465063911247874" target="_blank">Fable 5 回归公告</a>
+        <a href="https://x.com/AINativeF/status/2072308457454387618" target="_blank">Sonnet 5 发布详情</a>
+        <a href="https://news.ycombinator.com/item?id=48753715" target="_blank">HN 讨论 Fable 5</a>
+      </div>
+    </div>
+
+    <div class="dive">
+      <h3><span class="dnum">2</span> 中国 AI 开源双响炮：GLM-5.2 与 LongCat-2.0 的竞合</h3>
+      <p>过去48小时内，中国 AI 社区以两枚重磅开源模型宣告了自己的存在感。智谱 AI 的 GLM-5.2（744B MoE，MIT 协议，Terminal Bench 81分）和美团的长文本模型 LongCat-2.0（1.6T 总参数，SWE-Bench Pro 59.5% 超越 GPT-5.5）风格迥异却同一天引发全球关注。更值得注意的是，ZCode——GLM-5.2 的官方编程 IDE——同步在 macOS、Windows、Linux 三端上线，形成"模型+工具链"的打法。</p>
+      <p>两枚模型的定位差异恰好反映了中国 AI 生态的内部分野。GLM-5.2 走的是"开放旗舰"路线——完全开源、MIT 协议、商业化友好，直接对标全球开源社区；LongCat-2.0 则更侧重于"国产自主"叙事——全栈国产芯片训练（超过5万块华为昇腾 910C 级别 ASIC）、1M 上下文、以及极低的 API 定价（$0.75/$2.95 每百万token）。前者在国际社区引发编码能力惊叹（Vercel CEO 称"真的震惊"），后者在 SWE-Bench 上硬碰硬击败了 GPT-5.5。</p>
+      <p>更深层的行业冲击在于，这两枚模型都选择了时间点——在美国出口管制收紧的历史背景下，证明了中国团队在全球最前沿的模型竞赛中不但没有掉队，反而在某些维度展现出差异化竞争力（开源协议、定价优势、国产芯片适配）。这对全球开源格局的意义是深远的：当"纯国产芯片训练万亿参数模型"成为现实，出口管制的地缘战略假设就被动摇了。</p>
+      <div class="links">
+        <a href="https://zcode.z.ai/en" target="_blank">ZCode 官网</a>
+        <a href="https://longcat.ai" target="_blank">LongCat-2.0 平台</a>
+        <a href="https://z.ai/blog/glm-5.2" target="_blank">GLM-5.2 技术博客</a>
+      </div>
+    </div>
+
+    <div class="dive">
+      <h3><span class="dnum">3</span> 基建军备竞赛白热化：从韩国 5760 亿到 AWS 10 亿</h3>
+      <p>7月1日并非只有模型新闻。韩国宣布三星与 SK 海力士联合投资 5760 亿美元建设西南半导体超级集群——四座先进芯片工厂、10GW AI 数据中心配套，以对抗全球 AI 芯片供应瓶颈。这份投资规模之巨，以至于 Japan Times 的分析师直言"存在产能过剩和痛苦的清算风险"。与此同时，AWS 启动了 10 亿美元的 Forward Deployed Engineering 计划——参考 Palantir 模式，将上千名 AI 工程师直接嵌入企业客户，承诺 45 天交付可运行的 Agent 系统。</p>
+      <p>这两条新闻揭示了 AI 行业正在分化出的两个战场：上游的芯片/基础设施建设（韩国投资、Etched 50亿估值、TSMC CoPoS 先进封装）和下游的企业级部署/商业化加速（AWS FDE、Meta 的内部治理危机）。前者是资本密集型、长周期、高壁垒；后者是人才密集型、短周期、快迭代。一个有趣的交叉点是 Meta 的内部 Tokenmaxxing 事件——员工为刷排行榜而浪费了年化 26.5 亿美元的 token——这暴露了大企业在推进 AI 采用时"规模不等于效率"的经典陷阱。</p>
+      <p>这些信号共同指向一个判断：2026年下半年，AI 行业的竞争将从"模型能力军备竞赛"转向"基础设施与商业化落地的双重竞赛"。Etched 以 10 亿美元年销售额达到 50 亿估值，说明市场已经开始为"从训练转向推理"的未来定价。韩国的 5760 亿美元豪赌，则是对"AI 是长期结构性需求"的终极押注。在资本疯狂涌入、产能爬坡与需求波动之间的平衡，将成为未来12-18个月最大的不确定性。</p>
+      <div class="links">
+        <a href="https://x.com/ticker_report/status/2072297260042289461" target="_blank">韩国5760亿计划详情</a>
+        <a href="https://x.com/TechCrunch/status/2072395009911877900" target="_blank">AWS FDE 计划</a>
+        <a href="https://x.com/i/status/2072320033955414366" target="_blank">Meta Tokenmaxxing 事件</a>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    📰 每日AI精选 · 2026-07-02<br>
+    数据来源：Hacker News · X/Twitter · Product Hunt<br>
+    <a href="index.html">📂 查看历史</a> · <a href="https://github.com/macmini-j/daily-ai-digest">GitHub</a>
+  </footer>
+</div>
+</body>
+</html>
