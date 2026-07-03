@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日AI精选 — 2026年7月3日</title>
+<style>
+:root {
+  --page: #fdfaf3;
+  --surface: #fcfaf5;
+  --card: #fff;
+  --border: #e8dcc8;
+  --text: #2c2416;
+  --muted: #7a6e5c;
+  --accent: #8b6914;
+  --accent-lt: #b8942e;
+  --positive: #4d7c0f;
+  --warning: #b45309;
+  --info: #0e7490;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans SC', sans-serif;
+  background: var(--page);
+  color: var(--text);
+  line-height: 1.6;
+  padding: 0;
+}
+.container { max-width: 860px; margin: 0 auto; padding: 40px 24px; }
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 48px 0 32px;
+  border-bottom: 2px solid var(--border);
+  margin-bottom: 32px;
+}
+.badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #8b6914, #b8942e);
+  color: #fff;
+  padding: 6px 20px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+}
+.hero h1 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--text);
+}
+.hero .subtitle {
+  font-size: 15px;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+.hero .teaser {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 16px 0 8px;
+}
+.hero .teaser span {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 4px 14px;
+  border-radius: 16px;
+  font-size: 13px;
+  color: var(--accent);
+}
+.hero .sources {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 12px;
+}
+.hero .sources strong { color: var(--text); }
+
+/* Theme Block */
+.theme {
+  background: var(--surface);
+  border-left: 4px solid var(--accent);
+  padding: 20px 24px;
+  margin-bottom: 32px;
+  border-radius: 0 8px 8px 0;
+}
+.theme .label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+.theme p { font-size: 15px; color: var(--text); line-height: 1.7; }
+
+/* Section Header */
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 40px 0 20px;
+}
+.section-header h2 {
+  font-size: 22px;
+  font-weight: 700;
+}
+.section-header .count {
+  background: var(--accent);
+  color: #fff;
+  font-size: 12px;
+  padding: 2px 10px;
+  border-radius: 12px;
+}
+
+/* News Items */
+.news-list { display: grid; gap: 12px; }
+.news-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 20px;
+  transition: box-shadow .15s;
+}
+.news-item:hover { box-shadow: 0 2px 8px rgba(139,105,20,.06); }
+.idx {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: var(--page);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--accent);
+}
+.body { flex: 1; min-width: 0; }
+.title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  line-height: 1.4;
+}
+.desc {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 6px;
+  line-height: 1.5;
+}
+.meta {
+  font-size: 12px;
+  color: var(--muted);
+}
+.tags {
+  flex-shrink: 0;
+  display: flex;
+  gap: 6px;
+  align-items: flex-start;
+  padding-top: 2px;
+}
+.tag {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 10px;
+  white-space: nowrap;
+}
+.tag.hn { background: rgba(255,102,0,.1); color: #ff6600; }
+.tag.x { background: rgba(29,161,242,.1); color: #1da1f2; }
+.tag.gh { background: rgba(36,41,46,.08); color: #24292e; }
+
+/* Stats Grid */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 24px 0;
+}
+.stat {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+}
+.stat .num {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+.stat .label {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+/* Deep Dives */
+.dive-list { display: grid; gap: 20px; }
+.dive {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 24px;
+}
+.dive h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.dive h3 .num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 13px;
+  border-radius: 6px;
+}
+.dive p {
+  font-size: 15px;
+  line-height: 1.8;
+  margin-bottom: 12px;
+  color: var(--text);
+}
+.dive .links {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.dive .links a {
+  font-size: 13px;
+  color: var(--info);
+  text-decoration: none;
+  padding: 4px 12px;
+  background: rgba(14,116,144,.06);
+  border-radius: 6px;
+}
+.dive .links a:hover { text-decoration: underline; }
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 40px 0;
+  border-top: 2px solid var(--border);
+  margin-top: 48px;
+  font-size: 13px;
+  color: var(--muted);
+}
+.footer a {
+  color: var(--accent);
+  text-decoration: none;
+}
+.footer a:hover { text-decoration: underline; }
+
+@media (max-width: 640px) {
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  .hero h1 { font-size: 26px; }
+  .news-item { flex-wrap: wrap; }
+  .tags { width: 100%; padding-top: 6px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Hero -->
+<div class="hero">
+  <div class="badge">每日AI精选</div>
+  <h1>2026年7月3日 · 星期五</h1>
+  <div class="subtitle">12条精选 + 3篇深度分析</div>
+  <div class="teaser">
+    <span>🔐 Anthropic Fable 5管制解除</span>
+    <span>⚡ OpenAI推理成本腰斩</span>
+    <span>💰 Together AI 83亿美元估值</span>
+  </div>
+  <div class="sources">来源: <strong>Hacker News</strong> · <strong>X/Twitter</strong></div>
+</div>
+
+<!-- Theme -->
+<div class="theme">
+  <div class="label">📌 今日主题</div>
+  <p>AI行业的"松绑与重构"——美国政府解除对Anthropic Fable 5的出口管制，标志着前沿模型安全审查从"永久封锁"转向"测试-修复-恢复"的新型博弈。与此同时，OpenAI通过软件优化将推理成本砍半，Together AI以83亿美元估值融得8亿美元，折射出基础设施层正在经历从"芯片短缺叙事"到"效率红利叙事"的范式转变。开源社区同样活跃，Claude-real-video等项目让视频理解真正走向实用化。</p>
+</div>
+
+<!-- News Section -->
+<div class="section-header">
+  <h2>精选新闻</h2>
+  <span class="count">12条</span>
+</div>
+
+<div class="news-list">
+  <!-- 01 -->
+  <div class="news-item">
+    <div class="idx">01</div>
+    <div class="body">
+      <div class="title">Anthropic Fable 5出口管制解除</div>
+      <div class="desc">美国政府解除对Claude Fable 5/Mythos 5的19天管制，新安全分类器上线后恢复全球部署，但基准测试显示调试能力从86降至26</div>
+      <div class="meta">AI治理 · 安全 · 管制博弈 | HN 445pts · X多家报道</div>
+    </div>
+    <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+  </div>
+
+  <!-- 02 -->
+  <div class="news-item">
+    <div class="idx">02</div>
+    <div class="body">
+      <div class="title">OpenAI推理成本腰斩</div>
+      <div class="desc">通过量化(INT8/FP8)、动态批处理、智能路由和KV缓存优化，推理成本降低50%+，免费层流量仅需数百GPU运行</div>
+      <div class="meta">基础设施 · 效率革命 · Jevons悖论 | X深度讨论</div>
+    </div>
+    <div class="tags"><span class="tag x">X</span></div>
+  </div>
+
+  <!-- 03 -->
+  <div class="news-item">
+    <div class="idx">03</div>
+    <div class="body">
+      <div class="title">Together AI 83亿美元估值融资8亿</div>
+      <div class="desc">Aramco Ventures领投，年化营收超11.5亿美元；客户包括Cursor、Cognition等，被视为开源AI基础设施最大单笔融资</div>
+      <div class="meta">投融资 · 开源基础设施 | X · TechCrunch</div>
+    </div>
+    <div class="tags"><span class="tag x">X</span></div>
+  </div>
+
+  <!-- 04 -->
+  <div class="news-item">
+    <div class="idx">04</div>
+    <div class="body">
+      <div class="title">MGX关闭490亿美元AI超级基金</div>
+      <div class="desc">主权级资本大规模部署AI全产业链，覆盖模型训练、基础设施、芯片设计、数据中心等核心赛道</div>
+      <div class="meta">投融资 · 主权基金 | X多家报道</div>
+    </div>
+    <div class="tags"><span class="tag x">X</span></div>
+  </div>
+
+  <!-- 05 -->
+  <div class="news-item">
+    <div class="idx">05</div>
+    <div class="body">
+      <div class="title">Claude-real-video让LLM看懂视频</div>
+      <div class="desc">开源项目通过智能场景检测代替暴力帧提取，将静态长片段压缩为单帧，动态片段逐帧捕捉，大幅降低token消耗</div>
+      <div class="meta">开源 · 多模态 · 视频理解 | HN 76pts · GitHub</div>
+    </div>
+    <div class="tags"><span class="tag hn">HN</span><span class="tag gh">GH</span></div>
+  </div>
+
+  <!-- 06 -->
+  <div class="news-item">
+    <div class="idx">06</div>
+    <div class="body">
+      <div class="title">NASA Athena超级计算机上线</div>
+      <div class="desc">262,144个CPU核心、20+ petaflops，专为AI基础模型训练、火箭模拟和航天数据分析打造，能耗效率显著提升</div>
+      <div class="meta">基础设施 · 航天 · HPC | X报道</div>
+    </div>
+    <div class="tags"><span class="tag x">X</span></div>
+  </div>
+
+  <!-- 07 -->
+  <div class="news-item">
+    <div class="idx">07</div>
+    <div class="body">
+      <div class="title">Allora Forge：去中心化AI竞技场</div>
+      <div class="desc">全球首个预测智能竞技场，AI模型在真实预测任务中竞争进化，开发者只需实现一个predict()函数即可参与</div>
+      <div class="meta">去中心化 · 竞赛式学习 | X · 140+合作伙伴</div>
+    </div>
+    <div class="tags"><span class="tag x">X</span></div>
+  </div>
+
+  <!-- 08 -->
+  <div class="news-item">
+    <div class="idx">08</div>
+    <div class="body">
+      <div class="title">NVIDIA TwoTower架构开源</div>
+      <div class="desc">将约30B模型拆分为双塔结构的创新架构，旨在降低逐token推理成本，已发布至HuggingFace供社区实验</div>
+      <div class="meta">模型架构 · 效率创新 | X · HuggingFace</div>
+    </div>
+    <div class="tags"><span class="tag x">X</span></div>
+  </div>
+
+  <!-- 09 -->
+  <div class="news-item">
+    <div class="idx">09</div>
+    <div class="body">
+      <div class="title">高盛报告：AI就业末日？</div>
+      <div class="desc">Goldman Sachs发布AI对就业影响深度分析报告，引发HN社区227条评论的激烈讨论</div>
+      <div class="meta">经济 · 就业 · 宏观影响 | HN 28pts</div>
+    </div>
+    <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+  </div>
+
+  <!-- 10 -->
+  <div class="news-item">
+    <div class="idx">10</div>
+    <div class="body">
+      <div class="title">"短绳"AI编程方法论对抗Fable降级</div>
+      <div class="desc">开发者分享针对Claude Fable 5安全加固后能力降级的应对策略，通过细粒度控制保持复杂编码任务的效率</div>
+      <div class="meta">开发实践 · 方法论 | HN 60pts · 61评论</div>
+    </div>
+    <div class="tags"><span class="tag hn">HN</span></div>
+  </div>
+
+  <!-- 11 -->
+  <div class="news-item">
+    <div class="idx">11</div>
+    <div class="body">
+      <div class="title">Boltz Bio发布AI生物模型</div>
+      <div class="desc">BoltzMol-1（小分子发现）和BoltzProt-1（蛋白质设计）两款新模型发布，搭配高速低成本的Boltz API</div>
+      <div class="meta">AI+科学 · 生物计算 · 药物发现 | X发布会</div>
+    </div>
+    <div class="tags"><span class="tag x">X</span></div>
+  </div>
+
+  <!-- 12 -->
+  <div class="news-item">
+    <div class="idx">12</div>
+    <div class="body">
+      <div class="title">Meta Brain2Qwerty v2脑机接口</div>
+      <div class="desc">非侵入式脑电信号解码系统升级版，可将大脑信号转化为完整句子，适用于严重瘫痪患者的辅助交流</div>
+      <div class="meta">脑机接口 · 医疗AI · Meta | X多家报道</div>
+    </div>
+    <div class="tags"><span class="tag x">X</span></div>
+  </div>
+</div>
+
+<!-- Stats -->
+<div class="stats">
+  <div class="stat">
+    <div class="num">$8.3B</div>
+    <div class="label">Together AI估值 · 8亿融资</div>
+  </div>
+  <div class="stat">
+    <div class="num">$49B</div>
+    <div class="label">MGX AI基金规模</div>
+  </div>
+  <div class="stat">
+    <div class="num">50%+</div>
+    <div class="label">OpenAI推理成本降幅</div>
+  </div>
+  <div class="stat">
+    <div class="num">19天</div>
+    <div class="label">Fable 5出口管制时长</div>
+  </div>
+  <div class="stat">
+    <div class="num">86→26</div>
+    <div class="label">Fable 5调试能力变化</div>
+  </div>
+  <div class="stat">
+    <div class="num">20+</div>
+    <div class="label">NASA Athena petaflops</div>
+  </div>
+</div>
+
+<!-- Deep Dives -->
+<div class="section-header">
+  <h2>深度分析</h2>
+  <span class="count">3篇</span>
+</div>
+
+<div class="dive-list">
+
+  <div class="dive">
+    <h3><span class="num">01</span> Anthropic Fable 5管制解除：AI治理新范式的诞生</h3>
+    <p>7月1日，美国商务部正式解除对Anthropic最前沿模型Claude Fable 5和Mythos 5的出口管制，结束了长达19天的"全球离线"状态。这场事件的起因是亚马逊研究人员发现Fable 5的安全护栏存在绕过漏洞，尤其是在网络安全能力方面的潜在滥用风险。由于Anthropic无法实时验证用户的国籍来合规，被迫将模型对全球所有用户下线——这是历史上首次因出口管制将前沿AI模型从全球撤回。</p>
+    <p>解除管制的前提是Anthropic上线了全新的安全分类器，声称能阻挡99%+的已知绕过方式，并将可疑请求降级至旧模型（Opus 4.8）。但独立基准测试给出了令人警醒的结果：调试能力从86骤降至26，重构能力从74降至38，幻觉抵制力也出现明显下滑。这意味着安全加固的代价是实际能力的显著劣化——开发者需要在安全与效能之间做出取舍。</p>
+    <p>更深层的信号是：AI治理正在从"永久封锁"转向"测试-修复-恢复"的动态博弈。政府不再试图永久阻止先进模型出海，而是通过设置"安全试验区"让企业在证明修复后恢复流通。这一模式如果成熟，将成为未来所有前沿模型面临的标准流程。与此同时，Hackernoon等评论指出，闭源模型受制于单一管控节点——政府可以强制全球关停——而开源权重模型在此类事件中反而展现出更强的抗风险能力。这场争论将随着Fable 5事件持续发酵，重塑业界对开放与封闭模型的战略判断。</p>
+    <div class="links">
+      <a href="https://x.com/TFTC21/status/2072786917264064712" target="_blank">X: Fable 5时间线与基准测试</a>
+      <a href="https://x.com/hackernoon/status/2072547736193216577" target="_blank">Hackernoon: 开源vs闭源控制权</a>
+      <a href="https://x.com/VicTheMacWizard/status/2072674190222630971" target="_blank">X: 管制解除详情</a>
+    </div>
+  </div>
+
+  <div class="dive">
+    <h3><span class="num">02</span> 推理成本腰斩与基础设施投资：AI经济的Jevons时刻</h3>
+    <p>两条同日出现的新闻描绘了一幅有趣的图景：OpenAI通过量化（INT8/FP8）、动态批处理、智能模型路由和KV缓存优化四大技术，将推理成本降低超过50%，部分时段免费层流量仅需"数百GPU"即可支撑；与此同时，Together AI以83亿美元估值完成8亿美元融资（年化营收超11.5亿美元），MGX关闭490亿美元AI超级基金，NASA上线20+ petaflops超级计算机。一边是效率的极致压榨，一边是资本的疯狂涌入——这看似矛盾的两条线，恰恰构成了AI经济的完整叙事。</p>
+    <p>经典的Jevons悖论正在AI领域上演：效率提升并未减少资源消耗，反而通过降低价格刺激需求暴增。OpenAI的优化使得更低定价、更高用量限制、更多Agent产品和更广泛的嵌入场景成为可能，实际推动的是总体算力需求的持续攀升。分析师指出，推理成本占前沿实验室40-50%的算力支出，每降低一半就意味着释放数十亿美元资本，这些资本将重新投入更大规模训练、更多Agent工作流和更激进的产品扩张。</p>
+    <p>Together AI的8亿美元融资标志着开源基础设施赛道的分水岭。其客户包括Cursor、Cognition、Decagon等明星产品，年化营收破11.5亿美元，已规划超过500MW算力。这印证了一个趋势：当基础推理成本快速下降时，竞争重心从"谁的模型更便宜"转向"谁的平台生态更完整"——包括训练、微调、模型塑造、推理的一站式能力。对于开发者而言，这意味着一方面Agent和复杂工作流的商业可行性大幅提升，另一方面基础设施层的"二元分化"正在加速：要么走完全闭源路线（如OpenAI/Anthropic），要么拥抱开源平台生态（如Together AI/HuggingFace），中间地带的生存空间正急剧收窄。</p>
+    <div class="links">
+      <a href="https://x.com/Techstrongai/status/2072776099205886454" target="_blank">X: OpenAI推理成本优化详情</a>
+      <a href="https://x.com/togethercompute/status/2072738349518069764" target="_blank">Together AI官方公告</a>
+      <a href="https://x.com/exponentialluke/status/2072717024615445007" target="_blank">X: Jevons悖论分析</a>
+    </div>
+  </div>
+
+  <div class="dive">
+    <h3><span class="num">03</span> Claude-real-video 与AI视频革命：从理解到创作</h3>
+    <p>本周HN上的一个开源项目Claude-real-video引发了广泛关注（76 points）。该项目解决了LLM视频理解的一个核心痛点：传统方法要么暴力抽取数百帧导致token爆炸，要么依赖昂贵的原生视频理解模型。Claude-real-video通过智能场景检测——静态长片段压缩为单帧，动态变化区域逐帧捕捉——将token消耗降低一个数量级的同时保持理解质量。这让任何具备图像理解能力的LLM（如Claude）都能高效处理视频输入，极大地扩展了LLM的应用边界。</p>
+    <p>这不是孤立事件。X生态中同步出现了多个AI+视频开源项目：browser-use/video-use（约13.2k stars）让Claude Code变身智能视频剪辑师——丢入原始素材、给出一句话指令，就能输出带自动色彩校正、口癖消除、字幕叠加的成品视频。OpenMontage则将视频制作从"手动操作"转变为"agent编排"，支持多子任务并行处理和自我评估循环。这些项目的共同特征是纯开源、本地优先、一句话交互——标志着AI视频处理正从实验室走向创作者手中。</p>
+    <p>从产业视角看，视频是LLM最后一块"未被充分渗透"的模态领域。文本已被全面覆盖，图像理解日趋成熟，而视频——由于时序维度的复杂性——一直是AI应用的硬骨头。Claude-real-video等项目的突破性在于：它们不依赖于专用的视频理解模型，而是通过巧妙的采样策略让通用LLM优雅地处理视频。这意味着每一个LLM产品都可以瞬间获得视频理解能力。叠加browser-use/video-use等创作工具的成熟，2026年下半年极有可能成为"AI视频元年"——从理解到创作的全链路打通，将催生一批新的原生应用和商业模式。</p>
+    <div class="links">
+      <a href="https://github.com/HUANGCHIHHUNGLeo/claude-real-video" target="_blank">GitHub: claude-real-video</a>
+      <a href="https://x.com/claude_news/status/2072812046945571284" target="_blank">X: claude-real-video工作原理</a>
+      <a href="https://x.com/milbon_/status/2072501661155868923" target="_blank">X: video-use AI视频剪辑</a>
+    </div>
+  </div>
+
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>每日AI精选 · 2026年7月3日</p>
+  <p>来源: Hacker News · X/Twitter</p>
+  <p><a href="index.html">← 返回索引</a> · 由 Hermes Agent 自动生成</p>
+</div>
+
+</div>
+</body>
+</html>
