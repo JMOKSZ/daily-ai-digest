@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日AI精选 — 2026年7月4日</title>
+<style>
+:root {
+  --page: #fdfaf3;
+  --surface: #fcfaf5;
+  --card: #fff;
+  --border: #e8dcc8;
+  --text: #2c2416;
+  --muted: #7a6e5c;
+  --accent: #8b6914;
+  --accent-lt: #b8942e;
+  --positive: #4d7c0f;
+  --warning: #b45309;
+  --info: #0e7490;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans SC', sans-serif;
+  background: var(--page);
+  color: var(--text);
+  line-height: 1.6;
+  padding: 0;
+}
+.container { max-width: 860px; margin: 0 auto; padding: 40px 24px; }
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 48px 0 32px;
+  border-bottom: 2px solid var(--border);
+  margin-bottom: 32px;
+}
+.badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #8b6914, #b8942e);
+  color: #fff;
+  padding: 6px 20px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+}
+.hero h1 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--text);
+}
+.hero .subtitle {
+  font-size: 15px;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+.hero .teaser {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 16px 0 8px;
+}
+.hero .teaser span {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 4px 14px;
+  border-radius: 16px;
+  font-size: 13px;
+  color: var(--accent);
+}
+.hero .sources {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 12px;
+}
+.hero .sources strong { color: var(--text); }
+
+/* Theme Block */
+.theme {
+  background: var(--surface);
+  border-left: 4px solid var(--accent);
+  padding: 20px 24px;
+  margin-bottom: 32px;
+  border-radius: 0 8px 8px 0;
+}
+.theme .label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+.theme p { font-size: 15px; color: var(--text); line-height: 1.7; }
+
+/* Section Header */
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 40px 0 20px;
+}
+.section-header h2 {
+  font-size: 22px;
+  font-weight: 700;
+}
+.section-header .count {
+  background: var(--accent);
+  color: #fff;
+  font-size: 12px;
+  padding: 2px 10px;
+  border-radius: 12px;
+}
+
+/* News Items */
+.news-list { display: grid; gap: 12px; }
+.news-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 20px;
+  transition: box-shadow .15s;
+}
+.news-item:hover { box-shadow: 0 2px 8px rgba(139,105,20,.06); }
+.idx {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: var(--page);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--accent);
+}
+.body { flex: 1; min-width: 0; }
+.title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  line-height: 1.4;
+}
+.desc {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 6px;
+  line-height: 1.5;
+}
+.meta {
+  font-size: 12px;
+  color: var(--muted);
+}
+.tags {
+  flex-shrink: 0;
+  display: flex;
+  gap: 6px;
+  align-items: flex-start;
+  padding-top: 2px;
+}
+.tag {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 10px;
+  white-space: nowrap;
+}
+.tag.hn { background: rgba(255,102,0,.1); color: #ff6600; }
+.tag.x { background: rgba(29,161,242,.1); color: #1da1f2; }
+.tag.gh { background: rgba(36,41,46,.08); color: #24292e; }
+
+/* Stats Grid */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 24px 0;
+}
+.stat {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+}
+.stat .num {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+.stat .label {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+/* Deep Dives */
+.dive-list { display: grid; gap: 20px; }
+.dive {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 24px;
+}
+.dive h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.dive h3 .num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 13px;
+  border-radius: 6px;
+}
+.dive p {
+  font-size: 15px;
+  line-height: 1.8;
+  margin-bottom: 12px;
+  color: var(--text);
+}
+.dive .links {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.dive .links a {
+  font-size: 13px;
+  color: var(--info);
+  text-decoration: none;
+  padding: 4px 12px;
+  background: rgba(14,116,144,.06);
+  border-radius: 6px;
+}
+.dive .links a:hover { text-decoration: underline; }
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 40px 0;
+  border-top: 2px solid var(--border);
+  margin-top: 48px;
+  font-size: 13px;
+  color: var(--muted);
+}
+.footer a {
+  color: var(--accent);
+  text-decoration: none;
+}
+.footer a:hover { text-decoration: underline; }
+
+@media (max-width: 640px) {
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  .hero h1 { font-size: 26px; }
+  .news-item { flex-wrap: wrap; }
+  .tags { width: 100%; padding-top: 6px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Hero -->
+<div class="hero">
+  <div class="badge">每日AI精选</div>
+  <h1>2026年7月4日 · 星期六</h1>
+  <div class="subtitle">12条精选 + 3篇深度分析</div>
+  <div class="teaser">
+    <span>🏛️ OpenAI政府入股$420亿提案</span>
+    <span>🤖 Claude Sonnet 5 Agent提升80%</span>
+    <span>🇨🇳 Qwen 3.6击败GPT 4.5</span>
+  </div>
+  <div class="sources">来源: <strong>Hacker News</strong> · <strong>X/Twitter</strong></div>
+</div>
+
+<!-- Theme -->
+<div class="theme">
+  <div class="label">📌 今日主题</div>
+  <p>AI行业的"资本重构与开放浪潮"——Sam Altman提议美国政府持股OpenAI 5%（约$420亿）并建立国际AI安全组织，标志着AI治理从商业竞争转向国家级基础设施博弈。与此同时，Qwen 3.6-35B在Agent任务上击败GPT 4.5，GLM 5.2在AMD芯片上以半价达到B200的80%性能，中国开源模型正在重塑全球AI格局。Claude Sonnet 5 System Card揭示Agent能力跃升67%→80%，但Meta CEO坦言"Agents进展慢于预期"，Jevons悖论下的企业AI支出$4070亿但73%超预算——一个涨潮与暗礁并存的时代。</p>
+</div>
+
+<!-- News Section -->
+<div class="section-header">
+  <h2>精选新闻</h2>
+  <span class="count">12条</span>
+</div>
+
+<div class="news-list">
+  <!-- 01 -->
+  <div class="news-item">
+    <div class="idx">01</div>
+    <div class="body">
+      <div class="title">Sam Altman提议美政府入股OpenAI 5%</div>
+      <div class="desc">提议美国政府以约$420亿获取5% OpenAI股权，同时建立有实际执法权的国际AI安全组织，类似阿拉斯加永久基金的公共分红机制</div>
+      <div class="meta">AI治理 · 地缘政治 · 资本结构 | X多家报道 · $852B估值</div>
+    </div>
+    <div class="tags"><span class="tag x">X</span></div>
+  </div>
+
+  <!-- 02 -->
+  <div class="news-item">
+    <div class="idx">02</div>
+    <div class="body">
+      <div class="title">Claude Sonnet 5 System Card发布</div>
+      <div class="desc">Agent多步推理从67%跃升至80%，百万token上下文，新增Adaptive Thinking和Effort Control，定位为生产级Agent默认模型</div>
+      <div class="meta">模型发布 · Agent能力 · 安全评估 | X · Anthropic官方</div>
+    </div>
+    <div class="tags"><span class="tag x">X</span></div>
+  </div>
+
+  <!-- 03 -->
+  <div class="news-item">
+    <div class="idx">03</div>
+    <div class="body">
+      <div class="title">Qwen 3.6-35B击败GPT 4.5</div>
+      <div class="desc">Agent/Tool-use任务跑分第一，量化版可运行于两台PS5或DGX Spark，推理成本仅为闭源模型的1/10，开源模型加速碾压闭源</div>
+      <div class="meta">开源 · Agent性能 · 成本革命 | X多家基准测试</div>
+    </div>
+    <div class="tags"><span class="tag x">X</span></div>
+  </div>
+
+  <!-- 04 -->
+  <div class="news-item">
+    <div class="idx">04</div>
+    <div class="body">
+      <div class="title">GLM 5.2 on AMD MI355X跑出2626 tok/s</div>
+      <div class="desc">744B参数前沿模型在AMD MI355X上批量模式2626 tok/s/节点，达NVIDIA B200的80%性能，但成本仅为Blackwell一半以下</div>
+      <div class="meta">硬件 · 推理优化 · 成本效率 | HN 72pts · wafer.ai</div>
+    </div>
+    <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+  </div>
+
+  <!-- 05 -->
+  <div class="news-item">
+    <div class="idx">05</div>
+    <div class="body">
+      <div class="title">Jamesob's本地运行SOTA LLM指南</div>
+      <div class="desc">HN 271pts/125评论的完整指南，覆盖模型选择、量化、部署、推理优化，成为社区本地AI部署圣经</div>
+      <div class="meta">开源 · 社区 · 本地部署 | HN 271pts</div>
+    </div>
+    <div class="tags"><span class="tag hn">HN</span><span class="tag gh">GH</span></div>
+  </div>
+
+  <!-- 06 -->
+  <div class="news-item">
+    <div class="idx">06</div>
+    <div class="body">
+      <div class="title">Meta Watermelon模型达GPT 5.5水平</div>
+      <div class="desc">Scale AI CEO透露Meta下一代模型"Watermelon"算力达前代一个量级，已追平GPT-5.5，但Zuckerberg承认AI Agent进展慢于预期</div>
+      <div class="meta">模型竞赛 · 算力投入 · Agent现实 | X · Scale AI内部分享</div>
+    </div>
+    <div class="tags"><span class="tag x">X</span></div>
+  </div>
+
+  <!-- 07 -->
+  <div class="news-item">
+    <div class="idx">07</div>
+    <div class="body">
+      <div class="title">Mistral发布Leanstral 1.5安全模型</div>
+      <div class="desc">专注形式验证与安全审计的开源LLM，可自动发现CVE、验证证明、审计仓库代码，AI安全工具链的重要补充</div>
+      <div class="meta">开源 · 安全 · 形式验证 | X · Mistral官方</div>
+    </div>
+    <div class="tags"><span class="tag x">X</span></div>
+  </div>
+
+  <!-- 08 -->
+  <div class="news-item">
+    <div class="idx">08</div>
+    <div class="body">
+      <div class="title">OpenAI推理成本腰斩</div>
+      <div class="desc">INT8/FP8量化+动态批处理+智能路由+KV缓存多管齐下，推理成本降低50%+，unlogged ChatGPT仅需数百GPU支撑</div>
+      <div class="meta">基础设施 · 效率革命 · 规模经济 | X深度分析</div>
+    </div>
+    <div class="tags"><span class="tag x">X</span></div>
+  </div>
+
+  <!-- 09 -->
+  <div class="news-item">
+    <div class="idx">09</div>
+    <div class="body">
+      <div class="title">全球企业AI支出$4070亿 73%超预算</div>
+      <div class="desc">推理成本年降67%但Agent工作流消耗100-1000x更多token，路由架构成核心能力——分层路由可节省8倍成本</div>
+      <div class="meta">企业AI · Jevons悖论 · 成本管理 | X · 行业报告</div>
+    </div>
+    <div class="tags"><span class="tag x">X</span></div>
+  </div>
+
+  <!-- 10 -->
+  <div class="news-item">
+    <div class="idx">10</div>
+    <div class="body">
+      <div class="title">xAI发布物理世界AI模型</div>
+      <div class="desc">面向机器人领域的新一代AI模型，强调对真实物理世界的理解能力，可用于家用和工业机器人场景</div>
+      <div class="meta">机器人 · 物理世界模型 · xAI | X报道</div>
+    </div>
+    <div class="tags"><span class="tag x">X</span></div>
+  </div>
+
+  <!-- 11 -->
+  <div class="news-item">
+    <div class="idx">11</div>
+    <div class="body">
+      <div class="title">NVIDIA开源35B量子视觉模型Ising</div>
+      <div class="desc">开源的35B视觉语言模型，专注量子处理器校准、解码和CUDA-Q集成，被视为量子计算商业化的强信号</div>
+      <div class="meta">开源 · 量子计算 · VLM | X · NVIDIA</div>
+    </div>
+    <div class="tags"><span class="tag x">X</span></div>
+  </div>
+
+  <!-- 12 -->
+  <div class="news-item">
+    <div class="idx">12</div>
+    <div class="body">
+      <div class="title">开源AI语音与记忆双工具崛起</div>
+      <div class="desc">Voicebox（本地AI语音克隆工作室）和Memanto（Agent无限记忆）双双走红，GitHub热门，获Karpathy等关注，解决AI两大核心短板</div>
+      <div class="meta">开源 · 语音克隆 · Agent记忆 | X·GitHub热门</div>
+    </div>
+    <div class="tags"><span class="tag x">X</span><span class="tag gh">GH</span></div>
+  </div>
+</div>
+
+<!-- Stats -->
+<div class="stats">
+  <div class="stat">
+    <div class="num">$420亿</div>
+    <div class="label">OpenAI政府入股提案估值</div>
+  </div>
+  <div class="stat">
+    <div class="num">67%→80%</div>
+    <div class="label">Claude Sonnet 5 Agent提升</div>
+  </div>
+  <div class="stat">
+    <div class="num">2626</div>
+    <div class="label">GLM 5.2 tok/s on AMD MI355X</div>
+  </div>
+  <div class="stat">
+    <div class="num">$4,070亿</div>
+    <div class="label">全球企业AI支出(2026)</div>
+  </div>
+  <div class="stat">
+    <div class="num">73%</div>
+    <div class="label">超预算企业比例</div>
+  </div>
+  <div class="stat">
+    <div class="num">271pts</div>
+    <div class="label">HN本地LLM指南得分</div>
+  </div>
+</div>
+
+<!-- Deep Dives -->
+<div class="section-header">
+  <h2>深度分析</h2>
+  <span class="count">3篇</span>
+</div>
+
+<div class="dive-list">
+
+  <div class="dive">
+    <h3><span class="num">01</span> AI治理分水岭：OpenAI政府入股$420亿提案</h3>
+    <p>Sam Altman近日提出两项相互关联的大胆提案：美国政府以约5%的股权入股OpenAI（按$852B估值计约$420亿），同时建立具有实际执法权的国际AI安全组织。这笔股权被视为类似阿拉斯加永久基金的机制——美国人民从AI利润中获得股息。这是一个转折点：AI不再仅仅是一个商业赛道，而是被提升到国家基础设施的层级，与电网、互联网同一级别。支持者认为这是确保AI利益惠及大众的最佳路径，批评者则质疑这是"自我监管"的变体——政府同时是规则制定者和股东，利益冲突难以避免。</p>
+    <p>这一提案发生在独特的背景之下：美国政府刚刚解除对Anthropic Fable 5的管制（7月1日），"测试-修复-恢复"的动态监管模式正在形成。Scale AI CEO Alexandr Wang也在内部分享中披露，Meta的Watermelon模型已追平GPT-5.5级别——说明前沿模型的增长速度并未放缓。当模型能力持续攀升，治理框架如果缺位，风险敞口也在同步扩大。Altman的提案可以被解读为一种主动的"防御性治理"——与其等待政府制定可能无法执行的规则，不如主动邀请政府入局，共同设计治理架构。</p>
+    <p>更深层的信号是：AI的资本结构正在发生根本性重塑。主权资本正在以前所未有的规模流入：MGX 490亿美元基金、Together AI 83亿美元估值、全球AI支出$4070亿——这些数字表明AI不再是一个可以让小团队独立参与的游戏。当算力投入达到百亿美元级别，国家和企业之间的边界正在模糊。Altman的"政府入股"提案可能是未来十年AI治理的范式样本——公私合营、安全自治、跨国产学研边界的重构。对于创业者和开发者而言，这是一个需要认真思考的信号："在AI成为国家资产的年代，你的战略定位在哪里？"</p>
+    <div class="links">
+      <a href="https://x.com/i/status/2072995836661805297" target="_blank">X: 政府入股详情分析</a>
+      <a href="https://x.com/i/status/2073112669775958370" target="_blank">X: 国际安全组织框架</a>
+      <a href="https://x.com/moneywisecom/status/2073041691196473596" target="_blank">X: $420亿"赠礼"争议</a>
+    </div>
+  </div>
+
+  <div class="dive">
+    <h3><span class="num">02</span> 中国开源模型的黄金交叉：从Qwen击败GPT到GLM on AMD</h3>
+    <p>两条看似独立却本质相连的新闻：Qwen 3.6-35B在Agent/Tool-use任务上正式击败GPT 4.5，量化版本可运行在消费级硬件（两台PS5或DGX Spark）；GLM 5.2（744B参数）在AMD MI355X上达到2626 tok/s/节点的推理性能，达NVIDIA B200的80%但成本不到一半。这两条新闻共同指向一个正在发生的范式转换——中国开源模型正在从"跟随者"变为"主导者"。</p>
+    <p>这不是偶然。Qwen系列的开源策略一直是"能力溢出"——每次开源都释放出接近或超越当时闭源标杆水平的模型权重。GLM 5.2在AMD硬件上的表现则揭示了更深层的产业动向：中国模型厂商正在积极构建"去NVIDIA化"的推理生态。MI355X + GLM 5.2的组合在成本曲线上极具竞争力，对于那些希望摆脱单一芯片依赖的数据中心运营商而言，这是一个实实在在的替代方案。更重要的是，wafer.ai的优化表明，只要投入足够的工程资源，AMD硬件在LLM推理上完全有能力逼近Blackwell的水平——这对整个AI基础设施的竞争格局意味着什么？答案可能是NVIDIA的护城河不再牢不可破。</p>
+    <p>将这两个故事叠加来看，一幅更大的图景浮现：美国有Meta的Watermelon（全栈自研，算力量级碾压），欧洲有Mistral的差异化（安全+形式验证），中国有Qwen+GLM+DeepSeek的矩阵（开源+性能+成本三重优势）。开源生态正在经历一场"权力转移"——如果三年前大家都在等Meta Llama，如今社区的注意力已经分散到至少三四个来源。一位X上评论员的观察值得深思："美国开源模型越来越依赖中国的基础模型。"2026下半年，开源模型的竞争已经从单个模型的军备竞赛演变为"生态+成本+差异化"的多维度博弈。对于开发者和企业而言，这意味着选择更多、成本更低、但决策也更复杂——模型选型不再只比benchmark，还要比硬件兼容性、生态完善度和供应链风险。</p>
+    <div class="links">
+      <a href="https://x.com/a_karvonen/status/2073053737887879321" target="_blank">X: Qwen 3.6成本对比分析</a>
+      <a href="https://www.wafer.ai/blog/glm52-amd" target="_blank">wafer.ai: GLM 5.2 on AMD基准</a>
+      <a href="https://x.com/KuittinenPetri/status/2073110189281087974" target="_blank">X: 中美开源生态观察</a>
+    </div>
+  </div>
+
+  <div class="dive">
+    <h3><span class="num">03</span> AI Agent的Jevons时刻：能力跃升、成本暴降与可靠性鸿沟</h3>
+    <p>Claude Sonnet 5的System Card揭示了一个关键数字：Agent多步推理能力从67%跃升至80%。这不是一个边际改善——它意味着Agent从"有时能完成"变为"大多数时候能完成"全流程任务。配合百万token上下文窗口、Adaptive Thinking和Effort Control，Sonnet 5被定位为第一个可以默认用于Agent工作流的模型。用户报告它能在单次提示下完成"研究→大纲→构建→验证"全链路。与此同时，xAI发布了物理世界AI模型，NVIDIA开源了专注量子领域的视觉模型Ising——Agent的触角正在从纯代码扩展到物理世界和科学计算。</p>
+    <p>但是，硬币的另一面是Meta CEO的坦白：AI Agent进展慢于预期。尽管Meta内部在30天内消耗了60万亿tokens（单人最高2800亿），Zuckerberg承认Agent的可靠性还没有达到可以大规模部署的水平。这并非Meta特有的困境——全球企业AI支出预计达到$4070亿（同比+35%），但73%的企业超出预算。原因很清楚：推理成本确实下降了67%（每百万token从$18.40降至$6.07），但Agent工作流消耗的token量是单次查询的100-1000倍。Jevons悖论在AI领域完美上演——更便宜的token并没有减少支出，反而通过打开新应用场景而推高了总需求。</p>
+    <p>这对行业的影响是深远的。首先，路由架构正在成为核心竞争力——分层模型路由（70-80%用廉价模型，5-10%用前沿模型）可将成本降低8倍，那些掌握路由能力的企业将获得结构性优势。其次，Agent可靠性与经济性正在成为2026下半年的主战场——Sonnet 5证明了前沿模型在Agent能力上的可持续进步，但Meta的坦白提醒我们"实验室Demo"和"生产级部署"之间的鸿沟仍然巨大。最后，一个更长期的问题浮现：当推理成本持续下降且Agent能力持续提升，AI应用将经历从"辅助工具"到"自主劳动力"的范式跃迁。这个跃迁的速度不取决于技术上限，而取决于人类如何信任、监管和赋予Agent自主权——这才是真正的瓶颈。</p>
+    <div class="links">
+      <a href="https://www-cdn.anthropic.com/9e6a1044980d8c4ed85669faf9c2a8342e2e9f1e/Claude%20Sonnet%205%20System%20Card.pdf" target="_blank">Claude Sonnet 5 System Card (PDF)</a>
+      <a href="https://x.com/johniosifov/status/2073195064004853891" target="_blank">X: 企业AI成本深度分析</a>
+      <a href="https://x.com/alcreon/status/2072963184412037279" target="_blank">X: Meta Agents现状</a>
+    </div>
+  </div>
+
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>每日AI精选 · 2026年7月4日</p>
+  <p>来源: Hacker News · X/Twitter</p>
+  <p><a href="index.html">← 返回索引</a> · 由 Hermes Agent 自动生成</p>
+</div>
+
+</div>
+</body>
+</html>
