@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日AI精选 · 2026年7月5日</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Noto Sans SC',sans-serif;background:#fdfaf3;color:#2c2416;line-height:1.6}
+.container{max-width:720px;margin:0 auto;padding:40px 24px}
+
+/* Hero */
+.hero{text-align:center;margin-bottom:36px}
+.badge{display:inline-block;background:#8b6914;color:#fff;font-size:12px;font-weight:600;padding:4px 14px;border-radius:20px;letter-spacing:1px;margin-bottom:12px}
+.hero h1{font-size:32px;margin-bottom:4px;color:#2c2416}
+.hero .date{font-size:15px;color:#7a6e5c;margin-bottom:8px}
+.hero .subtitle{font-size:14px;color:#7a6e5c;margin-bottom:6px}
+.hero .sources{font-size:12px;color:#b8942e;margin-top:4px}
+
+/* Theme block */
+.theme{background:#fcfaf5;border-left:4px solid #8b6914;padding:18px 22px;margin-bottom:32px;border-radius:0 8px 8px 0;font-size:15px;color:#4a3f2e;line-height:1.7}
+.theme strong{color:#2c2416}
+
+/* Section header */
+.section-title{font-size:18px;font-weight:700;margin-bottom:18px;padding-bottom:8px;border-bottom:1px solid #e8dcc8;color:#2c2416}
+.section-title span{color:#8b6914;margin-right:8px}
+
+/* News grid */
+.news-grid{display:flex;flex-direction:column;gap:1px;background:#e8dcc8;border-radius:10px;overflow:hidden;margin-bottom:40px}
+.news-item{display:flex;align-items:flex-start;padding:16px 20px;background:#fff;gap:14px}
+.news-item:nth-child(odd){background:#fcfaf5}
+.idx{font-size:13px;font-weight:700;color:#b8942e;min-width:28px;padding-top:1px}
+.body{flex:1;min-width:0}
+.title{font-size:15px;font-weight:600;color:#2c2416;margin-bottom:3px}
+.desc{font-size:13px;color:#7a6e5c;margin-bottom:5px}
+.meta{font-size:11px;color:#b8942e}
+.meta .dot{color:#d4c5a8;margin:0 6px}
+.tags{display:flex;gap:4px;flex-shrink:0;margin-top:2px}
+.tag{font-size:10px;font-weight:600;padding:2px 7px;border-radius:4px}
+.tag.hn{background:rgba(255,102,0,.1);color:#ff6600}
+.tag.x{background:rgba(29,161,242,.1);color:#1da1f2}
+.tag.ph{background:rgba(218,85,47,.1);color:#da552f}
+.tag.ih{background:rgba(34,197,94,.1);color:#22c55e}
+.tag.ma{background:rgba(0,120,212,.1);color:#0078d4}
+.tag.yt{background:rgba(255,0,0,.1);color:#cc0000}
+
+/* Stats */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:40px}
+.stat{background:#fff;border:1px solid #e8dcc8;border-radius:8px;padding:14px;text-align:center}
+.stat .num{font-size:22px;font-weight:700;color:#2c2416;line-height:1.2}
+.stat .label{font-size:11px;color:#7a6e5c;margin-top:2px}
+.stat .sub{font-size:10px;color:#b8942e;margin-top:1px}
+
+/* Deep dives */
+.dives{display:flex;flex-direction:column;gap:18px;margin-bottom:40px}
+.dive{background:#fff;border:1px solid #e8dcc8;border-radius:10px;padding:22px 24px}
+.dive h3{font-size:17px;font-weight:700;color:#2c2416;margin-bottom:10px;line-height:1.4}
+.dive h3 .num{color:#8b6914;margin-right:6px}
+.dive p{font-size:14px;color:#4a3f2e;margin-bottom:10px;line-height:1.7}
+.dive p:last-of-type{margin-bottom:12px}
+.dive .links{display:flex;flex-wrap:wrap;gap:8px;padding-top:10px;border-top:1px solid #e8dcc8}
+.dive .links a{font-size:12px;color:#8b6914;text-decoration:none;padding:3px 10px;background:#fcfaf5;border:1px solid #e8dcc8;border-radius:6px;transition:all .15s}
+.dive .links a:hover{background:#8b6914;color:#fff;border-color:#8b6914}
+
+/* Footer */
+footer{margin-top:40px;padding-top:16px;border-top:1px solid #e8dcc8;text-align:center;font-size:12px;color:#7a6e5c;line-height:1.8}
+footer a{color:#8b6914;text-decoration:none}
+
+@media(max-width:600px){
+  .container{padding:24px 14px}
+  .hero h1{font-size:26px}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .news-item{padding:14px 16px}
+  .dive{padding:18px 16px}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Hero -->
+<div class="hero">
+  <div class="badge">每日AI精选</div>
+  <h1>2026年7月5日 · 周日</h1>
+  <div class="date">AI推理Token截断 · Fable生态爆发 · 工具可靠性危机</div>
+  <div class="subtitle">12条精选 + 3个深度分析</div>
+  <div class="sources">来源: Hacker News</div>
+</div>
+
+<!-- Today's Theme -->
+<div class="theme">
+  <strong>📌 今日主题：前沿模型的能力与脆弱性</strong><br>
+  今天的AI新闻呈现出一种有趣的张力——模型能力越强，暴露的问题也越复杂。GPT-5.5的推理Token异常截断揭示了大模型生产部署中的暗箱问题；Fable连续出现在两个高热度项目中（游戏移植 + 4D Splat格式），证明其代码生成能力正在产生真实世界影响；而Claude Code的会话泄漏事件则提醒我们，AI工具的基础设施安全尚未成熟。Armin Ronacher的"Better Models: Worse Tools"更是从工具设计角度提出了深刻的质疑。
+</div>
+
+<!-- News Section -->
+<div class="section-title"><span>📰</span>精选新闻 · 12条</div>
+<div class="news-grid">
+
+<div class="news-item">
+  <div class="idx">01</div>
+  <div class="body">
+    <div class="title">GPT-5.5推理Token截断：516为死亡阈值</div>
+    <div class="desc">Codex数据显示44%的GPT-5.5≥516推理Token响应恰好停在516，1034和1552也出现异常聚集，暗示隐性推理预算截断导致复杂任务性能下降</div>
+    <div class="meta">模型可靠性 · 390,195条记录分析 · 865个会话 · 82%的516事件来自GPT-5.5<span class="dot">·</span>132pts</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">02</div>
+  <div class="body">
+    <div class="title">Fable助力C&C将军原生移植苹果全平台</div>
+    <div class="desc">开发者使用Anthropic Fable将《命令与征服：将军》完整移植到macOS/iOS/iPad，含真实引擎代码、DXVK/MoltenVK渲染器，2001次提交</div>
+    <div class="meta">AI代码生成 · 239 stars · 2,001 commits · 含AI生成代码<span class="dot">·</span>343pts</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">03</div>
+  <div class="body">
+    <div class="title">Claude Code会话泄漏：Minecraft入侵Enterprise</div>
+    <div class="desc">Enterprise用户报告Claude Code会话中出现其他用户的Minecraft建造内容，GitHub标记为bug/security/core，引发ZDR隔离性质疑</div>
+    <div class="meta">AI安全 · 127条评论 · 标记: bug, security, core<span class="dot">·</span>269pts</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">04</div>
+  <div class="body">
+    <div class="title">Better Models, Worse Tools：模型越强工具越难用</div>
+    <div class="desc">Armin Ronacher指出Opus 4.8/Sonnet 5编造工具调用参数倾向比小模型更严重（oldText2、newText2等幻键），Claude Code内置大量容错逻辑掩盖了这一问题</div>
+    <div class="meta">AI工具设计 · Flask作者观点 · Pi编辑器案例<span class="dot">·</span>84pts</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">05</div>
+  <div class="body">
+    <div class="title">Fable创造4D Splat新格式</div>
+    <div class="desc">Anthropic Fable开发出新型4D高斯Splat格式，实现动态3D场景随时间变化的表示与渲染，推动神经渲染技术边界</div>
+    <div class="meta">AI研究 · 计算机图形学 · 动态场景表示<span class="dot">·</span>107pts</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">06</div>
+  <div class="body">
+    <div class="title">不懂Rust的开发者用AI重写PHP引擎</div>
+    <div class="desc">开发者用AI将PHP Zend引擎完整翻译为Rust，通过17%的PHP-src测试，成功渲染WordPress页面，展示AI代码迁移的极限能力</div>
+    <div class="meta">AI代码生成 · Rust重写 · WordPress兼容<span class="dot">·</span>21pts</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">07</div>
+  <div class="body">
+    <div class="title">Disney Research发布神经渲染代理</div>
+    <div class="desc">Disney Research推出Neural Render Proxies，实现交互式和可微分光照渲染，将AI技术引入传统动画渲染管线</div>
+    <div class="meta">AI×图形学 · Disney Research · 可微分光照<span class="dot">·</span>49pts</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">08</div>
+  <div class="body">
+    <div class="title">YouTube私密视频可被枚举泄漏</div>
+    <div class="desc">安全研究员发现YouTube未公开/私密视频可通过ID枚举泄露，涉及大量创作者的未发布内容，Google安全团队正在调查</div>
+    <div class="meta">安全漏洞 · 261条评论 · 当日最高分<span class="dot">·</span>469pts</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">09</div>
+  <div class="body">
+    <div class="title">鼻喷雾逆转大脑衰老：动物实验成功</div>
+    <div class="desc">Texas A&M科研团队通过鼻喷雾递送特定分子，在动物模型中成功逆转大脑衰老标志物，为神经退行性疾病治疗开辟新路径</div>
+    <div class="meta">生物科技 · 脑科学 · 抗衰老研究<span class="dot">·</span>102pts</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">10</div>
+  <div class="body">
+    <div class="title">Anna's Archive $20万悬赏扫描全部Google Books</div>
+    <div class="desc">图书存档组织发起$200,000赏金，征集方法将所有Google Books扫描副本完整归档，引发版权与知识获取之争</div>
+    <div class="meta">知识开放 · 数字存档 · 版权争议<span class="dot">·</span>325pts</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">11</div>
+  <div class="body">
+    <div class="title">Verizon将停止3G/CDMA影响智能手表</div>
+    <div class="desc">Verizon即将关闭遗留网络，大量依赖CDMA的智能手表将变砖，包括部分Apple Watch型号，影响用户数以万计</div>
+    <div class="meta">基础设施 · 设备报废 · 消费者权益<span class="dot">·</span>134pts</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">12</div>
+  <div class="body">
+    <div class="title">天文学家对韦伯望远镜新发现困惑不已</div>
+    <div class="desc">韦伯望远镜最新观测数据挑战现有宇宙学模型，早期星系形成的速度超出理论预期，科学界陷入激烈辩论</div>
+    <div class="meta">天文学 · 宇宙学 · JWST<span class="dot">·</span>192pts</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span></div>
+</div>
+
+</div>
+
+<!-- Stats -->
+<div class="section-title"><span>📊</span>今日数据</div>
+<div class="stats">
+  <div class="stat">
+    <div class="num">44.0%</div>
+    <div class="label">GPT-5.5推理Token=516发生率</div>
+    <div class="sub">≥516响应中恰好截断在516的比例</div>
+  </div>
+  <div class="stat">
+    <div class="num">343</div>
+    <div class="label">Fable C&C移植HN得分</div>
+    <div class="sub">当日AI相关最高分</div>
+  </div>
+  <div class="stat">
+    <div class="num">2,001</div>
+    <div class="label">Fable游戏移植Git提交数</div>
+    <div class="sub">AI生成代码大规模项目</div>
+  </div>
+  <div class="stat">
+    <div class="num">136k</div>
+    <div class="label">Claude Code GitHub Stars</div>
+    <div class="sub">超过OpenAI Codex 95.5k</div>
+  </div>
+  <div class="stat">
+    <div class="num">269</div>
+    <div class="label">Claude Code泄漏事件HN得分</div>
+    <div class="sub">11小时内获127条评论</div>
+  </div>
+  <div class="stat">
+    <div class="num">95.5k</div>
+    <div class="label">OpenAI Codex GitHub Stars</div>
+    <div class="sub">与Claude Code共创新高</div>
+  </div>
+</div>
+
+<!-- Deep Dives -->
+<div class="section-title"><span>🔍</span>深度分析 · 3篇</div>
+<div class="dives">
+
+<div class="dive">
+  <h3><span class="num">01</span> GPT-5.5的516魔咒：推理Token截断暴露大模型暗箱</h3>
+  <p>一位Codex用户在分析390,195条响应记录后发现了惊人规律：GPT-5.5的推理输出Token数在516、1034、1552这三个数值上出现异常聚集。44%的≥516 Token响应恰好停在516，而其他模型的同一比例仅为1.3%。更令人担忧的是，此前已有独立报告指出，以516 Token结束的推理往往返回错误答案——模型似乎"偷懒"了。</p>
+  <p>这一现象暗示OpenAI可能在GPT-5.5中引入了某种隐性推理预算阈值（reasoning budget threshold），当模型的计算过程接近某个Token上限时，不是优雅地继续推理并自然结束，而是粗暴地截断。对于简单问题这无伤大雅，但对于复杂的高难度编码任务，这种截断直接意味着答案质量下降。从2月到6月，这一问题持续存在整整5个月未被完全修复。</p>
+  <p>深层信号：大模型推理的"黑箱"问题远比想象中严重。用户付费购买的是API，但实际得到的可能是一个被隐性剪枝过的推理过程。随着推理成本成为行业竞争焦点（xAI、DeepSeek、Google均在优化推理效率），厂商在推理预算上做手脚的诱惑越来越大。问题不在于是否优化了——而在于是否透明。516事件提醒我们，模型发布前的安全评估和性能评估之外，还需要第三个维度：推理完整性审计。</p>
+  <div class="links">
+    <a href="https://github.com/openai/codex/issues/30364" target="_blank">GitHub Issue #30364</a>
+    <a href="https://news.ycombinator.com/item?id=48789712" target="_blank">HN讨论</a>
+  </div>
+</div>
+
+<div class="dive">
+  <h3><span class="num">02</span> Fable生态悄然爆发：从4D Splat到经典游戏</h3>
+  <p>今天的HN榜单上有两条与Anthropic模型Fable直接相关的故事，且均位居前列。其一是开发者ammaarreshi使用Fable将经典RTS游戏《命令与征服：将军》原生移植到macOS/iOS/iPad平台，项目累计2,001次提交、239星，最新提交仅2小时前。其二是Fable创造了一种全新的4D Splat格式，用于动态3D场景的表示——这是一个纯研究性质的技术突破。</p>
+  <p>这两个故事共同描绘了Fable能力的两个维度：实用代码生成和前沿技术创新。C&C移植项目特别值得关注——它不是简单的"用AI写点代码"，而是一个完整的、可运行的、经过2000多次迭代优化的工程产物，包含图形渲染管线、跨平台构建系统和游戏逻辑。开发者本人并非游戏引擎专家，Fable承担了大量底层系统编程工作。这表明Fable在"理解并修改大型既有代码库"方面的能力已经达到了实用级别。</p>
+  <p>行业信号：模型能力的实用化拐点正在到来。Fable从最初备受争议（安全机制引发疑虑）到如今被用来做真正的工程产品，转变速度之快令人震撼。与此同时，Claude Code在GitHub上积累了136k星（超过OpenAI Codex的95.5k），说明开发者社区对Anthropic编码工具生态的认可度正在加速上升。Fable + Claude Code正在形成一个完整的AI编程工作流：Fable做重型代码生成和重构，Claude Code做日常迭代和调试。</p>
+  <div class="links">
+    <a href="https://github.com/ammaarreshi/Generals-Mac-iOS-iPad" target="_blank">C&C Generals移植项目</a>
+    <a href="https://adamraudonis.github.io/splats4D/" target="_blank">Fable 4D Splat格式</a>
+    <a href="https://github.com/anthropics/claude-code" target="_blank">Claude Code (136k星)</a>
+  </div>
+</div>
+
+<div class="dive">
+  <h3><span class="num">03</span> 可靠性危机：当AI工具开始"精神分裂"</h3>
+  <p>今天的HN榜单呈现了一个罕见的巧合：排名第4的"Better Models: Worse Tools"（84pts）和排名第8的"Claude Code会话泄漏"（269pts）从两个截然不同的角度指向了同一个问题——AI工具正在变得不可靠。前者是宏观的设计批评，后者是微观的安全事故。</p>
+  <p>Armin Ronacher的论述一针见血：模型越强大，其对工具调用格式的内在"预期"越固执。Opus 4.8会编造出oldText2、newText2、requireUnique等子虚乌有的参数名，而同样是小模型的Claude Haiku反而更听话地遵循schema。解决方式不是让模型更好，而是让工具变得更"宽容"——Claude Code内部已经内置了参数别名、类型强制转换、Unicode修复和未知键过滤等容错路径。换句话说，工具开发者正在为模型的"任性"买单，这形成了一个恶性循环：模型越强→越不守规矩→工具越复杂→模型依赖工具的特殊适配。</p>
+  <p>而Claude Code的会话泄漏事件则暴露了更深层的隐患。Enterprise用户发现自己ZDR隔离的Claude Code会话中，突然出现了同事的Minecraft建造提示——这意味着缓存隔离机制并未如承诺般工作。GitHub将其标记为"安全"和"核心"领域问题，暗示这不是简单的UI bug，而是架构级别的缓存/会话管理缺陷。当AI编码工具被越来越广泛地用于处理敏感代码库（包括企业内部系统），会话隔离的可靠性就成了底线安全要求。如果Minecraft砖块能跨会话泄漏，那数据库凭证呢？API密钥呢？</p>
+  <div class="links">
+    <a href="https://lucumr.pocoo.org/2026/7/4/better-models-worse-tools/" target="_blank">Better Models: Worse Tools全文</a>
+    <a href="https://github.com/anthropics/claude-code/issues/74066" target="_blank">Claude Code泄漏Issue #74066</a>
+    <a href="https://news.ycombinator.com/item?id=48788599" target="_blank">HN: Better Models讨论</a>
+    <a href="https://news.ycombinator.com/item?id=48786638" target="_blank">HN: 会话泄漏讨论</a>
+  </div>
+</div>
+
+</div>
+
+<!-- Footer -->
+<footer>
+  每日AI精选 · 2026年7月5日<br>
+  来源: Hacker News · <a href="index.html">返回目录</a> · <a href="https://github.com/macmini-j/daily-ai-digest">GitHub</a>
+</footer>
+
+</div>
+</body>
+</html>
