@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日AI精选 — 2026年7月6日</title>
+<style>
+:root {
+  --page:      #fdfaf3;
+  --surface:   #fff;
+  --card-alt:  #fcfaf5;
+  --border:    #e8dcc8;
+  --text:      #2c2416;
+  --muted:     #7a6e5c;
+  --accent:    #8b6914;
+  --accent-lt: #b8942e;
+  --positive:  #4d7c0f;
+  --warning:   #b45309;
+  --info:      #0e7490;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family: -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  background: var(--page);
+  color: var(--text);
+  line-height: 1.7;
+  padding: 40px 20px;
+}
+.container { max-width: 780px; margin: 0 auto; }
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 48px 0 32px;
+  border-bottom: 2px solid var(--border);
+  margin-bottom: 32px;
+}
+.badge {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  padding: 4px 16px;
+  border-radius: 20px;
+  margin-bottom: 16px;
+}
+.hero h1 { font-size: 28px; font-weight: 700; margin-bottom: 8px; }
+.hero .subtitle {
+  font-size: 15px;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.hero .key-stories {
+  font-size: 14px;
+  color: var(--accent);
+  font-weight: 500;
+}
+.hero .source-line {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 12px;
+  opacity: 0.7;
+}
+
+/* Theme */
+.theme {
+  background: var(--card-alt);
+  border-left: 4px solid var(--accent);
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin-bottom: 32px;
+  font-size: 15px;
+  color: var(--text);
+}
+.theme strong { color: var(--accent); }
+
+/* Section Title */
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--border);
+}
+
+/* News Items */
+.news-item {
+  display: flex;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid #f0ebe0;
+  align-items: flex-start;
+}
+.news-item:last-child { border-bottom: none; }
+.idx {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 600;
+  margin-top: 2px;
+}
+.body { flex: 1; }
+.body .title { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+.body .desc { font-size: 14px; color: var(--muted); margin-bottom: 4px; }
+.body .meta { font-size: 12px; color: #999; }
+.tags { display: flex; gap: 4px; flex-shrink: 0; margin-top: 4px; }
+.tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+.tag.hn { background: rgba(255,102,0,.1); color: #ff6600; }
+.tag.x  { background: rgba(29,161,242,.1); color: #1da1f2; }
+.tag.ph { background: rgba(218,85,47,.1); color: #da552f; }
+.tag.ih { background: rgba(34,197,94,.1); color: #22c55e; }
+.tag.ma { background: rgba(0,120,212,.1); color: #0078d4; }
+.tag.tc { background: rgba(255,0,0,.08); color: #cc0000; }
+
+/* Stats */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 24px 0;
+}
+.stat {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px 16px;
+  text-align: center;
+}
+.stat .num { font-size: 22px; font-weight: 700; color: var(--accent); }
+.stat .label { font-size: 12px; color: var(--muted); margin-top: 4px; }
+.stat .sub { font-size: 11px; color: #bbb; margin-top: 2px; }
+
+/* Deep Dives */
+.dive {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 28px;
+  margin-bottom: 20px;
+}
+.dive h3 {
+  font-size: 18px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.dive h3 .num {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+}
+.dive p { font-size: 14.5px; margin-bottom: 12px; color: #444; line-height: 1.8; }
+.dive .links {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.dive .links a {
+  font-size: 13px;
+  color: var(--accent-lt);
+  text-decoration: none;
+}
+.dive .links a:hover { text-decoration: underline; }
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 32px 0;
+  font-size: 12px;
+  color: var(--muted);
+  border-top: 2px solid var(--border);
+  margin-top: 32px;
+}
+.footer a { color: var(--accent); text-decoration: none; }
+.footer a:hover { text-decoration: underline; }
+
+@media (max-width: 600px) {
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  .news-item { flex-wrap: wrap; }
+  .tags { margin-left: 48px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Hero -->
+<div class="hero">
+  <div class="badge">每日AI精选</div>
+  <h1>2026年7月6日 · 星期一</h1>
+  <div class="subtitle">Zuckerberg承认AI Agent进展放缓 · Fable 5转向按量付费 · Dartmouth AI导师效应量达0.71-1.30 SD</div>
+  <div class="key-stories">14条精选 + 3篇深度分析</div>
+  <div class="source-line">来源: Hacker News · X/Twitter · Reuters · TechCrunch · Anthropic</div>
+</div>
+
+<!-- Today's Theme -->
+<div class="theme">
+  <strong>📌 今日主题：AI Agent从狂热走向务实</strong><br><br>
+  本周AI行业经历了一次集体"清醒时刻"：Zuckerberg在Meta内部承认AI Agent进展远慢于预期，同时Fable 5因需求过高转向按量付费、GPT-5.6预览收窄至合作渠道——前沿模型的商业化正在从"无限畅吃"转向精细化计量。但另一边，Dartmouth大学最新研究显示AI导师已达到接近人类一对一辅导的效果（效应量0.71-1.30 SD），社区驱动的OpenClaw在222天内突破10万Issue/PR里程碑，Spring AI 2.0正式发布多Agent编排框架。行业正在分化：炒作降温的同时，真正有价值的应用正在稳健落地。
+</div>
+
+<!-- 精选新闻 -->
+<h2 class="section-title">🔥 精选新闻</h2>
+
+<div class="news-item">
+  <div class="idx">01</div>
+  <div class="body">
+    <div class="title">Zuckerberg承认AI Agent"进展远慢于预期"</div>
+    <div class="desc">Meta内部全员会上表示过去4个月AI agent进展"未达预期"，高管团队可能误判了时间线</div>
+    <div class="meta">Agent生态 · Meta已投入$1450亿AI基础设施 · 229条评论</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">02</div>
+  <div class="body">
+    <div class="title">Anthropic Fable 5转向按量付费，$10/$50每百万token</div>
+    <div class="desc">7月8日起不再包含在订阅计划内，官方同时发布全新提示工程指南，强调短提示+目标上下文+effort级别校准</div>
+    <div class="meta">模型经济 · 官方提示指南发布 · 可通过effort级别节省82%成本</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span><span class="tag ma">MA</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">03</div>
+  <div class="body">
+    <div class="title">Dartmouth AI导师效应量达0.71-1.30 SD</div>
+    <div class="desc">基于LLM的AI辅导系统在Dartmouth课程中取得接近人类一对一辅导的效果，远超典型教育干预的0.2-0.4 SD</div>
+    <div class="meta">AI教育 · 智能教材研讨会论文 · 126pts</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">04</div>
+  <div class="body">
+    <div class="title">NVIDIA推出"收入分成"GPU获取计划</div>
+    <div class="desc">AI创业公司可凭未来收入分成换取大规模GPU算力，Sharon AI部署4万块GB200 GPU、Firmus 17万块</div>
+    <div class="meta">基础设施 · 替代传统融资模式 · 生态锁定策略</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span><span class="tag tc">TC</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">05</div>
+  <div class="body">
+    <div class="title">Meta发布开源LLM微调加速工具</div>
+    <div class="desc">新开源工具旨在大幅加速大语言模型微调速度，降低创业公司和开发者进入门槛</div>
+    <div class="meta">开源生态 · Meta持续推动LLaMA生态</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">06</div>
+  <div class="body">
+    <div class="title">xAI发布物理世界模型，瞄准机器人领域</div>
+    <div class="desc">新模型专注于理解和操纵物理世界，被认为是实用家庭机器人的关键一步</div>
+    <div class="meta">机器人 · 物理AI · 自主系统</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">07</div>
+  <div class="body">
+    <div class="title">OpenAI GPT-5.6预览版缩窄至合作伙伴</div>
+    <div class="desc">Sol/Terra/Luna三款模型仅限可信合作伙伴和政府协调渠道访问，同时发布GeneBench-Pro科学推理基准</div>
+    <div class="meta">前沿模型 · 安全管控 · 科学推理评测</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">08</div>
+  <div class="body">
+    <div class="title">Mistral预告7月初发布新开源权重模型</div>
+    <div class="desc">强调欧洲主权与企业友好部署，同时发布Leanstral 1.5 — 专注Lean 4定理证明的Apache 2.0模型</div>
+    <div class="meta">开源模型 · 欧洲AI主权 · 形式化验证</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">09</div>
+  <div class="body">
+    <div class="title">OpenClaw：222天突破10万Issue/PR</div>
+    <div class="desc">社区驱动的开源Agent工具项目创下惊人里程碑，展现去中心化AI工具开发的爆发力</div>
+    <div class="meta">开源社区 · Agent工具 · 去中心化开发</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">10</div>
+  <div class="body">
+    <div class="title">Jensen Huang：1GW AI工厂成本将达$800-1000亿</div>
+    <div class="desc">在Computex 2026上指出AI数据中心成本因功耗、冷却和下一代系统大幅上升，NVIDIA GPU占总成本50-70%</div>
+    <div class="meta">基础设施 · 算力经济 · 美国科技公司$8500亿数据中心租约</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">11</div>
+  <div class="body">
+    <div class="title">GLM 5.2在M3 Ultra上本地运行达16 tok/s</div>
+    <div class="desc">4-bit量化后在单块M3 Ultra上达到可用速度，推动本地/隐私保护AI推理边界</div>
+    <div class="meta">本地AI · 隐私计算 · 边缘推理</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">12</div>
+  <div class="body">
+    <div class="title">Coinbase for Agents：自主AI经济启动</div>
+    <div class="desc">支持自主Agent钱包、交易和x402 HTTP支付，Visa完成实测试验，Base链上Agent活动大幅增长</div>
+    <div class="meta">AI经济 · Agent交易 · 链上自动化</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">13</div>
+  <div class="body">
+    <div class="title">Spring AI 2.0正式发布，聚焦多Agent编排</div>
+    <div class="desc">GA版本强调多Agent编排、RAG流水线、MCP SDK 2.0和LangChain4j集成，Java阵营进入AI Agent战场</div>
+    <div class="meta">企业级AI · Java生态 · 编排框架</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">14</div>
+  <div class="body">
+    <div class="title">Perplexity AI集成实时医学研究数据</div>
+    <div class="desc">提升AI搜索可靠性的同时，切入医疗健康搜索领域，解决用户对AI医疗信息准确性的顾虑</div>
+    <div class="meta">AI搜索 · 医疗健康 · 可靠性</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<!-- Stats -->
+<h2 class="section-title" style="margin-top:32px;">📊 今日数据</h2>
+<div class="stats">
+  <div class="stat">
+    <div class="num">$10/$50</div>
+    <div class="label">Fable 5 每百万token定价</div>
+    <div class="sub">输入/输出 · 7月8日生效</div>
+  </div>
+  <div class="stat">
+    <div class="num">0.71–1.30 SD</div>
+    <div class="label">Dartmouth AI导师效应量</div>
+    <div class="sub">接近人类一对一辅导效果</div>
+  </div>
+  <div class="stat">
+    <div class="num">100K</div>
+    <div class="label">OpenClaw Issue/PR</div>
+    <div class="sub">222天内 · 社区驱动</div>
+  </div>
+  <div class="stat">
+    <div class="num">$8,500亿+</div>
+    <div class="label">美国科技公司数据中心租约</div>
+    <div class="sub">2026年累计承诺</div>
+  </div>
+  <div class="stat">
+    <div class="num">16 tok/s</div>
+    <div class="label">GLM 5.2 本地推理速度</div>
+    <div class="sub">4-bit · M3 Ultra</div>
+  </div>
+  <div class="stat">
+    <div class="num">~$145B</div>
+    <div class="label">Meta 2026 AI资本支出</div>
+    <div class="sub">含GPU+数据中心</div>
+  </div>
+</div>
+
+<!-- Deep Dives -->
+<h2 class="section-title" style="margin-top:32px;">🔍 深度分析</h2>
+
+<div class="dive">
+  <h3><span class="num">01</span> Zuckerberg的"清醒剂"与AI Agent的真实节奏</h3>
+  <p><strong>发生了什么。</strong> 上周Meta内部全员会上，Zuckerberg向员工承认AI Agent在过去4个月的进展"远不如预期"。这对于一家已投入$1450亿AI基础设施、裁撤8000人聚焦Agent战略的公司来说，是一个引人注目的信号。同一时间，整个行业也在经历类似的反思：从Fly.io的技术博客《Building Agents That Don't Break Themselves》到arXiv上的《Does Code Cleanliness Affect Coding Agents?》，业界正在认真审视Agent系统在真实环境中的可靠性短板。</p>
+  <p><strong>为什么重要。</strong> 这不是对AI Agent的否定，而是对时间表的重新校准。Meta仍然在大力投资（LLaMA模型、Agent相关工作继续推进），但高层意识到"让Agent自主可靠运行"与"在Demo中展示Agent"之间存在巨大鸿沟。这与Zuckerberg的发言形成了行业共鸣：多个X/Twitter上的资深工程师指出，狭义、范围可控的自动化在当前远比宏大的通用Agent更可行。Spring AI 2.0、OpenClaw等工具链的成熟恰恰证明——Agent正在分阶段、有节制地进入生产，而不是一蹴而就。</p>
+  <p><strong>深层信号。</strong> 技术成熟的最后一个10%往往需要90%的努力。Agent系统的"最后一公里"——可靠性、安全治理、持久会话信任——正在成为真正的护城河。谁先解决这些工程问题，谁就能在下一阶段占据先机。那些只靠Demo融资的公司将面临残酷的"预期差距"，而扎实的工程实践者会逐步胜出。</p>
+  <div class="links">
+    <a href="https://www.reuters.com/business/zuckerberg-says-ai-agent-development-going-slower-than-expected-2026-07-02/" target="_blank">Reuters: Zuckerberg says AI agent development going slower than expected</a>
+    <a href="https://fly.io/blog/building-agents-that-dont-break-themselves/" target="_blank">Fly.io: Building Agents That Don't Break Themselves</a>
+    <a href="https://arxiv.org/abs/2605.20049" target="_blank">arXiv: Does Code Cleanliness Affect Coding Agents?</a>
+  </div>
+</div>
+
+<div class="dive">
+  <h3><span class="num">02</span> Fable 5定价变革：前沿模型的商业化分水岭</h3>
+  <p><strong>发生了什么。</strong> Anthropic宣布Fable 5从7月8日起全面转向按量付费（$10/$100万输入token、$50/$100万输出token），不再包含在订阅计划内。与此同时，OpenAI将GPT-5.6的三款模型（Sol/Terra/Luna）预览权限缩窄至合作伙伴，而Mistral则在预告7月初发布新款开源权重模型。三大前沿实验室在商业化路径上走向了截然不同的方向。</p>
+  <p><strong>为什么重要。</strong> Fable 5的定价转变是AI行业的一个重要信号。Anthropic坦诚这是"临时容量管制"——需求太高且难以预测。这意味着最强大的模型可能永远不再是"订阅无限使用"的。Fable 5同时发布了一套创新的提示工程指南，核心思想是：用短提示+目标上下文+effort级别校准来精打细算。用户报告通过降低effort级别可将单次成本从$22降到$3.76（节省82%）。模型选择正在从技术决策变成成本-架构决策。</p>
+  <p><strong>深层信号。</strong> 前沿AI正在经历从"能力军备竞赛"到"商业化精细运营"的转型。Fable 5的按量模式、OpenAI的分层访问、Mistral的开源策略，代表了三类商业模式：高价值精准计费、能力管控式分发、以及开放生态建设。一个多元化的模型经济正在形成——开发者需要为不同任务选择不同成本结构的模型，"一切打包价"的时代正在结束。</p>
+  <div class="links">
+    <a href="https://x.com/leeloumt/status/2073830055818469482" target="_blank">X: Fable 5 pricing transition details</a>
+    <a href="https://x.com/fahdmirza/status/2073635309196365832" target="_blank">X: Fable 5 effort level cost savings</a>
+    <a href="https://x.com/gudanglifehack/status/2073918865759977956" target="_blank">X: Fable 5 official prompting guide</a>
+  </div>
+</div>
+
+<div class="dive">
+  <h3><span class="num">03</span> AI教育的"2-sigma时刻"：Dartmouth导师研究的里程碑意义</h3>
+  <p><strong>发生了什么。</strong> 一篇在2026年智能教材研讨会上发表的论文报告了一个惊人的结果：基于LLM的AI辅导系统在Dartmouth大学课程中取得了0.71-1.30个标准差（SD）的效应量。作为对比，典型的成功教育干预效应量在0.2-0.4 SD之间，而Bloom著名的"2-sigma问题"将人类一对一辅导的基准定在约2.0 SD。0.71-1.30 SD意味着AI导师的学习增益已在统计学上接近人类一对一辅导的效果。</p>
+  <p><strong>为什么重要。</strong> 这不是又一个"AI可以辅导学生"的Demo。效应量在0.8 SD以上通常被视为"巨大"——这意味着AI导师不仅仅是"有用"，而是实质性地改变了学习成果。如果这一结果可以规模化复现，它将直接挑战教育中最昂贵的资源：个性化教学。在富裕家庭已开始选择AI个性化私塾、可能加剧教育差距的当下，这项研究证明AI教育工具可以成为平等的力量而非分化的推手。</p>
+  <p><strong>深层信号。</strong> 教育可能是AI除了编程之外最早实现大规模正面社会影响的领域。与Agent系统不同（可靠性挑战巨大），AI在教育场景中的"容错成本"更低——一个建议不完全准确，学生和教师可以修正。加上Perplexity等平台开始整合实时医学研究数据来提升搜索可靠性，AI正在从"信息检索"进化为"知识传递与理解保障"。教育技术公司应当密切关注这篇论文的方法论——能复现类似结果的产品将拥有巨大的市场价值。</p>
+  <div class="links">
+    <a href="https://intextbooks.science.uu.nl/workshop2026/files/itb26_s1s2.pdf" target="_blank">Workshop Paper: AI Tutor at Dartmouth (PDF)</a>
+    <a href="https://x.com/RigneySec/status/2073845933981524412" target="_blank">X: Discussion of Dartmouth AI tutor results</a>
+    <a href="https://x.com/betterhn50/status/2073886891930210362" target="_blank">X: Analysis of effect size significance</a>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>每日AI精选 · 2026年7月6日</p>
+  <p>数据来源：Hacker News · X/Twitter · Reuters · TechCrunch · Anthropic</p>
+  <p><a href="index.html">← 返回首页</a> · 自动生成 · 每日9:07更新</p>
+</div>
+
+</div>
+</body>
+</html>
