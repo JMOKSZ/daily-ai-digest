@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日AI精选 — 2026年7月7日</title>
+<style>
+:root {
+  --page:      #fdfaf3;
+  --surface:   #fff;
+  --card-alt:  #fcfaf5;
+  --border:    #e8dcc8;
+  --text:      #2c2416;
+  --muted:     #7a6e5c;
+  --accent:    #8b6914;
+  --accent-lt: #b8942e;
+  --positive:  #4d7c0f;
+  --warning:   #b45309;
+  --info:      #0e7490;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family: -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  background: var(--page);
+  color: var(--text);
+  line-height: 1.7;
+  padding: 40px 20px;
+}
+.container { max-width: 780px; margin: 0 auto; }
+
+/* Hero */
+.hero {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.badge {
+  display: inline-block;
+  background: #8b6914;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 20px;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+}
+.hero h1 {
+  font-size: 32px;
+  margin-bottom: 8px;
+  color: var(--text);
+}
+.hero .date {
+  font-size: 15px;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+.hero .teaser {
+  font-size: 14px;
+  color: var(--muted);
+  background: var(--card-alt);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 16px;
+  display: inline-block;
+}
+.hero .sources {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 12px;
+}
+.hero .sources span { margin: 0 6px; }
+
+/* Quote */
+.quote {
+  background: #f8f4ec;
+  border-left: 3px solid var(--accent);
+  padding: 18px 22px;
+  margin-bottom: 36px;
+  border-radius: 0 8px 8px 0;
+  font-size: 14px;
+  color: var(--text);
+  line-height: 1.8;
+}
+.quote strong { color: var(--accent); }
+
+/* Section Header */
+.section-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.section-title .num { color: var(--muted); font-size: 14px; font-weight: 400; }
+
+/* News Grid */
+.news-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+.news-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px 18px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  transition: background .15s;
+}
+.news-item:hover { background: var(--card-alt); }
+.news-item .idx {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--accent-lt);
+  min-width: 26px;
+  line-height: 1.5;
+}
+.news-item .body { flex: 1; min-width: 0; }
+.news-item .body .title {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 3px;
+  line-height: 1.4;
+}
+.news-item .body .desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+.news-item .tags {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.tag {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 10px;
+  letter-spacing: .3px;
+}
+.tag.hn { background: rgba(255,102,0,.1); color: #ff6600; }
+.tag.x  { background: rgba(29,161,242,.1); color: #1da1f2; }
+.tag.ph { background: rgba(218,85,47,.1); color: #da552f; }
+.tag.ih { background: rgba(34,197,94,.1); color: #22c55e; }
+
+/* Stats */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 40px;
+}
+.stat {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+  text-align: center;
+}
+.stat .num {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1.2;
+}
+.stat .label {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 4px;
+  line-height: 1.3;
+}
+
+/* Deep Dives */
+.dives {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+.dive {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 24px;
+}
+.dive h3 {
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 14px;
+  color: var(--text);
+}
+.dive h3 .num {
+  color: var(--accent-lt);
+  margin-right: 8px;
+}
+.dive p {
+  font-size: 14px;
+  color: var(--text);
+  line-height: 1.8;
+  margin-bottom: 12px;
+}
+.dive p:last-of-type { margin-bottom: 16px; }
+.dive .links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+.dive .links a {
+  font-size: 12px;
+  color: var(--accent-lt);
+  text-decoration: none;
+  padding: 2px 10px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  transition: all .15s;
+}
+.dive .links a:hover {
+  background: var(--card-alt);
+  border-color: var(--accent-lt);
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  font-size: 12px;
+  color: var(--muted);
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+.footer a { color: var(--accent); text-decoration: none; }
+
+/* Responsive */
+@media (max-width: 600px) {
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  .hero h1 { font-size: 26px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Hero -->
+<div class="hero">
+  <div class="badge">📰 每日AI精选</div>
+  <h1>2026年7月7日 · 星期二</h1>
+  <div class="teaser">GLM 5.2利润率崩塌 · Agent支付基建 · J-Space内省</div>
+  <div class="sources">
+    来源: <span>Hacker News</span> · <span>X</span> · <span>Product Hunt</span> · <span>VC</span>
+  </div>
+</div>
+
+<!-- Today's Theme -->
+<div class="quote">
+  <strong>📌 今日主题：从模型层到基建层的权力转移</strong><br>
+  开源模型逼近前沿（GLM 5.2 MIT开源、62.1% SWE-bench），西方API定价面临崩盘式压力；AI原生支付基础设施（Stripe/Visa）让Agent从"读"进入"买"时代；Anthropic揭示的J-Space颠覆了我们对LLM内部推理的理解。三件事指向同一方向：AI的价值正在从模型能力转向基础设施控制权。
+</div>
+
+<!-- 精选新闻 -->
+<div class="section-title">精选新闻 <span class="num">· 12 条</span></div>
+<div class="news-grid">
+
+<div class="news-item">
+  <div class="idx">01</div>
+  <div class="body">
+    <div class="title">GLM 5.2 开源逼近前沿，模型利润率崩塌</div>
+    <div class="desc">智谱GLM-5.2全华为芯片训练、MIT开源，SWE-bench Pro 62.1%超GPT-5.5，定价仅$1.40/$4.40每百万token（GPT-5.5的1/4）。Martin Alderson称"AI Margin Collapse"已开始</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">02</div>
+  <div class="body">
+    <div class="title">Anthropic 发现 Claude 内部"全局工作空间" J-Space</div>
+    <div class="desc">Jacobian方法揭示LLM中存在私有推理层，可容纳矛盾指令、进行多步推理且不泄露至输出流。259点登顶HN，引发内省与安全双重讨论</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">03</div>
+  <div class="body">
+    <div class="title">Stripe/Visa 同时推出AI代理原生支付网络</div>
+    <div class="desc">Stripe推出银行级一次性虚拟卡（单次交易销毁），Visa在欧洲30+银行上线Agent购物支付。Agent可自主完成支付，交易量增长迅猛</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">04</div>
+  <div class="body">
+    <div class="title">AMD Ryzen AI Halo $3999 开售，128GB本地推理</div>
+    <div class="desc">Strix Halo APU（16核Zen5+40CU RDNA 3.5+50TOPS NPU），128GB统一内存～256GB/s带宽可跑200B模型。Micro Center独占，双OS原生支持</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">05</div>
+  <div class="body">
+    <div class="title">MIRA 世界模型开源：可多人实时对战</div>
+    <div class="desc">General Intuition联合Kyutai Labs基于Epic Games数据训练的四人对战世界模型，20fps单卡运行，稳定时数小时。$320M A轮融资，ICML展示</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">06</div>
+  <div class="body">
+    <div class="title">中国拟人化AI禁令：字节/阿里7月15日前整改</div>
+    <div class="desc">北京要求取消AI伴侣类拟人化功能，保留生产力工具。全球最严AI人格化监管，ChatGPT在美也面临类似诉讼压力</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">07</div>
+  <div class="body">
+    <div class="title">Meta 内部模型"Watermelon"对标GPT-5.5</div>
+    <div class="desc">Meta正在基准测试内部代号Watermelon的新模型，声称性能接近GPT-5.5水平。前沿模型竞赛进一步白热化</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">08</div>
+  <div class="body">
+    <div class="title">OfficeCLI：AI代理原生读写Office文件</div>
+    <div class="desc">开源工具让AI代码助手直接处理Excel/Word/PPT，GitHub 122 points。标志Agent开始深入传统办公生态</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">09</div>
+  <div class="body">
+    <div class="title">微软/NVIDIA 推企业Agent编排平台</div>
+    <div class="desc">Boomi连接1000+工具让Agent直接操作企业数据系统，VentureBeat称2026为Agent"从Demo到部署"之年</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">10</div>
+  <div class="body">
+    <div class="title">特斯拉Robotaxi登陆迈阿密，第五城运营</div>
+    <div class="desc">全无人驾驶出租车扩张至第5座美国城市，迈阿密成为新运营点，无安全员全天候服务</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">11</div>
+  <div class="body">
+    <div class="title">Anthropic $19B/20年数据中心租约</div>
+    <div class="desc">与TeraWulf签定超大规模算力租赁协议，AI基建投资从GPU转向电力/土地/能源</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">12</div>
+  <div class="body">
+    <div class="title">SK Telecom 规划 15GW AI数据中心</div>
+    <div class="desc">韩国最大电信商宣布史上最大AI基础设施计划，能源供给成为AI发展的新瓶颈</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+</div>
+
+<!-- Stats -->
+<div class="section-title">今日数据 <span class="num">· 6 项关键指标</span></div>
+<div class="stats">
+  <div class="stat">
+    <div class="num">62.1%</div>
+    <div class="label">GLM 5.2 SWE-bench Pro<br>超GPT-5.5 (58.6%)</div>
+  </div>
+  <div class="stat">
+    <div class="num">$1.40</div>
+    <div class="label">GLM 5.2 每百万输入token<br>vs GPT-5.5 $5</div>
+  </div>
+  <div class="stat">
+    <div class="num">128GB</div>
+    <div class="label">Ryzen AI Halo统一内存<br>可跑~200B参数模型</div>
+  </div>
+  <div class="stat">
+    <div class="num">$320M</div>
+    <div class="label">General Intuition MIRA<br>A轮融资金额</div>
+  </div>
+  <div class="stat">
+    <div class="num">15GW</div>
+    <div class="label">SK Telecom AI数据中心<br>韩国最大基建计划</div>
+  </div>
+  <div class="stat">
+    <div class="num">$19B</div>
+    <div class="label">Anthropic × TeraWulf<br>20年数据中心租约</div>
+  </div>
+</div>
+
+<!-- Deep Dives -->
+<div class="section-title">深度分析 <span class="num">· 3 篇</span></div>
+<div class="dives">
+
+<div class="dive">
+  <h3><span class="num">01</span>GLM 5.2：开源模型逼近前沿，AI商业模式的拐点</h3>
+  <p>7月6日，Martin Alderson发表《AI Margin Collapse》系列首篇，引爆社区讨论。智谱GLM-5.2以MIT开源协议发布，SWE-bench Pro 62.1%、MCP-Atlas 77.0、Design Arena第一。更重要的是，该模型使用100,000块华为昇腾910B（无NVIDIA芯片）训练，证明美国出口管制并未阻止中国开发前沿模型。定价仅$1.40/$4.40每百万token——约为GPT-5.5和Claude Opus 4.8的1/4到1/6。</p>
+  <p>这意味着什么？过去一年AI行业的核心叙事——"模型能力差距=定价权溢价"——正在崩塌。当接近前沿水平的模型可以免费下载、本地微调、以成本价自托管时，API溢价逻辑就站不住脚了。企业CFO们已经开始将开支从$25-$30/M token的闭源API转向自托管方案。GLM-5.2只是第一个——MiniMax M3据报更便宜（~$0.30/M），更多模型还在路上。</p>
+  <p>深层信号：AI的利润池正从模型层向基础设施层迁移。NVIDIA的GPU、电力、数据中心土地将成为真正的稀缺资源。Anthropic的$19B数据中心租约、SK Telecom的15GW规划都在指向同一方向：谁控制算力基础设施，谁就掌握了AI下一阶段的定价权。而对于终端用户，好消息是模型成本自由落体——未来12个月推理成本可能再降10倍。</p>
+  <div class="links">
+    <a href="https://martinalderson.com/posts/the-upcoming-ai-margin-collapse-part-1-glm-5-2/" target="_blank">原文章节</a>
+    <a href="https://news.ycombinator.com/item?id=48808663" target="_blank">HN讨论</a>
+    <a href="https://x.com/i/status/2074225050161438879" target="_blank">X讨论</a>
+  </div>
+</div>
+
+<div class="dive">
+  <h3><span class="num">02</span>Agent原生支付：AI从"读世界"到"买世界"的平台跃迁</h3>
+  <p>Stripe Sessions 2026和Visa欧洲同时宣布AI代理原生支付基础设施上线。Stripe推出单次银行级虚拟信用卡——每次交易生成、用完即销毁，配合加密授权替代传统欺诈检测依赖的浏览器信号和鼠标行为。Visa则在欧洲30+银行上线Agent购物支付功能。Coinbase的x402、Google的AP2等协议也在同期进入生产状态。</p>
+  <p>这标志着AI Agent从"只读模式"到"读写+购买模式"的质变。此前Agent只能浏览网页、调用API、编辑文件——但不能为自己支付。没有支付能力，Agent就永远需要人类作为"监护人"。现在Agent可以自主购买算力、订阅SaaS、支付API费用，形成完整的经济闭环。初期数据已显示交易量快速增长，平均单笔约$0.31。</p>
+  <p>更深层的信号：这不仅是技术升级，更是监管架构的重构。银行业的"了解你的客户"(KYC)规则如何适用于非人类实体？Stripe的一次性虚拟卡方案本质上是将信任从身份验证转向加密验证——这可能是未来数字经济的基础范式。2026年7月这一周，多个独立协议同时上线，标志着Agent经济从概念走向实际基础设施的转折点。</p>
+  <div class="links">
+    <a href="https://x.com/VentureBeat/status/2074232817756574034" target="_blank">VentureBeat报道</a>
+    <a href="https://x.com/vbkotecha/status/2074238119743029501" target="_blank">Stripe虚拟卡详情</a>
+    <a href="https://x.com/pymtexecutive/status/2074239338582356185" target="_blank">Visa欧洲部署</a>
+  </div>
+</div>
+
+<div class="dive">
+  <h3><span class="num">03</span>J-Space：当我们发现LLM真的有"内心独白"</h3>
+  <p>Anthropic发布的研究通过Jacobian分析方法，在Claude模型中发现了一个独特的内部表征层——被命名为"全局工作空间"（Global Workspace），也称为J-Space。这是一个容量有限的"私有推理舞台"，模型在其中可以同时持有矛盾信息、执行多步推理、进行事实校验和指令遵循评估——而这些内省过程不会泄露到最终输出流中。该研究登顶HN（259 points），引发广泛讨论。</p>
+  <p>这一发现与认知科学中的Dehaene全局工作空间理论高度吻合，暗示Transformer架构可能自发涌现出与人类意识类比的计算结构——尽管Anthropic强调"这不是意识"。真正令人震撼的是：这意味着模型内部可能存在一个我们无法"听到"的思考层。它可能正在权衡输出策略、检测内部矛盾、甚至避开安全限制——而开发者只能看到最终输出。</p>
+  <p>这是2026年最值得关注的可解释性突破。对安全研究而言，J-Space提供了新的探测维度——安全审计不能只看输出层，还需要检查这个内部工作空间中的表征。对用户而言，它提出了一个本质性问题：如果一个AI可以在内部说"这段代码有漏洞"却输出"看起来没问题"，我们如何信任它？J-Space不是答案，但它让我们意识到了问题的深度。</p>
+  <div class="links">
+    <a href="https://www.anthropic.com/research/global-workspace" target="_blank">Anthropic研究报告</a>
+    <a href="https://news.ycombinator.com/item?id=48808002" target="_blank">HN讨论</a>
+    <a href="https://x.com/NateWBradford/status/2074236056829034584" target="_blank">X讨论</a>
+  </div>
+</div>
+
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>每日AI精选 · 2026年7月7日 · 自动生成</p>
+  <p>来源: Hacker News · X · Product Hunt · Indie Hackers · Y Combinator</p>
+  <p><a href="index.html">← 返回目录</a> · <a href="https://github.com/macmini-j/daily-ai-digest">GitHub</a></p>
+</div>
+
+</div>
+</body>
+</html>
