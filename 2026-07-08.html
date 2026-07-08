@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日AI精选 · 2026-07-08</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#fdfaf3;color:#2c2416;line-height:1.6}
+.container{max-width:780px;margin:0 auto;padding:32px 20px 60px}
+
+/* Hero */
+.hero{margin-bottom:32px}
+.badge{display:inline-block;background:#8b6914;color:#fff;font-size:11px;font-weight:700;padding:3px 10px;border-radius:4px;letter-spacing:.5px;margin-bottom:12px}
+.hero h1{font-size:28px;font-weight:700;color:#2c2416;margin-bottom:6px}
+.hero .date{font-size:15px;color:#7a6e5c;margin-bottom:8px}
+.hero .key-stories{font-size:14px;color:#8b6914;font-weight:500;margin-bottom:12px}
+.hero .sources{font-size:12px;color:#7a6e5c}
+.hero .sources span{display:inline-block;margin-right:8px}
+
+/* Theme */
+.theme{background:#fcfaf5;border-left:4px solid #8b6914;padding:16px 20px;margin-bottom:32px;border-radius:0 8px 8px 0;font-size:14px;color:#2c2416}
+.theme strong{color:#8b6914}
+
+/* Section header */
+.section-title{font-size:18px;font-weight:700;color:#2c2416;margin-bottom:16px;padding-bottom:8px;border-bottom:2px solid #e8dcc8}
+.section-title span{color:#8b6914}
+
+/* News items */
+.news-item{display:flex;align-items:flex-start;padding:14px 16px;background:#fff;border:1px solid #e8dcc8;border-radius:8px;margin-bottom:10px;transition:all .15s}
+.news-item:hover{background:#fcfaf5;border-color:#d4c5a8}
+.idx{font-size:14px;font-weight:700;color:#b8942e;min-width:32px;padding-top:1px}
+.body{flex:1;min-width:0}
+.title{font-size:15px;font-weight:600;color:#2c2416;margin-bottom:2px}
+.desc{font-size:13px;color:#5a4e3c;margin-bottom:4px}
+.meta{font-size:11px;color:#7a6e5c}
+.tags{display:flex;gap:4px;margin-left:10px;flex-shrink:0;padding-top:2px}
+.tag{font-size:10px;font-weight:600;padding:2px 6px;border-radius:3px;letter-spacing:.3px}
+.tag.hn{background:rgba(255,102,0,.1);color:#ff6600}
+.tag.x{background:rgba(29,161,242,.1);color:#1da1f2}
+.tag.ph{background:rgba(218,85,47,.1);color:#da552f}
+.tag.ma{background:rgba(0,120,212,.1);color:#0078d4}
+.tag.ec{background:rgba(139,105,20,.1);color:#8b6914}
+
+/* Stats grid */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:32px}
+.stat{background:#fff;border:1px solid #e8dcc8;border-radius:8px;padding:14px;text-align:center}
+.stat .num{font-size:22px;font-weight:700;color:#2c2416;margin-bottom:2px}
+.stat .num.pos{color:#4d7c0f}
+.stat .num.neg{color:#b45309}
+.stat .label{font-size:11px;color:#7a6e5c}
+
+/* Deep dives */
+.dive{background:#fff;border:1px solid #e8dcc8;border-radius:8px;padding:20px;margin-bottom:16px}
+.dive h3{font-size:17px;font-weight:700;color:#2c2416;margin-bottom:12px}
+.dive h3 .num{color:#8b6914}
+.dive p{font-size:14px;color:#3a3428;margin-bottom:10px;line-height:1.7}
+.dive p:last-of-type{margin-bottom:12px}
+.dive .links{padding-top:10px;border-top:1px solid #e8dcc8}
+.dive .links a{font-size:12px;color:#8b6914;text-decoration:none;margin-right:16px}
+.dive .links a:hover{text-decoration:underline}
+
+/* Footer */
+footer{margin-top:40px;padding-top:20px;border-top:1px solid #e8dcc8;text-align:center;font-size:12px;color:#7a6e5c}
+footer a{color:#8b6914;text-decoration:none}
+footer a:hover{text-decoration:underline}
+
+@media(max-width:600px){
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .news-item{padding:12px}
+  .idx{min-width:26px}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Hero -->
+<div class="hero">
+  <div class="badge">每日AI精选</div>
+  <h1>2026年7月8日 · 星期三</h1>
+  <div class="key-stories">Hy3 295B开源 · DeepSeek自研芯片 · Claude Cowork跨设备</div>
+  <div class="sources">
+    <span>📡 来源: Hacker News · X · Product Hunt · arXiv</span>
+    <span>· 15条精选 + 3个深度分析</span>
+  </div>
+</div>
+
+<!-- Today's Theme -->
+<div class="theme">
+  <strong>📌 今日主题：中国开源模型的量级爆发与AI全栈军备竞赛</strong><br><br>
+  7月第二周，AI格局出现多重信号：腾讯Hy3以Apache 2.0开源295B MoE模型、美团LongCat-2.0放出1.6T参数编码模型、DeepSeek确认自研推理芯片——中国AI从"用别人的芯片跑别人的模型"转向"全栈自主"。与此同时，Anthropic将Claude Cowork扩展至移动端和Web，Meta发布Muse Image深度集成Instagram，AI Agent从桌面走向全平台覆盖。基础设施端，TeraWulf与Anthropic签署$190亿数据中心协议，Amazon融资$250亿+扩建AI算力。模型能力在提升，但微软Copilot三年仅4.5%采用率也在提醒：技术落地的鸿沟依然巨大。
+</div>
+
+<!-- News -->
+<div class="section-title">📋 <span>精选新闻</span> · 15条</div>
+
+<div class="news-item">
+  <div class="idx">01</div>
+  <div class="body">
+    <div class="title">腾讯Hy3开源：295B MoE，Apache 2.0</div>
+    <div class="desc">21B活跃参数，256K上下文，192专家MoE。SWE-Bench 78分，编码/Agent/推理全面对标前沿</div>
+    <div class="meta">开源模型 · 腾讯混元 · 免费API至7月21</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span><span class="tag ec">EC</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">02</div>
+  <div class="body">
+    <div class="title">DeepSeek自研AI推理芯片</div>
+    <div class="desc">Reuters独家：已秘密开发一年，专注推理而非训练，美国出口管制推动中国AI芯片自主</div>
+    <div class="meta">芯片 · 出口管制 · 半导体指数暴跌4.65%</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span><span class="tag hn">HN</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">03</div>
+  <div class="body">
+    <div class="title">Claude Cowork扩展至移动端和Web</div>
+    <div class="desc">跨设备Agent持续运行，后台异步执行任务，笔记本→手机无缝接力，67-90%会话非编程</div>
+    <div class="meta">Anthropic · Agent · 多平台</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">04</div>
+  <div class="body">
+    <div class="title">Meta Muse Image：AI图像深度集成Instagram</div>
+    <div class="desc">自研模型#2公共生成竞技场。支持@公开账号生成照片，默认开启需手动退出</div>
+    <div class="meta">Meta · 图像生成 · Instagram · 隐私争议</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span><span class="tag hn">HN</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">05</div>
+  <div class="body">
+    <div class="title">美团LongCat-2.0：1.6万亿参数开源编码模型</div>
+    <div class="desc">MIT协议，此前化名霸榜OpenRouter。中国开源模型在编码领域持续突破</div>
+    <div class="meta">开源模型 · 编码 · 美团 · MIT协议</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">06</div>
+  <div class="body">
+    <div class="title">TeraWulf×Anthropic：$190亿AI数据中心</div>
+    <div class="desc">肯塔基州大型AI园区，Nvidia投资方背书。基础设施投资持续飙升</div>
+    <div class="meta">基础设施 · 数据中心 · $190亿</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">07</div>
+  <div class="body">
+    <div class="title">Amazon融资$250亿+扩建AI算力</div>
+    <div class="desc">科技巨头AI基建融资创纪录，与TeraWulf/Anthropic合体现资本向基础设施集中</div>
+    <div class="meta">基础设施 · Amazon · 融资</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">08</div>
+  <div class="body">
+    <div class="title">小型AI模型在弱网环境崛起</div>
+    <div class="desc">IEEE Spectrum：小型语言模型在卫星+不穩定网络场景更实用，效率成为新焦点</div>
+    <div class="meta">小型模型 · IEEE · 效率 · 边缘计算</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">09</div>
+  <div class="body">
+    <div class="title">微软Copilot采用率：三年不到4.5%</div>
+    <div class="desc">仅1%用户每周使用，尽管价格持续上涨。企业AI落地的"最后一公里"难题</div>
+    <div class="meta">Microsoft · Copilot · 采用率 · 企业</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">10</div>
+  <div class="body">
+    <div class="title">Anthropic J-space：Claude的"无声思维"</div>
+    <div class="desc">揭示神经网络内部全局工作空间，Claude在最终输出中不可见的推理过程被可视化</div>
+    <div class="meta">可解释性 · 研究 · Anthropic · 神经网络</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">11</div>
+  <div class="body">
+    <div class="title">Liquid AI AntiDoom：检测无限推理循环</div>
+    <div class="desc">Final Token Preference Optimization，从模型层面解决推理时的死循环问题</div>
+    <div class="meta">研究 · Liquid AI · 推理 · 可靠性</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">12</div>
+  <div class="body">
+    <div class="title">微软裁员约4800人，AI驱动效率重组</div>
+    <div class="desc">含Xbox/iD Software等游戏部门受影响，AI自动化替代加速</div>
+    <div class="meta">Microsoft · 裁员 · 就业 · 行业影响</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">13</div>
+  <div class="body">
+    <div class="title">FLAREAI：CMU支持的AI漏洞众测平台</div>
+    <div class="desc">开源AI安全平台，允许安全研究员直接向开发者报告AI模型漏洞</div>
+    <div class="meta">安全 · 众测 · CMU · 漏洞管理</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">14</div>
+  <div class="body">
+    <div class="title">Rowboat：开源Claude Desktop替代品</div>
+    <div class="desc">本地优先的桌面Agent，开源协议，支持AI代理自主工作</div>
+    <div class="meta">开源 · Agent · 桌面 · Claude替代</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">15</div>
+  <div class="body">
+    <div class="title">30papers.com：Ilya的30篇ML论文入门</div>
+    <div class="desc">初学者友好格式呈现Ilya Sutskever甄选的30篇核心ML论文，HN 345pts</div>
+    <div class="meta">教育 · ML · Ilya Sutskever · 入门资源</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span></div>
+</div>
+
+<!-- Stats -->
+<div class="section-title">📊 <span>今日数据</span></div>
+<div class="stats">
+  <div class="stat">
+    <div class="num pos">295B</div>
+    <div class="label">腾讯Hy3参数 · 仅21B活跃</div>
+  </div>
+  <div class="stat">
+    <div class="num pos">1.6T</div>
+    <div class="label">美团LongCat-2.0参数</div>
+  </div>
+  <div class="stat">
+    <div class="num pos">$19B</div>
+    <div class="label">TeraWulf×Anthropic数据中心</div>
+  </div>
+  <div class="stat">
+    <div class="num neg">4.5%</div>
+    <div class="label">Copilot三年企业采用率</div>
+  </div>
+  <div class="stat">
+    <div class="num pos">78</div>
+    <div class="label">Hy3 SWE-Bench Verified</div>
+  </div>
+  <div class="stat">
+    <div class="num neg">4.65%</div>
+    <div class="label">半导体指数单日跌幅</div>
+  </div>
+</div>
+
+<!-- Deep Dives -->
+<div class="section-title">🔍 <span>深度分析</span> · 3篇</div>
+
+<div class="dive">
+  <h3><span class="num">01</span> 中国开源模型的量级爆发：从21B到1.6T的全覆盖</h3>
+  <p>7月第二周，中国开源AI模型进入了一个前所未有的密集发布期。腾讯Hy3（295B MoE，21B活跃参数，Apache 2.0）在编码、Agent、长上下文领域全面对标前沿——SWE-Bench 78分、256K上下文、vLLM/SGLang即日支持。几乎同时，美团LongCat-2.0以1.6万亿参数规模开源（MIT协议），上海AI Lab的Agents-A1（35B MoE）聚焦长周期Agent任务。这三者覆盖了从轻量级Agent到超大编码模型的全谱系。</p>
+  <p>最关键的是协议变化：Hy3从4月预览版的限制性协议升级为Apache 2.0，LongCat-2.0采用MIT——这意味着企业可以自由商用、修改、再分发。这与年初中国模型普遍采用"仅学术使用"或有附加条款的开源协议形成鲜明对比。免费API（OpenRouter/Nous Portal两周免费）、FP8权重的发布、以及vLLM/SGLang的一线支持，表明腾讯有意复制Meta Llama的生态扩散路径。</p>
+  <p>深层信号：中国模型不再只是"追赶者"。Hy3的SWE-Bench 78分已超过许多同等规模的西方开源模型。当中国同时控制训练芯片（DeepSeek自研）、推理芯片（Huawei Ascend）、和模型能力（Hy3/LongCat-2.0）三个环节时，开源AI的全球竞争格局将发生根本性变化——不再是"西方闭源 vs 西方开源"的二元格局，而是"西方闭源 + 西方开源 + 中国开源"的三方博弈。</p>
+  <div class="links">
+    <a href="https://huggingface.co/tencent/Hy3" target="_blank">🤗 HuggingFace: Hy3</a>
+    <a href="https://hy.tencent.com/research/hy3" target="_blank">📄 腾讯Hy3研究页</a>
+    <a href="https://x.com/TencentHunyuan/status/2074344131930022050" target="_blank">🐦 腾讯混元官方公告</a>
+  </div>
+</div>
+
+<div class="dive">
+  <h3><span class="num">02</span> AI芯片与基础设施军备竞赛：从模型层到晶圆的全面争夺</h3>
+  <p>如果说2025年是"模型大战"，2026年正在变成"基础设施大战"。三重信号同时爆发：DeepSeek确认自研AI推理芯片（Reuters独家，已开发一年），TeraWulf与Anthropic签署$190亿数据中心协议在肯塔基建设AI园区，Amazon融资$250亿+扩建AI算力。这三者在同一天出现不是巧合——它标志着AI竞争从模型架构和训练算法，转移到对计算资源本身的控制权争夺。</p>
+  <p>DeepSeek自研芯片最具象征意义。作为中国最受关注的开源模型公司，DeepSeek此前一直依赖Nvidia H800训练和华为Ascend推理。自研推理芯片意味着它希望复制Apple/特斯拉垂直整合路径——从芯片到模型到服务的完整栈控制。但挑战极大：先进制程（SMIC产能不足）、HBM供应受限、以及美国出口管制的持续收窄，都是实质性障碍。芯片行业资深人士指出，从团队建设到流片量产至少需要2-3年，DeepSeek的芯片在2028年前不太可能规模化部署。</p>
+  <p>这个故事的另一面是资本向基础设施的超级集中。TeraWulf的$190亿单笔协议和Amazon的$250亿融资，显示AI云计算正从"租GPU"转向"建电厂"。这与传统云计算完全不同的资本密度——一个数据中心的投资相当于一座核电站。Semiconductor Index在DeepSeek芯片新闻发布当日暴跌4.65%，说明市场正在重新评估：当每个大模型公司都试图自己造芯片，Nvidia的垄断地位会不会被动摇？短期不会，但长期趋势已定。</p>
+  <div class="links">
+    <a href="https://x.com/v_shakthi/status/2074314773307793643" target="_blank">🐦 Reuters: DeepSeek AI芯片</a>
+    <a href="https://x.com/pmainardi/status/2074495248185618784" target="_blank">🐦 TeraWulf×Anthropic $190亿</a>
+    <a href="https://x.com/CodingNoobie/status/2074557328578478240" target="_blank">🐦 Amazon $250亿+ AI基建</a>
+  </div>
+</div>
+
+<div class="dive">
+  <h3><span class="num">03</span> AI Agent走出聊天窗口：跨设备、图像生成、安全验证并进</h3>
+  <p>今天最大的产品化信号来自Anthropic和Meta。Claude Cowork从桌面扩展至移动端和Web，实现真正的跨设备Agent持续运行——用户可以在笔记本上启动任务，关上电脑后Agent在云端继续执行，手机端接收结果。这是AI Agent从"瞬时应答"向"异步委托"的关键转变。更重要的是，Anthropic数据显示67-90%的Claude会话并非编程相关，说明通用Agent的使用场景比行业想象的要广泛得多。</p>
+  <p>Meta Muse Image则展示了AI图像生成的"社交网络原生"方向。直接@Instagram用户账号生成包含其形象的照片，并深度嵌入Stories、Meta AI聊天等场景。这一设计的颠覆性在于：它将AI图像生成从"独立工具"变成了"社交网络的默认能力"。但默认开启的@-mention功能引发隐私担忧——你的公开照片可以被任何人用作AI素材，只能手动退出。这与Meta在数据使用上一贯的"默认收集"策略一致，但随着监管趋严（Chat Control 1.0在欧盟议会通过），这种策略面临越来越大的法律风险。</p>
+  <p>Agent生态的另一端是安全工具的出现。FLAREAI（CMU支持下）建立了AI漏洞的众测和报告平台——安全研究员发现模型漏洞后可直接提交给开发者，类似于传统软件安全中的漏洞披露制度。Halo开源运行时证据系统则为AI代理行为提供了防篡改记录。当Agent从聊天工具变成拥有文件系统访问、API调用、代码执行能力的自治体，安全基础设施从"可选项"变为"必需品"。这一趋势将在2026年下半年加速。</p>
+  <div class="links">
+    <a href="https://x.com/sanathp14/status/2074558544398238153" target="_blank">🐦 Claude Cowork跨设备</a>
+    <a href="https://about.fb.com/news/2026/07/introducing-muse-image-meta-ai/" target="_blank">📄 Meta Muse Image官方</a>
+    <a href="https://github.com/bkuan001/halo-record" target="_blank">💻 Halo开源证据系统</a>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  每日AI精选 · 2026年7月8日 · 自动生成<br>
+  来源: Hacker News · X · Product Hunt · Indie Hackers · arXiv<br>
+  <a href="index.html">← 返回首页</a> · <a href="https://github.com/macmini-j/daily-ai-digest">GitHub</a>
+</footer>
+
+</div>
+</body>
+</html>
