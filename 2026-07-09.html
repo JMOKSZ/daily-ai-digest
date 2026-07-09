@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日AI精选 · 2026-07-09</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Noto Sans SC,sans-serif;background:#fdfaf3;color:#2c2416;line-height:1.7}
+.container{max-width:720px;margin:0 auto;padding:40px 24px 80px}
+
+/* Hero */
+.hero{text-align:center;margin-bottom:32px;padding:0 20px}
+.hero .badge{display:inline-block;background:#8b6914;color:#fff;font-size:12px;font-weight:700;padding:4px 14px;border-radius:20px;letter-spacing:1px;margin-bottom:12px}
+.hero h1{font-size:28px;margin-bottom:6px}
+.hero .date{font-size:14px;color:#7a6e5c;margin-bottom:14px}
+.hero .topline{font-size:14px;color:#7a6e5c;line-height:1.6}
+.hero .topline strong{color:#2c2416}
+.hero .sources{font-size:12px;color:#b8942e;margin-top:10px}
+
+/* Theme */
+.theme{background:#fcfaf5;border:1px solid #e8dcc8;border-left:4px solid #8b6914;border-radius:8px;padding:16px 20px;margin-bottom:32px;font-size:14px;color:#5a4e3c;line-height:1.8}
+
+/* Section title */
+.section-title{font-size:18px;font-weight:700;margin-bottom:16px;padding-bottom:8px;border-bottom:2px solid #e8dcc8}
+.section-title .num{color:#8b6914;font-size:14px;margin-right:6px}
+
+/* News grid */
+.news-grid{display:flex;flex-direction:column;gap:10px;margin-bottom:40px}
+.news-item{display:flex;align-items:flex-start;padding:14px 16px;background:#fff;border:1px solid #e8dcc8;border-radius:8px;gap:14px;transition:all .15s}
+.news-item:hover{background:#fcfaf5;border-color:#d4c5a8}
+.news-item .idx{font-size:13px;font-weight:700;color:#b8942e;min-width:26px;text-align:right;padding-top:1px}
+.news-item .body{flex:1;min-width:0}
+.news-item .title{font-size:15px;font-weight:600;margin-bottom:2px}
+.news-item .desc{font-size:13px;color:#7a6e5c;margin-bottom:4px;line-height:1.5}
+.news-item .meta{font-size:11px;color:#b8942e}
+.news-item .tags{display:flex;gap:4px;flex-shrink:0;padding-top:2px}
+.tag{font-size:10px;font-weight:600;padding:2px 7px;border-radius:4px;letter-spacing:.3px}
+.tag.hn{background:rgba(255,102,0,.1);color:#ff6600}
+.tag.x{background:rgba(29,161,242,.1);color:#1da1f2}
+.tag.ph{background:rgba(218,85,47,.1);color:#da552f}
+.tag.ma{background:rgba(0,120,212,.1);color:#0078d4}
+.tag.ih{background:rgba(34,197,94,.1);color:#22c55e}
+
+/* Stats */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:40px}
+.stat{background:#fff;border:1px solid #e8dcc8;border-radius:8px;padding:14px;text-align:center}
+.stat .num{font-size:22px;font-weight:700;color:#8b6914;margin-bottom:2px}
+.stat .label{font-size:11px;color:#7a6e5c;line-height:1.4}
+
+/* Deep dives */
+.dives{display:flex;flex-direction:column;gap:24px;margin-bottom:40px}
+.dive{background:#fff;border:1px solid #e8dcc8;border-radius:10px;padding:24px}
+.dive h3{font-size:17px;margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.dive h3 .num{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;background:#8b6914;color:#fff;font-size:13px;border-radius:50%;flex-shrink:0}
+.dive p{font-size:14px;color:#3d3426;margin-bottom:10px;line-height:1.8}
+.dive .links{padding-top:10px;border-top:1px solid #e8dcc8;display:flex;flex-wrap:wrap;gap:8px}
+.dive .links a{font-size:12px;color:#b8942e;text-decoration:none;padding:3px 10px;border:1px solid #e8dcc8;border-radius:6px;transition:all .15s}
+.dive .links a:hover{background:#fcfaf5;border-color:#d4c5a8}
+
+/* Footer */
+footer{margin-top:48px;padding-top:20px;border-top:1px solid #e8dcc8;text-align:center;font-size:12px;color:#7a6e5c;line-height:1.8}
+footer a{color:#b8942e;text-decoration:none}
+footer a:hover{text-decoration:underline}
+
+@media(max-width:500px){
+  .container{padding:24px 16px 60px}
+  .hero h1{font-size:22px}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .news-item{padding:12px 14px}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="badge">每日AI精选</div>
+    <h1>2026年7月9日 · 星期四</h1>
+    <div class="topline">
+      <strong>Grok 4.5 · GPT-5.6/Sol/Terra/Luna · GPT-Live</strong> 三连发<br>
+      12条精选 + 3个深度分析
+    </div>
+    <div class="sources">来源: Hacker News · X · OpenAI · xAI · Mistral · Meta · Microsoft · Cognition</div>
+  </div>
+
+  <!-- Today's Theme -->
+  <div class="theme">
+    📌 <strong>今日主题：史上最强模型日</strong> — xAI的Grok 4.5（1.5万亿参数，Opus级编码性能）与OpenAI的GPT-5.6三兄弟（Sol/Terra/Luna）同日发布/预发布，同时GPT-Live全双工语音上线。Mistral以8B参数打入具身AI领域，Meta的Muse Image引发隐私海啸。模型市场从"最强单体模型"转向"最佳模型组合"。
+  </div>
+
+  <!-- News Section -->
+  <div class="section-title"><span class="num">📰</span> 精选新闻</div>
+  <div class="news-grid">
+
+    <div class="news-item">
+      <div class="idx">01</div>
+      <div class="body">
+        <div class="title">Grok 4.5正式发布</div>
+        <div class="desc">xAI推出V9基础模型，1.5万亿参数，编码和智能体任务达Opus级水准。定价$2/$6每百万token，速度快50%</div>
+        <div class="meta">模型发布 · Grok 4.5 · 1.5T params · $2/$6 per M tok</div>
+      </div>
+      <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+    </div>
+
+    <div class="news-item">
+      <div class="idx">02</div>
+      <div class="body">
+        <div class="title">GPT-Live全双工语音上线</div>
+        <div class="desc">OpenAI推出实时语音新架构，可同时听和说。支持实时翻译、智能委托给GPT-5.5进行复杂推理，默认替代ChatGPT语音模式</div>
+        <div class="meta">产品发布 · OpenAI · Full-duplex · Real-time</div>
+      </div>
+      <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+    </div>
+
+    <div class="news-item">
+      <div class="idx">03</div>
+      <div class="body">
+        <div class="title">GPT-5.6 (Sol/Terra/Luna) 即将发布</div>
+        <div class="desc">OpenAI公布三款分层模型：Sol旗舰（Terminal-Bench SOTA）、Terra中端（GPT-5.5级半价）、Luna轻量（对标Haiku）。已获商务部批准</div>
+        <div class="meta">模型发布 · OpenAI · Sol/Terra/Luna · 分层定价</div>
+      </div>
+      <div class="tags"><span class="tag x">X</span></div>
+    </div>
+
+    <div class="news-item">
+      <div class="idx">04</div>
+      <div class="body">
+        <div class="title">Mistral Robostral Navigate：仅用单摄像头的机器人导航</div>
+        <div class="desc">8B参数具身AI模型，仅需普通RGB摄像头，无需LiDAR。R2R-CE基准76.6%成功率，纯仿真训练零真实数据</div>
+        <div class="meta">模型发布 · Mistral · Embodied AI · 8B params</div>
+      </div>
+      <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+    </div>
+
+    <div class="news-item">
+      <div class="idx">05</div>
+      <div class="body">
+        <div class="title">Meta Muse Image 引发隐私争议</div>
+        <div class="desc">Meta推出Instagram AI生图工具，默认允许任何人用公开账号照片生成AI图像，不通知被引用用户。关闭设置隐藏于深层菜单</div>
+        <div class="meta">产品争议 · Meta · Privacy · Muse Image</div>
+      </div>
+      <div class="tags"><span class="tag x">X</span></div>
+    </div>
+
+    <div class="news-item">
+      <div class="idx">06</div>
+      <div class="body">
+        <div class="title">Cognition SWE-1.7：千token/秒编码AI</div>
+        <div class="desc">基于Kimi K2.7的RL训练编码模型，FrontierCode基准42.3%（对比Opus 4.8的46.5%），但仅$1.97/任务，推理速度1000tok/s</div>
+        <div class="meta">模型发布 · Cognition · SWE-1.7 · 1000tok/s</div>
+      </div>
+      <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+    </div>
+
+    <div class="news-item">
+      <div class="idx">07</div>
+      <div class="body">
+        <div class="title">Microsoft Flint：面向AI智能体的可视化语言</div>
+        <div class="desc">微软研究院开源Flint，声明式可视化规范语言。AI智能体或开发者编写简短意图即可生成Vega-Lite/ECharts/Chart.js图表，内置MCP服务</div>
+        <div class="meta">开源工具 · Microsoft · Visualization · MCP</div>
+      </div>
+      <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+    </div>
+
+    <div class="news-item">
+      <div class="idx">08</div>
+      <div class="body">
+        <div class="title">Chatto宣布开源</div>
+        <div class="desc">Chatto聊天平台正式开源，HN获得718分190评论。代码已公开，开发者可自托管运行</div>
+        <div class="meta">开源 · Chatto · Self-hosted</div>
+      </div>
+      <div class="tags"><span class="tag hn">HN</span></div>
+    </div>
+
+    <div class="news-item">
+      <div class="idx">09</div>
+      <div class="body">
+        <div class="title">SK Hynix纳斯达克上市：280亿美元</div>
+        <div class="desc">仅次于SpaceX的历史第二大股票发行。资金用于HBM内存芯片工厂和ASML设备，市值已超1万亿美元</div>
+        <div class="meta">资本市场 · SK Hynix · HBM · $28B</div>
+      </div>
+      <div class="tags"><span class="tag x">X</span></div>
+    </div>
+
+    <div class="news-item">
+      <div class="idx">10</div>
+      <div class="body">
+        <div class="title">Illinois通过全美最严AI安全法</div>
+        <div class="desc">SB 315法案要求前沿AI开发者进行年度独立第三方审计，达到营收和能力门槛即需遵守。合规要求逐年升级</div>
+        <div class="meta">政策法规 · Illinois · AI Safety · 年度审计</div>
+      </div>
+      <div class="tags"><span class="tag x">X</span></div>
+    </div>
+
+    <div class="news-item">
+      <div class="idx">11</div>
+      <div class="body">
+        <div class="title">SambaNova获10亿美元融资</div>
+        <div class="desc">AI芯片公司SambaNova完成10亿美元融资，估值达110亿美元。大模型推理芯片赛道持续火热</div>
+        <div class="meta">融资 · SambaNova · AI芯片 · $1B</div>
+      </div>
+      <div class="tags"><span class="tag x">X</span></div>
+    </div>
+
+    <div class="news-item">
+      <div class="idx">12</div>
+      <div class="body">
+        <div class="title">Antidoom：修复推理模型的"死亡循环"</div>
+        <div class="desc">Liquid AI开源FTPO方法，针对模型反复输出"Wait/So/Alternatively"的死亡循环问题。Qwen3.5-4B从22.9%降至1%，训练仅需数小时</div>
+        <div class="meta">开源研究 · Liquid AI · Doom Loop · FTPO</div>
+      </div>
+      <div class="tags"><span class="tag x">X</span></div>
+    </div>
+
+    <div class="news-item">
+      <div class="idx">13</div>
+      <div class="body">
+        <div class="title">Paradigm成立12亿美元AI+机器人基金</div>
+        <div class="desc">顶级加密VC Paradigm进军AI领域，新基金投向自主系统、无人机和国防科技。已投资Zipline和True Anomaly</div>
+        <div class="meta">基金 · Paradigm · AI · Robotics · $1.2B</div>
+      </div>
+      <div class="tags"><span class="tag x">X</span></div>
+    </div>
+
+    <div class="news-item">
+      <div class="idx">14</div>
+      <div class="body">
+        <div class="title">OpenAI发布编码评估新框架</div>
+        <div class="desc">OpenAI论文提出"区分信号与噪声"的编码评测方法论，帮助更准确地衡量AI编码能力的真实进步</div>
+        <div class="meta">研究 · OpenAI · Coding Eval · Signal vs Noise</div>
+      </div>
+      <div class="tags"><span class="tag hn">HN</span></div>
+    </div>
+
+    <div class="news-item">
+      <div class="idx">15</div>
+      <div class="body">
+        <div class="title">EU私信扫描法案卷土重来</div>
+        <div class="desc">欧盟距离通过允许扫描私人消息的法规仅一步之遥。355点 HN讨论，隐私倡导者强烈反对</div>
+        <div class="meta">政策法规 · EU · 私信扫描 · Privacy</div>
+      </div>
+      <div class="tags"><span class="tag hn">HN</span></div>
+    </div>
+
+  </div>
+
+  <!-- Stats -->
+  <div class="section-title"><span class="num">📊</span> 今日数据</div>
+  <div class="stats">
+    <div class="stat"><div class="num">1.5T</div><div class="label">Grok 4.5参数量</div></div>
+    <div class="stat"><div class="num">$1.97</div><div class="label">SWE-1.7 每任务成本</div></div>
+    <div class="stat"><div class="num">76.6%</div><div class="label">Robostral R2R-CE成功率</div></div>
+    <div class="stat"><div class="num">1,000</div><div class="label">SWE-1.7 推理 tok/s</div></div>
+    <div class="stat"><div class="num">$335B</div><div class="label">2026 AI企业债总额</div></div>
+    <div class="stat"><div class="num">$28B</div><div class="label">SK Hynix 纳斯达克融资</div></div>
+  </div>
+
+  <!-- Deep Dives -->
+  <div class="section-title"><span class="num">🔍</span> 深度分析</div>
+  <div class="dives">
+
+    <div class="dive">
+      <h3><span class="num">01</span> Grok 4.5 + GPT-5.6 + GPT-Live：模型大战的白热化时刻</h3>
+      <p>7月8日至9日，AI行业迎来了历史上最密集的模型发布潮。xAI正式推出Grok 4.5（V9基础模型，约1.5万亿参数），在编码和智能体任务上达到Opus级水准，定价仅为$2/$6每百万token。与此同时，OpenAI预告了GPT-5.6三兄弟（Sol旗舰、Terra中端、Luna轻量），并上线了GPT-Live全双工语音模型——这三个产品几乎同时落地，标志着模型竞争从"谁有最好的单模型"升级为"谁有最好的模型组合"。</p>
+      <p>值得注意的是，xAI在定价策略上采取了明显的"破坏性定价"路线——Grok 4.5以低于主要竞品50-70%的价格提供接近前沿的性能，同时Musk透露未来升级1M上下文窗口和在自研C/C++推理软件上实现"翻倍"速度仍在路上。而OpenAI的反击是分层产品矩阵：用Sol守住前沿高地，用Terra覆盖主流市场，用Luna抢占高吞吐场景。这种"价格锚定+层级覆盖"的竞争格局，与此前的单一模型对抗截然不同。</p>
+      <p>深层信号：AI模型的商品化正在加速。当Grok 4.5能以$2/M输入token的价格提供Opus级编码能力，当GPT-5.5级性能被下放到Terra（半价），我们看到的是"好得够用"的价格基准不断下移。对于企业用户来说，这意味着一件事：AI能力的部署成本正在以季度为单位下降。未来6个月，智能体应用的成本结构将发生根本性变化。</p>
+      <div class="links">
+        <a href="https://x.ai/news/grok-4-5" target="_blank">xAI 官方公告</a>
+        <a href="https://openai.com/index/introducing-gpt-live/" target="_blank">GPT-Live 官方介绍</a>
+        <a href="https://x.com/elonmusk/status/2074963933199282491" target="_blank">Elon Musk 详解 Grok 4.5</a>
+        <a href="https://news.ycombinator.com/item?id=48835111" target="_blank">HN: Grok 4.5 讨论</a>
+      </div>
+    </div>
+
+    <div class="dive">
+      <h3><span class="num">02</span> Mistral Robostral Navigate：具身AI的"去LiDAR化"信号</h3>
+      <p>Mistral AI发布的Robostral Navigate是今天最具技术深度的发布之一。这个8B参数的机器人导航模型仅需一个普通RGB摄像头，在R2R-CE连续环境基准上达到76.6%成功率，超越此前最佳单摄像头方案9.7个百分点，甚至超过了部分多传感器系统。训练过程完全在仿真中进行（约40万条轨迹、6000个场景），零真实世界数据。通过前缀缓存技术将训练token量压缩了22倍，将数月训练缩短至数天。</p>
+      <p>Mistral选择了"指向式导航"（pointing-based navigation）作为核心范式：模型不预测抽象动作，而是直接输出当前摄像头画面中的指向坐标。这一设计使模型对不同机器人形态（轮式、腿式、飞行器）和不同相机参数表现出良好的跨体迁移能力。更重要的是，它消除了对LiDAR、深度传感器等昂贵硬件的依赖——每台机器人的感知成本可能下降数千美元。</p>
+      <p>更深层的信号：Mistral正在系统性地构建"物理AI"能力栈。从语言模型到视觉编码再到现在的机器人导航，Mistral正在走一条与OpenAI和Anthropic截然不同的路径——不只在数字世界竞争，而是将AI能力延伸到物理世界。当导航能力成为"基本盘"，行业竞争将向上游转移到操作（manipulation）、长程任务规划和真实世界鲁棒性——这些才是真正的护城河。Robostral Navigate标志着"具身AI"从实验室概念走向可商业部署的拐点。</p>
+      <div class="links">
+        <a href="https://mistral.ai/news/robostral-navigate/" target="_blank">Mistral 官方博客</a>
+        <a href="https://news.ycombinator.com/item?id=48832212" target="_blank">HN 讨论</a>
+        <a href="https://x.com/MistralAI/status/2074856309438980145" target="_blank">Mistral 官方X宣布</a>
+      </div>
+    </div>
+
+    <div class="dive">
+      <h3><span class="num">03</span> Meta Muse Image：AI隐私的转折点？</h3>
+      <p>Meta推出的Muse Image AI图像生成工具，允许用户通过@提及任何公开Instagram账号来生成包含该用户形象和风格的AI图像——且默认开启、不通知被引用者。关闭入口隐藏在"分享与复用"深层设置中，且关闭后不删除已生成的图像。这一设计引发了自2023年AI图像生成兴起以来最强烈的隐私争议。批评者将其称为"隐私地雷"和"深度伪造的工业化"。</p>
+      <p>这场争议的特殊之处在于，Meta的策略几乎是故意绕过现有的隐私保护惯例——默认开启、无通知机制、退出设置难找且效果有限。与之前AI公司"先发布再修复"的模式不同，Muse Image的设计决定明显是在"规模优先"和"隐私优先"之间选择了前者。更值得关注的是，Meta同步更新了用户协议，允许默认使用公开的Instagram/Facebook照片和视频进行AI训练和生成，将"默认采集"写进了服务条款。</p>
+      <p>Muse Image争议与同日的两条政策新闻（Illinois全美最严AI安全法要求年审、EU私信扫描法案复活）形成了有趣的共振——这可能是"AI监管潮"的真正开始。当产品设计和法规监管同时聚焦"默认是否知情同意"这一核心问题时，2026年下半年我们很可能会看到更多"事前审计"而非"事后追责"的监管模式。对AI公司而言，产品的隐私默认设置正在从"可优化项"变成"合规红线"。</p>
+      <div class="links">
+        <a href="https://x.com/PureVPNcom/status/2074805484075561194" target="_blank">Muse Image隐私分析</a>
+        <a href="https://cyberinsider.com/eu-now-one-step-away-from-reviving-private-message-scanning-rules/" target="_blank">EU私信扫描法案</a>
+        <a href="https://x.com/breakaleggie/status/2074964032549695852" target="_blank">Muse退出设置指南</a>
+        <a href="https://news.ycombinator.com/item?id=48829312" target="_blank">HN: EU私信扫描讨论</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    每日AI精选 · 2026年7月9日<br>
+    数据来源: Hacker News · X/Twitter · OpenAI · xAI · Mistral · Meta · Microsoft · Cognition · Liquid AI<br>
+    <a href="index.html">← 返回目录</a> · 自动生成于 Hermes Agent
+  </footer>
+
+</div>
+</body>
+</html>
