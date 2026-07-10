@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日AI精选 · 2026年7月10日</title>
+<style>
+:root {
+  --page: #fdfaf3;
+  --surface: #fff;
+  --surface-alt: #fcfaf5;
+  --border: #e8dcc8;
+  --text: #2c2416;
+  --muted: #7a6e5c;
+  --accent: #8b6914;
+  --accent-lt: #b8942e;
+  --positive: #4d7c0f;
+  --warning: #b45309;
+  --info: #0e7490;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: var(--page);
+  color: var(--text);
+  font-family: -apple-system, "PingFang SC", "Noto Sans SC", "Helvetica Neue", sans-serif;
+  line-height: 1.7;
+  padding: 40px 20px;
+}
+.container { max-width: 720px; margin: 0 auto; }
+
+/* Hero */
+.hero { text-align: center; margin-bottom: 40px; }
+.badge {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-bottom: 16px;
+}
+.hero h1 { font-size: 32px; font-weight: 700; margin-bottom: 8px; }
+.hero .subtitle { color: var(--muted); font-size: 15px; margin-bottom: 6px; }
+.hero .key-stories { font-size: 14px; color: var(--accent); margin-bottom: 12px; font-weight: 500; }
+.hero .sources { font-size: 12px; color: var(--muted); }
+.hero .sources span { display: inline-block; margin: 0 3px; }
+
+/* Theme */
+.theme {
+  background: var(--surface-alt);
+  border-left: 4px solid var(--accent);
+  padding: 18px 22px;
+  border-radius: 0 8px 8px 0;
+  margin-bottom: 36px;
+  font-size: 14px;
+  color: var(--text);
+  line-height: 1.8;
+}
+.theme strong { color: var(--accent); }
+
+/* Section headers */
+.section-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* News items */
+.news-list { margin-bottom: 36px; }
+.news-item {
+  display: flex;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+  align-items: flex-start;
+}
+.news-item:last-child { border-bottom: none; }
+.news-item .idx {
+  flex: 0 0 32px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--accent);
+  text-align: right;
+  line-height: 1.5;
+}
+.news-item .body { flex: 1; min-width: 0; }
+.news-item .title {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.5;
+  margin-bottom: 2px;
+}
+.news-item .desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.5;
+  margin-bottom: 4px;
+}
+.news-item .meta {
+  font-size: 12px;
+  color: var(--muted);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  align-items: center;
+}
+.news-item .tags {
+  flex: 0 0 auto;
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+/* Tags */
+.tag {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 500;
+}
+.tag.hn { background: rgba(255,102,0,.1); color: #ff6600; }
+.tag.x { background: rgba(29,161,242,.1); color: #1da1f2; }
+.tag.ph { background: rgba(218,85,47,.1); color: #da552f; }
+.tag.ih { background: rgba(34,197,94,.1); color: #22c55e; }
+.tag.ma { background: rgba(0,120,212,.1); color: #0078d4; }
+
+/* Stats */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 36px;
+}
+.stat {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+}
+.stat .num {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1.2;
+}
+.stat .label { font-size: 12px; color: var(--muted); margin-top: 4px; line-height: 1.3; }
+
+/* Deep Dives */
+.dives { margin-bottom: 36px; }
+.dive {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 24px;
+  margin-bottom: 18px;
+}
+.dive h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.dive h3 .num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 50%;
+  font-size: 14px;
+  font-weight: 700;
+  flex: 0 0 28px;
+}
+.dive p {
+  font-size: 14px;
+  line-height: 1.8;
+  margin-bottom: 12px;
+  color: var(--text);
+}
+.dive p:last-of-type { margin-bottom: 14px; }
+.dive .links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+.dive .links a {
+  font-size: 13px;
+  color: var(--accent-lt);
+  text-decoration: none;
+  padding: 4px 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  transition: background 0.15s;
+}
+.dive .links a:hover { background: var(--surface-alt); }
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding-top: 30px;
+  border-top: 2px solid var(--border);
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 2;
+}
+.footer a { color: var(--accent-lt); text-decoration: none; }
+.footer a:hover { text-decoration: underline; }
+
+/* Responsive */
+@media (max-width: 600px) {
+  body { padding: 24px 14px; }
+  .hero h1 { font-size: 26px; }
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  .news-item { flex-wrap: wrap; }
+  .news-item .tags { width: 100%; margin-left: 46px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Hero -->
+<div class="hero">
+  <div class="badge">每日 AI 精选</div>
+  <h1>2026年7月10日 · 星期五</h1>
+  <div class="subtitle">12条精选 · 3个深度分析</div>
+  <div class="key-stories">GPT-5.6 · Grok 4.5 · Muse Spark 1.1</div>
+  <div class="sources">
+    来源: <span class="tag hn">HN</span> <span class="tag x">X</span> <span class="tag ih">IH</span>
+  </div>
+</div>
+
+<!-- Today's Theme -->
+<div class="theme">
+  <strong>今日主题：AI 巨头同日对垒</strong><br>
+  7月9日成为2026年AI史上罕见的一天——OpenAI、xAI、Meta三家公司同时发布重磅产品。OpenAI推出GPT-5.6系列（Sol/Terra/Luna）并开启Work时代，xAI在同日向公众开放Grok 4.5并深度集成Cursor，Meta则以Muse Spark 1.1正式杀入API市场。三款模型同日上架的激烈竞争，加上Anthropic签署$19亿数据中心租约、Nvidia市值蒸发$1万亿，共同勾勒出AI行业在模型能力、基础设施和资本层面全面白热化的图景。
+</div>
+
+<!-- News Section -->
+<div class="section-title">📰 精选新闻</div>
+<div class="news-list">
+
+<div class="news-item">
+  <div class="idx">01</div>
+  <div class="body">
+    <div class="title">OpenAI 发布 GPT-5.6 系列：Sol/Terra/Luna</div>
+    <div class="desc">三款模型覆盖旗舰智能、平衡成本与高效推理，同步推出 ChatGPT Work 持久化智能体</div>
+    <div class="meta">模型发布 · Sol旗舰推理 · ChatGPT Work自主执行 · 代码与智能体基准大幅提升</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">02</div>
+  <div class="body">
+    <div class="title">xAI 发布 Grok 4.5，同日上线 Cursor</div>
+    <div class="desc">Grok 4.5定位Opus级别编码模型，500K上下文，$2/$6每百万token，已可于Cursor直接使用</div>
+    <div class="meta">模型发布 · Cursor深度整合 · 售价$2/$6 · 编码与智能体驱动</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">03</div>
+  <div class="body">
+    <div class="title">Meta Muse Spark 1.1 发布，Zuck时隔三年首次发X</div>
+    <div class="desc">Meta正式推出Muse Spark及Meta Model API公开预览，100万token上下文，定位智能体编排</div>
+    <div class="meta">模型发布 · Meta API市场 · 合作伙伴Replit/Box/Cline · $1.25/$4.25定价</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">04</div>
+  <div class="body">
+    <div class="title">Anthropic 签署 $19亿 数据中心租约</div>
+    <div class="desc">与TeraWulf签署20年401MW肯塔基州AI数据中心租约，预计2027年下半年通电</div>
+    <div class="meta">基础设施 · TeraWulf转型AI房东 · $19亿合同 · 前比特币矿场转型</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span><span class="tag hn">HN</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">05</div>
+  <div class="body">
+    <div class="title">GLM 5.2 企业编码评测与 Claude Opus 4.8 持平</div>
+    <div class="desc">Databricks内部百万行代码库测试中，GLM 5.2与Opus 4.8质量持平，成本低34%</div>
+    <div class="meta">开源模型 · 744B MoE · 100万Token上下文 · FrontSWE 74.4 · $1.28每任务</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">06</div>
+  <div class="body">
+    <div class="title">EU 通过 Chat Control 1.0 扩展至 2028 年</div>
+    <div class="desc">欧洲议会以276:314未达否决门槛，临时CSAM扫描框架延续，端到端加密暂获豁免</div>
+    <div class="meta">监管 · 加密争议 · 永久版仍在谈判 · Signal/WhatsApp暂不受影响</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">07</div>
+  <div class="body">
+    <div class="title">Nvidia 市值蒸发约 $1万亿</div>
+    <div class="desc">Nvidia市值回落至AI热潮前水平，反映市场对AI资本支出回报率的重新评估</div>
+    <div class="meta">市场 · 资本重估 · AI芯片需求降温预期 · 竞争对手涌入</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">08</div>
+  <div class="body">
+    <div class="title">OpenAI 推出 GPT-Live 语音大升级</div>
+    <div class="desc">ChatGPT语音模式重大升级，支持打断、更好的轮换和实时翻译，语音作为主要交互界面</div>
+    <div class="meta">产品升级 · 语音交互 · 实时翻译 · 打断能力</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">09</div>
+  <div class="body">
+    <div class="title">Meta 用自定义桥接芯片复用旧服务器内存</div>
+    <div class="desc">Meta研发CXL桥接ASIC，将旧服务器RAM重新用于新服务器，大幅降低数据中心成本</div>
+    <div class="meta">硬件创新 · 数据中心 · 成本优化 · 环保 · 303 HN points</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">10</div>
+  <div class="body">
+    <div class="title">Lovable 以 $13.2B 估值融资 $300M</div>
+    <div class="desc">AI构建平台Lovable正接近$13.2B估值，融资规模$300M，成为欧洲最大AI初创公司之一</div>
+    <div class="meta">融资 · AI平台 · $13.2B估值 · 欧洲AI</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">11</div>
+  <div class="body">
+    <div class="title">Prime Intellect 融资 $130M 开发企业智能体</div>
+    <div class="desc">企业AI智能体平台Prime Intellect完成$130M融资，加速自主工作流产品化</div>
+    <div class="meta">融资 · 企业智能体 · $130M · 自主工作流</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">12</div>
+  <div class="body">
+    <div class="title">OpenClaw 开源 AI 智能体爆火，成立基金会</div>
+    <div class="desc">本地优先的开源个人AI智能体OpenClaw病毒式增长，集成Grok 4.5，成立501(c)(3)基金会治理</div>
+    <div class="meta">开源 · 本地AI · Telegram/Discord/Slack · 基金会成立 · 安全治理</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+</div>
+
+<!-- Stats -->
+<div class="section-title">📊 今日数据</div>
+<div class="stats">
+  <div class="stat">
+    <div class="num">1037</div>
+    <div class="label">GPT-5.6 HN 最高分</div>
+  </div>
+  <div class="stat">
+    <div class="num">$19B</div>
+    <div class="label">Anthropic 数据中心租约</div>
+  </div>
+  <div class="stat">
+    <div class="num">74.4</div>
+    <div class="label">GLM 5.2 FrontSWE 得分</div>
+  </div>
+  <div class="stat">
+    <div class="num">3</div>
+    <div class="label">同日发布旗舰模型</div>
+  </div>
+  <div class="stat">
+    <div class="num">$1T</div>
+    <div class="label">Nvidia 市值蒸发</div>
+  </div>
+  <div class="stat">
+    <div class="num">$13.2B</div>
+    <div class="label">Lovable 估值</div>
+  </div>
+</div>
+
+<!-- Deep Dives -->
+<div class="section-title">🔍 深度分析</div>
+<div class="dives">
+
+<div class="dive">
+  <h3><span class="num">1</span> 前所未有的同日对决：GPT-5.6 vs Grok 4.5 vs Muse Spark</h3>
+  <p>2026年7月9日将成为AI史上的一个标志性日期——OpenAI、xAI、Meta三家公司在同一天发布了各自的旗舰级模型。这并非偶然的时间巧合，而是市场竞争白热化的必然结果：在模型能力快速趋同的背景下，谁能率先占领开发者和企业的"心智份额"，谁就掌握了下一个阶段的主动权。</p>
+  <p>三款模型的定位差异值得关注。GPT-5.6通过Sol/Terra/Luna三档定价实现了从旗舰推理到成本效率的全覆盖，配合ChatGPT Work将能力延伸到持久化工作流；Grok 4.5选择了最务实的路径——深度绑定Cursor，直接服务于每天使用AI编码的数百万开发者；Muse Spark 1.1则另辟蹊径，以智能体编排为核心卖点，强调并行子智能体、计算机使用和零样本工具调用能力。</p>
+  <p>更深层的信号在于基础设施的争夺。Meta以极具侵略性的定价（$1.25/$4.25每百万token）杀入API市场，xAI则通过Cursor合作绕过API分销壁垒直接触达用户。这标志着AI竞争已经从前沿模型排行榜的"数字游戏"转向了定价策略、分销渠道和应用生态的全面战争。对开发者来说，这无疑是黄金时代——更多的选择、更低的价格、更强的能力。</p>
+  <div class="links">
+    <a href="https://openai.com/index/gpt-5-6/" target="_blank">OpenAI GPT-5.6 官方</a>
+    <a href="https://x.com/OpenAI/status/2075274271845404744" target="_blank">OpenAI 官宣 X</a>
+    <a href="https://x.com/grok/status/2075123730238369971" target="_blank">Grok 4.5 发布公告</a>
+    <a href="https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/" target="_blank">Muse Spark 1.1 公告</a>
+  </div>
+</div>
+
+<div class="dive">
+  <h3><span class="num">2</span> AI基础设施的十字路口：$19亿租约与$1万亿蒸发</h3>
+  <p>同一天，Anthropic签署了$19亿的20年数据中心租约，而Nvidia市值蒸发了约$1万亿。这两条新闻表面上矛盾，实则反映了AI行业正在经历的深刻结构性变化。Anthropic的租约——与曾经是比特币矿场的TeraWulf合作，将肯塔基州一座废弃铝冶炼厂改造成401MW的AI数据中心——揭示了AI公司获取算力的新范式：它们不再仅仅租赁云服务，而是直接锁定土地、电力和物理基础设施。</p>
+  <p>TeraWulf的故事尤其值得玩味。这家曾经被资本市场抛弃的比特币矿企，凭借手中已有的电力资源和土地，摇身一变成为了"AI房东"。它的股价在消息公布后暴涨19%。这并非孤例——整个加密货币挖矿行业正在经历向AI基础设施的系统性转型，因为两种业务的核心资产完全相同：电力、土地、冷却系统和数据中心运营能力。</p>
+  <p>与此同时，Nvidia的市值回落至AI热潮前水平，反映了市场对AI资本支出回报率日益增长的怀疑。一方面，Anthropic愿意为未来20年锁定$19亿的算力；另一方面，投资者开始质疑每年数百亿美元的AI芯片采购能否产生相应的收入回报。这两股力量的角力，将在未来12-18个月内决定AI行业的下一个走向——是继续疯狂扩张，还是一个理性的回调。对AI从业者来说，基础设施成本的长期下降趋势不可逆转，但短期波动的风险正在加大。</p>
+  <div class="links">
+    <a href="https://x.com/BusinessofDave/status/2075267215704879527" target="_blank">Anthropic × TeraWulf 交易详情</a>
+    <a href="https://x.com/theneurondaily/status/2075219409736814943" target="_blank">The Neuron Nvidia 市值报道</a>
+    <a href="https://www.theregister.com/systems/2026/06/29/zuck-saves-meta-bucks-by-reusing-memory-from-old-servers-with-a-custom-cxl-asic/5263483" target="_blank">Meta 旧内存复用方案</a>
+  </div>
+</div>
+
+<div class="dive">
+  <h3><span class="num">3</span> 开源生态的崛起：GLM 5.2、OpenClaw 与 AgentLens</h3>
+  <p>在大模型巨头的聚光灯之外，开源生态正在经历一场静悄悄的质变。智谱GLM 5.2在Databricks内部百万行代码库评测中与Claude Opus 4.8统计学持平，FrontSWE得分74.4（Opus 4.8为75.1），而单任务成本仅$1.28 vs $1.94。Databricks已将其选为默认编码模型。这意味着开源模型首次在企业级真实生产环境中达到了与顶级闭源模型相当的水平。</p>
+  <p>另一条值得关注的线索是OpenClaw的爆发。这个本地优先、开源的个人AI智能体在短时间内获得了病毒式增长，支持Telegram/Discord/Slack等多种消息平台，并可接入Grok 4.5。其创建者已经成立了501(c)(3)非营利基金会来治理项目安全和方向。OpenClaw的成功标志着AI智能体领域正在从"大厂专供"走向"人人可运行"——你只需要一台自己的服务器。</p>
+  <p>AgentLens——一个新的开源智能体评测基准——的出现也值得关注。它不再仅仅评估任务完成率，而是评测智能体与用户的完整交互轨迹，使用形式化验证和LLM评审结合的方法来诊断行为。这反映了行业正在从"模型能力竞赛"转向"系统可靠性竞赛"的深层趋势。当开源模型的能力追赶上来，真正的差异化将落在工具链、可靠性和生态系统上。</p>
+  <div class="links">
+    <a href="https://x.com/rohanpaul_ai/status/2075140792113656082" target="_blank">GLM 5.2 Databricks 评测</a>
+    <a href="https://github.com/JustVugg/colibri" target="_blank">Colibri: 在笔记本运行 GLM 5.2</a>
+    <a href="https://x.com/i/status/2075367807273865397" target="_blank">OpenClaw 开源智能体</a>
+    <a href="https://x.com/AINativeF/status/2075368417151144096" target="_blank">AgentLens 基准发布</a>
+  </div>
+</div>
+
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>每日AI精选 · 2026年7月10日</p>
+  <p>数据来源: Hacker News · X/Twitter · Indie Hackers</p>
+  <p>
+    <a href="index.html">📖 查看往期</a>
+    &nbsp;·&nbsp;
+    <a href="https://github.com/macmini-j/daily-ai-digest" target="_blank">GitHub</a>
+  </p>
+  <p style="margin-top:8px;font-size:11px;color:#b8a88a;">自动生成 · AI编辑可能存在偏差</p>
+</div>
+
+</div>
+</body>
+</html>
