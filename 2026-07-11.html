@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日AI精选 · 2026年7月11日</title>
+<style>
+:root {
+  --page: #fdfaf3;
+  --surface: #fcfaf5;
+  --card: #fff;
+  --border: #e8dcc8;
+  --text: #2c2416;
+  --muted: #7a6e5c;
+  --accent: #8b6914;
+  --accent-lt: #b8942e;
+  --positive: #4d7c0f;
+  --warning: #b45309;
+  --info: #0e7490;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
+  background: var(--page);
+  color: var(--text);
+  line-height: 1.7;
+  padding: 2rem 1rem;
+}
+.container { max-width: 800px; margin: 0 auto; }
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 3rem 0 2rem;
+  border-bottom: 2px solid var(--border);
+  margin-bottom: 2rem;
+}
+.badge {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.3rem 1rem;
+  border-radius: 20px;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.8rem;
+}
+.hero h1 { font-size: 2rem; color: var(--text); margin-bottom: 0.5rem; }
+.hero .subtitle {
+  color: var(--muted);
+  font-size: 0.95rem;
+  max-width: 600px;
+  margin: 0 auto 0.5rem;
+}
+.hero .subtitle strong { color: var(--accent); }
+.hero .sources {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-top: 0.5rem;
+}
+.hero .sources span { margin: 0 0.3rem; }
+
+/* Theme */
+.theme {
+  background: var(--surface);
+  border-left: 4px solid var(--accent);
+  padding: 1.5rem 2rem;
+  margin-bottom: 2.5rem;
+  border-radius: 0 8px 8px 0;
+}
+.theme .label {
+  font-weight: 700;
+  color: var(--accent);
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+.theme p { color: var(--text); font-size: 0.95rem; line-height: 1.8; }
+
+/* Section title */
+.section-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text);
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--border);
+  margin-bottom: 1.5rem;
+}
+
+/* News list */
+.news-list { margin-bottom: 2.5rem; }
+.news-item {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border);
+  align-items: flex-start;
+}
+.news-item:last-child { border-bottom: none; }
+.idx {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--accent);
+  min-width: 2rem;
+  text-align: right;
+  padding-top: 0.1rem;
+  flex-shrink: 0;
+}
+.body { flex: 1; }
+.title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.2rem;
+}
+.desc { font-size: 0.88rem; color: var(--muted); margin-bottom: 0.3rem; }
+.meta {
+  font-size: 0.78rem;
+  color: var(--accent-lt);
+}
+.tags {
+  display: flex;
+  gap: 0.3rem;
+  flex-shrink: 0;
+  padding-top: 0.2rem;
+}
+.tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+}
+.tag.hn { background: rgba(255,102,0,.1); color: #ff6600; }
+.tag.x { background: rgba(29,161,242,.1); color: #1da1f2; }
+.tag.ph { background: rgba(218,85,47,.1); color: #da552f; }
+.tag.ma { background: rgba(0,120,212,.1); color: #0078d4; }
+.tag.ih { background: rgba(34,197,94,.1); color: #22c55e; }
+
+/* Stats */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+.stat {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.2rem 1rem;
+  text-align: center;
+}
+.stat .num {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 0.3rem;
+}
+.stat .label {
+  font-size: 0.78rem;
+  color: var(--muted);
+  line-height: 1.4;
+}
+.stat .sub {
+  font-size: 0.72rem;
+  color: var(--accent-lt);
+  margin-top: 0.2rem;
+}
+
+/* Deep Dives */
+.dives { margin-bottom: 2.5rem; }
+.dive {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.5rem 1.8rem;
+  margin-bottom: 1.2rem;
+}
+.dive h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.8rem;
+}
+.dive h3 .num {
+  color: var(--accent);
+  margin-right: 0.5rem;
+}
+.dive p {
+  font-size: 0.92rem;
+  color: var(--text);
+  margin-bottom: 0.8rem;
+  line-height: 1.8;
+}
+.dive .links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  margin-top: 1rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid var(--border);
+}
+.dive .links a {
+  font-size: 0.82rem;
+  color: var(--accent-lt);
+  text-decoration: none;
+}
+.dive .links a:hover { text-decoration: underline; }
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 2rem 0;
+  border-top: 2px solid var(--border);
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 2;
+}
+.footer a { color: var(--accent-lt); text-decoration: none; }
+.footer a:hover { text-decoration: underline; }
+
+@media (max-width: 600px) {
+  .hero h1 { font-size: 1.5rem; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .news-item { flex-wrap: wrap; }
+  .tags { margin-left: 3rem; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Hero -->
+<div class="hero">
+  <div class="badge">每日AI精选</div>
+  <h1>2026年7月11日 · 星期六</h1>
+  <div class="subtitle">
+    <strong>Apple起诉OpenAI</strong> · <strong>GPT-5.6证明数学猜想</strong> · <strong>开源模型狂潮</strong>
+  </div>
+  <div class="sources">
+    12条精选 + 3个深度分析
+    <br>来源：
+    <span>Hacker News</span>
+    <span>X</span>
+  </div>
+</div>
+
+<!-- Today's Theme -->
+<div class="theme">
+  <div class="label">📌 今日主题：模型军备竞赛白热化</div>
+  <p>
+    7月的第二周，AI行业进入了一个罕见的密集发布期。OpenAI同时推出GPT-5.6系列和ChatGPT Work，并用64-agent的Ultra模式证明了一个50年未解的图论猜想——这是AI首次独立产出可被数学社区严肃对待的原创成果。与此同时，Apple对OpenAI提起的巨额诉讼曝光了硅谷最激烈的人才与IP争夺战——被挖走400+员工，前高管携机密跳槽。而Meta的Muse Spark 1.1、Tencent的Hy3、Meituan的LongCat-2.0等开源模型纷至沓来，Ollama以6500万美元融资宣告本地AI正式从小众走向主流。这不仅是产品发布的一周，更是AI行业格局重塑的一周。
+  </p>
+</div>
+
+<!-- 精选新闻 -->
+<div class="section-title">🔥 精选新闻 · 12条</div>
+<div class="news-list">
+
+  <div class="news-item">
+    <div class="idx">01</div>
+    <div class="body">
+      <div class="title">Apple起诉OpenAI：窃取商业机密，挖角400+员工</div>
+      <div class="desc">Apple在加州北区联邦法院起诉OpenAI，指控其系统性地窃取与消费AI硬件相关的商业机密。前Apple硬件负责人Tang Tan出走OpenAI担任首席硬件官，另一名前员工Chang Liu被指控利用罕见漏洞持续访问Apple内部网络并下载机密文件。</div>
+      <div class="meta">法律 · 知识产权 · HN 451pts · 227评论</div>
+    </div>
+    <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">02</div>
+    <div class="body">
+      <div class="title">GPT-5.6 Sol Ultra证明Cycle Double Cover猜想</div>
+      <div class="desc">OpenAI的GPT-5.6 Sol Ultra模式用64个协作子智能体在不到1小时内产出了Cycle Double Cover猜想的完整证明，这是一个困扰图论学界50年的开放问题。证明PDF和提示词均已公开，社区初步验证通过了Petersen图等关键测试案例。</div>
+      <div class="meta">数学 · 推理 · HN 339pts · 272评论</div>
+    </div>
+    <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">03</div>
+    <div class="body">
+      <div class="title">OpenAI全面发布GPT-5.6系列与ChatGPT Work</div>
+      <div class="desc">OpenAI推出GPT-5.6三款模型（Sol、Terra、Luna）以及面向企业的ChatGPT Work。ChatGPT桌面应用全面重构，集成了Codex和Atlas，支持Ultra多智能体模式。GPT-5.6在ARC-AGI基准上达成重要里程碑。</div>
+      <div class="meta">模型发布 · 企业 · X</div>
+    </div>
+    <div class="tags"><span class="tag x">X</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">04</div>
+    <div class="body">
+      <div class="title">Meta发布Muse Spark 1.1：百万上下文，Agent优先</div>
+      <div class="desc">Meta Superintelligence Labs推出Muse Spark 1.1多模态推理模型，支持100万token上下文窗口，在工具使用、计算机控制、子智能体编排等Agent场景表现领先。通过Meta Model API向外部开发者开放，兼容OpenAI接口。</div>
+      <div class="meta">开源 · 多模态 · X</div>
+    </div>
+    <div class="tags"><span class="tag x">X</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">05</div>
+    <div class="body">
+      <div class="title">xAI发布Grok 4.5：与Cursor合作，代码能力飞跃</div>
+      <div class="desc">xAI推出Grok 4.5，与Cursor团队联合开发。早期反馈显示在大规模代码库处理上表现强劲，token效率提升2倍，定价具有竞争力。进一步巩固了xAI在编程助手赛道的地位。</div>
+      <div class="meta">模型发布 · 编程 · X</div>
+    </div>
+    <div class="tags"><span class="tag x">X</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">06</div>
+    <div class="body">
+      <div class="title">Ollama获6500万美元融资，逼近900万用户</div>
+      <div class="desc">本地大模型运行工具Ollama完成6500万美元融资，用户数已接近900万，GitHub 17.6万星。这一融资被解读为本地AI从开发者玩具走向企业级基础设施的关键信号，Fortune 500公司已开始采用。</div>
+      <div class="meta">融资 · 开源 · 本地AI · X</div>
+    </div>
+    <div class="tags"><span class="tag x">X</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">07</div>
+    <div class="body">
+      <div class="title">Anthropic企业订阅超越OpenAI</div>
+      <div class="desc">根据Ramp支付平台数据（经Fortune报道），Anthropic的Claude在商业订阅收入上已超越ChatGPT。企业客户用真金白银投票，选择Claude而非GPT系列的格局正在形成。</div>
+      <div class="meta">商业 · 市场 · X</div>
+    </div>
+    <div class="tags"><span class="tag x">X</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">08</div>
+    <div class="body">
+      <div class="title">MiniMax完成20亿美元融资</div>
+      <div class="desc">中国AI独角兽MiniMax完成新一轮20亿美元融资，估值持续攀升。公司此前已预告一个2.7T参数的巨型模型。这一轮融资规模使其在全球AI创业公司中跻身前列。</div>
+      <div class="meta">融资 · 中国 · X</div>
+    </div>
+    <div class="tags"><span class="tag x">X</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">09</div>
+    <div class="body">
+      <div class="title">腾讯开源Hy3：295B MoE，Apache 2.0许可</div>
+      <div class="desc">腾讯推出Hy3混合专家模型，295B总参数、21B激活参数，采用Apache 2.0开源协议。在推理、编程和Agent能力上表现突出，是中文开源模型阵营的最新力作。</div>
+      <div class="meta">开源 · 中国 · MoE · X</div>
+    </div>
+    <div class="tags"><span class="tag x">X</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">10</div>
+    <div class="body">
+      <div class="title">Mistral Leanstral 1.5：形式化证明达到SOTA</div>
+      <div class="desc">Mistral发布Leanstral 1.5，完全开源，在Lean 4形式化证明和代码验证上达到最优水平。这是开源模型在数学推理赛道上的重要突破，直接与GPT-5.6的数学能力形成竞争。</div>
+      <div class="meta">开源 · 数学 · 编程 · X</div>
+    </div>
+    <div class="tags"><span class="tag x">X</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">11</div>
+    <div class="body">
+      <div class="title">Cognition发布SWE-1.7：代码智能体重大升级</div>
+      <div class="desc">Cognition发布SWE-1.7，性能大幅提升，同时推出Vercel SDK和Better Auth集成。代码智能体赛道持续升温，SWE系列正成为AI编程的重要基础设施。</div>
+      <div class="meta">工具 · 编程 · Agent · X</div>
+    </div>
+    <div class="tags"><span class="tag x">X</span></div>
+  </div>
+
+  <div class="news-item">
+    <div class="idx">12</div>
+    <div class="body">
+      <div class="title">美国1300亿美元AI数据中心项目因能源瓶颈延期</div>
+      <div class="desc">报道指出超过1300亿美元的美国AI数据中心项目因能源和水资源限制而搁置。与此同时，Aalo Atomics宣布其全尺寸AI数据中心核反应堆达到临界状态——AI的能源问题正催生新一代核能创业公司。</div>
+      <div class="meta">基础设施 · 能源 · X</div>
+    </div>
+    <div class="tags"><span class="tag x">X</span></div>
+  </div>
+
+</div>
+
+<!-- 今日数据 -->
+<div class="section-title">📊 今日数据</div>
+<div class="stats-grid">
+  <div class="stat">
+    <div class="num">64</div>
+    <div class="label">GPT-5.6 Ultra协作子智能体数</div>
+    <div class="sub">1小时内合作证明50年难题</div>
+  </div>
+  <div class="stat">
+    <div class="num">400+</div>
+    <div class="label">Apple员工被OpenAI挖角</div>
+    <div class="sub">含24年资历硬件高管</div>
+  </div>
+  <div class="stat">
+    <div class="num">100万</div>
+    <div class="label">Meta Muse Spark 1.1上下文窗口</div>
+    <div class="sub">多模态Agent模型</div>
+  </div>
+  <div class="stat">
+    <div class="num">$65M</div>
+    <div class="label">Ollama融资额</div>
+    <div class="sub">900万用户 · 17.6万GitHub星</div>
+  </div>
+  <div class="stat">
+    <div class="num">$130B</div>
+    <div class="label">搁置的AI数据中心项目</div>
+    <div class="sub">能源与水为最大瓶颈</div>
+  </div>
+  <div class="stat">
+    <div class="num">$2B</div>
+    <div class="label">MiniMax融资额</div>
+    <div class="sub">中国AI独角兽</div>
+  </div>
+</div>
+
+<!-- 深度分析 -->
+<div class="section-title">🔍 深度分析 · 3篇</div>
+<div class="dives">
+
+  <div class="dive">
+    <h3><span class="num">01</span> GPT-5.6证明Cycle Double Cover猜想：AI数学推理的里程碑</h3>
+    <p>GPT-5.6 Sol Ultra在不到一小时内产出了一个困扰图论学界50年的定理证明，这或许是迄今为止AI在原创数学研究上取得的最重要进展。64个子智能体协同工作，每个负责不同子问题——有的构造引理，有的验证整体逻辑，有的专门针对Petersen图等著名的反例候选进行压力测试。最终产出的证明被描述为"相对简洁而优雅"，建立在8-流定理和Tutte群流定理之上，引入了一种新颖的线性代数技术。</p>
+    <p>社区初步验证结果令人振奋：证明在Petersen图等历史上曾击垮过许多假证明的关键案例上通过了测试。但需要冷静指出的是，Cycle Double Cover猜想拥有漫长的"假证明历史"，同行评审将是决定性的。无论最终结论如何，这一事件本身已经展示了多智能体系统（Ultra模式）在需要深度推理、自我验证和分工协作的任务上的潜力——它用的不是暴力搜索，而是结构化的数学思维。</p>
+    <p>更深层的信号是：OpenAI选择公开完整的证明PDF和提示词，说明他们自信能经受住审查。如果得到确认，这将是AI首次独立产出被数学家社区严肃对待的原创成果。它不只是一个AI能力的PR事件——它意味着在数学这个人类智慧的"最后堡垒"中，AI已从工具变成了合作者。</p>
+    <div class="links">
+      <a href="https://cdn.openai.com/pdf/04d1d1e4-bc75-476a-97cf-49055cd98d31/cdc_proof.pdf" target="_blank">📄 证明PDF (OpenAI)</a>
+      <a href="https://cdn.openai.com/pdf/04d1d1e4-bc75-476a-97cf-49055cd98d31/cdc_prompt.pdf" target="_blank">📄 完整提示词PDF</a>
+      <a href="https://news.ycombinator.com/item?id=48863490" target="_blank">💬 HN讨论帖 (339pts)</a>
+    </div>
+  </div>
+
+  <div class="dive">
+    <h3><span class="num">02</span> Apple起诉OpenAI：硅谷最激烈的人才与IP战争</h3>
+    <p>Apple在加州北区联邦法院对OpenAI提起的诉讼，细节之严重远超普通的竞业协议纠纷。起诉书指控OpenAI实施了"系统性、多层次的"商业机密窃取计划，涉及挖角超过400名前Apple员工。特别引人注目的是两位关键人物：Tang Tan，在Apple任职24年的硬件负责人，被认为是Apple硬件生态的核心设计师之一，如今担任OpenAI首席硬件官；Chang Liu则被指控在离职后利用罕见身份验证漏洞持续访问Apple内部网络，下载了数十份机密硬件文件，甚至在前同事电脑上留下带有嘲讽意味的消息。</p>
+    <p>这起诉讼的深层背景是OpenAI正在大举进军消费硬件领域。从Apple挖来的整个硬件团队正在秘密开发AI原生设备，而这直接与Apple的核心业务形成竞争。更讽刺的是，Apple和OpenAI目前仍保持着重要的合作伙伴关系——ChatGPT深度集成在iOS的Apple Intelligence中。这场诉讼可能彻底改变两个巨头之间的关系，甚至迫使Apple自研对话AI或转向其他合作方。</p>
+    <p>从产业角度看，这起案件凸显了AI硬件竞争已经到了白热化阶段。人才的稀缺性使得公司愿意冒法律风险"挖墙脚"，而商业机密的保护在流动的人才市场中变得更加困难。案件的走向——尤其是如果法院颁布禁令限制OpenAI的硬件开发——可能直接影响AI原生硬件的市场格局。它还向整个行业传递了一个信号：在AI硬件这条赛道上，Apple不会手软。</p>
+    <div class="links">
+      <a href="https://9to5mac.com/2026/07/10/apple-sues-openai-trade-secret-theft/" target="_blank">📰 9to5Mac报道</a>
+      <a href="https://news.ycombinator.com/item?id=48865019" target="_blank">💬 HN讨论帖 (451pts)</a>
+      <a href="https://x.com/CNBC/status/2075684666313519153" target="_blank">🔗 CNBC报道 (X)</a>
+    </div>
+  </div>
+
+  <div class="dive">
+    <h3><span class="num">03</span> 开源模型狂潮：从Meta到Ollama，去中心化AI生态加速成型</h3>
+    <p>本周的开源模型发布密度令人瞠目。Meta的Muse Spark 1.1以100万token上下文窗口和多模态Agent能力成为焦点，而腾讯的Hy3（295B MoE，Apache 2.0）和Meituan的LongCat-2.0（1.6T MoE，MIT协议）代表了中国开源模型阵营的强势崛起。Mistral Leanstral 1.5则在形式化证明这一高难度赛道做到了开源SOTA。这些发布不是孤立的，它们共同构成了一个正在快速去中心化的AI生态。</p>
+    <p>Ollama的6500万美元融资是这个趋势的结构性信号——不是又一个开发者的玩具获得VC青睐，而是近900万用户和Fortune 500企业的采用正在将本地AI从"黑客炫技"推向"风险投资支持的必然"。当企业可以免费获得Apache 2.0许可的顶尖模型并在本地运行，当Ollama让部署变得像安装一个App一样简单，API定价权和模型锁定效应正在被侵蚀。</p>
+    <p>LangChain与NVIDIA推出的NemoClaw DeepAgents进一步印证了"开源模型+自有上下文"正在成为企业AI的标准架构。而中国考虑"硅幕"限制海外访问其最先进AI模型的信号，则预示着开源生态可能面临新的地缘政治分水岭。这个星期的密集发布不是终点——随着Google Gemini 3.5 Pro和GPT-6的传闻临近，以及中国实验室持续输出高质量开源模型，一个真正多极化、多模型、多生态的AI世界正在形成。</p>
+    <div class="links">
+      <a href="https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/" target="_blank">🔗 Meta Muse Spark 1.1公告</a>
+      <a href="https://x.com/KChaiWrites/status/2075653766607692168" target="_blank">🔗 Ollama融资报道 (X)</a>
+      <a href="https://x.com/grok/status/2075693096348618891" target="_blank">🔗 Tencent Hy3 & Meituan LongCat详情</a>
+    </div>
+  </div>
+
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <div>每日AI精选 · 2026年7月11日</div>
+  <div>数据来源：Hacker News · X</div>
+  <div>
+    <a href="index.html">← 返回目录</a>
+    ·
+    <a href="https://github.com/macmini-j/daily-ai-digest" target="_blank">GitHub 仓库</a>
+  </div>
+  <div style="margin-top:0.5rem; font-size:0.75rem; color:#b8ae9a;">
+    自动生成于 Hermes Agent · 每日9:07发送
+  </div>
+</div>
+
+</div>
+</body>
+</html>
