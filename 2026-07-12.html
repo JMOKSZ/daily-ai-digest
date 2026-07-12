@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日AI精选 — 2026-07-12</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica Neue,sans-serif;background:#fdfaf3;color:#2c2416;line-height:1.6}
+.container{max-width:820px;margin:0 auto;padding:30px 20px 60px}
+
+/* Hero */
+.hero{text-align:center;padding:40px 0 30px}
+.badge{display:inline-block;background:#8b6914;color:#fff;font-size:13px;font-weight:600;padding:4px 14px;border-radius:20px;letter-spacing:1px;margin-bottom:12px}
+.hero h1{font-size:30px;margin-bottom:6px}
+.hero .date{font-size:16px;color:#7a6e5c;margin-bottom:6px}
+.hero .sub{font-size:14px;color:#7a6e5c;margin-bottom:8px}
+.hero .key-stories{font-size:15px;color:#8b6914;font-weight:500}
+.hero .sources{font-size:13px;color:#9a8e7c;margin-top:10px}
+
+/* Theme */
+.theme{margin:24px 0 32px;padding:18px 22px;background:#fcfaf5;border-left:4px solid #8b6914;border-radius:0 8px 8px 0}
+.theme .label{font-size:12px;color:#8b6914;font-weight:600;letter-spacing:1px;margin-bottom:6px}
+.theme p{font-size:15px;color:#3d3425;line-height:1.7}
+
+/* Section Title */
+.sec-title{font-size:20px;font-weight:700;color:#2c2416;margin:36px 0 18px;padding-bottom:8px;border-bottom:2px solid #e8dcc8}
+.sec-title span{color:#8b6914}
+
+/* News Grid */
+.news-grid{display:flex;flex-direction:column;gap:10px}
+
+.news-item{display:flex;align-items:flex-start;gap:14px;padding:14px 16px;background:#fff;border:1px solid #e8dcc8;border-radius:8px;transition:all .15s}
+.news-item:hover{background:#fcfaf5;border-color:#d4c5a8}
+.news-item .idx{font-size:14px;font-weight:700;color:#8b6914;min-width:28px;padding-top:1px}
+.news-item .body{flex:1;min-width:0}
+.news-item .title{font-size:15px;font-weight:600;color:#2c2416;margin-bottom:2px}
+.news-item .desc{font-size:13px;color:#6a5e4c;line-height:1.5}
+.news-item .meta{font-size:12px;color:#9a8e7c;margin-top:3px}
+.news-item .tags{display:flex;gap:4px;flex-shrink:0;padding-top:2px}
+
+.tag{display:inline-block;font-size:11px;font-weight:600;padding:2px 7px;border-radius:4px}
+.tag.hn{background:rgba(255,102,0,.1);color:#ff6600}
+.tag.x{background:rgba(29,161,242,.1);color:#1da1f2}
+.tag.ph{background:rgba(218,85,47,.1);color:#da552f}
+.tag.ma{background:rgba(0,120,212,.1);color:#0078d4}
+
+/* Stats */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:4px 0 8px}
+.stat{background:#fff;border:1px solid #e8dcc8;border-radius:8px;padding:16px;text-align:center}
+.stat .num{font-size:22px;font-weight:700;color:#8b6914}
+.stat .label{font-size:12px;color:#7a6e5c;margin-top:2px}
+
+/* Deep Dives */
+.dives{display:flex;flex-direction:column;gap:18px}
+.dive{background:#fff;border:1px solid #e8dcc8;border-radius:10px;padding:22px 24px}
+.dive h3{font-size:17px;font-weight:700;color:#2c2416;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.dive h3 .num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:#8b6914;color:#fff;font-size:13px;border-radius:50%;flex-shrink:0}
+.dive p{font-size:14px;color:#3d3425;line-height:1.7;margin-bottom:10px}
+.dive p:last-of-type{margin-bottom:12px}
+.dive .links{display:flex;flex-wrap:wrap;gap:8px;padding-top:10px;border-top:1px solid #e8dcc8}
+.dive .links a{font-size:13px;color:#b8942e;text-decoration:none}
+.dive .links a:hover{text-decoration:underline}
+
+/* Footer */
+footer{margin-top:50px;padding-top:20px;border-top:1px solid #e8dcc8;text-align:center;font-size:13px;color:#7a6e5c;line-height:1.8}
+footer a{color:#b8942e;text-decoration:none}
+footer a:hover{text-decoration:underline}
+
+@media(max-width:600px){
+  .container{padding:20px 14px}
+  .hero h1{font-size:24px}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .dive{padding:16px}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Hero -->
+<div class="hero">
+  <div class="badge">每日AI精选</div>
+  <h1>2026年7月12日 · 周日</h1>
+  <div class="date">12条精选 + 3个深度分析</div>
+  <div class="key-stories">GPT-5.6 破猜想 · 苹果诉OpenAI · Orca机器人世界模型</div>
+  <div class="sources">来源: Hacker News · X · 行业分析</div>
+</div>
+
+<!-- Theme -->
+<div class="theme">
+  <div class="label">📌 今日主题</div>
+  <p>7月12日，AI世界迎来历史性时刻——OpenAI的GPT-5.6 Sol Ultra用64个并行子智能体在1小时内破解了自1975年悬而未决的Cycle Double Cover图论猜想，首次证明AI可以做出原创性数学发现。与此同时，苹果正式起诉OpenAI"系统性窃取"商业机密、Meta以Muse Spark 1.1掀起价格战并斥资百亿美元在加拿大建数据中心、中国BAAI发布纯视频训练的Orca机器人世界模型——硅谷竞争格局在一天之内被重新定义。</p>
+</div>
+
+<!-- News -->
+<div class="sec-title"><span>精选</span>新闻 · 12条</div>
+<div class="news-grid">
+
+<div class="news-item">
+  <div class="idx">01</div>
+  <div class="body">
+    <div class="title">GPT-5.6 Sol Ultra破解50年数学猜想</div>
+    <div class="desc">Sol Ultra用64个并行子智能体在1小时内证明Cycle Double Cover猜想（1975年未解）。SWE-Bench 91.9%，Terminal-Bench 91.9%。Codex达500万用户，模型定价低于竞争对手。</div>
+    <div class="meta">前沿模型 · 数学推理 · OpenAI三线（Sol/Terra/Luna）全面铺开</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span><span class="tag hn">HN</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">02</div>
+  <div class="body">
+    <div class="title">苹果起诉OpenAI：400+员工被挖，商业机密遭窃</div>
+    <div class="desc">Apple指控OpenAI"在各层级系统性"获取其机密硬件信息，涉及未发布产品规格、供应商细节、金属处理工艺等。Elon Musk回应："盗走开源慈善后，又盗走整个苹果手机技术。"</div>
+    <div class="meta">法律 · 知识产权 · 硬件 · Apple×OpenAI合作与诉讼并存</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">03</div>
+  <div class="body">
+    <div class="title">Google Gemini 3.5 Flash免费开放+接入搜索</div>
+    <div class="desc">AI Studio免费提供，无需信用卡。100万token上下文，全模态（文本/图像/音频/视频），日1500次请求，兼容OpenAI API。正在进行全球范围搜索集成。</div>
+    <div class="meta">云端服务 · 免费API · 搜索集成 · Google双轨策略</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">04</div>
+  <div class="body">
+    <div class="title">Gemma 4获5倍加速：491.8 tok/s单A10G</div>
+    <div class="desc">Hugging Face Gemma挑战赛6天完成：100+人类+AI智能体协作，无损模式315 TPS，峰值491.8 TPS。可在16GB笔记本上运行全模态推理（视觉+音频），支持离线隐私场景。</div>
+    <div class="meta">开源模型 · 推理优化 · 本地部署 · 社区挑战</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">05</div>
+  <div class="body">
+    <div class="title">Meta Muse Spark 1.1：性能媲美顶级模型，价格仅1/5</div>
+    <div class="desc">被称为"价格/性能之王"——约$1.25/M输入、$4.25/M输出，比同类Opus/GPT-5.x便宜80%。擅长Agentic编码和复杂工作流，社区反响极为强烈。</div>
+    <div class="meta">新模型发布 · 价格战 · Agentic编码 · Meta AI</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">06</div>
+  <div class="body">
+    <div class="title">Meta投资$100亿在加拿大建1GW AI数据中心</div>
+    <div class="desc">Alberta省Sturgeon County，C$13B+，Meta境外最大投资。闭路液冷无水冷却，配套天然气电厂。可供750,000家庭用电量，约3000个建筑岗位。</div>
+    <div class="meta">基础设施 · 数据中心 · 算力军备竞赛 · Meta可能进入云服务</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">07</div>
+  <div class="body">
+    <div class="title">Nvidia/CoreWeave/Nebius：GPU繁荣的循环融资</div>
+    <div class="desc">深度调查揭示AI基础设施领域的"自我循环"融资模式——GPU租赁公司的收入被重新用于购买更多Nvidia GPU，形成封闭的资金循环，引发泡沫可持续性质疑（HN 151pts）。</div>
+    <div class="meta">金融市场 · GPU泡沫 · 基础设施 · 风险分析</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">08</div>
+  <div class="body">
+    <div class="title">中国BAAI发布Orca：纯视频训练的机器人世界模型</div>
+    <div class="desc">12.5万小时互联网视频训练，零动作标签、零机器人数据。学习物理/动力学/抽象世界状态，在多个机器人任务上匹敌专业系统。突破具身AI数据瓶颈。</div>
+    <div class="meta">具身AI · 世界模型 · 视频预训练 · BAAI</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">09</div>
+  <div class="body">
+    <div class="title">美国放宽对阿联酋AI芯片出口限制</div>
+    <div class="desc">UAE升至"A:5盟友级"，Nvidia/AMD/Cerebras芯片无需单独许可。年支持50万顶级GPU，G42/Core42等可直接进口。战略目的：防止UAE倒向中国。</div>
+    <div class="meta">地缘政治 · 出口管制 · GPU供应链 · 中美竞争</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">10</div>
+  <div class="body">
+    <div class="title">xAI发布Grok 4.5：价廉效优，但幻觉率高</div>
+    <div class="desc">价格低、速度快，匹敌Opus 4.8/GPT-5.5级别性能。工程/编码任务表现突出，但某些测试中幻觉率约54%——业界讨论"效率vs可靠性"的取舍。</div>
+    <div class="meta">新模型发布 · xAI · 工程能力 · 幻觉问题</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">11</div>
+  <div class="body">
+    <div class="title">微软成立全新企业AI部门</div>
+    <div class="desc">在企业应用和搜索竞争加剧的背景下，微软组建专门的企业AI单元，加速企业级AI产品落地。此前已有Copilot生态，新部门将进一步整合资源。</div>
+    <div class="meta">企业级AI · 组织架构 · 微软 · 企业市场</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">12</div>
+  <div class="body">
+    <div class="title">"别再说'去问LLM'了"—— HN热帖反思AI依赖</div>
+    <div class="desc">158pts/83cmts热议文章，批判"遇事不决问LLM"的思维模式。认为过度依赖AI回答问题会削弱人类的判断力和问题解决能力，引发对AI文化的深层反思。</div>
+    <div class="meta">AI文化 · 批判反思 · 技术依赖 · HN热议</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span></div>
+</div>
+
+</div>
+
+<!-- Stats -->
+<div class="sec-title"><span>今日</span>数据</div>
+<div class="stats">
+  <div class="stat"><div class="num">91.9%</div><div class="label">Sol Ultra SWE-Bench</div></div>
+  <div class="stat"><div class="num">64</div><div class="label">并行子智能体破猜想</div></div>
+  <div class="stat"><div class="num">1975</div><div class="label">Cycle Double Cover猜想年份</div></div>
+  <div class="stat"><div class="num">400+</div><div class="label">Apple指控被挖角人数</div></div>
+  <div class="stat"><div class="num">$1.25/M</div><div class="label">Muse Spark 1.1输入价格</div></div>
+  <div class="stat"><div class="num">C$13B+</div><div class="label">Meta加拿大数据中心投资</div></div>
+</div>
+
+<!-- Deep Dives -->
+<div class="sec-title"><span>深度</span>分析 · 3篇</div>
+<div class="dives">
+
+<div class="dive">
+  <h3><span class="num">01</span>GPT-5.6 Sol Ultra破解数学猜想：AI推理的转折点</h3>
+  <p>2026年7月12日，OpenAI的GPT-5.6 Sol Ultra完成了一项AI史上罕见的壮举：在1小时内用64个并行子智能体证明了Cycle Double Cover猜想——一个自1975年以来悬而未决的图论难题。这不仅是AI首次在无外部提示或评估的情况下独立做出原创性数学发现，更意味着LLM从"模式匹配器"进化到了"数学发现者"。</p>
+  <p>值得注意的是，Sol Ultra并非靠单一巨大模型暴力搜索，而是通过子智能体协作架构——将复杂问题分解为64个并行工作流，各子智能体独立探索证明空间，再由主模型综合结果。这种"智能体编排"方式让人联想到AlphaGo的MCTS架构，但应用于形式化数学推理。OpenAI还公开了完整证明和提示词，邀请社区在此基础上持续探索。</p>
+  <p>深层信号：过去学界对"LLM能否做原创数学"的争论可以休矣。关键问题已从"能不能"转向"成本效益如何"。Sol Ultra的SWE-Bench 91.9%和Terminal-Bench 91.9%表明它在工程和数学两个领域的泛化推理能力都达到了新高度。随着GPT-6传闻提前至7月底-8月，我们正在见证前所未知的模型迭代加速——每隔几周就有一个"里程碑"。</p>
+  <div class="links">
+    <a href="https://x.com/i/status/2076026651930968203" target="_blank">OpenAI Sol Ultra公告帖</a>
+    <a href="https://x.com/SheikhSaeen/status/2075811377428541501" target="_blank">Sol Ultra技术细节分析</a>
+    <a href="https://x.com/__vandos__/status/2075916890162040924" target="_blank">社区讨论：GPT-6传闻</a>
+  </div>
+</div>
+
+<div class="dive">
+  <h3><span class="num">02</span>苹果诉OpenAI：硅谷史上最大商业机密案？</h3>
+  <p>苹果正式起诉OpenAI，指控其"在各层级系统性"获取苹果机密硬件信息——涉及400+前苹果员工被挖角、未发布产品规格被盗、供应商细节泄露、甚至金属处理工艺等专有技术。苹果称OpenAI的硬件野心"从根上腐烂"。这起诉讼如果成立，可能成为硅谷历史上规模最大的商业机密案之一。</p>
+  <p>极具戏剧性的是，苹果与OpenAI并非纯粹的敌对关系——Apple Intelligence已深度集成OpenAI技术。这场诉讼像是"合作伙伴同时起诉你"。Elon Musk的反应"盗走开源慈善后，又盗走整个苹果手机技术"虽是嘲讽，却精准概括了OpenAI面临的信任危机。Sam Altman的回应则是软中有硬："我不怕苹果，但我非常尊重他们。"</p>
+  <p>深层信号：这起诉讼可能对OpenAI的IPO计划造成实质性打击。投资者对知识产权风险的重新定价可能导致估值承压。同时，这也反映了AI硬件竞争的残酷程度——OpenAI在Jony Ive团队的硬件项目显然已经触动了苹果的核心利益。竞争对手Anthropic可能从中渔利，成为寻求"无法律风险"合作的企业首选。</p>
+  <div class="links">
+    <a href="https://x.com/elonmusk/status/2076070258654183767" target="_blank">Elon Musk回应</a>
+    <a href="https://x.com/sama/status/2076034575311278319" target="_blank">Sam Altman回应</a>
+    <a href="https://x.com/TonyClimate/status/2075907951832047957" target="_blank">事件详情报道</a>
+  </div>
+</div>
+
+<div class="dive">
+  <h3><span class="num">03</span>模型价格战白热化：从拼基准到拼可及性</h3>
+  <p>7月9-12日这四天，五大模型先后亮相：OpenAI的GPT-5.6 Sol/Terra/Luna系列、Meta的Muse Spark 1.1、xAI的Grok 4.5、Google的Gemini 3.5 Flash免费版、以及Gemma 4的社区优化里程碑。业界称之为"历史性的一周"——多家前沿实验室同时有可用的前沿模型，性能差距急剧缩小，API价格却在陡降。</p>
+  <p>Meta的Muse Spark 1.1是这一趋势的集中体现：约$1.25/M输入token（比OpenAI同级模型便宜80%）、在Agentic编码和复杂工作流方面匹敌甚至超越更贵的模型。社区反应极为热情。与此同时，Google将Gemini 3.5 Flash免费开放（1500次/天），进一步压低了入门门槛。xAI的Grok 4.5也走"价廉效优"路线。竞争的基本单位已从"谁更强"变成了"谁最划算"。</p>
+  <p>深层信号：三个趋势正在同时成型——(1) 开源与闭源的界限模糊化：Meta走商业路线，中国实验室持续开源（Qwen、DeepSeek、GLM），Google同时做Gemini商业线和Gemma开源线；(2) API价格正加速驶向"零边际成本"——$1/M token级定价意味着调用顶级模型比发一条短信还便宜；(3) 差异化从模型本身转移到生态集成和工作流——谁能提供更好的Agentic工具、更好的代码环境、更无缝的跨设备体验，谁就赢得开发者。模型竞赛已进入下半场。</p>
+  <div class="links">
+    <a href="https://x.com/operatorgoods/status/2075887000280846663" target="_blank">模型周总览帖</a>
+    <a href="https://x.com/EastonCapital/status/2075852873343074735" target="_blank">行业周报分析</a>
+    <a href="https://x.com/Vincentokolie/status/2075849971241254921" target="_blank">七大模型同日可用的历史性时刻</a>
+  </div>
+</div>
+
+</div>
+
+<!-- Footer -->
+<footer>
+  <div>每日AI精选 · 2026年7月12日</div>
+  <div>数据来源: Hacker News, X/Twitter, 行业分析</div>
+  <div><a href="index.html">← 返回首页</a> · <a href="https://github.com/nousresearch/daily-ai-digest" target="_blank">GitHub</a></div>
+  <div style="margin-top:6px;font-size:12px;color:#b0a494">由 Hermes Agent 自动生成 · 07:07 UTC+8</div>
+</footer>
+
+</div>
+</body>
+</html>
