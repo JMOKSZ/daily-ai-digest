@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日AI精选 · 2026-07-13</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Noto Sans SC',sans-serif;background:#fdfaf3;color:#2c2416;line-height:1.7}
+.container{max-width:720px;margin:0 auto;padding:40px 24px}
+
+/* Hero */
+.hero{text-align:center;padding:16px 0 6px}
+.badge{display:inline-block;background:#8b6914;color:#fff;font-size:12px;font-weight:600;padding:3px 12px;border-radius:20px;letter-spacing:.5px;margin-bottom:14px}
+.hero h1{font-size:30px;font-weight:700;color:#2c2416;margin-bottom:4px}
+.hero .date{font-size:14px;color:#7a6e5c;margin-bottom:10px}
+.hero .teaser{font-size:13px;color:#8b6914;margin-bottom:6px}
+.hero .teaser span{padding:0 6px}
+.hero .sources{font-size:12px;color:#7a6e5c;margin-bottom:16px}
+
+/* Theme */
+.theme{background:#fcfaf5;border-left:3px solid #8b6914;padding:14px 18px;margin:16px 0 24px;border-radius:0 8px 8px 0;font-size:14px;color:#4a3f2e}
+.theme strong{color:#8b6914}
+
+/* Section heading */
+.section{margin:32px 0 16px;font-size:18px;font-weight:600;color:#2c2416;display:flex;align-items:center;gap:8px}
+.section::after{content:'';flex:1;height:1px;background:#e8dcc8}
+
+/* News grid */
+.news-grid{display:flex;flex-direction:column;gap:10px}
+.news-item{display:flex;align-items:flex-start;gap:12px;padding:12px 14px;background:#fff;border:1px solid #e8dcc8;border-radius:8px;transition:all .15s}
+.news-item:hover{background:#fcfaf5;border-color:#d4c5a8}
+.idx{font-size:13px;font-weight:700;color:#b8942e;min-width:24px;text-align:right;padding-top:1px}
+.body{flex:1;min-width:0}
+.title{font-size:14px;font-weight:600;color:#2c2416;margin-bottom:2px}
+.desc{font-size:12.5px;color:#5a4f3e;line-height:1.5}
+.meta{font-size:11px;color:#7a6e5c;margin-top:3px}
+.tags{display:flex;gap:4px;flex-shrink:0;padding-top:2px}
+.tag{font-size:10px;font-weight:600;padding:1px 7px;border-radius:10px;letter-spacing:.3px}
+.tag.hn{background:rgba(255,102,0,.1);color:#e65100}
+.tag.x{background:rgba(29,161,242,.1);color:#1a73e8}
+.tag.ph{background:rgba(218,85,47,.1);color:#da552f}
+.tag.ma{background:rgba(0,120,212,.1);color:#0078d4}
+
+/* Stats grid */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:0 0 20px}
+.stat{background:#fff;border:1px solid #e8dcc8;border-radius:8px;padding:10px;text-align:center}
+.stat .num{font-size:20px;font-weight:700;color:#8b6914;line-height:1.2}
+.stat .label{font-size:11px;color:#7a6e5c;margin-top:2px}
+.stat .sub{font-size:10px;color:#9a8e7c;margin-top:1px}
+.positive{color:#4d7c0f!important}
+.negative{color:#b91c1c!important}
+.info-color{color:#0e7490!important}
+
+/* Deep dives */
+.dive{margin-bottom:24px;background:#fff;border:1px solid #e8dcc8;border-radius:10px;padding:20px}
+.dive h3{font-size:16px;font-weight:600;color:#2c2416;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.dive h3 .num{background:#8b6914;color:#fff;font-size:11px;font-weight:700;padding:2px 8px;border-radius:12px}
+.dive p{font-size:13.5px;color:#4a3f2e;line-height:1.75;margin-bottom:10px;text-indent:2em}
+.dive p:last-of-type{margin-bottom:12px}
+.dive .links{display:flex;flex-wrap:wrap;gap:6px;border-top:1px solid #e8dcc8;padding-top:10px}
+.dive .links a{font-size:12px;color:#8b6914;text-decoration:none;padding:3px 10px;background:#fcfaf5;border:1px solid #e8dcc8;border-radius:16px;transition:all .15s}
+.dive .links a:hover{background:#8b6914;color:#fff;border-color:#8b6914}
+
+/* Footer */
+footer{margin-top:40px;padding:16px 0;border-top:1px solid #e8dcc8;text-align:center;font-size:12px;color:#7a6e5c}
+footer a{color:#8b6914;text-decoration:none}
+footer a:hover{text-decoration:underline}
+
+@media(max-width:600px){
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .container{padding:24px 14px}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Hero -->
+<div class="hero">
+  <div class="badge">📰 每日AI精选</div>
+  <h1>2026年7月13日 · 周一</h1>
+  <div class="date">Efficiency is the new scale</div>
+  <div class="teaser">
+    <span>Coding Agent效率战争</span> · <span>Apple诉OpenAI全面升级</span> · <span>Meta Muse大翻车</span>
+  </div>
+  <div class="sources">来源: Hacker News · X · Y Combinator · Product Hunt (Cloudflare)</div>
+</div>
+
+<!-- Today's Theme -->
+<div class="theme">
+  <strong>📌 今日主题：效率取代规模成为主旋律。</strong> 本周的叙事围绕一个核心转变展开：更大的模型不再自动等于更好的产品。<strong>Claude Code vs OpenCode的Token之战</strong>展示了工程效率（4.7x脚手架开销差）如何超越模型能力差异成为开发者首选决策因素；<strong>Grok 4.5</strong>以Opus级能力加更具竞争力的价格证明"足够好+更便宜"可以赢；<strong>GPT-5.6生产迁移</strong>给出2.2x速度提升同时降本27%的实证数据。与此同时，<strong>Apple诉OpenAI</strong>的法律风暴揭示超级AI的硬件雄心竟依赖盗窃而来——而<strong>Meta Muse Image</strong>的一周生死则提醒整个行业：没有用户同意的AI功能，再强大也活不过一个周末。
+</div>
+
+<!-- 今日数据 -->
+<div class="section">📊 今日数据</div>
+<div class="stats">
+  <div class="stat">
+    <div class="num">33K</div>
+    <div class="label">Claude Code预置Token</div>
+    <div class="sub">vs OpenCode仅7K</div>
+  </div>
+  <div class="stat">
+    <div class="num">4.7×</div>
+    <div class="label">脚手架开销差距</div>
+    <div class="sub">Claude Code / OpenCode</div>
+  </div>
+  <div class="stat">
+    <div class="num">84%</div>
+    <div class="label">Grok 4.5 SWE-Atlas</div>
+    <div class="sub">编码Agent基准</div>
+  </div>
+  <div class="stat">
+    <div class="num positive">+2.2×</div>
+    <div class="label">GPT-5.6迁移速度</div>
+    <div class="sub">ploy.ai生产环境实测</div>
+  </div>
+  <div class="stat">
+    <div class="num positive">-27%</div>
+    <div class="label">同任务成本下降</div>
+    <div class="sub">GPT-5.6 vs 前代</div>
+  </div>
+  <div class="stat">
+    <div class="num">15B</div>
+    <div class="label">AlayaWorld参数量</div>
+    <div class="sub">开源世界模型 720p@24fps</div>
+  </div>
+</div>
+
+<!-- 精选新闻 -->
+<div class="section">🔥 精选新闻 · 12条</div>
+<div class="news-grid">
+
+<div class="news-item">
+  <div class="idx">01</div>
+  <div class="body">
+    <div class="title">Claude Code vs OpenCode: 4.7× Token开销战争爆发</div>
+    <div class="desc">实测显示Claude Code发送33K tokens后才能读取用户提示，OpenCode仅7K。缓存写入差距更大—Claude Code最高达54×。HH 456pts登顶。</div>
+    <div class="meta">编码Agent · 效率对比 · 456pts/259cmts</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">02</div>
+  <div class="body">
+    <div class="title">George Hotz: "我爱LLM，我恨炒作"</div>
+    <div class="desc">全球知名黑客发布长文批评行业过度营销：模型能力被严重夸大，实际体验仍需大量人工介入。同时对Token效率、成本和数据隐私提出尖锐质疑。316pts。</div>
+    <div class="meta">社区声音 · 反炒作 · 316pts/190cmts</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">03</div>
+  <div class="body">
+    <div class="title">菲尔兹奖得主Terry Tao：编码Agent改变了我的工作流</div>
+    <div class="desc">陶哲轩详细记录使用现代编码Agent（含Claude Code）从零构建应用的实践。411pts高票——"老人家居然比我们都先上手了"成为社区热门梗。</div>
+    <div class="meta">实践报告 · 学术大牛 · 411pts/118cmts</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">04</div>
+  <div class="body">
+    <div class="title">Apple正式起诉OpenAI窃取商业机密</div>
+    <div class="desc">长达24年的硬件高管Tang Tan被控在面试中要求Apple在职员工"带实物部件来Show & Tell"。另一工程师离职后仍能访问Apple云端存储，下载1000+页机密文件。涉及400+前Apple员工。</div>
+    <div class="meta">法律 · 硬件竞赛 · 寻求禁令</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span><span class="tag hn">HN</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">05</div>
+  <div class="body">
+    <div class="title">xAI Grok 4.5正式上线：Opus级开源竞品</div>
+    <div class="desc">约1.5T参数(V9基座)，SWE-Atlas-QnA 84%，定价$2/M入$6/M出。已集成Cursor，在编码和Agent任务上表现突出。Grok 5正在Colossus 2上训练。</div>
+    <div class="meta">模型发布 · 定价竞争力 · 阶段式部署</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">06</div>
+  <div class="body">
+    <div class="title">GPT-5.6生产迁移实战：2.2×加速，27%降本</div>
+    <div class="desc">ploy.ai发布真实生产数据——切换到GPT-5.6后AI Agent速度翻倍、成本下降超过四分之一。更强模型反而更便宜，印证效率正替代规模成为新竞争维度。</div>
+    <div class="meta">生产实践 · 降本增效 · 133pts/46cmts</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">07</div>
+  <div class="body">
+    <div class="title">Meta Muse Image上线一周即下架：默认同意引爆众怒</div>
+    <div class="desc">Muse Image允许用户@提及公开Instagram账号后直接以该用户形象生成AI图片，所有账号默认opt-in。SAG-AFTRA、CAA等组织强烈抗议后Meta迅速撤回。</div>
+    <div class="meta">产品事故 · 隐私 · 用户权益</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">08</div>
+  <div class="body">
+    <div class="title">Mistral开源7B端侧模型：AI平民化的新动力</div>
+    <div class="desc">专为手机、笔记本和边缘设备优化的轻量级模型。支持llama.cpp、MLX、Ollama、LM Studio等全端框架——无云推理、完全离线、零延迟。</div>
+    <div class="meta">开源 · 端侧推理 · 隐私优先</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">09</div>
+  <div class="body">
+    <div class="title">联合国首届全球AI治理峰会召开</div>
+    <div class="desc">国际合作监管迈出制度性第一步。各国代表围绕AI安全标准、数据主权、跨境协作等议题展开讨论。与White House加速自愿标准计划形成政策共振。</div>
+    <div class="meta">政策 · 国际治理 · 安全</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">10</div>
+  <div class="body">
+    <div class="title">S&P下调Oracle评级：OpenAI敞口成财务风险</div>
+    <div class="desc">标普调降Oracle信用评级，主要理由是其对OpenAI的巨额投资敞口。SK Hynix $265亿美股IPO被市场视为AI芯片需求的风向标。</div>
+    <div class="meta">金融 · 投资风险 · 芯片</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">11</div>
+  <div class="body">
+    <div class="title">世界模型开源潮：AlayaWorld 15B实时交互世界</div>
+    <div class="desc">AlayaWorld基于LTX-2.3微调，支持720p/24fps实时播放、WASD操控、60+秒连续会话，完全开源。LingBot-Infinity更达60分钟无中断会话。</div>
+    <div class="meta">开源 · 交互式世界 · 实时渲染</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">12</div>
+  <div class="body">
+    <div class="title">Flash-MSA：百万Token训练的稀疏注意力加速</div>
+    <div class="desc">新方法大幅加速超长序列训练。当模型上下文窗口从128K向1M+扩展时，注意力计算已成为首要瓶颈——Flash-MSA给出第一个实用规模的稀疏方案。</div>
+    <div class="meta">研究 · 长上下文 · 训练加速</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span></div>
+</div>
+
+</div>
+
+<!-- 深度分析 -->
+<div class="section">📝 深度分析 · 3篇</div>
+
+<div class="dive">
+  <h3><span class="num">01</span>编码Agent效率战争：33K vs 7K Token的启示</h3>
+  <p>7月12日，systima.ai发布了一篇被迅速推上HN榜首的对比报告：在同一模型、同一任务、同一机器下，Claude Code在读取用户提示前需要消耗约33,000 tokens的系统开销——包括系统提示、工具定义、XML结构化、子Agent配置等脚手架工程。而OpenCode仅需约7,000 tokens。差距4.7倍。更惊人的是缓存写入行为：在一次实测中，Claude Code的缓存写入量是OpenCode的54倍，而缓存写入的计费成本远高于缓存读取。</p>
+  <p>同一天，菲尔兹奖得主陶哲轩（Terry Tao）在HN上分享了自己使用现代编码Agent从零构建应用的经历（411pts）——"这位71岁的老数学家比大多数25岁的程序员都先拥抱了编码Agent"成为社区热门话题。而ploy.ai的生产迁移报告则从侧面印证：GPT-5.6在真实Agent工作流中实现了2.2x加速和27%降本——更强模型反而更便宜。三条看似独立的新闻，讲的其实是一个故事：<strong>2026年的AI竞争已经从"谁的模型最强"转向"谁的系统最省"。</strong></p>
+  <p>这个信号的意义远超开发者工具选择。当OpenCode以7K的开销完成Claude Code需要33K才能做的事，它揭示的是整个行业从"堆参数"到"削脚手架"的范式转变。更多Token被消耗在模型外的工程层而非模型本身——这意味着效率创新的空间可能比模型能力的提升更大。Geohot在同一时间发布"我爱LLM，我恨炒作"本质上也是对这个问题的回应：技术的真实价值存在于精心设计的工程中，而非空洞的营销数字里。对于创业者而言，这意味着构建一个更薄、更聪明的Agent框架，可能比等待下一个GPT-6更具商业价值。</p>
+  <div class="links">
+    <a href="https://systima.ai/blog/claude-code-vs-opencode-token-overhead" target="_blank">Systima实测报告</a>
+    <a href="https://terrytao.wordpress.com/2026/07/11/old-and-new-apps-via-modern-coding-agents/" target="_blank">Terry Tao: Old and New Apps</a>
+    <a href="https://ploy.ai/blog/migrating-a-production-ai-agent-to-gpt-5-6" target="_blank">ploy.ai GPT-5.6迁移报告</a>
+  </div>
+</div>
+
+<div class="dive">
+  <h3><span class="num">02</span>Apple诉OpenAI：当模型竞赛撞上硬件铁幕</h3>
+  <p>Apple于7月10日在美国加州北区联邦法院正式起诉OpenAI，指控其与两名前Apple员工合谋，系统性窃取Apple的硬件设计、制造工艺和供应链机密。核心被告Tang Tan（陈堂燕）在Apple效力24年至VP级硬件主管，后于2024年加入OpenAI担任首席硬件官。诉状称，Tang Tan在面试Apple在职候选人时要求他们"带实物部件来展示"——包括电池、逻辑板、SiP封装等物理硬件。另一被告Chang Liu在2026年1月离职加入OpenAI后，发现其Apple笔记本仍能访问公司云端存储，于是下载了超过1000页未发布产品的机密文件，并发消息给同事："LOL，发现我还能访问[云端存储]，太好笑了。"</p>
+  <p>这起诉讼的规模令人震惊：Apple声称目前有超过400名前员工在OpenAI工作——这几乎是一个完整的硬件部门。诉状将OpenAI的行为定性为"制度性的、自上而下的"贸易秘密侵吞，Apple正在寻求初步禁令以直接冻结OpenAI的硬件开发计划。Elon Musk在X上公开评论称"Scam Altman又来了"，与其此前对OpenAI的多次诉讼形成呼应。与此同时，S&P下调Oracle信用评级的部分理由正是其对OpenAI的敞口风险——资本市场已经开始对AI热潮中的法律和财务风险重新定价。</p>
+  <p>更深层的信号是：<strong>AI行业的竞争已经扩展到物理世界。</strong>如果OpenAI的指控属实，意味着其消费级AI硬件（传闻中的屏幕less AI个人设备、AI伴侣等）从设计起点就建立在Apple积累数十年的硬件工艺之上。这不仅是两家公司的法律冲突，更是两种竞争哲学的碰撞——Apple依托硬件一体化闭环，OpenAI试图以AI软件优势反推硬件。如果法院支持Apple的禁令请求，OpenAI的硬件路线将被打断至少12-18个月，相当于将一个完整的产品代际拱手让人。这也标志着AI行业的法律风险从"版权争议"全面升级到了"贸易秘密+物理硬件"的新阶段。</p>
+  <div class="links">
+    <a href="https://x.com/Bourbon7749/status/2076444102850494605" target="_blank">诉讼摘要</a>
+    <a href="https://x.com/grok/status/2076456112572789150" target="_blank">Elon Musk评论</a>
+    <a href="https://x.com/GlobalAIWatcher/status/2076388824653971708" target="_blank">S&P Oracle评级降级</a>
+  </div>
+</div>
+
+<div class="dive">
+  <h3><span class="num">03</span>Meta Muse Image：当"默认同意"撞上公众底线</h3>
+  <p>7月8日，Meta通过其Superintelligence Labs悄悄上线了Muse Image——一款"创意合伙人"式的AI图像生成工具。它的一个核心功能让用户只需在Instagram上@提及任何公开账号，AI就能以该账号用户的形象、风格生成图片。所有公开Instagram账号默认opt-in，唯一的退出方式是在层层设置的菜单中找到关闭选项。没有通知，没有确认弹窗，没有"你的照片将被用于AI生成"的提示。结果几乎是即时的：创作者、普通用户、好莱坞工会SAG-AFTRA、经纪公司CAA在X上掀起抗议浪潮。不到72小时，Meta撤下了这个功能——这是大科技公司AI功能撤回速度最快的纪录之一。</p>
+  <p>这个事件的讽刺之处在于，Meta在AI图像生成这件事上并非新手——它从2023年就陆续推出了Make-A-Scene、Emu等模型。但Muse Image的失败并非技术问题，而是产品设计和伦理判断的根本失误。在2026年，公众对AI使用个人数据的敏感度已经远超两年前。SAG-AFTRA在声明中明确指出："公共内容不等于无授权使用的通行证。"这一逻辑正在成为行业共识——无论是训练数据的版权问题，还是AI生成的个人肖像权问题，opt-in已从"最佳实践"变成了"最低底线"。</p>
+  <p>Muse Image的一周生死是一个教科书级的案例：<strong>在AI产品设计中，用户同意的不可协商性已经超越了技术能力的可选择性。</strong>再强大的模型，一旦被部署在无视用户权益的产品中，其价值就会被一个周末的舆论海啸清零。这条教训有三个层次：第一层，opt-out模型（"默认使用，可手动退出"）在生成式AI时代已经破产——用户并不信任企业会善用他们"借用"的数据；第二层，涉及人脸和肖像的AI功能需要最高级别的产品审批，Meta这次显然低估了公众情绪；第三层，Muse Image的失败并不会减缓Meta的AI布局，但它会逼迫每一家AI公司重新审视自己的产品设计和用户协议——在2026年，一个由consent驱动的AI产品不再是道德选项，而是生存前提。</p>
+  <div class="links">
+    <a href="https://x.com/i/status/2076375238619615712" target="_blank">Meta回应声明</a>
+    <a href="https://x.com/ClustZContact/status/2076271433744011454" target="_blank">隐私分析</a>
+    <a href="https://x.com/FinalBoss_io/status/2076128929086083268" target="_blank">社区讨论</a>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  每日AI精选 · 2026-07-13 · 数据来源: Hacker News, X/Twitter, Y Combinator<br>
+  <a href="index.html">← 返回目录</a> · 自动生成于 Hermes Agent
+</footer>
+
+</div>
+</body>
+</html>
