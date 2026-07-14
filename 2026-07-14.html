@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日AI精选 · 2026-07-14</title>
+<style>
+:root {
+  --page: #fdfaf3; --surface: #fcfaf5; --card: #fff;
+  --border: #e8dcc8; --text: #2c2416; --muted: #7a6e5c;
+  --accent: #8b6914; --accent-lt: #b8942e;
+  --positive: #4d7c0f; --warning: #b45309; --info: #0e7490;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
+  background: var(--page); color: var(--text); line-height:1.6; padding:0 16px;
+}
+.container { max-width:720px; margin:0 auto; padding:40px 0 60px; }
+
+/* Hero */
+.hero { text-align:center; padding:40px 0 32px; }
+.badge {
+  display:inline-block; background:var(--accent); color:#fff;
+  font-size:13px; font-weight:600; padding:4px 14px; border-radius:20px;
+  letter-spacing:0.5px; margin-bottom:12px;
+}
+.hero h1 { font-size:28px; font-weight:700; color:var(--text); }
+.hero .subtitle { color:var(--muted); font-size:15px; margin:8px 0 16px; }
+.hero .teaser {
+  font-size:14px; color:var(--muted); display:flex; justify-content:center; gap:8px; flex-wrap:wrap;
+}
+.hero .teaser span { background:var(--card); border:1px solid var(--border); padding:3px 10px; border-radius:6px; }
+.hero .sources { font-size:12px; color:var(--muted); margin-top:12px; }
+
+/* Theme */
+.theme {
+  background:var(--surface); border:1px solid var(--border); border-left:4px solid var(--accent);
+  padding:20px 24px; border-radius:8px; margin:24px 0; font-size:15px; color:var(--text);
+}
+.theme strong { color:var(--accent); }
+
+/* Section */
+.section-title { font-size:18px; font-weight:700; margin:36px 0 16px; display:flex; align-items:center; gap:8px; }
+.section-title .count { font-size:13px; color:var(--muted); font-weight:400; }
+
+/* News items */
+.news-item {
+  display:flex; gap:14px; padding:16px 0; border-bottom:1px solid var(--border);
+}
+.news-item:last-child { border-bottom:none; }
+.news-item .idx {
+  width:32px; font-size:14px; font-weight:600; color:var(--accent-lt);
+  flex-shrink:0; text-align:right; line-height:1.4; padding-top:1px;
+}
+.news-item .body { flex:1; min-width:0; }
+.news-item .title { font-size:15px; font-weight:600; margin-bottom:3px; }
+.news-item .desc { font-size:14px; color:var(--muted); line-height:1.5; margin-bottom:6px; }
+.news-item .meta { font-size:12px; color:var(--muted); display:flex; gap:6px; flex-wrap:wrap; align-items:center; }
+
+/* Tags */
+.tag { display:inline-block; font-size:11px; font-weight:600; padding:1px 8px; border-radius:4px; }
+.tag.hn { background:rgba(255,102,0,.1); color:#ff6600; }
+.tag.x { background:rgba(29,161,242,.1); color:#1da1f2; }
+.tag.ma { background:rgba(0,120,212,.1); color:#0078d4; }
+.tag.fd { background:rgba(34,197,94,.1); color:#16a34a; }
+.tag.ct { background:rgba(139,92,246,.1); color:#7c3aed; }
+.tag.rs { background:rgba(236,72,153,.1); color:#db2777; }
+
+/* Stats grid */
+.stats {
+  display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin:16px 0;
+}
+.stat {
+  background:var(--card); border:1px solid var(--border); border-radius:8px;
+  padding:16px; text-align:center;
+}
+.stat .num { font-size:20px; font-weight:700; color:var(--accent); }
+.stat .label { font-size:12px; color:var(--muted); margin-top:4px; }
+
+/* Deep Dives */
+.dive {
+  background:var(--card); border:1px solid var(--border); border-radius:10px;
+  padding:24px; margin-bottom:16px;
+}
+.dive h3 { font-size:17px; font-weight:700; margin-bottom:12px; }
+.dive h3 .num { color:var(--accent); margin-right:6px; }
+.dive p { font-size:14px; color:var(--text); margin-bottom:12px; line-height:1.7; }
+.dive .links { margin-top:12px; padding-top:12px; border-top:1px solid var(--border); }
+.dive .links a {
+  display:inline-block; font-size:13px; color:var(--accent-lt); text-decoration:none;
+  margin-right:16px; margin-bottom:4px;
+}
+.dive .links a:hover { text-decoration:underline; }
+
+/* Footer */
+.footer {
+  text-align:center; padding:40px 0; color:var(--muted); font-size:13px; line-height:2;
+}
+.footer a { color:var(--accent-lt); text-decoration:none; }
+.footer a:hover { text-decoration:underline; }
+
+@media (max-width:600px) {
+  .stats { grid-template-columns:repeat(2,1fr); }
+  .hero h1 { font-size:22px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="hero">
+  <div class="badge">每日AI精选</div>
+  <h1>2026 年 7 月 14 日</h1>
+  <div class="subtitle">12 条精选 + 3 个深度分析</div>
+  <div class="teaser">
+    <span>🍎 Apple 诉 OpenAI</span>
+    <span>🤖 Mistral 进军机器人</span>
+    <span>💰 Meta 模型首次收费</span>
+  </div>
+  <div class="sources">来源: Hacker News · X · 综合报道</div>
+</div>
+
+<div class="theme">
+  <strong>📌 今日主题：AI 硬着陆</strong><br>
+  今天的头条被硬件与物理世界的争夺占据——Apple 正式起诉 OpenAI 窃取硬件机密，Mistral 发布首个纯视觉机器人模型，Apple 全新 SpeechAnalyzer 在端侧语音识别上碾压 Whisper，SK Hynix 警告内存缺货至 2030。与此同时，GPT-5.6 驱动 ChatGPT Work 全面铺开，Meta 开始为 AI 模型收费，Ollama 获 6500 万美元融资——AI 正在每个维度加速落地，从云端走入工厂、手机、甚至法庭。
+</div>
+
+<h2 class="section-title">精选新闻 <span class="count">· 12 条</span></h2>
+
+<div class="news-item">
+  <div class="idx">01</div>
+  <div class="body">
+    <div class="title">🍎 Apple 起诉 OpenAI 窃取硬件机密</div>
+    <div class="desc">联邦诉讼指控 OpenAI 招募 400+ 前苹果工程师，高管带原型零件参加面试，利用零日漏洞下载千页机密文件</div>
+    <div class="meta">
+      <span class="tag hn">HN</span>
+      <span class="tag x">X</span>
+      <span>· 法律 · 索赔禁令请求</span>
+    </div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">02</div>
+  <div class="body">
+    <div class="title">🗣️ Apple SpeechAnalyzer API 碾压 Whisper</div>
+    <div class="desc">端侧语音识别 WER 仅 2.12%（Whisper 为 3.74%），速度快 3 倍，无需联网，完全私有</div>
+    <div class="meta">
+      <span class="tag hn">HN</span>
+      <span class="tag x">X</span>
+      <span>· 440 pts · 178 评论</span>
+    </div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">03</div>
+  <div class="body">
+    <div class="title">🤖 Mistral 发布首个机器人模型 Robostral Navigate</div>
+    <div class="desc">80 亿参数视觉-语言-动作模型，仅用单 RGB 摄像头，在陌生环境达 76.6% 成功率，训练速度快 22 倍</div>
+    <div class="meta">
+      <span class="tag x">X</span>
+      <span class="tag ma">MA</span>
+      <span>· 机器人 · 工厂仓储</span>
+    </div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">04</div>
+  <div class="body">
+    <div class="title">🚀 GPT-5.6 Sol 驱动 ChatGPT Work 全面上线</div>
+    <div class="desc">最强调理模型发布，含 Sol/Terra/Luna 三版本；微软 365 Copilot 将于 7 月 24 日默认切换至 GPT-5.6</div>
+    <div class="meta">
+      <span class="tag x">X</span>
+      <span>· 模型 · 企业</span>
+    </div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">05</div>
+  <div class="body">
+    <div class="title">💰 Meta 首次为 AI 模型收费，Muse Spark 1.1 上线</div>
+    <div class="desc">API 定价 $1.25/M 输入/$4.25/M 输出，仅为 OpenAI 的 25%，标榜 1M token 上下文窗口与跨平台电脑操控</div>
+    <div class="meta">
+      <span class="tag x">X</span>
+      <span>· 商业化 · 定价战</span>
+    </div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">06</div>
+  <div class="body">
+    <div class="title">⚠️ Samsung Health 威胁：不授权 AI 训练就删数据</div>
+    <div class="desc">新隐私条款将健康数据云同步与 AI 训练授权绑定，拒绝授权则删除云端历史数据，引发大规模抵制</div>
+    <div class="meta">
+      <span class="tag hn">HN</span>
+      <span class="tag x">X</span>
+      <span>· 259 pts · 隐私争议</span>
+    </div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">07</div>
+  <div class="body">
+    <div class="title">🏭 SK Hynix 警告：内存芯片短缺或持续至 2030</div>
+    <div class="desc">全球内存缺货 2027 年达到峰值，AI 算力扩张严重受限于 HBM 供给；Meta 斥 $500 亿建 Hyperion 超算集群</div>
+    <div class="meta">
+      <span class="tag x">X</span>
+      <span>· 硬件 · 供应链</span>
+    </div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">08</div>
+  <div class="body">
+    <div class="title">🔐 OpenAI 安全负责人离职，安全团队并入研究部</div>
+    <div class="desc">安全系统负责人 Johannes Heidecke 离职，团队与研发合并——第六位安全高管两年内出走</div>
+    <div class="meta">
+      <span class="tag x">X</span>
+      <span>· 治理 · 安全</span>
+    </div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">09</div>
+  <div class="body">
+    <div class="title">🖥️ Ollama 获 6500 万美元 B 轮融资</div>
+    <div class="desc">本地 LLM 运行神器拥有 890 万开发者，85% 财富 500 强在用；Benchmark 合伙人预测开源模型 18-24 月内产生 AI 大部分算力需求</div>
+    <div class="meta">
+      <span class="tag x">X</span>
+      <span>· 融资 · 开源</span>
+    </div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">10</div>
+  <div class="body">
+    <div class="title">🔁 DeepMind 推出人机协作任务分配框架</div>
+    <div class="desc">新框架让人类与 AI Agent 更高效地分工协作，根据能力和上下文动态分配子任务</div>
+    <div class="meta">
+      <span class="tag x">X</span>
+      <span class="tag rs">RS</span>
+      <span>· Agent · 协作</span>
+    </div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">11</div>
+  <div class="body">
+    <div class="title">🧩 OpenSage：让 Agent 编程进化其他 Agent</div>
+    <div class="desc">首个允许 Agent 自主编程、组装和进化其他 Agent 的框架，登顶 CyberGym、TerminalBench、SWE-Bench-Pro</div>
+    <div class="meta">
+      <span class="tag x">X</span>
+      <span>· Agent · 开源</span>
+    </div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">12</div>
+  <div class="body">
+    <div class="title">🚕 Show HN: Hackney —— 比价 Uber/Lyft/Waymo 机器人出租车</div>
+    <div class="desc">一键对比传统网约车与无人驾驶出租车价格与 ETA，自动驾驶定价差距正在快速缩小</div>
+    <div class="meta">
+      <span class="tag hn">HN</span>
+      <span>· 12 pts · 自动驾驶</span>
+    </div>
+  </div>
+</div>
+
+<h2 class="section-title">今日数据</h2>
+
+<div class="stats">
+  <div class="stat"><div class="num">2.12%</div><div class="label">Apple SpeechAnalyzer WER</div></div>
+  <div class="stat"><div class="num">76.6%</div><div class="label">Robostral R2R-CE 成功率</div></div>
+  <div class="stat"><div class="num">$1.25</div><div class="label">Meta API 输入 /M token</div></div>
+  <div class="stat"><div class="num">$65M</div><div class="label">Ollama B 轮融资</div></div>
+  <div class="stat"><div class="num">440</div><div class="label">HN 最高分 (SpeechAnalyzer)</div></div>
+  <div class="stat"><div class="num">400+</div><div class="label">Apple 前员工被 OpenAI 招募</div></div>
+</div>
+
+<h2 class="section-title">深度分析</h2>
+
+<div class="dive">
+  <h3><span class="num">01</span> 🍎 Apple 诉 OpenAI：硬件界的地震</h3>
+  <p>7 月 10 日，Apple 在北加州联邦法院对 OpenAI 提起诉讼，指控其通过系统性手段窃取硬件商业机密。这不是一起孤立的知识产权纠纷——Apple 在诉状中详细描述了令人震惊的行为模式：前 iPhone 设计主管 Tang Tan 在面试中要求候选工程师携带 Apple 原型零件，"展示和讲述"内部开发中的技术；另一名前工程师 Chang Liu 在加入 OpenAI 后仍保留 Apple 笔记本，利用零日认证漏洞持续访问 Apple 内部服务器，下载超过 1000 页机密工程文件，甚至在聊天中嘲笑这一行为。</p>
+  <p>更令人担忧的是，OpenAI 据称整理了一份 Apple 内部离职安全流程文件的"检查清单"，指导候选人跳过离职面谈、不签署文件、无视安全问询、尽可能长时间保留工牌权限。OpenAI 目前已雇佣超过 400 名前 Apple 工程师。这起诉讼正好发生在 OpenAI 计划于 9 月 IPO、并准备推出首款消费 AI 硬件（目标 2027 年发布）的关键节点，它直接威胁到 OpenAI 的硬件路线图。</p>
+  <p><strong>深度信号</strong>：这起诉讼折射出 AI 高级人才争夺战已经失控——头部模型公司不仅仅在抢人，而是在系统性地搬走被挖墙角公司的知识产权。Apple 选择这个时间节点提起诉讼（而不是私下和解或直接解雇），说明它判断法律威慑比维持合作关系更有价值。对行业而言，这意味着硬件设计知识产权正成为 AI 战争的核心战场——谁能造出自己的 AI 芯片和终端设备，谁就不必依赖 Apple/Google 的硬件平台。OpenAI 的 IPO 估值（有报道在 $300B+）将直接受此案影响。</p>
+  <div class="links">
+    <a href="https://x.com/claw_news_/status/2076808666515427825" target="_blank">X: 诉讼详情线索</a>
+    <a href="https://x.com/i/status/2075701020953342340" target="_blank">X: 完整投诉摘要</a>
+    <a href="https://x.com/HebardMatt/status/2076802873904582980" target="_blank">X: 分析评论</a>
+  </div>
+</div>
+
+<div class="dive">
+  <h3><span class="num">02</span> 💰 AI 商业化的分水岭：开源免费时代的终结</h3>
+  <p>今天出现了两个看似独立但实际上互为镜像的信号：Meta 首次为其 AI 模型推出付费 API（Muse Spark 1.1，定价仅为 OpenAI 的 25%），而 OpenAI 的安全负责人出走恰逢 GPT-5.6 Sol 铺向企业市场。这两个事件共同指向同一个趋势——AI 公司已经走完了"免费圈地"阶段，全面进入商业化收割期。Meta 过去以其 Llama 系列的开源策略著称，今天 Muse Spark 1.1 的收费标志着策略的根本转向。</p>
+  <p>Meta 的定价策略很有意思：$1.25/M 输入 token vs. OpenAI 的 ~$5/M，主动打价格战。分析师指出，JPMorgan 预期 token 消耗量到 2030 年将增长 24 倍，"以低价换规模"是理性的长远策略。同时 Meta 在定制 AI 芯片 Iris 上的投资（首期 2026 年 9 月投产）、Hyperion 超算集群 $500 亿扩建、佐治亚州 Louisiana 项目翻倍至 5GW——都在说明 Meta 不是在"玩票"AI 变现，而是在构建从芯片到模型的垂直整合商业飞轮。Microsoft 将 Copilot 默认切换至 GPT-5.6、ChatGPT Work 作为独立产品上线，则意味着企业 AI 订阅市场正式进入规模化竞争阶段。</p>
+  <p><strong>深度信号</strong>：2026 年的 AI 商业化可以用三句话概括：OpenAI 卖能力，Meta 卖价格，Microsoft 卖渠道。三家的竞争已从基准测试分数转向了谁能在企业预算中获得更大份额。SK Hynix 的缺货警告（持续到 2030）则为这场烧钱大战加上了一个硬约束——算力不会无限供给。当硬件供给受限、模型参数不断膨胀、企业需求激增三重压力叠加，明后年可能出现的"AI 算力荒"将逼着每个玩家在效率、价格和垂直整合之间做出痛苦取舍。</p>
+  <div class="links">
+    <a href="https://x.com/Benzinga/status/2076751013323984995" target="_blank">X: Meta 模型商业化报道</a>
+    <a href="https://x.com/nicomejia_/status/2076726888089948398" target="_blank">X: GPT-5.6 Copilot 集成</a>
+    <a href="https://x.com/the_alex_boudot/status/2076670683187425334" target="_blank">X: OpenAI 安全重组</a>
+  </div>
+</div>
+
+<div class="dive">
+  <h3><span class="num">03</span> 🌍 AI 走向物理世界：机器人、语音、自动驾驶三重奏</h3>
+  <p>今天的新闻最令人振奋的信号不是模型参数，而是 AI 正在从对话框走向物理空间。Mistral 发布的 Robostral Navigate（80 亿参数视觉-语言-动作模型）仅凭单 RGB 摄像头就能在从未见过的环境中以 76.6% 成功率自主导航，这一数字超过了多数依赖 LiDAR 和多传感器融合的系统。更值得注意的是，Mistral 采用纯模拟训练——用约 40 万条虚拟轨迹通过缓存技术创新将训练速度提升了 22 倍。模型无需针对不同机器人（轮式、双足、飞行）重新训练即可迁移。</p>
+  <p>同时 Apple 的 SpeechAnalyzer API 在端侧实现了 2.12% 的词错误率——不仅比 Whisper Small 准确 43%，而且速度快 3 倍，完全在设备上用 Apple Neural Engine 运行。这意味着语音交互可以做到零延迟、零网络依赖、零隐私顾虑。当手机上的 AI 可以比你更准确地听清你在说什么、工厂里的机器人可以理解自然语言指令自主导航——AI 的感知层正在逼近"可用的临界点"。而 Hackney 这款 HN 上的小工具也揭示了一个有趣的事实：用户已经开始主动比较 Robotaxi 和传统网约车的价格，自动驾驶的性价比正在接近普通消费者愿意接受的门槛。</p>
+  <p><strong>深度信号</strong>：2026 年下半年的重点将从"模型有多强"转向"模型能做什么事"。Apple 的端侧语音（个人计算）、Mistral 的视觉导航（工业机器人）、以及 Robotaxi 价格透明化（出行服务）——三个不同维度的突破都指向同一个结论：AI 的价值从"能对话"升级到了"能做事"。谁能在物理世界中部署最多的 AI 能力（端侧芯片、机器人、自动驾驶），谁就控制了下一代计算平台的基础设施。Apple 起诉 OpenAI 的深层原因也很清楚——硬件是最后一道护城河。</p>
+  <div class="links">
+    <a href="https://get-inscribe.com/blog/apple-speech-api-benchmark.html" target="_blank">Inscribe: SpeechAnalyzer 基准测试</a>
+    <a href="https://x.com/CyberRobooo/status/2076493642089496721" target="_blank">X: Robostral 技术细节</a>
+    <a href="https://news.ycombinator.com/item?id=48901010" target="_blank">HN: Hackney app</a>
+  </div>
+</div>
+
+<div class="footer">
+  <p>📅 2026 年 7 月 14 日</p>
+  <p>来源: Hacker News · X · 综合科技媒体</p>
+  <p><a href="index.html">← 返回每日精选首页</a></p>
+</div>
+
+</div>
+</body>
+</html>
