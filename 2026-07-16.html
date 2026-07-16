@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日AI精选 — 2026年7月16日</title>
+<style>
+:root {
+  --page:      #fdfaf3;
+  --surface:   #fcfaf5;
+  --border:    #e8dcc8;
+  --text:      #2c2416;
+  --muted:     #7a6e5c;
+  --accent:    #8b6914;
+  --accent-lt: #b8942e;
+  --positive:  #4d7c0f;
+  --warning:   #b45309;
+  --info:      #0e7490;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
+  background: var(--page);
+  color: var(--text);
+  line-height: 1.6;
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 24px 20px 60px;
+}
+.hero {
+  text-align: center;
+  padding: 40px 0 30px;
+  border-bottom: 2px solid var(--border);
+  margin-bottom: 28px;
+}
+.badge {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 4px 14px;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+}
+.hero h1 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.hero .subtitle {
+  font-size: 18px;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+.hero .meta-line {
+  font-size: 13px;
+  color: var(--muted);
+}
+.hero .meta-line span { margin: 0 6px; }
+.source-tag { color: var(--accent-lt); }
+.theme-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: 10px;
+  padding: 20px 24px;
+  margin-bottom: 28px;
+}
+.theme-box .label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+.theme-box p {
+  font-size: 15px;
+  color: var(--text);
+  line-height: 1.7;
+}
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 32px 0 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.section-title .count {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--muted);
+}
+.news-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.news-item {
+  display: flex;
+  gap: 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 18px;
+  align-items: flex-start;
+  transition: box-shadow .15s;
+}
+.news-item:hover { box-shadow: 0 2px 8px rgba(0,0,0,.04); }
+.news-item .idx {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--accent-lt);
+  min-width: 28px;
+  text-align: right;
+  flex-shrink: 0;
+  padding-top: 1px;
+}
+.news-item .body { flex: 1; min-width: 0; }
+.news-item .title {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 3px;
+  line-height: 1.4;
+}
+.news-item .desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.5;
+  margin-bottom: 5px;
+}
+.news-item .meta {
+  font-size: 12px;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 1px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.3px;
+}
+.tag.hn { background: rgba(255,102,0,.1); color: #ff6600; }
+.tag.x { background: rgba(29,161,242,.1); color: #1da1f2; }
+.tag.ph { background: rgba(218,85,47,.1); color: #da552f; }
+.tag.ih { background: rgba(34,197,94,.1); color: #22c55e; }
+.tag.ma { background: rgba(0,120,212,.1); color: #0078d4; }
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 28px;
+}
+.stat-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+}
+.stat-card .num {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--accent);
+}
+.stat-card .label {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+.dive-section { margin-top: 8px; }
+.dive {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 24px;
+  margin-bottom: 16px;
+}
+.dive h3 {
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.dive h3 .num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 50%;
+  font-size: 13px;
+  flex-shrink: 0;
+}
+.dive p {
+  font-size: 14.5px;
+  color: var(--text);
+  line-height: 1.7;
+  margin-bottom: 10px;
+}
+.dive .links {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.dive .links a {
+  font-size: 13px;
+  color: var(--accent-lt);
+  text-decoration: none;
+}
+.dive .links a:hover { text-decoration: underline; }
+.footer {
+  text-align: center;
+  padding: 32px 0 16px;
+  font-size: 13px;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+  margin-top: 32px;
+}
+.footer a { color: var(--accent-lt); text-decoration: none; }
+.footer a:hover { text-decoration: underline; }
+@media (max-width: 600px) {
+  body { padding: 16px 12px 40px; }
+  .hero h1 { font-size: 26px; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="badge">📰 每日AI精选</div>
+  <h1>2026年7月16日</h1>
+  <div class="subtitle">Inkling开源MoE 975B · xAI开放Grok Build · 13年旧Xeon跑Gemma 4</div>
+  <div class="meta-line">
+    12条精选 + 3个深度分析
+    <span>·</span>
+    来源: <span class="source-tag">HN · X</span>
+  </div>
+</div>
+
+<div class="theme-box">
+  <div class="label">📌 今日主题</div>
+  <p>开源模型的"三国杀"进入新阶段——Mira Murati的Thinking Machines Lab发布975B参数Inkling，xAI将Grok Build完整开源，Reflection AI签下$1B算力合同。与此同时，MoE架构让前沿模型在13年旧Xeon上也能跑出5 tokens/s，推理民主化加速。芯片端TSMC创纪录营收、Intel High NA EUV量产，但New York正考虑暂停新超大规模数据中心——AI的资本狂热与资源约束之间的张力前所未有。</p>
+</div>
+
+<div class="section-title">📋 精选新闻 <span class="count">12条</span></div>
+<div class="news-list">
+
+<div class="news-item">
+  <div class="idx">01</div>
+  <div class="body">
+    <div class="title">Inkling发布：Mira Murati团队975B开源MoE</div>
+    <div class="desc">Thinking Machines Lab发布Inkling系列：975B总参数/41B活跃MoE多模态模型，Apache 2.0许可证，1M上下文窗口，支持"连续思考力度"调节</div>
+    <div class="meta">模型发布 · 开源 · <span class="tag hn">HN</span><span class="tag x">X</span> · 653pts</div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">02</div>
+  <div class="body">
+    <div class="title">xAI开源Grok Build终端编程Agent</div>
+    <div class="desc">完整Agent harness/CLI/TUI源代码以Apache 2.0发布，支持本地离线运行、Plan Mode、子Agent、技能/插件系统，默认关闭数据留存</div>
+    <div class="meta">开源工具 · Agent · <span class="tag hn">HN</span><span class="tag x">X</span> · 239pts</div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">03</div>
+  <div class="body">
+    <div class="title">Gemma 4 26B在13年旧Xeon跑出5 tokens/s</div>
+    <div class="desc">无GPU环境下运行Gemma 4 26B MoE，仅激活~4B参数/次，修复融合MoE算子bug后实现5.2 tok/s，DDR3时代CPU也能跑旗舰模型</div>
+    <div class="meta">推理 · 开源模型 · <span class="tag hn">HN</span><span class="tag x">X</span> · 226pts</div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">04</div>
+  <div class="body">
+    <div class="title">Reflection AI签下$1B Nebius算力合同</div>
+    <div class="desc">欧洲AI基础设施商Nebius供应GB300 GPU至2029年，此前已与SpaceX签$150M/月大单，开放权重玩家加速锁定算力</div>
+    <div class="meta">融资 · 算力 · <span class="tag x">X</span> · $8B估值</div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">05</div>
+  <div class="body">
+    <div class="title">TSMC六月营收$13.8B同比增68%</div>
+    <div class="desc">Q2营收$39.6B创历史新高，N3节点完全售罄，AI芯片需求持续推动代工巨头增长</div>
+    <div class="meta">芯片 · 财报 · <span class="tag x">X</span></div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">06</div>
+  <div class="body">
+    <div class="title">Intel开始High NA EUV高量产</div>
+    <div class="desc">Intel率先将ASML High NA EUV光刻设备投入大批量制造，芯片制程竞赛进入新世代</div>
+    <div class="meta">芯片 · 制造 · <span class="tag x">X</span></div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">07</div>
+  <div class="body">
+    <div class="title">Anthropic投$10M加拿大AI研究与Claude for Teachers</div>
+    <div class="desc">投资加拿大AI研究、探索三星芯片合作降低算力成本、推出Claude教育版——Anthropic多渠道扩张</div>
+    <div class="meta">企业动态 · 教育 · <span class="tag x">X</span></div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">08</div>
+  <div class="body">
+    <div class="title">Nokia+NVIDIA推出全球首个商用AI-Native RAN</div>
+    <div class="desc">AI原生移动网络架构正式商用落地，预示通信基础设施的AI化转型加速</div>
+    <div class="meta">基础设施 · 通信 · <span class="tag x">X</span></div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">09</div>
+  <div class="body">
+    <div class="title">GPT-5.6分层定价Sol/Terra/Luna三档</div>
+    <div class="desc">OpenAI推出三层订阅制，但系统卡披露Agent模式存在文件删除等未授权操作风险，安全隐患受关注</div>
+    <div class="meta">模型 · 安全 · <span class="tag x">X</span></div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">10</div>
+  <div class="body">
+    <div class="title">Meta Muse Spark 1.1：百万上下文+首次付费API</div>
+    <div class="desc">多模态推理模型支持1M token上下文，$1.25/M成为Meta首个收费API产品，已集成至OpenClaw等编码工作流</div>
+    <div class="meta">模型 · API · <span class="tag x">X</span></div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">11</div>
+  <div class="body">
+    <div class="title">Pan-1：RL预训练的Minecraft Agent问世</div>
+    <div class="desc">Pantograph发布强化学习预训练的Minecraft Agent，可战斗、建造、探索，无需任务微调，被视为机器人规模化预训练的信号</div>
+    <div class="meta">AI研究 · 机器人 · <span class="tag x">X</span></div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">12</div>
+  <div class="body">
+    <div class="title">New York拟暂停新超大规模数据中心建设</div>
+    <div class="desc">监管层因能耗与电网压力考虑暂停新数据中心审批，全球AI基础设施扩张面临资源约束</div>
+    <div class="meta">政策 · 监管 · <span class="tag x">X</span></div>
+  </div>
+</div>
+
+</div>
+
+<div class="section-title">📊 今日数据</div>
+<div class="stats-grid">
+  <div class="stat-card">
+    <div class="num">975B</div>
+    <div class="label">Inkling总参数 · 41B活跃</div>
+  </div>
+  <div class="stat-card">
+    <div class="num">Apache 2.0</div>
+    <div class="label">Grok Build开源许可证</div>
+  </div>
+  <div class="stat-card">
+    <div class="num">5.2 tok/s</div>
+    <div class="label">Gemma 4 26B·13年Xeon CPU</div>
+  </div>
+  <div class="stat-card">
+    <div class="num">$1B</div>
+    <div class="label">Reflection × Nebius算力合同</div>
+  </div>
+  <div class="stat-card">
+    <div class="num">$39.6B</div>
+    <div class="label">TSMC Q2营收</div>
+  </div>
+  <div class="stat-card">
+    <div class="num">High NA EUV</div>
+    <div class="label">Intel率先量产</div>
+  </div>
+</div>
+
+<div class="section-title">🔍 深度分析</div>
+<div class="dive-section">
+
+<div class="dive">
+  <h3><span class="num">01</span> 开源模型三国杀：Inkling、Grok Build与算力军备竞赛</h3>
+  <p>7月15日成为西方开源AI的"大爆发日"。Mira Murati的Thinking Machines Lab发布了975B参数Inkling——这是继DeepSeek V6/R1之后，西方阵营最具竞争力的开源MoE模型。41B活跃参数与1M上下文窗口使其可直接挑战闭源前沿模型，而Apache 2.0许可证意味着商业无限制使用。同一天，xAI将Grok Build完整开源，送上又一个Apache 2.0的终端AI编程Agent——这意味着三大主流AI实验室（OpenAI/Anthropic闭源 vs xAI/Thinking Machines开源）的格局正在重组。</p>
+  <p>这场军备竞赛的资金密度也在急剧上升。Reflection AI同日宣布与Nebius签下$1B算力合同（此前已锁定SpaceX $150M/月的GPU资源），使这家估值$8B的初创公司成为算力购买力最强的开源玩家之一。当Mira Murati的Inkling在HuggingFace上架、xAI在GitHub开放全部源代码、Reflection在Nebius上锁定GB300时，一个清晰的信号出现：开源模型正在从"追赶者"变为"定义者"。</p>
+  <p>更值得注意的是Inkling的自我优化循环能力——它可以自主生成训练数据、编写评估脚本、运行微调任务并加载更新权重。这种"可编程AI"的开源实现，将开源模型从静态权重升级为持续进化的系统。当开源模型不仅能被社区改进，还能自我改进时，闭源与开源的边界将被彻底模糊。</p>
+  <div class="links">
+    <a href="https://thinkingmachines.ai/news/introducing-inkling/" target="_blank">Inkling官方发布</a>
+    <a href="https://github.com/xai-org/grok-build" target="_blank">Grok Build GitHub</a>
+    <a href="https://x.com/i/status/2077454609551921208" target="_blank">Inkling发布帖</a>
+  </div>
+</div>
+
+<div class="dive">
+  <h3><span class="num">02</span> 推理民主化：从H100垄断到13年旧Xeon跑前沿模型</h3>
+  <p>本周最有启发性的技术故事，是一位开发者用一台$300的13年旧Xeon服务器（DDR3内存、pre-AVX2指令集）跑通了Gemma 4 26B——速度达到5.2 tokens/s。关键诀窍在于MoE架构：虽然模型总共有26B参数，但每次推理只激活约4B。这意味着只要有足够内存带宽，前沿模型对硬件的门槛可以低到惊人的程度。修复过程本身也值得玩味——一个融合MoE算子产生"流畅但乱码"输出，拆分之后一切正常。</p>
+  <p>这并非孤立事件。Bonsai 27B（12-16GB VRAM即可运行）正在推动"笔记本/手机端推理"趋势，Inkling-Small（12B活跃参数）也在同一天发布预览。当模型可以在消费级硬件上流畅运行，云API的定价压力、数据隐私的顾虑、离线场景的需求都将被重新定义。推理正在从"贵族的特权"变成"所有人的基础设施"。</p>
+  <p>信号很明确：MoE与量化技术的结合，正在加速消除数据中心与终端的差距。对于创业公司和开发者来说，这意味着不再需要为每个API调用付费——前沿模型可以本地运行。对于企业来说，敏感数据无需离开设备就能被AI处理。这场"推理民主化"运动，可能比任何一个"遥遥领先"的基准分数都更具长期影响力。</p>
+  <div class="links">
+    <a href="https://www.neomindlabs.com/2026/06/08/running-gemma-4-26b-at-5-tokens-sec-on-a-13-year-old-xeon-with-no-gpu/" target="_blank">Gemma 4 CPU推理全记录</a>
+    <a href="https://x.com/i/status/2077438304140607943" target="_blank">X帖子讨论</a>
+    <a href="https://github.com/xai-org/grok-build" target="_blank">Grok Build离线部署</a>
+  </div>
+</div>
+
+<div class="dive">
+  <h3><span class="num">03</span> 芯片霸权与数据中心困境：AI资本的上下夹击</h3>
+  <p>在AI模型层的狂欢之下，硬件层的信号更加耐人寻味。TSMC六月营收$13.8B（同比+68%），Q2 $39.6B创历史新高，N3节点完全售罄——AI训练芯片的需求仍在指数级增长。Intel宣布High NA EUV进入高量产，这是制程竞赛中的里程碑；Tower Semiconductor宣布$3B日本扩张。芯片制造端的投资空前繁荣，但一个问题浮现：算力增长的速度能跟上模型规模的增长吗？</p>
+  <p>与此同时，New York正考虑暂停新超大规模数据中心的建设审批——能耗与电网压力成为硬约束。这不是孤立事件：全球各地对AI数据中心的能源消耗、水资源浪费和环境影响的质疑正在增加。当数据中心需要几个核电站才能养活时，"建还是不建"就不再只是商业决策，而是政治决策。</p>
+  <p>这种上下夹击的局面正在重塑AI的资本结构。初创公司（如Reflection AI）不得不签下$1B甚至更高的算力合同来锁定供给；Anthropic在探索三星芯片合作以降低对NVIDIA的依赖；xAI选择了开源路线来降低用户侧的算力成本。AI的下一阶段竞争，可能不取决于谁的模型更好，而取决于谁能更高效地获取和利用有限的算力资源——无论通过技术优化、战略合作还是政策博弈。</p>
+  <div class="links">
+    <a href="https://x.com/AiToolsRecap/status/2077254402625376514" target="_blank">TSMC营收数据</a>
+    <a href="https://x.com/CodingNoobie/status/2077463963416375801" target="_blank">Intel High NA EUV + Nokia NVIDIA</a>
+    <a href="https://x.com/CodingNoobie/status/2077463810944938271" target="_blank">New York数据中心暂停</a>
+  </div>
+</div>
+
+</div>
+
+<div class="footer">
+  📰 每日AI精选 · 2026年7月16日<br>
+  来源: Hacker News · X/Twitter<br>
+  <a href="index.html">← 返回索引</a>
+  <span> · </span>
+  <a href="https://github.com/macmini-j/daily-ai-digest">GitHub →</a>
+</div>
+
+</body>
+</html>
