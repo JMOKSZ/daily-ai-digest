@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日AI精选 · 2026-07-17</title>
+<style>
+  :root {
+    --page:      #fdfaf3;
+    --surface:   #fcfaf5;
+    --card:      #ffffff;
+    --border:    #e8dcc8;
+    --text:      #2c2416;
+    --muted:     #7a6e5c;
+    --accent:    #8b6914;
+    --accent-lt: #b8942e;
+    --positive:  #4d7c0f;
+    --warning:   #b45309;
+    --info:      #0e7490;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--page);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
+    line-height: 1.6;
+    padding: 0;
+  }
+  .container {
+    max-width: 840px;
+    margin: 0 auto;
+    padding: 40px 24px;
+  }
+
+  /* Hero */
+  .hero {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+  .badge {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    padding: 6px 16px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+  }
+  .hero h1 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--text);
+  }
+  .hero .subtitle {
+    font-size: 16px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  .hero .key-stories {
+    font-size: 14px;
+    color: var(--accent);
+    font-weight: 500;
+  }
+  .hero .sources {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 12px;
+  }
+
+  /* Theme Blockquote */
+  .theme {
+    background: var(--surface);
+    border-left: 4px solid var(--accent);
+    padding: 20px 24px;
+    border-radius: 0 12px 12px 0;
+    margin-bottom: 48px;
+  }
+  .theme .label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+  .theme p {
+    font-size: 15px;
+    color: var(--text);
+    line-height: 1.8;
+  }
+
+  /* Section headers */
+  .section-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--border);
+  }
+
+  /* News items */
+  .news-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 48px;
+  }
+  .news-item {
+    display: flex;
+    align-items: flex-start;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 20px;
+    gap: 16px;
+    transition: box-shadow .15s;
+  }
+  .news-item:hover {
+    box-shadow: 0 2px 8px rgba(0,0,0,.05);
+  }
+  .news-item .idx {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--accent);
+    min-width: 28px;
+    text-align: center;
+    line-height: 1.6;
+  }
+  .news-item .body {
+    flex: 1;
+    min-width: 0;
+  }
+  .news-item .title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+  .news-item .desc {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.5;
+    margin-bottom: 6px;
+  }
+  .news-item .meta {
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .news-item .tags {
+    display: flex;
+    gap: 6px;
+    flex-shrink: 0;
+    align-items: center;
+    padding-top: 2px;
+  }
+
+  /* Tags */
+  .tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 4px;
+  }
+  .tag.hn { background: rgba(255,102,0,.1); color: #ff6600; }
+  .tag.x  { background: rgba(29,161,242,.1); color: #1da1f2; }
+  .tag.ph { background: rgba(218,85,47,.1); color: #da552f; }
+  .tag.ih { background: rgba(34,197,94,.1); color: #22c55e; }
+  .tag.ma { background: rgba(0,120,212,.1); color: #0078d4; }
+  .tag.rd { background: rgba(139,92,246,.1); color: #8b5cf6; }
+
+  /* Stats Grid */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 48px;
+  }
+  .stat-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+  }
+  .stat-card .num {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 4px;
+  }
+  .stat-card .label {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+
+  /* Deep Dives */
+  .dives {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 48px;
+  }
+  .dive {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px;
+  }
+  .dive h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: var(--text);
+  }
+  .dive h3 .num {
+    color: var(--accent);
+    margin-right: 6px;
+  }
+  .dive p {
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.8;
+    margin-bottom: 12px;
+  }
+  .dive .links {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+  }
+  .dive .links a {
+    display: inline-block;
+    font-size: 13px;
+    color: var(--accent-lt);
+    text-decoration: none;
+    margin-right: 16px;
+    margin-bottom: 4px;
+  }
+  .dive .links a:hover {
+    text-decoration: underline;
+  }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    font-size: 12px;
+    color: var(--muted);
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+  }
+  .footer a {
+    color: var(--accent-lt);
+    text-decoration: none;
+  }
+  .footer a:hover { text-decoration: underline; }
+
+  @media (max-width: 600px) {
+    .container { padding: 24px 16px; }
+    .hero h1 { font-size: 28px; }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .news-item { flex-wrap: wrap; }
+    .news-item .tags { width: 100%; padding-top: 8px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="badge">每日 AI 精选</div>
+    <h1>2026.07.17</h1>
+    <div class="subtitle">Kimi K3 发布 · TSMC 利润暴涨 77% · Anthropic IPO 临近</div>
+    <div class="key-stories">12条精选 + 3个深度分析</div>
+    <div class="sources">来源: X · Hacker News · 官方公告</div>
+  </div>
+
+  <!-- Today's Theme -->
+  <div class="theme">
+    <div class="label">📌 今日主题</div>
+    <p>今天是 <strong>开源模型加速追赶闭源前沿</strong> 的标志性一天。Moonshot AI 发布 2.8T 参数的 Kimi K3（权重 7 月 27 日开源），紧随 Thinking Machines 开放 975B 的 Inkling。同时 AI 基础设施投资狂潮持续——TSMC 净利暴涨 77%、CoWoS 封装售罄至 2027，Fireworks 以 $17.5B 估值融资 $1.5B，Anthropic 扩张信贷为万亿级 IPO 做准备。开源模型 + 基础设施 + 资本市场，三者共振。</p>
+  </div>
+
+  <!-- News Items -->
+  <h2 class="section-title">🔥 精选新闻</h2>
+  <div class="news-list">
+
+    <div class="news-item">
+      <div class="idx">01</div>
+      <div class="body">
+        <div class="title">Moonshot AI 发布 2.8T 参数 Kimi K3</div>
+        <div class="desc">"Open Frontier Intelligence"——896 专家 MoE，仅激活 16 个/token。1M 上下文窗口，原生多模态，Kimi Delta Attention 实现 6.3× 解码加速。权重 7 月 27 日开源。</div>
+        <div class="meta">模型发布 · Kimi Delta Attention + AttnRes · API $3/$15 per M tokens</div>
+      </div>
+      <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+    </div>
+
+    <div class="news-item">
+      <div class="idx">02</div>
+      <div class="body">
+        <div class="title">Thinking Machines 开源 975B 参数 Inkling</div>
+        <div class="desc">Mira Murati 创立的实验室发布 Apache 2.0 开源模型。41B 活跃参数 MoE，支持文本/图像/音频，1M 上下文。首日即放权重，信号端到端开源时代来临。</div>
+        <div class="meta">开源发布 · ~$12B 融资 · Apache 2.0 · 含 Inkling-Small 变体</div>
+      </div>
+      <div class="tags"><span class="tag x">X</span></div>
+    </div>
+
+    <div class="news-item">
+      <div class="idx">03</div>
+      <div class="body">
+        <div class="title">TSMC Q2 净利暴涨 77%，CoWoS 售罄至 2027</div>
+        <div class="desc">营收 $40.2B（+36% YoY），HPC 占 66%。CoWoS 先进封装产能扩张至 125K–130K 片/月仍供不应求。全年指引上调至 +40%，资本开支上调至 $60-64B。</div>
+        <div class="meta">硬件/基础设施 · 毛利 67.7% · AZ 扩建 $100B</div>
+      </div>
+      <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+    </div>
+
+    <div class="news-item">
+      <div class="idx">04</div>
+      <div class="body">
+        <div class="title">Fireworks AI 以 $17.5B 估值融资 $1.5B</div>
+        <div class="desc">推理平台独角兽跨越 $1B ARR，日处理 40T+ tokens（95% 为客户定制模型）。从"推理服务商"向"自有前沿模型的 NeoLab"转型。</div>
+        <div class="meta">融资 · Series D · NVIDIA 参投 · 五倍 YoY 增长</div>
+      </div>
+      <div class="tags"><span class="tag x">X</span></div>
+    </div>
+
+    <div class="news-item">
+      <div class="idx">05</div>
+      <div class="body">
+        <div class="title">Anthropic 为万亿估值 IPO 扩张信贷至数十亿</div>
+        <div class="desc">现有 $2.5B 循环信贷设施正在扩张。ARR 从 $9B（2025 年底）飙升至 $44B+。目标 9-10 月上市，或成为首个上市的 AI 前沿实验室。</div>
+        <div class="meta">资本市场 · Polymarket 预测 43% · 对标 SpaceX/Cerebras</div>
+      </div>
+      <div class="tags"><span class="tag x">X</span></div>
+    </div>
+
+    <div class="news-item">
+      <div class="idx">06</div>
+      <div class="body">
+        <div class="title">NotebookLM 正式更名为 Gemini Notebook</div>
+        <div class="desc">Google 将 AI 笔记工具纳入 Gemini 品牌体系。标志性功能保留的同时接入 Gemini 生态，暗示更深度整合即将到来。</div>
+        <div class="meta">产品更新 · Google · 品牌整合</div>
+      </div>
+      <div class="tags"><span class="tag hn">HN</span></div>
+    </div>
+
+    <div class="news-item">
+      <div class="idx">07</div>
+      <div class="body">
+        <div class="title">Apple Intelligence 入华：牵手阿里 Qwen 模型</div>
+        <div class="desc">为满足中国监管要求，Apple 选择阿里 Qwen 作为 iPhone AI 功能的本地方案。务实之举撬动 2 亿+潜在用户市场。</div>
+        <div class="meta">地缘/商业 · Alibaba Qwen · 中国合规</div>
+      </div>
+      <div class="tags"><span class="tag x">X</span></div>
+    </div>
+
+    <div class="news-item">
+      <div class="idx">08</div>
+      <div class="body">
+        <div class="title">LM Studio Bionic：开源模型的 AI Agent</div>
+        <div class="desc">LM Studio 推出 Bionic 功能，让用户能在本地开源模型上运行 AI Agent。降低 Agent 开发门槛，推动本地化 Agent 生态。</div>
+        <div class="meta">工具/平台 · 开源 agent · 本地运行</div>
+      </div>
+      <div class="tags"><span class="tag hn">HN</span></div>
+    </div>
+
+    <div class="news-item">
+      <div class="idx">09</div>
+      <div class="body">
+        <div class="title">Ring-Zero：将 Zero RL 扩展到万亿参数规模</div>
+        <div class="desc">新论文提出通过可验证奖励将 Zero Reinforcement Learning 扩展到万亿参数模型，减少对人类标注数据的依赖，实现涌现推理能力。</div>
+        <div class="meta">前沿研究 · arXiv · 推理能力涌现</div>
+      </div>
+      <div class="tags"><span class="tag hn">HN</span></div>
+    </div>
+
+    <div class="news-item">
+      <div class="idx">10</div>
+      <div class="body">
+        <div class="title">29 国在沪签署 WAICO 全球 AI 治理协议</div>
+        <div class="desc">世界人工智能大会期间，29 国签署协议成立 WAICO（World AI Cooperation Organization），联合国秘书长出席。全球 AI 治理迈出制度化一步。</div>
+        <div class="meta">政策/治理 · 上海 WAIC · 29 国</div>
+      </div>
+      <div class="tags"><span class="tag x">X</span></div>
+    </div>
+
+    <div class="news-item">
+      <div class="idx">11</div>
+      <div class="body">
+        <div class="title">Anthropic × Blackstone 推出 Ode：$1.5B AI 工程师部署计划</div>
+        <div class="desc">Anthropic 与 Blackstone 联合发布 Ode 计划，向企业派遣 AI 工程师团队协助实施 AI 集成。押注"集成比访问更难"。</div>
+        <div class="meta">商业服务 · $1.5B · AI 集成</div>
+      </div>
+      <div class="tags"><span class="tag x">X</span></div>
+    </div>
+
+    <div class="news-item">
+      <div class="idx">12</div>
+      <div class="body">
+        <div class="title">Llama 3.3 70B 登顶 HF 开源模型榜</div>
+        <div class="desc">Meta 的 Llama 3.3 70B 在 Hugging Face 开源模型排行榜持续领先，社区微调版本在代码生成和数学推理上逼近更大模型表现。</div>
+        <div class="meta">开源模型 · Hugging Face 排行榜 · 社区驱动</div>
+      </div>
+      <div class="tags"><span class="tag x">X</span><span class="tag hn">HN</span></div>
+    </div>
+
+  </div>
+
+  <!-- Stats Grid -->
+  <h2 class="section-title">📊 今日数据</h2>
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="num">2.8T</div>
+      <div class="label">Kimi K3 总参数<br>896 专家 MoE</div>
+    </div>
+    <div class="stat-card">
+      <div class="num">77%</div>
+      <div class="label">TSMC Q2 净利同比<br>毛利率 67.7%</div>
+    </div>
+    <div class="stat-card">
+      <div class="num">$17.5B</div>
+      <div class="label">Fireworks AI 估值<br>$1B+ ARR</div>
+    </div>
+    <div class="stat-card">
+      <div class="num">$44B+</div>
+      <div class="label">Anthropic ARR<br>$965B 估值</div>
+    </div>
+    <div class="stat-card">
+      <div class="num">975B</div>
+      <div class="label">Inkling 参数规模<br>Apache 2.0 开源</div>
+    </div>
+    <div class="stat-card">
+      <div class="num">29</div>
+      <div class="label">WAICO 签约国<br>全球 AI 治理</div>
+    </div>
+  </div>
+
+  <!-- Deep Dives -->
+  <h2 class="section-title">🔍 深度分析</h2>
+  <div class="dives">
+
+    <div class="dive">
+      <h3><span class="num">01</span> 开源模型的黄金交叉：Kimi K3 + Inkling 同日亮剑</h3>
+      <p>7 月 16-17 日，两件大事同时发生：Moonshot AI 发布 2.8T 参数的 Kimi K3（权重 7 月 27 日开源），Thinking Machines（Mira Murati 创立）开放 975B 的 Inkling（Apache 2.0 即刻可用）。这不是巧合——这是开源模型首次在多个维度同时逼近闭源前沿。</p>
+      <p>Kimi K3 的 Delta Attention 实现 6.3× 解码加速，Inkling 的 41B 活跃参数在推理成本上已与 Claude Opus 4.8 可比。更关键的是，两者都选择了 "开放权重" 路线——这已从 "理想主义选择" 变成 "商业必要性"。Fireworks 的 $1.5B 融资证明了市场对定制开源模型的需求远大于对 API 垄断的依赖。</p>
+      <p>信号很明确：模型的护城河正在从 "参数规模" 转向 "部署/集成体验"。当 2.8T 参数的模型以 $3/M tokens 的价格可用，当 975B 模型完全开源，闭源 API 的高价策略将面临根本性质疑。下一个问题是：7 月 27 日 Kimi K3 权重真正放出后，社区会用它做什么？</p>
+      <div class="links">
+        <a href="https://www.kimi.com/blog/kimi-k3" target="_blank">Kimi K3 官方公告</a>
+        <a href="https://x.com/Kimi_Moonshot/status/2077830234955816983" target="_blank">Moonshot AI 官宣帖</a>
+        <a href="https://x.com/JosephHoeksema/status/2077903631731355664" target="_blank">Inkling 发布分析</a>
+      </div>
+    </div>
+
+    <div class="dive">
+      <h3><span class="num">02</span> AI 基础设施的资本大爆炸：从 TSMC 到 Fireworks 到 Anthropic</h3>
+      <p>TSMC Q2 净利暴涨 77% 至 $22B，CoWoS 先进封装产能售罄至 2027 年。这组数字背后是一个更宏观的事实：AI 基础设施正在吸收人类历史上最大规模的资本支出。TSMC 将 2026 年资本开支上调至 $60-64B，并在亚利桑那追加 $100B 扩建 2nm 产线。</p>
+      <p>同期，推理平台 Fireworks AI 以 $17.5B 估值融资 $1.5B，日处理超 40T tokens——其中 95% 来自客户定制模型而非通用 API 调用。这揭示了一个关键转变：企业正在从 "租用智能"（调用通用 API）转向 "拥有智能"（在专有数据上训练和运行模型）。</p>
+      <p>而 Anthropic 扩张 $2.5B+ 信贷设施备战 IPO，则代表着资本对 AI 商业化的终极押注。这三件事放在一起看——硬件（TSMC）、推理平台（Fireworks）、前沿实验室（Anthropic）——AI 产业链的三个层级都在经历资本层面的质变。这不仅仅是 "AI 很热"，而是基础设施级的资本形成正在重塑科技产业的物理形态。</p>
+      <div class="links">
+        <a href="https://x.com/josenajarro/status/2077731497323209044" target="_blank">TSMC Q2 财报总结</a>
+        <a href="https://fireworks.ai/blog/series-d-announcement" target="_blank">Fireworks AI Series D 公告</a>
+        <a href="https://x.com/theinformation/status/2077762718468067789" target="_blank">Anthropic 信贷扩张报道</a>
+      </div>
+    </div>
+
+    <div class="dive">
+      <h3><span class="num">03</span> Anthropic IPO：AI 行业的 IPO 分水岭</h3>
+      <p>Anthropic 正在准备科技史上最重要的 AI 公司 IPO。其 ARR 从 2025 年底的 $9B 飙升至 2026 年中期的 $44B+，最新私募估值约 $965B，IPO 目标估值超 $1T。对比来看，这将是自 Meta/Facebook（2012, $104B）之后规模最大的科技公司上市。</p>
+      <p>有几个关键信号值得注意：Anthropic 正在以 SpaceX/Cerebras 的模式扩张信贷以建立现金缓冲，暗示其对 IPO 后持续烧钱的预期。同时 Polymarket 预测 10 月底前 IPO 概率仅 43%，说明市场对时机仍有分歧。但 The Information 报道其 9 月启动路演——如果成行，Anthropic 将领先 OpenAI（推迟至 2027）成为首家上市的 AI 前沿实验室。</p>
+      <p>与 Ode $1.5B 计划（联合 Blackstone 向企业派驻 AI 工程师）结合看，Anthropic 的战略正在从 "卖 API" 扩展到 "卖集成能力"。如果成功，这将定义 AI 公司走向公开市场的范式——不仅仅是模型能力，更是落地能力的资本化。这对整个行业有信号意义：AI 商业化正在从纯技术产品向 "技术 + 服务" 混合模式演进。</p>
+      <div class="links">
+        <a href="https://x.com/theinformation/status/2077762718468067789" target="_blank">The Information: Anthropic 信贷扩张</a>
+        <a href="https://x.com/NarumiAIonX/status/2077833646438830408" target="_blank">Anthropic IPO 时间线与估值</a>
+        <a href="https://x.com/TechridgeAI/status/2077903503230456110" target="_blank">Anthropic × Blackstone Ode 计划</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <p>每日AI精选 · 2026年7月17日</p>
+    <p>数据来源: <a href="https://news.ycombinator.com" target="_blank">Hacker News</a> · <a href="https://x.com" target="_blank">X/Twitter</a> · 官方公告</p>
+    <p><a href="index.html">← 返回目录</a> · <a href="https://github.com/macmini-j/daily-ai-digest" target="_blank">GitHub</a></p>
+  </div>
+
+</div>
+</body>
+</html>
