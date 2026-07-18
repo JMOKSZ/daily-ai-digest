@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日AI精选 · 2026-07-18</title>
+<style>
+:root {
+  --page: #fdfaf3;
+  --surface: #fff;
+  --surface-alt: #fcfaf5;
+  --border: #e8dcc8;
+  --text: #2c2416;
+  --muted: #7a6e5c;
+  --accent: #8b6914;
+  --accent-lt: #b8942e;
+  --positive: #4d7c0f;
+  --warning: #b45309;
+  --info: #0e7490;
+  --red: #b91c1c;
+  --green: #15803d;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
+  background: var(--page);
+  color: var(--text);
+  line-height: 1.7;
+  padding: 0;
+}
+.container { max-width: 880px; margin: 0 auto; padding: 40px 24px; }
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 48px 0 32px;
+  border-bottom: 2px solid var(--border);
+  margin-bottom: 32px;
+}
+.hero .badge {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  padding: 4px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+}
+.hero h1 {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+.hero .subtitle {
+  font-size: 18px;
+  color: var(--muted);
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+.hero .subtitle strong { color: var(--accent); font-weight: 600; }
+.hero .sources {
+  font-size: 13px;
+  color: var(--muted);
+}
+.hero .sources span {
+  display: inline-block;
+  margin: 0 3px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+/* Theme */
+.theme {
+  background: var(--surface-alt);
+  border-left: 4px solid var(--accent);
+  padding: 20px 24px;
+  margin: 0 0 32px;
+  border-radius: 0 8px 8px 0;
+}
+.theme .label {
+  font-size: 13px;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.theme p { font-size: 15px; color: var(--text); line-height: 1.8; }
+
+/* Section headers */
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text);
+  margin: 40px 0 20px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.section-title .count {
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 400;
+}
+
+/* News items */
+.news-list { display: flex; flex-direction: column; gap: 0; }
+.news-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+}
+.news-item:last-child { border-bottom: none; }
+.news-item .idx {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+}
+.news-item .body { flex: 1; min-width: 0; }
+.news-item .title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 4px;
+  line-height: 1.4;
+}
+.news-item .desc {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 6px;
+  line-height: 1.5;
+}
+.news-item .meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.tag {
+  display: inline-block;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+}
+.tag.hn { background: rgba(255,102,0,.1); color: #ff6600; }
+.tag.x { background: rgba(29,161,242,.1); color: #1da1f2; }
+.tag.ma { background: rgba(0,120,212,.1); color: #0078d4; }
+.tag.ih { background: rgba(34,197,94,.1); color: #16a34a; }
+.tag.ph { background: rgba(218,85,47,.1); color: #da552f; }
+.tag.hot { background: rgba(185,28,28,.08); color: #b91c1c; }
+
+/* Stats grid */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 24px 0;
+}
+.stat {
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px 16px;
+  text-align: center;
+}
+.stat .num {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1.2;
+  margin-bottom: 4px;
+}
+.stat .num.small { font-size: 22px; }
+.stat .label {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+/* Deep dives */
+.dive {
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 24px;
+  margin-bottom: 20px;
+}
+.dive h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.dive h3 .num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 50%;
+  font-size: 13px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+.dive p {
+  font-size: 15px;
+  color: var(--text);
+  line-height: 1.8;
+  margin-bottom: 12px;
+}
+.dive p:last-of-type { margin-bottom: 16px; }
+.dive .links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.dive .links a {
+  display: inline-block;
+  padding: 4px 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 13px;
+  color: var(--accent-lt);
+  text-decoration: none;
+  transition: all .15s;
+}
+.dive .links a:hover {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 40px 0 20px;
+  border-top: 2px solid var(--border);
+  margin-top: 40px;
+}
+.footer p {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.8;
+}
+.footer a {
+  color: var(--accent);
+  text-decoration: none;
+}
+.footer a:hover { text-decoration: underline; }
+
+/* Responsive */
+@media (max-width: 640px) {
+  .container { padding: 24px 16px; }
+  .hero h1 { font-size: 28px; }
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  .news-item { gap: 12px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Hero -->
+<div class="hero">
+  <div class="badge">每日AI精选</div>
+  <h1>2026 年 7 月 18 日 · 周六</h1>
+  <div class="subtitle">
+    <strong>Kimi K3 开源</strong> · <strong>Mozilla 开源 AI 报告</strong> · <strong>德国 AI 判例</strong>
+  </div>
+  <div style="font-size:14px;color:var(--muted);margin-bottom:8px;">12 条精选 + 3 个深度分析</div>
+  <div class="sources">
+    来源: <span style="background:rgba(255,102,0,.1);color:#ff6600;">HN</span>
+    <span style="background:rgba(29,161,242,.1);color:#1da1f2;">X</span>
+    <span style="background:rgba(0,120,212,.1);color:#0078d4;">MA</span>
+  </div>
+</div>
+
+<!-- Theme -->
+<div class="theme">
+  <div class="label">📌 今日主题</div>
+  <p><strong>开源模型大爆发：Kimi K3、Inkling 同周发布，Mozilla 报告确认开源已接近闭源前沿。</strong>Moonshot AI 的 2.8 万亿参数 Kimi K3 将于 7 月 27 日开源，Mira Murati 创立的 Thinking Machines Lab 也推出了 975B 参数的 Inkling（Apache 2.0）。与此同时，德国裁定 AI Overviews 为"出版商"行为，欧盟监管框架迎来重大转折。开源浪潮与监管收紧，共同定义着 2026 年 AI 产业的格局重塑。</p>
+</div>
+
+<!-- News Section -->
+<div class="section-title">
+  📰 精选新闻 <span class="count">· 12 条</span>
+</div>
+<div class="news-list">
+
+<div class="news-item">
+  <div class="idx">01</div>
+  <div class="body">
+    <div class="title">Moonshot AI 发布 Kimi K3：2.8 万亿参数开源模型</div>
+    <div class="desc">首创 Delta Attention 实现百万 token 6.3× 加速解码，多项编码/Agent 基准登顶，API 定价 $0.30/百万 token，7 月 27 日开源权重。</div>
+    <div class="meta"><span class="tag hot">🔥 头条</span><span class="tag hn">HN</span><span class="tag x">X</span></div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">02</div>
+  <div class="body">
+    <div class="title">Mozilla 发布《2026 开源 AI 现状报告》</div>
+    <div class="desc">开源与闭源差距缩小至 3.3%，推理成本 36 个月下降 50×。中国开源模型占 HuggingFace 下载量 41%，OpenRouter 前 6 名均为开源模型。</div>
+    <div class="meta"><span class="tag hn">HN</span><span class="tag x">X</span><span class="tag ma">MA</span></div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">03</div>
+  <div class="body">
+    <div class="title">Thinking Machines Lab 开源 Inkling 模型</div>
+    <div class="desc">Mira Murati 创立的新公司发布 975B 参数 MoE（41B active），原生多模态+百万 token 上下文，Apache 2.0 许可，可在 OpenRouter 体验。</div>
+    <div class="meta"><span class="tag x">X</span><span class="tag hot">🔥</span></div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">04</div>
+  <div class="body">
+    <div class="title">Kaggle"测量AGI"竞赛爆评分争议</div>
+    <div class="desc">冠军方案 MEDLEY-BENCH 被指利用评分系统漏洞，通过本地 API 追踪 JSON schema 获得 95% 高分。DeepMind 赞助的竞赛引发对 AGI 基准可信度的广泛质疑。</div>
+    <div class="meta"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">05</div>
+  <div class="body">
+    <div class="title">德国裁定 AI Overviews 为"出版商"行为</div>
+    <div class="desc">慕尼黑法院 + ZAK 媒体监管机构先后判决 Google/Perplexity 的 AI 摘要属于独立创作内容，失去 DSA 中介责任豁免，须遵守媒体法义务。</div>
+    <div class="meta"><span class="tag x">X</span><span class="tag ma">MA</span></div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">06</div>
+  <div class="body">
+    <div class="title">Isomorphic Labs 成立生物韧性响应单元</div>
+    <div class="desc">DeepMind 旗下 AI 药物设计引擎部署用于大流行快速响应，可在数周内生成候选药物，将与劳伦斯利弗莫尔国家实验室合作。</div>
+    <div class="meta"><span class="tag x">X</span><span class="tag ma">MA</span></div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">07</div>
+  <div class="body">
+    <div class="title">AI 双神经旁路系统恢复瘫痪患者运动</div>
+    <div class="desc">Feinstein 研究所"双神经旁路"系统——脑信号解码+AI 电刺激——使四肢瘫痪患者 35 周内手臂力量提升 86%，成果发表于 Nature Medicine。</div>
+    <div class="meta"><span class="tag x">X</span><span class="tag ma">MA</span></div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">08</div>
+  <div class="body">
+    <div class="title">DeepSeek 融资 74 亿美元，估值超 500 亿</div>
+    <div class="desc">中国 AI 实验室持续吸引巨额资本，成为全球估值最高的 AI 初创之一。资金将用于前沿模型研发和算力基础设施建设。</div>
+    <div class="meta"><span class="tag x">X</span></div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">09</div>
+  <div class="body">
+    <div class="title">NVIDIA Nemotron 3 Embed 8B 登顶检索基准</div>
+    <div class="desc">开源嵌入模型在多个检索基准测试中夺冠，为长上下文 Agent 工作流提供更精准的 grounding 能力，减少幻觉。</div>
+    <div class="meta"><span class="tag x">X</span></div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">10</div>
+  <div class="body">
+    <div class="title">OpenAI 构建 GPT-Red：自对弈 AI 超级黑客</div>
+    <div class="desc">内部红队系统通过自对弈超越人类安全专家，用于发现模型漏洞并帮助加固。未计划公开发布。</div>
+    <div class="meta"><span class="tag x">X</span></div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">11</div>
+  <div class="body">
+    <div class="title">Apple Intelligence 获中国批准，Qwen 驱动</div>
+    <div class="desc">苹果 AI 功能在中国获批上线，由阿里巴巴通义千问（Qwen）提供底层模型支持。标志着中国 AI 生态与全球消费电子巨头的深度整合。</div>
+    <div class="meta"><span class="tag x">X</span></div>
+  </div>
+</div>
+
+<div class="news-item">
+  <div class="idx">12</div>
+  <div class="body">
+    <div class="title">Mistral 发布 Robostral Navigate 8B</div>
+    <div class="desc">端侧机器人导航模型，支持单摄像头+自然语言指令在未见环境中零样本导航，拓展了边缘 AI 在机器人领域的应用边界。</div>
+    <div class="meta"><span class="tag x">X</span></div>
+  </div>
+</div>
+
+</div>
+
+<!-- Stats -->
+<div class="section-title">📊 今日数据</div>
+<div class="stats">
+  <div class="stat">
+    <div class="num">2.8T</div>
+    <div class="label">Kimi K3 参数规模</div>
+  </div>
+  <div class="stat">
+    <div class="num small">3.3%</div>
+    <div class="label">开源-闭源能力差距</div>
+  </div>
+  <div class="stat">
+    <div class="num small">975B</div>
+    <div class="label">Inkling 总参数 / 41B active</div>
+  </div>
+  <div class="stat">
+    <div class="num">$7.4B</div>
+    <div class="label">DeepSeek 融资额</div>
+  </div>
+  <div class="stat">
+    <div class="num">50×</div>
+    <div class="label">36 个月推理成本下降</div>
+  </div>
+  <div class="stat">
+    <div class="num">41%</div>
+    <div class="label">中国模型占 HF 下载量</div>
+  </div>
+</div>
+
+<!-- Deep Dives -->
+<div class="section-title">🔍 深度分析</div>
+
+<div class="dive">
+  <h3><span class="num">01</span>Kimi K3 与开源模型格局的"临界点"</h3>
+  <p><strong>发生了什么？</strong>Moonshot AI 在本周发布了 Kimi K3——一个 2.8 万亿参数的 MoE 多模态模型，在编码和 Agent 基准上超越或追平了 Claude Fable 和 GPT-5.6 系列。更关键的是，完整权重将在 7 月 27 日开源。同一天，Mira Murati 的 Thinking Machines Lab 也发布了 Inkling（975B 参数，Apache 2.0）。开源模型正以史无前例的密度和强度涌入市场。</p>
+  <p><strong>为什么重要？</strong>投资分析师 Gavin Baker 在 X 上获得 Elon Musk"Interesting"回复的线程一针见血：开源模型压缩闭源实验室的利润率，但对基础设施、芯片、云服务和应用层是净利好。Mozilla《开源 AI 报告》的数据显示，开源-闭源能力差距已收窄至 3.3%，而推理成本在 36 个月内下降了 50 倍。中国开源模型已占 HuggingFace 下载量的 41%，彻底改变了"西方闭源领先"的旧叙事。</p>
+  <p><strong>深信号：</strong>2026 年 7 月可能被视为"开源临界点"——不是开源第一次"追平"闭源，而是这一次多重信号同时共振：Kimi K3 的规模（2.8T 参数远超任何开源模型）、Inkling 的许可选择（Apache 2.0 而非受限许可）、Mozilla 报告的数据背书、以及中国模型在基础设施层面的全面渗透。关注 7 月 27 日 Kimi K3 权重开放后的开发者采用曲线——它能否像 Llama 2 在 2023 年那样重塑开源生态格局，将是下半年 AI 产业最重要的变量之一。</p>
+  <div class="links">
+    <a href="https://simonwillison.net/2026/Jul/16/kimi-k3/" target="_blank">Simon Willison: Kimi K3 与鹈鹕基准</a>
+    <a href="https://stateofopensource.ai/" target="_blank">Mozilla 开源 AI 报告</a>
+    <a href="https://x.com/GavinSBaker/status/2078110934740980193" target="_blank">Gavin Baker 线程 (Elon Musk 回复)</a>
+  </div>
+</div>
+
+<div class="dive">
+  <h3><span class="num">02</span>德国 AI 判例：AI 摘要从此是"出版行为"</h3>
+  <p><strong>发生了什么？</strong>德国慕尼黑第一地方法院在 5 月裁定 Google 对其 AI Overviews 生成的错误内容承担直接责任——认定 AI 摘要是 Google"自己的话"而非第三方内容的中介搬运。7 月，ZAK 媒体监管机构进一步将 Google 和 Perplexity 的 AI 搜索归类为"内容提供者"，要求遵守国家媒体条约第 109 条，取消 DSA 的中间人责任豁免。</p>
+  <p><strong>为什么重要？</strong>这是全球首个将生成式 AI 输出定性为"出版行为"的司法/监管判例。传统上，搜索平台依赖中介责任豁免（如美国 Section 230、欧盟 DSA）来规避对用户生成内容或搜索结果的责任。Germany 的裁决明确划了一条线：一旦你用了 AI 来"写"摘要，你就是内容创作者，不是信息搬运工。这直接影响 Google、Perplexity、以及任何在搜索结果中嵌入 AI 摘要的产品。</p>
+  <p><strong>深信号：</strong>这一判例的全球溢出效应不可忽视。欧盟 AI 法案正在实施中，德国作为欧盟最大经济体，其法院和监管机构的立场往往引领欧盟层面的规则走向。后续值得关注：是否会有其他成员国跟进？上诉结果如何？以及——最关键的是——生成式 AI 公司是否会开始在产品层面为不同司法辖区提供差异化 AI 输出（或者在欧盟干脆关掉摘要功能）？监管分裂正在成为 AI 公司必须承受的运营成本。</p>
+  <div class="links">
+    <a href="https://x.com/LawLibCongress/status/2078192719692763553" target="_blank">美国国会法律图书馆：德国法院裁决</a>
+    <a href="https://x.com/MikePFrank/status/2078137792517775410" target="_blank">法律分析线程</a>
+    <a href="https://x.com/ApollonVisual/status/2078057244348858516" target="_blank">ZAK 监管决定详情</a>
+  </div>
+</div>
+
+<div class="dive">
+  <h3><span class="num">03</span>AI 医疗"双引擎"：从读懂生命到编写药物</h3>
+  <p><strong>发生了什么？</strong>本周 AI 医疗领域迎来两项里程碑级别的消息。一是 Isomorphic Labs（DeepMind 子公司）宣布成立"生物韧性响应单元"，将其 AI 药物设计引擎部署于大流行快速响应——可在数周而非数年生成候选药物分子。二是在 Nature Medicine 上发表的"双神经旁路"系统：通过脑信号解码+AI 电刺激，使四肢瘫痪患者在 35 周内手臂力量恢复 86%。</p>
+  <p><strong>为什么重要？</strong>这两条新闻分别代表了 AI 在生物医学的两条轴线上的突破："感知-计算"和"生成-干预"的闭环。Isomorphic 的药物设计引擎基于 AlphaFold 的蛋白质结构预测能力，但走出了一步——从"读懂"蛋白质转向"编写"药物分子。双神经旁路则展示了从"读脑"到"写回身体"的全链路能力。两者都标志着 AI 在医疗领域的角色从"辅助诊断"升级为"主动治疗"。</p>
+  <p><strong>深信号：</strong>Isomorphic 的"生物韧性"叙事值得更多关注——它公开承认了 AlphaFold 类技术的双刃属性（既能设计药物，也可能被滥用于设计生物威胁），并提出通过负责任的部署+国家实验室合作来管理风险。这是 AI 公司从"技术先行、治理后补"转向"技术与治理并行"的一个典型案例。当 AI 开始"编写"生命时，安全基础设施的建设节奏将与技术本身同等重要。</p>
+  <div class="links">
+    <a href="https://www.isomorphiclabs.com/articles/the-isomorphic-labs-drug-design-engine-unlocks-a-new-frontier" target="_blank">Isomorphic Labs 官方公告</a>
+    <a href="https://x.com/Discoplomacy/status/2078075115506450520" target="_blank">生物韧性响应单元详情</a>
+    <a href="https://x.com/KenAdamsGB/status/2078111082988634605" target="_blank">Feinstein 双神经旁路报道</a>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>📅 2026 年 7 月 18 日 · 每日 AI 精选</p>
+  <p>来源: Hacker News · X/Twitter · Mozilla · 官方公告</p>
+  <p><a href="index.html">← 返回索引</a> · 自动生成 · 数据截至当日 09:07 UTC+8</p>
+  <p style="margin-top:8px;font-size:12px;color:#aaa;">© 每日AI精选 · 保留部分权利</p>
+</div>
+
+</div>
+</body>
+</html>
