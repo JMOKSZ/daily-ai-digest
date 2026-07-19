@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日AI精选 · 2026-07-19</title>
+<style>
+:root {
+  --page:      #fdfaf3;
+  --surface:   #fcfaf5;
+  --border:    #e8dcc8;
+  --text:      #2c2416;
+  --muted:     #7a6e5c;
+  --accent:    #8b6914;
+  --accent-lt: #b8942e;
+  --positive:  #4d7c0f;
+  --warning:   #b45309;
+  --info:      #0e7490;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif;
+  background: var(--page);
+  color: var(--text);
+  line-height: 1.6;
+  padding: 0;
+}
+.container { max-width: 800px; margin: 0 auto; padding: 32px 20px; }
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 48px 0 36px;
+  position: relative;
+}
+.hero .badge {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  padding: 4px 14px;
+  border-radius: 12px;
+  margin-bottom: 16px;
+}
+.hero h1 {
+  font-size: 42px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+.hero .subtitle {
+  font-size: 15px;
+  color: var(--muted);
+  margin-bottom: 18px;
+}
+.hero .headline-strip {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.hero .headline-strip span {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 4px 14px;
+  font-size: 13px;
+  color: var(--accent);
+}
+.hero .source-line {
+  font-size: 12px;
+  color: var(--muted);
+}
+.hero .source-line strong { color: var(--accent); }
+
+/* Theme Blockquote */
+.theme-box {
+  background: var(--surface);
+  border-left: 4px solid var(--accent);
+  border-radius: 0 8px 8px 0;
+  padding: 20px 24px;
+  margin: 0 0 36px;
+}
+.theme-box .label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+}
+.theme-box p {
+  font-size: 15px;
+  color: var(--text);
+  line-height: 1.7;
+}
+
+/* Section Header */
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 40px 0 20px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--border);
+  color: var(--text);
+}
+.section-title small {
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+/* News Items */
+.news-list { display: flex; flex-direction: column; gap: 0; }
+.news-item {
+  display: flex;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+  align-items: flex-start;
+}
+.news-item:last-child { border-bottom: none; }
+.news-item .idx {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+  margin-top: 2px;
+}
+.news-item .body { flex: 1; min-width: 0; }
+.news-item .title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: var(--text);
+}
+.news-item .desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.5;
+  margin-bottom: 6px;
+}
+.news-item .meta {
+  font-size: 12px;
+  color: var(--muted);
+}
+.news-item .tags {
+  flex-shrink: 0;
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  margin-top: 4px;
+}
+.tag {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+.tag.hn { background: rgba(255,102,0,.12); color: #cc5500; }
+.tag.x  { background: rgba(29,161,242,.12); color: #1a8cd8; }
+.tag.ph { background: rgba(218,85,47,.12); color: #da552f; }
+.tag.ma { background: rgba(0,120,212,.12); color: #0078d4; }
+.tag.fd { background: rgba(139,105,20,.12); color: #8b6914; }
+
+/* Stats Grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 0 0 36px;
+}
+.stat-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+}
+.stat-card .num {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+.stat-card .label {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+/* Deep Dives */
+.dive {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 24px;
+  margin-bottom: 20px;
+}
+.dive h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.dive h3 .num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 50%;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+.dive p {
+  font-size: 14px;
+  color: var(--text);
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+.dive p:last-of-type { margin-bottom: 16px; }
+.dive .links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+.dive .links a {
+  font-size: 12px;
+  color: var(--accent-lt);
+  text-decoration: none;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 4px 10px;
+  transition: background .2s;
+}
+.dive .links a:hover { background: rgba(139,105,20,.06); }
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 40px 0 20px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.8;
+}
+.footer a {
+  color: var(--accent-lt);
+  text-decoration: none;
+}
+.footer a:hover { text-decoration: underline; }
+
+@media (max-width: 600px) {
+  .container { padding: 16px 14px; }
+  .hero h1 { font-size: 30px; }
+  .hero .headline-strip span { font-size: 12px; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .news-item .idx { display: none; }
+  .news-item .tags { display: none; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Hero -->
+<div class="hero">
+  <div class="badge">每日AI精选</div>
+  <h1>2026年7月19日 · 星期日</h1>
+  <div class="subtitle">15条精选 + 3个深度分析</div>
+  <div class="headline-strip">
+    <span>🧠 GPT-5.6攻克凸优化30年难题</span>
+    <span>🇨🇳 Kimi K3 2.8万亿参数开源</span>
+    <span>💰 Oracle裁3万人为Stargate输血</span>
+  </div>
+  <div class="source-line">来源: <strong>HN</strong> · <strong>X</strong> · <strong>GitHub</strong></div>
+</div>
+
+<!-- Theme -->
+<div class="theme-box">
+  <div class="label">📌 今日主题</div>
+  <p>AI从"能力竞赛"转向"规模化部署竞赛"的信号愈发明确。GPT-5.6用一条Prompt填补了数学界30年空白，标志着AI已从"工具"进化为"研究协作者"；中国实验室以Kimi K3的2.8万亿参数开源模型和Inkling的灵活设计对西方形成双线压力；Oracle裁3万人为Stargate提供资金、Agility Robotics在特斯拉旁建厂——资本正在从人力运营成本重新分配到AI算力基础设施。与此同时，StackOverflow的崩塌（月提问量暴跌99%）和开源生态的爆发式增长，揭示着AI正在重塑整个开发者知识生态。</p>
+</div>
+
+<!-- News Section -->
+<div class="section-title">精选新闻 <small>· 15条</small></div>
+<div class="news-list">
+
+<div class="news-item">
+  <div class="idx">01</div>
+  <div class="body">
+    <div class="title">GPT-5.6 一条Prompt攻克凸优化30年难题</div>
+    <div class="desc">研究者用单条Prompt引导GPT-5.6，发现了一条人类数学家三十年来未曾找到的证明路径。凸优化是ML、控制论等领域的基础数学工具，意义深远。</div>
+    <div class="meta">研究突破 · 491 points / 319 comments · Reddit r/math热议</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">02</div>
+  <div class="body">
+    <div class="title">Kimi K3发布：2.8万亿参数开源MoE</div>
+    <div class="desc">月之暗面推出2.8T参数的稀疏MoE模型，支持1M上下文、原生多模态，API价格仅为$3/M输入。完整开源权重将于7月27日发布，引发美股芯片板块震荡。</div>
+    <div class="meta">模型发布 · 282 points · 定价比同类低40% · WebDev Arena盲测领先</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">03</div>
+  <div class="body">
+    <div class="title">Thinking Machines Lab发布Inkling</div>
+    <div class="desc">Mira Murati创立的实验室推出975B参数MoE模型（41B激活），1M上下文、原生多模态（文/图/音/视频），开源权重可下载。强调可定制性而非纯粹排行榜性能。</div>
+    <div class="meta">开源模型 · 估值$12B · 特定领域精度84.7% · 推理成本仅前沿API的1/14</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">04</div>
+  <div class="body">
+    <div class="title">Oracle裁3万人为Stargate AI项目输血</div>
+    <div class="desc">Oracle裁员约18%员工（~30,000人），将节省的人力成本重分配给$5000亿Stargate AI基础设施项目。云IaaS收入同比增84%至$49亿，净利润增95%。"用人力换GPU"。</div>
+    <div class="meta">基础设施 · Stargate涉及OpenAI/SoftBank · 云数据库收入增531%</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">05</div>
+  <div class="body">
+    <div class="title">Google开源"始终在线"记忆Agent</div>
+    <div class="desc">基于Gemini 3.1 Flash-Lite的24/7内存系统，无需向量数据库或RAG，通过SQLite存储和自动整合周期实现持久记忆。支持27+文件类型，MIT许可。</div>
+    <div class="meta">工具开源 · Agent记忆 · 自动睡眠整合 · 轻量级HTTP API</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">06</div>
+  <div class="body">
+    <div class="title">GPT-5.6 vs Fable 5：NP-Hard问题/goal对决</div>
+    <div class="desc">综合基准测试双方接近（~59 vs ~60），但定价差异显著（$30 vs $50/百万输出token）。/goal提示在NP-Hard问题上能减少垃圾token，但过度持久化反而降低均值。</div>
+    <div class="meta">模型对比 · 210 points · GPT-5.6更愿意尝试激进解法</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">07</div>
+  <div class="body">
+    <div class="title">StackOverflow月提问量暴跌99%</div>
+    <div class="desc">从2014年3月峰值207,000提问/月降至2026年6月约2,100条。AI代码工具让开发者不再需要发帖等待回答，形成"AI吃掉了自己的训练数据源"反馈循环。</div>
+    <div class="meta">行业观察 · 358 points · ChatGPT发布后断崖式下跌</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">08</div>
+  <div class="body">
+    <div class="title">Microsoft Project Perception：多模型协同</div>
+    <div class="desc">微软正在开发AI安全工具，将不同子任务路由到最适合的模型（微软自有、OpenAI、Anthropic），实现成本效益最优。针对Mythos 5等高价模型（$50/M输出）的替代方案。</div>
+    <div class="meta">企业工具 · 多模型路由 · 7月内测 · 安全扫描自动修复</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">09</div>
+  <div class="body">
+    <div class="title">FDA批准AI抑郁症治疗系统Zeta TMS</div>
+    <div class="desc">FDA批准了机器人/AI驱动的经颅磁刺激系统用于抑郁症治疗，标志着AI在精神健康领域的重要监管里程碑。自动定位和剂量优化。</div>
+    <div class="meta">医疗AI · FDA审批 · 机器人辅助 · 抑郁症治疗</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">10</div>
+  <div class="body">
+    <div class="title">Moonshine AI：500KB以下的语音识别与TTS</div>
+    <div class="desc">GitHub上一个新项目实现了不到500KB的语音识别和文本转语音系统，可在极低资源设备上运行。对边缘AI和嵌入式应用意义重大。</div>
+    <div class="meta">开源工具 · 248 points · 边缘AI · 低资源部署</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">11</div>
+  <div class="body">
+    <div class="title">Agility Robotics在特斯拉旁建人形训练中心</div>
+    <div class="desc">在Fremont开设6万平方英尺人形机器人训练中心，距Tesla Optimus工厂仅数步之遥。Digit已搬运超10万个料箱，获得$3亿合同订单，30+客户洽谈中。</div>
+    <div class="meta">人形机器人 · Digit量产 · 年底反向并购上市 · 万亿级市场</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">12</div>
+  <div class="body">
+    <div class="title">Databricks获$1880亿估值融资</div>
+    <div class="desc">Databricks与Coatue签署战略融资意向书，估值达$1880亿。资金将投入AI数据基础设施、Unity AI Gateway和Genie平台，反映企业AI数据平台持续获资本青睐。</div>
+    <div class="meta">融资 · $188B估值 · 企业AI数据平台 · Coatue领投</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">13</div>
+  <div class="body">
+    <div class="title">Capital One开源VulnHunter安全工具</div>
+    <div class="desc">以攻击者视角扫描代码的AI安全工具，自动映射攻击路径、识别可利用漏洞、建议修复方案，并包含虚假阳性抑制引擎。面向企业级代码库。</div>
+    <div class="meta">开源安全 · AI驱动代码审计 · 攻击路径映射</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">14</div>
+  <div class="body">
+    <div class="title">Claude Code远程控制Mac分步指南走红</div>
+    <div class="desc">一项详细教程指导如何用闲置Mac设置Claude Code远程控制环境，让AI Agent可自主操作Mac桌面完成复杂任务。171 points热议。</div>
+    <div class="meta">AI Agent · 远程控制 · 171 points · Mac自动化</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">15</div>
+  <div class="body">
+    <div class="title">AI Agent周配额随机重置现象引热议</div>
+    <div class="desc">多位开发者发现AI Agent的周配额出现随机重置现象，引发对Agent稳定性、限流策略和计费透明度的讨论。问题影响多个主流平台。</div>
+    <div class="meta">生态问题 · Agent稳定性 · 限流策略 · 开发者反馈</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span></div>
+</div>
+
+</div>
+
+<!-- Stats -->
+<div class="section-title">今日数据</div>
+<div class="stats-grid">
+  <div class="stat-card">
+    <div class="num">2.8T</div>
+    <div class="label">Kimi K3 总参数量<br>稀疏MoE架构</div>
+  </div>
+  <div class="stat-card">
+    <div class="num">99%</div>
+    <div class="label">StackOverflow 提问量<br>较2014年峰值跌幅</div>
+  </div>
+  <div class="stat-card">
+    <div class="num">30,000</div>
+    <div class="label">Oracle裁减员工数<br>为Stargate AI基建</div>
+  </div>
+  <div class="stat-card">
+    <div class="num">$3/M</div>
+    <div class="label">Kimi K3 API输入价格<br>比同类低约40%</div>
+  </div>
+  <div class="stat-card">
+    <div class="num">975B</div>
+    <div class="label">Inkling模型总参数<br>41B激活 / 45T训练tokens</div>
+  </div>
+  <div class="stat-card">
+    <div class="num">$1,880亿</div>
+    <div class="label">Databricks最新估值<br>Coatue领投战略融资</div>
+  </div>
+</div>
+
+<!-- Deep Dives -->
+<div class="section-title">深度分析</div>
+
+<div class="dive">
+  <h3><span class="num">01</span> AI从"工具"到"协作者"的临界点：GPT-5.6攻克凸优化三十年难题</h3>
+  <p>7月18日，一条看似普通的Hacker News帖子在数学和AI社区引发地震：研究者用GPT-5.6的一条Prompt，关闭了凸优化领域一个公开三十年之久的缺口。这不是模型的简单检索或模式匹配——它是一个需要真正数学洞察力的问题，人类数学家在其中摸索了三十年未能突破。研究者在Medium上发表的详细记录显示，GPT-5.6发现了一条人类从未探索过的证明路径，在凸优化的核心理论中填补了一个长期存在的空白。</p>
+  <p>这一事件与另一条平行新闻形成共振：同日，开发者社区对GPT-5.6 Sol和Claude Fable 5在NP-Hard问题上的/goal提示效果进行了详细对比测试。结果显示，GPT-5.6 Sol在$30/百万token的定价下表现优于价格高出67%的Fable 5，尤其在"愿意尝试激进解法"的维度上胜出。但过度使用/goal持久化提示反而导致平均分下降（Fable 5 -759分，GPT-5.6 -868分），提示了AI研究辅助工具的使用存在精妙的最佳实践窗口。</p>
+  <p>深层信号：这是AI能力从"语言模型"进化为"研究协作者"的明确拐点。凸优化不仅是数学理论——它是机器学习、控制论、运筹学等AI核心领域的数学基础。当AI开始推动自己所依赖的理论基础前进时，我们看到的不仅是研究速度的加速，而是一种自指性循环：AI帮助人类改进AI背后的数学。这与StackOverflow问答量暴跌99%形成镜像——一个生态在崩塌，另一个在重构；旧的知识获取方式正在被AI原生的研究协作模式取代。</p>
+  <div class="links">
+    <a href="https://news.ycombinator.com/item?id=48957779" target="_blank">HN讨论帖 (491pts)</a>
+    <a href="https://old.reddit.com/r/math/comments/1uxj3cy/after_openais_cdc_proof_announcement_gpt56_used_a/" target="_blank">Reddit r/math</a>
+    <a href="https://x.com/alyssahawkee/status/2078510730316222633" target="_blank">X / @alyssahawkee</a>
+    <a href="https://charlesazam.com/blog/fable-5-gpt-5-6-sol-goal/" target="_blank">Fable 5 vs GPT-5.6 NP-Hard测评</a>
+  </div>
+</div>
+
+<div class="dive">
+  <h3><span class="num">02</span> 双重冲击：中国开源模型以规模和价格重塑全球AI竞争格局</h3>
+  <p>一周之内，中国AI实验室接连投下两枚重磅炸弹。月之暗面（Moonshot AI）发布了Kimi K3——一个2.8万亿参数的稀疏MoE模型，配备1M token上下文窗口和原生多模态能力（文本/图像/截图/视频），API价格仅为$3/M输入token，比同类美国前沿模型便宜约40%。更令西方市场不安的是，完整开源权重（MIT许可）将于7月27日公开发布。紧随其后，Mira Murati创立的Thinking Machines Lab发布了Inkling——975B参数MoE（41B激活），同样是1M上下文、原生多模态（包括音频和视频），已可在Hugging Face下载。</p>
+  <p>两个模型选择了截然不同的战略定位。Kimi K3追求标杆性能——在WebDev Arena盲测中超越Claude Opus 4.8和GPT-5.x变体，被定位为"高吞吐量的日常工作马"。而Inkling明确宣称"不是最强的模型"，其核心价值在于可定制性——企业可以深度微调并拥有自己的领域模型，在特定任务上达到84.7%的精度，推理成本仅为前沿API的1/14。这种灵活性与低成本的结合正在瓦解美国模型公司的定价权。发布当天，美国AI芯片股和纳斯达克指数下跌约1%。David Sacks的评论"这就是输掉AI竞赛的方式"在X上广泛传播。</p>
+  <p>深层信号：中国AI的竞争策略已经从"追赶"进化为"价格战+开源双线围攻"。Kimi K3的定价结构（$3/M输入、缓存token仅$0.30/M）使得1M上下文的长期Agent任务在经济上变得可行——而这正是美国主流模型（如Fable 5的$50/M输出）无法竞争的领域。与此同时，Inkling的开源策略提供了另一种差异化：它不是以最强性能竞争，而是以"你可以拥有它"为价值主张。当$3/M的模型在编码任务上已经能与$30-$50/M的模型竞争时，整个行业的定价体系面临重构。加上Tencent Hunyuan Hy3（295B MoE，完全开源）和NVIDIA Nemotron压缩MoE等同期发布，2026年7月可能被历史记住为"开源AI价格战开打之月"。</p>
+  <div class="links">
+    <a href="https://news.ycombinator.com/item?id=48959392" target="_blank">HN: The Kimi K3 Moment (282pts)</a>
+    <a href="https://x.com/TeksCreate/status/2078562083256377375" target="_blank">X / Kimi K3技术细节</a>
+    <a href="https://x.com/thenextweb/status/2078563910123159708" target="_blank">X / Inkling发布报道</a>
+    <a href="https://thinkingmachines.ai/news/introducing-inkling/" target="_blank">Thinking Machines Lab官方公告</a>
+  </div>
+</div>
+
+<div class="dive">
+  <h3><span class="num">03</span> AI资本支出重塑企业结构：人力换GPU的时代来临</h3>
+  <p>Oracle宣布裁员约30,000人（占员工总数18%），尽管其最新财报表现强劲——云IaaS收入同比增长84%至$49亿，净利润飙升95%，多云端数据库收入暴增531%。裁员的理由直白得令人不安：释放人力运营成本，将其重新分配给Stargate AI基础设施项目。Stargate是一个高达$5000亿的AI算力合资项目，涉及OpenAI和SoftBank。X上的评论精准地描述了这一现象："资本正从人力运营成本转移到纯算力"、"用人力换GPU"。</p>
+  <p>在物理AI领域，同样的资本重配置正在发生。Agility Robotics在加州Fremont开设了60,000平方英尺的"人形机器人训练中心"，与Tesla的Optimus工厂仅一墙之隔。Digit人形机器人已在仓库部署中搬运超过100,000个料箱，获得约$3亿合同订单，合作客户包括Amazon、GXO、Schaeffler和Toyota。公司预计在2026年下半年通过反向并购上市，成为纯人形机器人领域的公开交易标的。联合创始人Jonathan Hurst描绘的路线图显示：从料箱搬运起步，逐步扩展到拣选、装配、纸箱处理、卡车装卸——仅在制造和物流领域就潜在需求1亿台人形机器人。</p>
+  <p>深层信号：两条新闻共同揭示了一个结构性转变——AI不再只是辅助工具，它正在重新定义企业的成本结构和劳动力配置方式。Oracle用人力成本置换GPU成本，本质上是在押注AI算力的ROI高于其30,000名员工的产出。Agility在Tesla隔壁建厂则展示了物理世界的对应物：当人力和机器人成本曲线交叉时，企业将做出同样的替换决策。这不是关于"AI取代工作"的抽象讨论——这是Oracle和Agility正在做出的具体资本配置决策。问题已经不是"AI是否会改变劳动力市场"，而是"在Oracle裁员之后，哪个行业将是下一个"。</p>
+  <div class="links">
+    <a href="https://x.com/cesaragofficial/status/2078590622160592990" target="_blank">X / Oracle裁员报道</a>
+    <a href="https://x.com/ValencianaAbel/status/2078565476582428690" target="_blank">X / Agility Robotics扩建</a>
+    <a href="https://x.com/HumanoidInvest/status/2078301471553040425" target="_blank">X / Digit上市路线图</a>
+    <a href="https://x.com/drusmanzafar/status/2078511663087759380" target="_blank">X / Oracle财报分析</a>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>每日AI精选 · 2026年7月19日</p>
+  <p>数据来源: Hacker News · X/Twitter · GitHub</p>
+  <p>
+    <a href="index.html">← 返回目录</a>
+    &nbsp;·&nbsp;
+    <a href="https://github.com/macmini-j/daily-ai-digest" target="_blank">GitHub 仓库</a>
+  </p>
+  <p style="margin-top:8px;font-size:11px;color:#b8ad9c">自动生成 by Hermes Agent · 每天 09:07 更新</p>
+</div>
+
+</div>
+</body>
+</html>
