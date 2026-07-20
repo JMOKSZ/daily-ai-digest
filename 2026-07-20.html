@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日AI精选 · 2026年7月20日</title>
+<style>
+:root {
+  --page:      #fdfaf3;
+  --surface:   #fcfaf5;
+  --card:      #fff;
+  --border:    #e8dcc8;
+  --text:      #2c2416;
+  --muted:     #7a6e5c;
+  --accent:    #8b6914;
+  --accent-lt: #b8942e;
+  --positive:  #4d7c0f;
+  --warning:   #b45309;
+  --info:      #0e7490;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: var(--page);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
+  line-height: 1.6;
+  padding: 40px 20px;
+}
+.container { max-width: 800px; margin: 0 auto; }
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 48px 32px 36px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  margin-bottom: 24px;
+}
+.badge {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 4px 14px;
+  border-radius: 20px;
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+}
+.hero h1 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.hero .sub {
+  color: var(--muted);
+  font-size: 15px;
+  margin-bottom: 14px;
+}
+.hero .key-stories {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin: 16px 0 20px;
+}
+.hero .key-stories span {
+  background: #f5f0e8;
+  color: var(--accent);
+  font-size: 13px;
+  padding: 4px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+}
+.hero .sources {
+  font-size: 13px;
+  color: var(--muted);
+}
+.hero .sources strong { color: var(--text); }
+
+/* Theme */
+.theme {
+  background: #f5f0e8;
+  border-left: 4px solid var(--accent);
+  padding: 18px 22px;
+  border-radius: 0 10px 10px 0;
+  margin-bottom: 28px;
+}
+.theme strong {
+  color: var(--accent);
+  font-size: 14px;
+}
+
+/* Section headings */
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 36px 0 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--border);
+}
+
+/* News list */
+.news-list { display: flex; flex-direction: column; gap: 10px; }
+.news-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px;
+  transition: box-shadow .15s;
+}
+.news-item:hover { box-shadow: 0 2px 8px rgba(0,0,0,.04); }
+.news-item .idx {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--accent);
+  min-width: 28px;
+  text-align: right;
+  flex-shrink: 0;
+}
+.news-item .body { flex: 1; min-width: 0; }
+.news-item .title {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 3px;
+}
+.news-item .desc {
+  font-size: 13.5px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+.news-item .meta {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+.news-item .tags {
+  display: flex;
+  gap: 4px;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+.tag {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+.tag.hn { background: rgba(255,102,0,.1); color: #ff6600; }
+.tag.x  { background: rgba(29,161,242,.1); color: #1da1f2; }
+.tag.ph { background: rgba(218,85,47,.1); color: #da552f; }
+.tag.ih { background: rgba(34,197,94,.1); color: #22c55e; }
+.tag.ma { background: rgba(0,120,212,.1); color: #0078d4; }
+
+/* Stats grid */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 28px;
+}
+.stat {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+}
+.stat .num {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--accent);
+}
+.stat .label {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 4px;
+  line-height: 1.4;
+}
+
+/* Deep dives */
+.dive {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-bottom: 16px;
+}
+.dive h3 {
+  font-size: 17px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.dive h3 .num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.dive p {
+  font-size: 14px;
+  line-height: 1.75;
+  margin-bottom: 10px;
+  color: var(--text);
+}
+.dive .links {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.dive .links a {
+  font-size: 13px;
+  color: var(--info);
+  text-decoration: none;
+}
+.dive .links a:hover { text-decoration: underline; }
+
+/* Footer */
+.footer {
+  text-align: center;
+  font-size: 13px;
+  color: var(--muted);
+  padding: 32px 0;
+  border-top: 1px solid var(--border);
+  margin-top: 32px;
+}
+.footer a { color: var(--accent-lt); text-decoration: none; }
+.footer a:hover { text-decoration: underline; }
+
+@media (max-width: 600px) {
+  .hero { padding: 32px 18px; }
+  .hero h1 { font-size: 22px; }
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  .news-item { flex-wrap: wrap; }
+  .news-item .tags { width: 100%; margin-top: 6px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Hero -->
+<div class="hero">
+  <div class="badge">每日·AI 精选</div>
+  <h1>2026年7月20日 · 周一</h1>
+  <div class="sub">Qwen 3.8 · Apple 诉 OpenAI · Claude Code 的 Rust 自进化</div>
+  <div class="key-stories">
+    <span>🔥 Qwen 3.8 发布预览</span>
+    <span>⚡ Apple 起诉 OpenAI</span>
+    <span>🔄 Claude Code 用 Rust 重写 Bun</span>
+  </div>
+  <div class="sources">
+    <strong>数据来源</strong> · Hacker News · X/Twitter · Product Hunt · GitHub
+  </div>
+</div>
+
+<!-- Theme -->
+<div class="theme">
+  <strong>📌 今日主题：中国开源模型双雄爆发，硅谷开始互撕</strong>
+  <p style="margin-top:6px;font-size:14px;line-height:1.7;">
+    Qwen 3.8 和 Kimi K3 两大大模型同日引爆社区，中国开源阵营正以前所未有的速度逼近封闭前沿。与此同时，Apple 正式起诉 OpenAI 窃取芯片商业机密，AI 行业的人才战争从暗战走向明战。而在底层，Claude Code 用 Rust 重写 Bun 并实现资源占用下降 90%，标志着 AI 工具链开始自我优化的奇点时刻——今天的 AI 在用昨天的自己来改进今天的基础设施。
+  </p>
+</div>
+
+<!-- 精选新闻 -->
+<h2 class="section-title">📰 精选新闻</h2>
+<div class="news-list">
+
+<div class="news-item">
+  <div class="idx">01</div>
+  <div class="body">
+    <div class="title">阿里发布 Qwen 3.8：2.4万亿参数逼近前沿</div>
+    <div class="desc">Qwen3.8-Max-Preview 即时上线 Token Plan/Qoder 平台，Alibaba 声称仅次于 Fable 5，完整开源权重即将发布。HN 782pts 登顶当日 AI 话题。</div>
+    <div class="meta">模型发布 · 2.4T 参数 · 开源预览</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">02</div>
+  <div class="body">
+    <div class="title">Claude Code 用 Rust 版 Bun 运行，内存暴跌 90%</div>
+    <div class="desc">Anthropic 内部用 Claude Code 将 Bun 运行时从 Zig 移植到 Rust，内存从 6,745MB 降至 609MB，启动快 10%，体积小 19%。HN 389pts/553cmts。</div>
+    <div class="meta">工具链 · 性能优化 · 自举式开发</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">03</div>
+  <div class="body">
+    <div class="title">Apple 起诉 OpenAI：400+ 前员工，指控窃取芯片机密</div>
+    <div class="desc">Apple 指控 OpenAI 通过挖角工程师获取 AI 芯片/硬件设计商业机密，点名硬件负责人 Tang Tan。Jony Ive 未被列入诉讼。或影响 OpenAI IPO 节奏。</div>
+    <div class="meta">法律纠纷 · 商业机密 · IPO 影响</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">04</div>
+  <div class="body">
+    <div class="title">Moonshot AI 紧急暂停 Kimi K3 新订阅</div>
+    <div class="desc">Kimi K3 需求 48 小时内暴涨 500%，GPU 容量被挤爆。官方暂停新用户注册以保住现有用户体验，同时拆分会员为 Kimi Web 和 Kimi Code 两个计划。HN 221pts。</div>
+    <div class="meta">算力紧缺 · GPU 容量 · 会员拆分</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">05</div>
+  <div class="body">
+    <div class="title">Inkling 发布：Mira Murati 首秀，开源 975B MoE 模型</div>
+    <div class="desc">前 OpenAI CTO 的新公司 Thinking Machines Lab 推出首个模型，975B 总参数/41B 活跃参数，MoE 架构，支持图文音频，1M 上下文，Apache 2.0 完全开源。</div>
+    <div class="meta">开源模型 · MoE · 多模态</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">06</div>
+  <div class="body">
+    <div class="title">OpenAI 缩减 Codex 上下文：372K→272K，告别盲堆上下文</div>
+    <div class="desc">OpenAI 主动削减 Codex 模型上下文窗口 10 万 token。社区解读为行业信号：大上下文时代进入务实阶段，需要更聪明的架构而非无限放大窗口。HN 315pts。</div>
+    <div class="meta">模型策略 · 上下文工程 · 架构转向</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">07</div>
+  <div class="body">
+    <div class="title">微软 MDASH：100+ 智能体集群猎杀 Windows 漏洞</div>
+    <div class="desc">微软内部系统用超过 100 个 AI 智能体（多模型混搭）协同挖掘 Windows 安全漏洞，自动辩论并裁定结果，大幅减少误报。被视为智能体安全巡检的早期 ROI 案例。</div>
+    <div class="meta">安全 · 多智能体 · 企业落地</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">08</div>
+  <div class="body">
+    <div class="title">AI 建议让人更自信但更不准确 —— 批判性思维丢失</div>
+    <div class="desc">最新研究发现 AI 辅助决策反而降低了用户的准确率，同时显著提升了用户的自信度。用户不再独立思考，而是盲目信任 AI 的输出。HN 274pts。</div>
+    <div class="meta">AI 社会影响 · 认知科学 · 批判性思维</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">09</div>
+  <div class="body">
+    <div class="title">Current AI 获 4 亿美元承诺，打造开源 AI 公共设施</div>
+    <div class="desc">非营利组织 Current AI 获得法国等 4 亿美元资金承诺，用于建设开放的公共 AI 基础设施，推动开源模型和数据的民主化获取。</div>
+    <div class="meta">非营利 · 开源基础设施 · 公共 AI</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">10</div>
+  <div class="body">
+    <div class="title">日本联手 NVIDIA 打造 27,500 GPU 主权 AI 工厂</div>
+    <div class="desc">日本政府投入约 1 万亿日元（含补贴）与 NVIDIA 共建主权 AI 超算工厂。同时华为发布 Atlas 950 SuperPoD（8,192 Ascend 芯片），中日在 AI 基础设施上角力。</div>
+    <div class="meta">基础设施 · 主权 AI · 芯片竞赛</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">11</div>
+  <div class="body">
+    <div class="title">Roblox 推出 AI 游戏构建工具 "Build"：一句话生成可玩游戏</div>
+    <div class="desc">输入自然语言即可自动生成完整的 Roblox 游戏（含机制、环境、角色、音效），7 月 28 日公开 Alpha。内置基于留存率的反垃圾机制防止 AI 低质量内容泛滥。</div>
+    <div class="meta">生成式游戏 · UGC · Roblox 生态</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">12</div>
+  <div class="body">
+    <div class="title">Parallel Code 开源：多智能体并行编码新范式</div>
+    <div class="desc">开源工具将编码任务拆为并行 Git 分支，每个分支由一个独立智能体处理（修复、重构、测试），之后合并或 Arena 对比。支持 Claude Code、Codex 等现有工具。</div>
+    <div class="meta">开源工具 · 智能体协作 · 并行开发</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+</div>
+
+<!-- 今日数据 -->
+<h2 class="section-title">📊 今日数据</h2>
+<div class="stats">
+  <div class="stat"><div class="num">2.4T</div><div class="label">Qwen 3.8 总参数量<br>阿里新一代前沿模型</div></div>
+  <div class="stat"><div class="num">500%</div><div class="label">Kimi K3 需求激增<br>挤爆 Moonshot GPU 容量</div></div>
+  <div class="stat"><div class="num">90%</div><div class="label">Claude Code 内存降幅<br>用 Rust 重写 Bun 的回报</div></div>
+  <div class="stat"><div class="num">975B</div><div class="label">Inkling 模型总参数<br>Mira Murati 首秀开源</div></div>
+  <div class="stat"><div class="num">400+</div><div class="label">前 Apple 工程师<br>已入职 OpenAI</div></div>
+  <div class="stat"><div class="num">27,500</div><div class="label">日本主权 AI 工厂<br>NVIDIA GPU 集群规模</div></div>
+</div>
+
+<!-- 深度分析 -->
+<h2 class="section-title">🔍 深度分析</h2>
+
+<div class="dive">
+  <h3><span class="num">1</span> 中国大模型双核爆发：开源逼近封锁线</h3>
+  <p>7 月 19 日成为中国 AI 史上的又一个里程碑日——阿里 Qwen 3.8（2.4T 参数）预览上线，Moonshot AI 的 Kimi K3（2.8T 参数、1M 上下文）因需求爆棚暂停注册。两大规模模型几乎同时引爆，将中国开源模型对封闭前沿的追赶推到了一个新高度。Alibaba 声称 Qwen 3.8 "仅次于 Fable 5"，而 Kimi K3 已经让用户以无法注册的方式投出了信任票。</p>
+  <p>这两款模型的战略意义不同：Qwen 3.8 走的是阿里一贯的"开源漏斗"路径——先用预览版吊胃口、再放完整权重、最后社区自发蒸馏出可用的小模型。Kimi K3 则用 Delta Attention 实现了 6.3 倍长上下文加速解码，证明了"算力有限时的架构创新"是一条可行路线。两者的共同点是：都在逼近甚至挑战封闭模型（Claude Fable 5、GPT-5.6）的基准表现。</p>
+  <p>更深层的信号在于，这场爆发不是孤立事件。GLM-5.2、Inkling（975B MoE）等也同期活跃。中国 AI 生态正在从"追赶者"变成"生态提供者"，用开放权重倒逼全球模型定价体系的调整。正如 Patrick Moorhead 所言，开源模型的井喷短期带来恐慌，长期会扩大推理市场——当模型本身不是护城河，真正的壁垒转向了基础设施、数据和分发能力。</p>
+  <div class="links">
+    <a href="https://twitter.com/Alibaba_Qwen/status/2078759124914098291" target="_blank">官方公告：Qwen 3.8 发布</a>
+    <a href="https://twitter.com/Kimi_Moonshot/status/2078855608565207130" target="_blank">Kimi K3 暂停新订阅</a>
+    <a href="https://news.ycombinator.com/item?id=48973123" target="_blank">HN 讨论：Qwen 3.8</a>
+  </div>
+</div>
+
+<div class="dive">
+  <h3><span class="num">2</span> AI 公司互咬的夏天：从模型竞争到生态对抗</h3>
+  <p>Apple 正式起诉 OpenAI，指控其通过系统性挖角窃取 AI 芯片商业机密——这起诉讼不仅仅是一家公司和另一家公司的纠纷，而是整个 AI 行业从"谁有最好的模型"转向"谁能控制完整的硬件-软件-人才生态"的缩影。Apple 点名 OpenAI 首席硬件官 Tang Tan，并声称已有 400 名前 Apple 员工在 OpenAI 工作，这个数字本身就说明了行业人才流动的剧烈程度。</p>
+  <p>诉讼的微妙之处在于 Apple 和 OpenAI 目前仍是合作伙伴——Apple 依赖 OpenAI 的模型来驱动 Siri 等 AI 功能。这种"打不过就告"和"一边合作一边撕破脸"的双轨模式，是硅谷从未见过的。尤其在 OpenAI 即将 IPO 的敏感期，这起诉讼的法律风险将成为承销商必须考虑的因素。同时，Google 也面临新的出版商诉讼，涉及用受版权保护的资料训练 AI。</p>
+  <p>从更大的视角看，这意味着 AI 产业的竞争已经从单一模型能力扩展到六边形能力：硬件供应链（Apple/Nvidia/Huawei）、人才储备（400+ 人的迁移）、资本（OpenAI IPO / 日本万亿级投资）、IP 法务（诉讼成为竞争工具）、开源/封闭的策略选择。2026 年的夏天，AI 不再只是科技圈的竞赛——它正在变成一场涉及国家安全、资本市场和全球贸易的地缘政治棋局。</p>
+  <div class="links">
+    <a href="https://x.com/dailytechonx/status/2078937424877572542" target="_blank">Apple 诉 OpenAI 报道</a>
+    <a href="https://x.com/ReconBull/status/2078937008114979081" target="_blank">Tang Tan 被点名 + 400 名前员工数据</a>
+    <a href="https://simonwillison.net/2026/Jul/19/claude-code-in-bun-in-rust/" target="_blank">Claude Code 用 Rust 重写 Bun</a>
+  </div>
+</div>
+
+<div class="dive">
+  <h3><span class="num">3</span> Agentic AI 走向工程化：从 Demo 到生产线</h3>
+  <p>微软 MDASH 系统用 100+ 智能体集群猎杀 Windows 漏洞，Anthropic 用 Claude Code 自举优化运行时，Parallel Code 开源了多智能体并行编码框架——这三个故事在同一天出现，共同指向一个趋势：Agentic AI 正在从"玩个酷 Demo"进化到"生产线级别的工程实践"。MDASH 代表了企业级多智能体系统的早期 ROI 案例，Claude Code 的自我优化则展示了 AI 工具链的奇点时刻。</p>
+  <p>MDASH 的核心创新不在于智能体数量多，而在于引入了"多模型辩论"机制——不同模型对同一漏洞的判断不同，智能体之间互相争论后再裁决，这显著降低了误报率。这和 Parallel Code 的 Arena 模式异曲同工：多个智能体各自独立产出一份结果，然后对比择优。这种"竞争-仲裁"模式可能是 Agentic AI 落地的最佳路径——与其相信单一智能体 100% 准确，不如让多个智能体互相校验。</p>
+  <p>同时，社区层面的"Loop Engineering 实践手册"（GitHub 8.6k stars）和 "Oumi" 全生命周期开源平台也在降低多智能体系统的开发门槛。这暗示着一个新范式的成型：未来的 AI 工作流不再是一个模型单打独斗，而是智能体集群 + 编排框架 + 回测环境的系统工程。赢家不会是最聪明的模型，而是最能安全、高效地协调多模型协作的"桥梁"。</p>
+  <div class="links">
+    <a href="https://x.com/marcopapa99/status/2078763011104514198" target="_blank">微软 MDASH 多智能体安全系统</a>
+    <a href="https://x.com/techNmak/status/2078865953228743076" target="_blank">Parallel Code 开源发布</a>
+    <a href="https://x.com/sairahul1/status/2078903445885452316" target="_blank">Loop Engineering 实践手册 8.6k stars</a>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>每日 AI 精选 · 2026 年 7 月 20 日</p>
+  <p>来源：Hacker News · X/Twitter · Product Hunt · GitHub</p>
+  <p><a href="index.html">← 返回目录</a> · <a href="https://github.com/macmini_j/daily-ai-digest">GitHub 仓库</a></p>
+  <p style="margin-top:8px;font-size:11px;color:#b0a898;">自动生成于 macOS · 2026-07-20 09:07</p>
+</div>
+
+</div>
+</body>
+</html>
