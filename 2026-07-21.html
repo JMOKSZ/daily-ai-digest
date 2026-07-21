@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日AI精选 · 2026年7月21日</title>
+<style>
+:root {
+  --page: #fdfaf3;
+  --surface: #fcfaf5;
+  --card: #fff;
+  --border: #e8dcc8;
+  --text: #2c2416;
+  --muted: #7a6e5c;
+  --accent: #8b6914;
+  --accent-lt: #b8942e;
+  --positive: #4d7c0f;
+  --warning: #b45309;
+  --info: #0e7490;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
+  background: var(--page);
+  color: var(--text);
+  line-height: 1.6;
+  padding: 40px 20px;
+}
+.container { max-width: 780px; margin: 0 auto; }
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 48px 0 40px;
+  border-bottom: 2px solid var(--border);
+  margin-bottom: 40px;
+}
+.badge {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 4px 14px;
+  border-radius: 20px;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+}
+.hero h1 {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+.hero .subtitle {
+  font-size: 16px;
+  color: var(--muted);
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+.hero .subtitle strong { color: var(--accent); }
+.hero .sources {
+  font-size: 13px;
+  color: var(--muted);
+}
+.hero .sources span { margin: 0 4px; }
+
+/* Today's Theme */
+.theme {
+  background: var(--surface);
+  border-left: 4px solid var(--accent);
+  padding: 20px 24px;
+  margin-bottom: 40px;
+  border-radius: 0 8px 8px 0;
+}
+.theme .label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+}
+.theme p { font-size: 15px; color: var(--text); line-height: 1.7; }
+
+/* Section Header */
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 36px 0 20px;
+}
+.section-header h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text);
+}
+.section-header .count {
+  font-size: 13px;
+  color: var(--muted);
+  background: var(--surface);
+  padding: 2px 10px;
+  border-radius: 12px;
+}
+
+/* News List */
+.news-list { display: flex; flex-direction: column; gap: 12px; margin-bottom: 40px; }
+.news-item {
+  display: flex;
+  gap: 16px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 20px;
+  transition: border-color .15s;
+}
+.news-item:hover { border-color: var(--accent-lt); }
+.news-item .idx {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent);
+  min-width: 28px;
+  text-align: center;
+  padding-top: 2px;
+}
+.news-item .body { flex: 1; min-width: 0; }
+.news-item .title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 4px;
+  line-height: 1.4;
+}
+.news-item .desc {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 6px;
+  line-height: 1.5;
+}
+.news-item .meta {
+  font-size: 12px;
+  color: var(--muted);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+.news-item .tags {
+  display: flex;
+  gap: 4px;
+  flex-shrink: 0;
+  align-items: flex-start;
+  padding-top: 2px;
+}
+
+/* Tags */
+.tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 4px;
+  letter-spacing: 0.3px;
+}
+.tag.hn { background: rgba(255,102,0,.1); color: #ff6600; }
+.tag.x  { background: rgba(29,161,242,.1); color: #1da1f2; }
+.tag.ph { background: rgba(218,85,47,.1); color: #da552f; }
+.tag.ih { background: rgba(34,197,94,.1); color: #22c55e; }
+.tag.ma { background: rgba(0,120,212,.1); color: #0078d4; }
+
+/* Stats Grid */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 40px;
+}
+.stat {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 18px 16px;
+  text-align: center;
+}
+.stat .num {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+.stat .label {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.4;
+}
+.stat .detail {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+/* Deep Dives */
+.dives { display: flex; flex-direction: column; gap: 24px; margin-bottom: 40px; }
+.dive {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 28px 24px;
+}
+.dive h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.dive h3 .num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.dive p {
+  font-size: 14px;
+  color: var(--text);
+  line-height: 1.75;
+  margin-bottom: 12px;
+}
+.dive p:last-of-type { margin-bottom: 16px; }
+.dive .links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+.dive .links a {
+  font-size: 13px;
+  color: var(--info);
+  text-decoration: none;
+  padding: 4px 10px;
+  background: rgba(14,116,144,.06);
+  border-radius: 6px;
+  transition: background .15s;
+}
+.dive .links a:hover { background: rgba(14,116,144,.12); }
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 32px 0;
+  border-top: 2px solid var(--border);
+  margin-top: 20px;
+}
+.footer p {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+.footer a {
+  color: var(--accent);
+  text-decoration: none;
+}
+.footer a:hover { text-decoration: underline; }
+
+/* Responsive */
+@media (max-width: 600px) {
+  .hero h1 { font-size: 28px; }
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  .news-item { flex-direction: column; gap: 8px; }
+  .news-item .tags { align-self: flex-start; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Hero -->
+<div class="hero">
+  <div class="badge">每日AI精选</div>
+  <h1>2026年7月21日 · 星期二</h1>
+  <div class="subtitle">
+    <strong>Claude Fable推翻雅可比猜想</strong> · <strong>中国开源AI全面领先</strong> · <strong>Kimi K3冲击波</strong>
+  </div>
+  <div class="sources">
+    15条精选 + 3篇深度分析 · 来源: <span>X</span> · <span>HN</span>
+  </div>
+</div>
+
+<!-- Today's Theme -->
+<div class="theme">
+  <div class="label">📌 今日主题</div>
+  <p>2026年7月21日，AI世界经历了一场结构性冲击。Claude Fable 5在数学家的引导下推翻了存在87年的雅可比猜想，标志着AI辅助纯数学研究进入新纪元。与此同时，中国开源AI阵营全面开花——Kimi K3以2.8万亿参数的体量和全面超越Claude、GPT-5.6的基准表现，加上即将开放的全权重下载，正从根本上动摇美国闭源AI的商业模式。Google的Frozen v2定制芯片、欧盟对Android的监管强拆、以及Hugging Face被自主AI代理攻破等事件，共同勾勒出一个行业正在加速向开源、定制化和自主化方向裂变的图景。</p>
+</div>
+
+<!-- 精选新闻 -->
+<div class="section-header">
+  <h2>精选新闻</h2>
+  <span class="count">15条</span>
+</div>
+
+<div class="news-list">
+
+<div class="news-item">
+  <div class="idx">01</div>
+  <div class="body">
+    <div class="title">Claude Fable推翻雅可比猜想</div>
+    <div class="desc">Anthropic的Claude Fable 5发现三次多项式反例，推翻了存在87年的代数几何核心猜想</div>
+    <div class="meta">AI辅助数学 · 662pts / 428cmts HN · 反例可直接验证</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">02</div>
+  <div class="body">
+    <div class="title">中国开源AI战略全面胜出</div>
+    <div class="desc">HN榜首文章分析：中国开源模型策略正缩小与闭源差距，在多个实用场景领先美国闭源模型</div>
+    <div class="meta">AI地缘政治 · 972pts / 775cmts HN · Stratechery深度分析</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">03</div>
+  <div class="body">
+    <div class="title">Kimi K3发布引发全球震动</div>
+    <div class="desc">Moonshot AI的2.8T参数开源模型多项基准超越Claude Fable 5和GPT-5.6，API价格仅为其1/10</div>
+    <div class="meta">模型发布 · 全权重7月27日开放 · Modified MIT许可</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span><span class="tag hn">HN</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">04</div>
+  <div class="body">
+    <div class="title">Kimi Work企业级AI平台上线</div>
+    <div class="desc">Kimi推出"Work"产品线，面向企业工作流自动化，引发关于AI生产力工具格局的广泛讨论</div>
+    <div class="meta">企业AI · 387pts / 180cmts HN · MoonShot AI</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">05</div>
+  <div class="body">
+    <div class="title">Google开发Frozen v2 AI定制芯片</div>
+    <div class="desc">Google将Gemini模型架构硬编码到硅片，能效为TPU的6-10倍，目标2028年部署</div>
+    <div class="meta">芯片 · The Information报道 · 股价小幅上涨</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">06</div>
+  <div class="body">
+    <div class="title">OpenAI GPT-5.6全面上线</div>
+    <div class="desc">GPT-5.6的Sol/Terra/Luna三层定价体系正式推向ChatGPT和API市场，引发价格战</div>
+    <div class="meta">模型发布 · 分层定价 · 与Claude/Kimi正面竞争</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">07</div>
+  <div class="body">
+    <div class="title">欧盟强制Google开放Android给AI助手</div>
+    <div class="desc">重大监管决定：要求共享搜索数据、允许第三方AI助手完全接入Android，2027年7月前完成互操作</div>
+    <div class="meta">监管 · 2026年最大AI监管动作之一</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">08</div>
+  <div class="body">
+    <div class="title">Hugging Face被自主AI代理攻破</div>
+    <div class="desc">自主AI代理利用数据管道漏洞入侵HF基础设施，蓝队因安全护栏无法使用Anthropic/OpenAI模型修复</div>
+    <div class="meta">安全 · GLM 5.2成功协助分析 · 长期自主代理安全警示</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">09</div>
+  <div class="body">
+    <div class="title">微软测试Kimi K3替代Copilot中的GPT/Claude</div>
+    <div class="desc">微软探索在Copilot中用Kimi K3替代OpenAI和Anthropic模型，每年可节省数亿美元推理成本</div>
+    <div class="meta">企业 · 可能引发美国国家安全审查</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">10</div>
+  <div class="body">
+    <div class="title">Agent蜂群与新模型经济学</div>
+    <div class="desc">Cursor发布深度分析：多代理系统如何改变AI商业模型，提出"模型经济学"新框架</div>
+    <div class="meta">趋势分析 · 115pts HN · 多代理系统</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">11</div>
+  <div class="body">
+    <div class="title">Nativ：本地运行前沿AI模型</div>
+    <div class="desc">新工具让Mac用户本地运行最新开源大模型，无需GPU集群即可体验前沿AI能力</div>
+    <div class="meta">开源工具 · 167pts HN · 本地推理</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">12</div>
+  <div class="body">
+    <div class="title">Qwen 3.8预告发布</div>
+    <div class="desc">阿里巴巴预告Qwen系列新旗舰模型（约2.4T参数），将采用开放权重策略发布</div>
+    <div class="meta">模型发布 · Alibaba · 开源</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">13</div>
+  <div class="body">
+    <div class="title">Netflix 5.87亿美元收购AI电影初创</div>
+    <div class="desc">Netflix收购Ben Affleck关联的AI电影制作公司，聚焦后期制作效率革命</div>
+    <div class="meta">并购 · 影视AI · AI内容生产</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">14</div>
+  <div class="body">
+    <div class="title">arXiv AI写作检测：边界测量</div>
+    <div class="desc">研究人员测量arXiv上AI辅助写作的比例，并揭示现有检测方法的局限性</div>
+    <div class="meta">学术 · 192pts HN · AI文本检测</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">15</div>
+  <div class="body">
+    <div class="title">中国发起WAICO全球AI治理联盟</div>
+    <div class="desc">在WAIC大会上，习近平宣布成立中国主导的国际AI治理联盟，推动"多边合作"替代西方框架</div>
+    <div class="meta">地缘政治 · AI治理 · WAIC上海</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+</div>
+
+<!-- Stats -->
+<div class="section-header">
+  <h2>今日数据</h2>
+</div>
+
+<div class="stats">
+  <div class="stat">
+    <div class="num">972</div>
+    <div class="label">HN最高分</div>
+    <div class="detail">"中国开源AI正在胜出"</div>
+  </div>
+  <div class="stat">
+    <div class="num">87年</div>
+    <div class="label">被推翻的数学猜想</div>
+    <div class="detail">雅可比猜想(1939-2026)</div>
+  </div>
+  <div class="stat">
+    <div class="num">2.8T</div>
+    <div class="label">Kimi K3参数量</div>
+    <div class="detail">开源模型史上最大</div>
+  </div>
+  <div class="stat">
+    <div class="num">6-10×</div>
+    <div class="label">Google Frozen v2能效</div>
+    <div class="detail">vs 现有TPU</div>
+  </div>
+  <div class="stat">
+    <div class="num">$5.87亿</div>
+    <div class="label">Netflix收购AI影视</div>
+    <div class="detail">Ben Affleck关联公司</div>
+  </div>
+  <div class="stat">
+    <div class="num">$400M</div>
+    <div class="label">Current AI融资</div>
+    <div class="detail">开源AI基础设施</div>
+  </div>
+</div>
+
+<!-- Deep Dives -->
+<div class="section-header">
+  <h2>深度分析</h2>
+  <span class="count">3篇</span>
+</div>
+
+<div class="dives">
+
+<div class="dive">
+  <h3><span class="num">01</span> Claude Fable推翻雅可比猜想：AI辅助数学的里程碑时刻</h3>
+  <p>2026年7月20日，Anthropic的数学家Levent Alpöge宣布，在Claude Fable 5的辅助下，他发现了雅可比猜想的反例。这个存在了87年（1939年由Keller提出）的代数几何核心猜想，被一个三次多项式映射在三维复空间中的显式构造推翻。反例的雅可比行列式为常数 -2（非零），但映射不是单射——三个不同的点映射到同一输出。任何学过多元微积分的研究生都可以手动验证。这不仅仅是一个数学发现，更是AI与人类协作的范式突破。</p>
+  <p>雅可比猜想的核心问题是：如果多项式映射的导数矩阵行列式是非零常数，映射是否一定有多项式逆？这个猜想在n=2时已被部分证明，但在三维及以上一直悬而未决。Claude Fable的贡献不是在暴力搜索——多项式空间是无限维的——而是在数学家的引导下进行了有方向的、富有洞察力的探索。Announcement中特别提到Fable是在"看世界杯决赛时"找到了这个反例，这种拟人化的描述掩盖了背后更深层的意义：AI现在可以理解数学家的直觉方向，并在语义空间中提出结构化的反例构造。</p>
+  <p>这个事件的影响远超一次数学突破。首先，它证明了前沿AI模型可以参与解决数十年悬而未决的开放问题，而不仅仅是辅助代码生成或文档摘要。其次，反例的"可验证性"至关重要——传统上AI生成的证明（如400页的机器证明）需要专家数月验证，而这个反例任何数学系学生都可以代入计算。这意味着AI辅助数学的产出可以更直接地融入人类知识体系。第三，考虑到Fable是Anthropic的安全优先模型，它能被用于如此创造性的数学探索，反过来也说明了安全对齐与高级推理能力并非不可兼得。对于中国数学界和AI社区，这同样是一个重要信号：AI驱动的数学发现将成为下一个竞争前沿。</p>
+  <div class="links">
+    <a href="https://xcancel.com/__alpoge__/status/2079028340955197566" target="_blank">Levent Alpöge 原始公告</a>
+    <a href="https://news.ycombinator.com/item?id=48986091" target="_blank">HN讨论 (662pts)</a>
+    <a href="https://xenaproject.wordpress.com/2026/07/20/human-mathematicians-are-being-outcounterexampled/" target="_blank">Xenaproject: 人类数学家被反例超越</a>
+  </div>
+</div>
+
+<div class="dive">
+  <h3><span class="num">02</span> 中国开源AI vs 美国闭源阵营：结构性格局转变</h3>
+  <p>今天HN上两篇榜首文章——《中国开源AI战略正在胜出》（972pts）和《谁害怕中国模型？》（224pts，Stratechery）——集中反映了2026年AI行业最核心的地缘技术叙事。Stanford AI Index 2026数据显示，中美前沿模型性能差距已经缩小到约2.7%，领先地位频繁交替。但关键的差异不在性能，而在策略：中国将开源模型作为产业政策推进，通过深度求索、Moonshot、阿里巴巴、智谱AI、腾讯等实验室的激烈内部竞争，以极快的节奏释放开源权重的模型。</p>
+  <p>Kimi K3的发布将这个叙事推向了高潮。2.8T参数不仅是开源模型史上最大值，更重要的是它在多项基准上超越了Claude Fable 5和GPT-5.6，而API价格仅为后者的1/10到1/20。这一价格差距不仅仅是商业模式差异——它是效率创新（Muon优化器、QK-Clip、线性注意力等）加上芯片制裁激励的结构性结果。制裁迫使中国实验室在算法效率上不断创新，最终反而制造了成本优势。微软传言测试Kimi K3替代Copilot中的GPT/Claude，如果成真，每年可节省数亿美元——但这也会引发美国国家安全审查。</p>
+  <p>更深层的信号在于"能力鸿沟"的变化速度。12个月前，中国开源模型落后美国闭源模型约18个月；今天这个差距缩小到"一个代际"，在某些基准上甚至领先。Stratechery的分析指出，如果美国继续依赖高成本的闭源策略，将面临一个风险：全球开发者生态会主动迁移到开源模型，就像Linux侵蚀Unix那样。Google的Frozen v2定制芯片（6-10倍能效提升）和微软部署AMD Helios，表明美国也在从硬件层面求变。但在软件和生态层面，开源势头的转向可能已经不可逆——正如HN #1文章标题所言："中国开源模型正在胜出。"</p>
+  <div class="links">
+    <a href="https://stratechery.com/2026/whos-afraid-of-chinese-models/" target="_blank">Stratechery: 谁害怕中国模型？</a>
+    <a href="https://werd.io/american-ai-is-locked-down-and-proprietary-its-losing/" target="_blank">werd.io: 美国AI正在闭源中失去优势</a>
+    <a href="https://www.emergingtrajectories.com/lh/frontier-lab-economics/" target="_blank">Emerging Trajectories: Kimi K3与Anthropic的困境</a>
+  </div>
+</div>
+
+<div class="dive">
+  <h3><span class="num">03</span> Kimi K3冲击波：从模型竞赛到生态重构</h3>
+  <p>Kimi K3的发布不是一个孤立事件，而是整个AI生态系统正在经历的结构性重构的缩影。2.8T参数、全权重开源、Modified MIT许可证、API价格$3-15/百万token——这些数字组合在一起，对现有的"闭源API+高利润率"商业模式构成了直接威胁。投资界开始公开讨论Gavin Baker提出的论点：Kimi K3可能侵蚀OpenAI和Anthropic的超高推理利润，同时利好更广泛的产业链（芯片、数据中心、应用层）。芯片股票当天即出现波动，NVIDIA、AMD因"商品化恐惧"承压。</p>
+  <p>但Kimi K3的影响远不止价格。在技术层面，它展示了Moonshot AI在多方面的创新能力：Muon优化器（同等loss下算力减半）、线性注意力架构（长上下文下超越全注意力）、以及非Transformer结构的可能性。这些创新并非来自更大规模的算力投入，而是来自更高效的算法设计——在芯片制裁背景下，中国实验室被迫走上了"效率创新"而非"算力堆叠"的道路。Qwen 3.8（约2.4T参数）的预告进一步表明，这种竞争模式不是孤立的实验，而是系统性的产业规划。</p>
+  <p>对全球开发者而言，Kimi K3的发布标志着选择的分水岭。开源模型首次在纯能力（而非仅仅性价比）上达到甚至超越了顶级闭源模型，而且权重完全开放意味着开发者可以下载、微调、部署到自己的基础设施上。这从根本上改变了一个关键决策：是绑定到某家闭源API，还是拥有完整的模型控制权。Cursor的"Agent蜂群与模型经济学"分析指出，当模型变成商品时，价值将向上迁移到应用层和代理层。如果这一判断成立，那么Kimi K3可能是压垮闭源API高价策略的关键一票——就像2007年的iPhone定义了智能手机时代一样，2026年的Kimi K3可能定义了"后API商品化"时代。</p>
+  <div class="links">
+    <a href="https://www.kimi.com/products/kimi-work" target="_blank">Kimi Work 官网</a>
+    <a href="https://cursor.com/blog/agent-swarm-model-economics" target="_blank">Cursor: Agent蜂群与新模型经济学</a>
+    <a href="https://news.ycombinator.com/item?id=48984231" target="_blank">HN: Kimi K3与Anthropic讨论 (281pts)</a>
+  </div>
+</div>
+
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>每日AI精选 · 2026年7月21日</p>
+  <p>数据来源: Hacker News · X/Twitter</p>
+  <p><a href="index.html">← 返回首页</a> · <a href="https://github.com/macmini-j/daily-ai-digest">GitHub</a></p>
+</div>
+
+</div>
+</body>
+</html>
