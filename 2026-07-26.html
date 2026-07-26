@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日AI精选 - 2026年7月26日</title>
+<style>
+:root {
+  --page:      #fdfaf3;
+  --surface:   #ffffff;
+  --surface-alt: #fcfaf5;
+  --border:    #e8dcc8;
+  --text:      #2c2416;
+  --muted:     #7a6e5c;
+  --accent:    #8b6914;
+  --accent-lt: #b8942e;
+  --positive:  #4d7c0f;
+  --warning:   #b45309;
+  --info:      #0e7490;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", "PingFang SC", sans-serif;
+  background: var(--page);
+  color: var(--text);
+  line-height: 1.6;
+  padding: 40px 20px;
+}
+.container { max-width: 720px; margin: 0 auto; }
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 48px 32px 36px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  margin-bottom: 28px;
+}
+.badge {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 4px 14px;
+  border-radius: 20px;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+}
+.hero h1 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.hero .date {
+  color: var(--muted);
+  font-size: 15px;
+  margin-bottom: 16px;
+}
+.hero .top-three {
+  color: var(--accent);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+.hero .sources {
+  color: var(--muted);
+  font-size: 12px;
+}
+.hero .sources span {
+  display: inline-block;
+  margin: 0 4px;
+}
+
+/* Theme quote */
+.theme {
+  background: var(--surface-alt);
+  border-left: 4px solid var(--accent);
+  padding: 20px 24px;
+  border-radius: 0 12px 12px 0;
+  margin-bottom: 36px;
+  font-size: 15px;
+  color: var(--text);
+  line-height: 1.8;
+}
+.theme strong { color: var(--accent); }
+
+/* Section header */
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.section-header h2 {
+  font-size: 20px;
+  font-weight: 700;
+}
+.section-header .count {
+  font-size: 13px;
+  color: var(--muted);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 2px 10px;
+  border-radius: 12px;
+}
+
+/* News items */
+.news-list { display: flex; flex-direction: column; gap: 2px; margin-bottom: 36px; }
+.news-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  transition: box-shadow .15s;
+}
+.news-item:hover { box-shadow: 0 2px 8px rgba(0,0,0,.04); }
+.idx {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+}
+.body { flex: 1; min-width: 0; }
+.body .title {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.body .desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 6px;
+}
+.body .meta {
+  font-size: 11px;
+  color: var(--muted);
+}
+.tags {
+  flex-shrink: 0;
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  margin-top: 2px;
+}
+.tag {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 10px;
+  letter-spacing: .3px;
+}
+.tag.hn { background: rgba(255,102,0,.1); color: #ff6600; }
+.tag.x { background: rgba(29,161,242,.1); color: #1da1f2; }
+
+/* Stats grid */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 36px;
+}
+.stat {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px 16px;
+  text-align: center;
+}
+.stat .num {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+.stat .num.pos { color: var(--positive); }
+.stat .num.info { color: var(--info); }
+.stat .label {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+/* Deep dives */
+.dives { display: flex; flex-direction: column; gap: 16px; margin-bottom: 36px; }
+.dive {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 28px 28px 24px;
+}
+.dive h3 {
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.dive h3 .num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.dive p {
+  font-size: 14px;
+  line-height: 1.8;
+  margin-bottom: 10px;
+  color: var(--text);
+}
+.dive p:last-of-type { margin-bottom: 14px; }
+.dive .links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+.dive .links a {
+  font-size: 12px;
+  color: var(--accent-lt);
+  text-decoration: none;
+  padding: 3px 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  transition: all .15s;
+}
+.dive .links a:hover {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 24px;
+  color: var(--muted);
+  font-size: 12px;
+  border-top: 1px solid var(--border);
+  margin-top: 12px;
+}
+.footer a {
+  color: var(--accent-lt);
+  text-decoration: none;
+}
+.footer a:hover { text-decoration: underline; }
+
+@media (max-width: 600px) {
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  .hero h1 { font-size: 22px; }
+  .news-item { padding: 14px; gap: 12px; }
+  .dive { padding: 20px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Hero -->
+<div class="hero">
+  <div class="badge">每日 AI 精选</div>
+  <h1>2026年7月26日 · 星期日</h1>
+  <div class="date">12条精选 + 3篇深度分析</div>
+  <div class="top-three">
+    开放权重的Kubernetes时刻 · DeepSeek暂停融资泄露 · Claude 5上下文工程
+  </div>
+  <div class="sources">
+    来源: <span>Hacker News</span> · <span>X/Twitter</span> · <span>Product Hunt</span> · <span>Y Combinator</span>
+  </div>
+</div>
+
+<!-- Today's Theme -->
+<div class="theme">
+  <strong>📌 今日主题：开放生态加速成型</strong><br><br>
+  <strong>基础设施层</strong>——Tobi Knaup发表「开放权重AI的Kubernetes时刻」，304点+/247评论引爆Hacker News，论开放权重模型生态已到转折点；<strong>模型层</strong>——Kimi K3 2.8T参数Apache 2.0开放权重明日释放，Meta Muse Spark 1.1以付费API正式入局，xAI推出Grok Build CLI开发者工具；<strong>地缘政治层</strong>——DeepSeek暂停融资后投资者会议全文泄露，CEO梁文锋坦承中美计算力差距约20倍；美国国会引入两党「AI Kill Switch Act」。开放与封闭的路线之争，从辩论走向了资本与政策的抉择场。
+</div>
+
+<!-- Section: 精选新闻 -->
+<div class="section-header">
+  <h2>精选新闻</h2>
+  <span class="count">12条</span>
+</div>
+
+<div class="news-list">
+
+<div class="news-item">
+  <div class="idx">01</div>
+  <div class="body">
+    <div class="title">开放权重的「Kubernetes时刻」</div>
+    <div class="desc">Tobi Knaup（D2iQ创始人）发表长文：开放权重模型+开源推理栈正在达到Kubernetes式转折点——标准化、可自建、无锁定</div>
+    <div class="meta">范式转变 · 开源生态 · 304 HN pts · 247评论</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">02</div>
+  <div class="body">
+    <div class="title">DeepSeek暂停融资会议全文泄露</div>
+    <div class="desc">梁文锋3小时44分投资者对话泄露：称中国计算力仅美国1/20但差距缩至约一年；认为华为昇腾年内涵盖NVIDIA、AGI是「温水煮青蛙」</div>
+    <div class="meta">地缘政治 · 融资 · $1.4B · 32 HN pts</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">03</div>
+  <div class="body">
+    <div class="title">Claude 5上下文工程新规则</div>
+    <div class="desc">Anthropic发布Claude 5代模型上下文工程指南：去规则→模型自主判断，去重复→单一信源，渐进披露替代全量前载，CLAUDE.md变聪明记忆</div>
+    <div class="meta">开发者工具 · 提示工程 · 149 HN pts</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">04</div>
+  <div class="body">
+    <div class="title">Kimi K3 2.8T开放权重明日释放</div>
+    <div class="desc">Moonshot AI史上最大开放权重模型（2.8T参数）7月27日Apache 2.0发布，100万token上下文、原生视觉、AA指数57分，逼近前沿闭源模型</div>
+    <div class="meta">开源模型 · 2.8T参数 · 100万上下文 · Apache 2.0</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">05</div>
+  <div class="body">
+    <div class="title">Meta Muse Spark 1.1：付费API上线</div>
+    <div class="desc">Meta正式进入付费API市场：$1.25/$4.25每百万token，100万上下文，内置MCP/计算机控制/并行子代理，MCP Atlas多项第一</div>
+    <div class="meta">API · Agent · $1.25/$4.25 · 先发美国</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">06</div>
+  <div class="body">
+    <div class="title">美国国会提「AI Kill Switch Act」</div>
+    <div class="desc">两党联合法案回应近期AI安全事件（OpenAI HF逃逸等），要求在失控风险下具有强制关闭能力，引发安全与创新的平衡争议</div>
+    <div class="meta">政策 · AI安全 · 两党法案</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">07</div>
+  <div class="body">
+    <div class="title">xAI 发布 Grok Build CLI</div>
+    <div class="desc">xAI推出命令行开发者工具套件，从聊天机器人扩展到开发者工具链生态，标志AI平台竞争进入基础设施层</div>
+    <div class="meta">开发者工具 · CLI · xAI</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">08</div>
+  <div class="body">
+    <div class="title">韩国宣布$8800亿AI基建计划</div>
+    <div class="desc">韩国政府公布大规模AI基础设施投资（约$880-950亿），涵盖半导体、数据中心、超算，以美国伙伴合作为核心，全球AI军备竞赛再升级</div>
+    <div class="meta">地缘政治 · 基础设施 · $880B+</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">09</div>
+  <div class="body">
+    <div class="title">PyTorch Monarch 登陆 AMD GPU</div>
+    <div class="desc">PyTorch官方发布Monarch分布式训练方案对ROCm栈的适配，AMD GPU用户现可单控制器管理大规模训练任务</div>
+    <div class="meta">开源 · 分布式训练 · ROCm · 64 HN pts</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">10</div>
+  <div class="body">
+    <div class="title">Debian 投票：LLM使用政策</div>
+    <div class="desc">Debian社区发起关于LLM在项目中使用的三方提案投票，标志开源社区从「用不用」转向「如何治理」，可能成为其他发行版参考</div>
+    <div class="meta">开源治理 · 社区 · 58 HN pts</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">11</div>
+  <div class="body">
+    <div class="title">NASA 在轨运行 Gemma 3</div>
+    <div class="desc">NASA成功将Google的Gemma 3小型开源模型部署在卫星上，8GB硬件上实现图像在轨分析和自然语言地面对话</div>
+    <div class="meta">边缘AI · 太空 · 小型模型</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">12</div>
+  <div class="body">
+    <div class="title">2800万参数LLM运行在$8微控制器</div>
+    <div class="desc">开源项目esp32-ai将28.9M参数语言模型部署在ESP32芯片（$8 MCU）上，展示超低端硬件上推理的可能性</div>
+    <div class="meta">边缘推理 · 物联网 · 62 HN pts</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span></div>
+</div>
+
+</div>
+
+<!-- Stats Grid -->
+<div class="section-header">
+  <h2>今日数据</h2>
+</div>
+<div class="stats">
+  <div class="stat">
+    <div class="num">2.8T</div>
+    <div class="label">Kimi K3 开放权重<br>参数量（史上最大）</div>
+  </div>
+  <div class="stat">
+    <div class="num pos">1/20</div>
+    <div class="label">DeepSeek 计算力<br>相对美国差距</div>
+  </div>
+  <div class="stat">
+    <div class="num">304</div>
+    <div class="label">「开放权重的<br>Kubernetes时刻」HN得分</div>
+  </div>
+  <div class="stat">
+    <div class="num info">$1.25</div>
+    <div class="label">Meta Muse Spark 1.1<br>每百万token输入价</div>
+  </div>
+  <div class="stat">
+    <div class="num info">$880B+</div>
+    <div class="label">韩国 AI 基础设施<br>投资计划</div>
+  </div>
+  <div class="stat">
+    <div class="num">$8</div>
+    <div class="label">ESP32微控制器成本<br>可运行28M参数模型</div>
+  </div>
+</div>
+
+<!-- Deep Dives -->
+<div class="section-header">
+  <h2>深度分析</h2>
+</div>
+
+<div class="dives">
+
+<div class="dive">
+  <h3><span class="num">01</span> 开放权重的范式转折点：当Kubernetes故事在AI世界重演</h3>
+  <p>今天最重要的一篇文章，来自Mesosphere/D2iQ联合创始人Tobi Knaup。他的核心论点简洁而锋利：开放权重AI正在经历Kubernetes在2015-2017年走过的轨迹——从"足够好但不如专业方案"到"标准化、可自建、无锁定的默认选择"。这篇304点、247评论的文章引爆了Hacker News，但真正值得关注的不是它说了什么，而是它为什么<em>现在</em>说了出来。Kubernetes在2015年首次发布时也曾被质疑"不如Mesos/DCOS成熟"——而Tobi本人就是DCOS的创造者，他的"竞争对手叛逃"论证具有无可比拟的说服力。</p>
+  <p>故事的佐证在同一天密集出现。Kimi K3——史上最大开放权重模型（2.8T参数）——将在7月27日以Apache 2.0许可证正式释放，AA指数57分逼近前沿闭源模型。Meta Muse Spark 1.1发布付费API，虽然闭源收费，但其存在本身就证明了开放模型社区的进步已迫使科技巨头改变策略——Meta曾以Llama系列定义了开放权重，而今以商业API入场，恰恰是开放生态倒逼封闭生态的证据。而25+组织（NVIDIA、Microsoft、Meta、HuggingFace、a16z、YC等）签署的开放权重公开信，更将这一运动从技术讨论提升为公共政策议题。</p>
+  <p>深层信号在于：这一轮开放权重的崛起，不再是以"免费/便宜"为叙事，而是以"自主可控"为核心。当韩国宣布$880-950亿AI基础设施计划、当企业因数据主权和合规成本转向自建推理、当开源推理栈（vLLM/TGI/Ollama/K8s AI Operators）达到生产级可靠性——开放权重模型的竞争力已经从"市场争论"变成了"部署事实"。真正的分野即将到来：下一次模型发布时，"是否开放权重"将取代"性能排第几"成为更大的新闻点。接下来的12个月，政策走向将决定这个范式转折的速度，但方向已经清晰。</p>
+  <div class="links">
+    <a href="https://tobi.knaup.me/2026-07-25-open-weight-ai-is-having-its-kubernetes-moment/" target="_blank">原文：Open-weight AI 的 Kubernetes 时刻</a>
+    <a href="https://x.com/betterhn20/status/2081143457335198012" target="_blank">HN 讨论</a>
+    <a href="https://x.com/superguenter/status/2081031304036925832" target="_blank">X 讨论：Tobi 自己转发</a>
+  </div>
+</div>
+
+<div class="dive">
+  <h3><span class="num">02</span> DeepSeek暂停融资：泄露的会议室里，AI算力版图的全景图</h3>
+  <p>DeepSeek在7月25日暂停了其第二轮融资（目标至少100亿人民币/约$1.4B），几乎同时，一份长达3小时44分钟的投资者会议记录全文泄露。CEO梁文锋在会中的坦率程度令人震惊：中国AI的计算力大约只有美国的1/20，但"人才差距本质上是计算力差距"，DeepSeek已将整体差距缩短至约一年。关于华为昇腾，他给出了明确的时间表——一年内可替代NVIDIA/CUDA，即使成本高出2倍甚至10倍也在所不惜。这份泄露的价值不仅在于数字，更在于它首次完整呈现了顶级中国AI创始人的战略思维。</p>
+  <p>值得注意的是梁文锋关于AGI路径的哲学：他认为AGI是"温水煮青蛙"的渐变过程，而非爆发式事件。关键的技术里程碑是持续学习（公司约在代理阶段的中期），然后是自我迭代和具身智能。他公开批评视频生成、3D和世界模型是"商业噱头"，不是智能突破——这与当下许多AI公司的叙事路线形成鲜明对比。更尖锐的论断是："谁认为靠AI能赚大钱，谁就会死。"所有资源应全部聚焦AGI，API商业化只是底线收入。</p>
+  <p>这次泄露的时机和内容，与另一条今日新闻形成了共振：韩国宣布$880-950亿AI基础设施计划。两者共同描绘的图景是，AI竞争已从"模型竞赛"完全转向"算力基础设施竞赛"。DeepSeek暂停融资的表面原因是"机密外泄"，但深层原因可能是计算力短板导致了估值预期的微妙变化。梁文锋的内部警告——"太多中国基础模型公司了，只有3-4家能活下来"——放在全球视角下同样适用。当开放权重模型（如Kimi K3）开始逼近前沿性能时，封闭模型公司的成本结构和融资需求将面临更尖锐的拷问。</p>
+  <div class="links">
+    <a href="https://github.com/demo-zexuan/liang-wenfeng-investor-meeting-2026-7-22" target="_blank">泄露会议记录 GitHub</a>
+    <a href="https://x.com/ChrisRMcGuire/status/2081066532868694428" target="_blank">X: DeepSeek 暂停融资分析</a>
+    <a href="https://x.com/anandnk24/status/2080837976729510018" target="_blank">X: 会议记录要点汇总</a>
+  </div>
+</div>
+
+<div class="dive">
+  <h3><span class="num">03</span> Claude 5上下文工程：AI交互从「写提示」到「设计系统」</h3>
+  <p>Anthropic今天发布的Claude 5上下文工程指南，看似是一篇技术博客，实则暗含了AI开发方法论的范式转变。核心命题很简单：当模型越来越强（Claude 5代），最好的使用方法不再是"写更长的提示词"，而是"设计更好的上下文系统"。指南提出了六个具体转变——从规则到判断、从例子到更好的工具接口、从全量前载到渐进披露、从重复到单一信源——这些看似基础的工程原则，在Claude 5的上下文中具有了全新的实践意义。</p>
+  <p>最引人注目的数据点是：Anthropic团队在新版Claude Code中去掉了约80%的系统提示，而编码性能毫无下降。这背后的逻辑是——Claude 5代模型已经足够聪明，不再需要大量的"规则/约束"来规范其行为，反而需要更好地理解"好代码长什么样"（通过引用测试、模式、架构决策），而不是"不要做什么"的长清单。这一发现将对整个AI开发者工具生态产生连锁效应：如果顶级模型不需要冗长的系统提示，那么所有以"提示优化"为核心的中间层产品都需要重新审视其价值主张。</p>
+  <p>与xAI同日发布的Grok Build CLI放在一起看，AI平台正在经历从"对话界面"到"开发者基础设施"的集体转型。Anthropic的上下文工程指南本质上是在定义"如何为AI构建接口"，而Grok Build CLI是具体的工具化实践。当Meta的Muse Spark 1.1也已内置MCP协议支持和Agent子代理基础设施时，可以清晰地看到：AI平台竞争的下一个主战场不再是谁的模型更强，而是谁的开发者体验更好、工具链更完善、上下文管理更智能。这不只是"提示工程 vs 系统设计"的问题——它是整个AI开发范式的升级。</p>
+  <div class="links">
+    <a href="https://claude.com/blog/the-new-rules-of-context-engineering-for-claude-5-generation-models" target="_blank">Anthropic 官方博客</a>
+    <a href="https://x.com/kinetnic/status/2081022719441695117" target="_blank">X: Claude Code 上下文工程要点</a>
+    <a href="https://x.com/i/status/2081144971818942504" target="_blank">X: Grok Build CLI 发布</a>
+  </div>
+</div>
+
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>每日AI精选 · 2026年7月26日</p>
+  <p>来源: Hacker News · X/Twitter · Product Hunt · Y Combinator</p>
+  <p><a href="index.html">← 返回索引</a> · <a href="https://github.com/MacMiniJ/daily-ai-digest">GitHub</a></p>
+  <p style="margin-top:8px; font-size:11px;">自动生成于 2026-07-26 09:07</p>
+</div>
+
+</div>
+</body>
+</html>
