@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日AI精选 · 2026-08-02</title>
+<style>
+:root {
+  --page:      #fdfaf3;
+  --surface:   #fcfaf5;
+  --card:      #ffffff;
+  --border:    #e8dcc8;
+  --text:      #2c2416;
+  --muted:     #7a6e5c;
+  --accent:    #8b6914;
+  --accent-lt: #b8942e;
+  --positive:  #4d7c0f;
+  --warning:   #b45309;
+  --info:      #0e7490;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "PingFang SC", "Helvetica Neue", sans-serif;
+  background: var(--page);
+  color: var(--text);
+  line-height: 1.6;
+  padding: 40px 20px;
+}
+.container { max-width: 720px; margin: 0 auto; }
+
+/* Hero */
+.hero {
+  text-align: center;
+  margin-bottom: 40px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--border);
+}
+.badge {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 14px;
+  border-radius: 20px;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+}
+.hero h1 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--text);
+}
+.hero .subtitle {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+.hero .key-stories {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+.hero .key-stories span {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--accent);
+}
+.hero .sources {
+  font-size: 12px;
+  color: var(--muted);
+}
+.hero .sources strong { color: var(--text); }
+
+/* Theme block */
+.theme {
+  background: var(--surface);
+  border-left: 4px solid var(--accent);
+  padding: 20px 24px;
+  margin-bottom: 36px;
+  border-radius: 0 8px 8px 0;
+}
+.theme .label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+.theme p {
+  font-size: 15px;
+  color: var(--text);
+  line-height: 1.7;
+}
+
+/* Section headers */
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--accent);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.section-title small {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--muted);
+}
+
+/* News items */
+.news-list { margin-bottom: 40px; }
+.news-item {
+  display: flex;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+  align-items: flex-start;
+}
+.news-item:last-child { border-bottom: none; }
+.news-item .idx {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent);
+}
+.news-item .body { flex: 1; min-width: 0; }
+.news-item .body .title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+.news-item .body .desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.5;
+  margin-bottom: 6px;
+}
+.news-item .body .meta {
+  font-size: 12px;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.news-item .tags {
+  flex-shrink: 0;
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+.tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.3px;
+}
+.tag.hn { background: rgba(255,102,0,.1); color: #ff6600; }
+.tag.x  { background: rgba(29,161,242,.1); color: #1da1f2; }
+.tag.ph { background: rgba(218,85,47,.1); color: #da552f; }
+.tag.ih { background: rgba(34,197,94,.1); color: #22c55e; }
+.tag.ma { background: rgba(0,120,212,.1); color: #0078d4; }
+
+/* Stats */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 40px;
+}
+.stat-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+}
+.stat-card .num {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--accent);
+}
+.stat-card .label {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+/* Deep dives */
+.dives { margin-bottom: 40px; }
+.dive {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 20px;
+}
+.dive h3 {
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.dive h3 .num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 6px;
+  font-size: 13px;
+  flex-shrink: 0;
+}
+.dive p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+.dive p:last-of-type { margin-bottom: 16px; }
+.dive .links {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.dive .links a {
+  font-size: 12px;
+  color: var(--accent-lt);
+  text-decoration: none;
+  border: 1px solid var(--border);
+  padding: 4px 12px;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+.dive .links a:hover {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.8;
+}
+.footer a {
+  color: var(--accent-lt);
+  text-decoration: none;
+}
+.footer a:hover { text-decoration: underline; }
+
+@media (max-width: 520px) {
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .hero h1 { font-size: 22px; }
+  .news-item { gap: 12px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Hero -->
+<div class="hero">
+  <div class="badge">每日AI精选</div>
+  <h1>2026年8月2日 · 星期日</h1>
+  <div class="subtitle">12条精选新闻 + 3篇深度分析</div>
+  <div class="key-stories">
+    <span>🧮 OpenAI Astra 十项数学突破</span>
+    <span>🪶 DeepSeek V4-Flash 开源</span>
+    <span>⚖️ Apple 起诉 OpenAI</span>
+  </div>
+  <div class="sources">
+    来源: <strong>Hacker News</strong> · <strong>X/Twitter</strong> · Y Combinator
+  </div>
+</div>
+
+<!-- Theme -->
+<div class="theme">
+  <div class="label">📌 今日主题</div>
+  <p><strong>可验证的智能与不可回避的法庭</strong> — OpenAI内部模型Astra用Lean形式化证明攻克10个长期开放数学问题，把"AI做研究"从口号变成可机器核验的论文；DeepSeek V4-Flash开源权重在Agent基准上大幅跃升，开源阵营正式攻入"会干活"的腹地。同一天，AI的法律时代加速到来：Apple起诉OpenAI窃取商业机密、欧盟AI法案透明度规则正式生效、慕尼黑法院判Suno因"记住"歌曲而侵权。能力验证与责任清算，正在同步收紧。</p>
+</div>
+
+<!-- News -->
+<h2 class="section-title">📰 精选新闻 <small>12条</small></h2>
+<div class="news-list">
+
+<div class="news-item">
+  <div class="idx">01</div>
+  <div class="body">
+    <div class="title">OpenAI Astra攻下10道长期数学难题</div>
+    <div class="desc">内部模型Astra解决或大幅推进10个开放数学/理论计算机问题：否定Connes刚性猜想、解决Ehrhart体积猜想、首次改进球堆积指数（1978年以来）、量子并行重复下界等。所有证明均以Lean形式化，GitHub公开ten-proofs仓库，成功运行token成本仅约$2,000。</div>
+    <div class="meta">🔖 研究突破 · 🧮 数学证明 · 📊 10个问题</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span><span class="tag hn">HN</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">02</div>
+  <div class="body">
+    <div class="title">DeepSeek V4-Flash开源：Agent基准大跃升</div>
+    <div class="desc">MIT协议开放权重（约284B总参/13B激活），1M上下文：Terminal-Bench 61.8%→82.7%、DeepSWE 7.3%→54.4%、CyberGym 38.7→76.7。API仅约$0.14–0.28/M tokens，社区称其为2026年最强开源Agent模型之一，对抗闭源旗舰。</div>
+    <div class="meta">🔖 开源模型 · 🤖 Agent能力 · 📊 $0.14/M</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span><span class="tag hn">HN</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">03</div>
+  <div class="body">
+    <div class="title">Apple起诉OpenAI窃取商业机密</div>
+    <div class="desc">苹果指控OpenAI盗用其商业机密，涉及AI模型研发/工程know-how；OpenAI总裁Brockman公开回应"We Don't Need Your Secrets"。在ChatGPT已深度集成Apple Intelligence的背景下，两家从供应商-客户关系走向法庭。</div>
+    <div class="meta">🔖 法律 · 🍎 商业机密 · 📊 诉讼</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">04</div>
+  <div class="body">
+    <div class="title">EU AI法案透明度规则今日正式生效</div>
+    <div class="desc">8月2日起欧盟AI标签与透明度强制要求落地，高风险系统监管进入执行期；欧盟同时推进AI法案修订（被指或扩大监控权限），监管与主权叙事并行推进。</div>
+    <div class="meta">🔖 政策 · 🇪🇺 欧盟 · 📊 生效日</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">05</div>
+  <div class="body">
+    <div class="title">慕尼黑法院判Suno侵犯GEMA版权</div>
+    <div class="desc">法院认定Suno未经许可用GEMA曲库训练（证据含11.3万小时YouTube音乐），且模型"记忆"至少6首受保护歌曲构成复制权侵权；驳回文本数据挖掘豁免与fair use抗辩，须停止训练、披露收入并赔偿——欧洲AI音乐里程碑判决。</div>
+    <div class="meta">🔖 版权 · 🎵 AI音乐 · 📊 里程碑判决</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">06</div>
+  <div class="body">
+    <div class="title">Cursor从用量页删除成本信息</div>
+    <div class="desc">用量页与CSV导出改为只显示token数、不再显示美元成本，被社区批为"藏计价器"；用户晒出3人月$11,000账单，HN 302pts、论坛炸锅，有人转向直连Anthropic/OpenAI API控成本。</div>
+    <div class="meta">🔖 开发者工具 · 💰 定价透明度 · 📊 HN 302pts</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">07</div>
+  <div class="body">
+    <div class="title">字节Seedance 2.5：一次生成30秒带声视频</div>
+    <div class="desc">新一代视频模型原生30秒带音频生成、单次最多50个多模态参考（图/视频/音频）、逐秒时间控制编辑、支持绿幕与3D资产，主打生产级工作流；Dreamina/Jimeng等平台已上线，BytePlus API即将开放。HN 146pts。</div>
+    <div class="meta">🔖 视频生成 · 🎬 AIGC · 📊 HN 146pts</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">08</div>
+  <div class="body">
+    <div class="title">微软开源Flint：AI时代的可视化语言</div>
+    <div class="desc">微软发布声明式可视化语言Flint，专为LLM生成/编辑图表设计，让自然语言直接产出结构化图表代码。HN 255pts高居榜单，被视为"图表即代码"走向AI原生的重要信号。</div>
+    <div class="meta">🔖 开源工具 · 📊 数据可视化 · 📊 HN 255pts</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">09</div>
+  <div class="body">
+    <div class="title">AI几分钟揪出Coldcard五年熵源漏洞</div>
+    <div class="desc">Coldcard硬件钱包固件因TRNG配置失误回退到弱PRNG，有效熵低至~40位，2021年起影响Mk2/Mk3等机型；AI审计快速定位5年未被人类发现的问题，攻击者扫链转走超1,000 BTC（约$38M），Coinkite已发补丁。</div>
+    <div class="meta">🔖 AI安全 · 🔐 密码学 · 📊 1,000+ BTC</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">10</div>
+  <div class="body">
+    <div class="title">Lean内核健全性Bug复盘发布</div>
+    <div class="desc">定理证明器Lean发现并修复内核健全性漏洞#14576，Leo de Moura发完整复盘。形式化验证工具自身的正确性问题浮出水面——恰与Astra用Lean做机器核验证明形成镜像。</div>
+    <div class="meta">🔖 形式化验证 · 🧮 Lean · 📊 HN 109pts</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">11</div>
+  <div class="body">
+    <div class="title">MIT Sloan：AI理财建议出乎意料地好</div>
+    <div class="desc">MIT Sloan研究称只要"问对问题"，LLM给出的理财建议质量令人惊讶，引发AI顾问vs人类顾问的讨论。对个人财务场景的AI实用性给出了少见的正面证据。</div>
+    <div class="meta">🔖 应用 · 💵 AI理财 · 📊 HN 131pts</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">12</div>
+  <div class="body">
+    <div class="title">Gemini Spark扩区 + 日本机器人店员上岗</div>
+    <div class="desc">Google将always-on个人Agent Gemini Spark扩展到更多国际市场用户；日本门店部署机器人分身，两周内服务3万名顾客。Agent从"会聊天"走向"会站柜台"。</div>
+    <div class="meta">🔖 Agent · 🤖 机器人 · 📊 3万人</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+</div>
+
+<!-- Stats -->
+<h2 class="section-title">📊 今日数据</h2>
+<div class="stats-grid">
+  <div class="stat-card">
+    <div class="num">10</div>
+    <div class="label">Astra攻克的开放数学问题</div>
+  </div>
+  <div class="stat-card">
+    <div class="num">$2,000</div>
+    <div class="label">十项证明的token成本</div>
+  </div>
+  <div class="stat-card">
+    <div class="num">82.7%</div>
+    <div class="label">V4-Flash Terminal-Bench</div>
+  </div>
+  <div class="stat-card">
+    <div class="num">$0.14/M</div>
+    <div class="label">V4-Flash API token起价</div>
+  </div>
+  <div class="stat-card">
+    <div class="num">1,000+</div>
+    <div class="label">Coldcard漏洞被盗BTC</div>
+  </div>
+  <div class="stat-card">
+    <div class="num">302pts</div>
+    <div class="label">Cursor删成本信息HN热度</div>
+  </div>
+</div>
+
+<!-- Deep Dives -->
+<h2 class="section-title">🔍 深度分析</h2>
+<div class="dives">
+
+<div class="dive">
+  <h3><span class="num">01</span> 从"做题"到"做研究"：Astra十项数学突破意味着什么</h3>
+  <p>OpenAI披露其内部模型Astra在数学与理论计算机领域解决了或大幅推进了10个长期开放问题：构造首个非sofic群、否定Connes刚性猜想、证明Ehrhart体积猜想（1964年提出）、自1978年以来首次改进球堆积指数、给出量子并行重复指数衰减、改进二元码与球码的编码指数等。更关键的是方法论——所有证明都由模型生成核心论证，再由模型本身转写为Lean形式化证明，输出机器可核验的证书，公开在github.com/openai/ten-proofs。据称成功运行的总token成本约$2,000。</p>
+  <p>这份清单的含金量在于"开放性"而非"难度表演"：大部分问题停滞了10到60年，且包含4个对长期猜想/信念的反例（否定式结果）。社区第一天的反应是兴奋与谨慎并存——过去同系列的Erdős单位距离反例与cycle double cover结果都经受住了独立复核，但10个定理的逐条专家审阅仍需数周。值得注意的细节：OpenAI自己承认也尝试了其他难题并未成功，说明这不是"模型突然全知"，而是test-time compute规模化后在特定类型推理（组合学、代数、信息论）上的真实突破。</p>
+  <p>深层信号有三层。第一，数学由此成为首个"AI产出可端到端机器验证"的科学领域——Lean内核健全性Bug #14576的复盘同日登上HN，恰好提醒我们验证链条本身的可靠性也需要维护，但形式化验证的闭环（模型论证→机器核验）确实把AI研究从"可信度辩论"变成了"可编译检查"。第二，$2,000成本与10个开放问题的对比，预示"定理证明"将从稀缺人力资本变成可规模化计算资源，数学家角色转向问题选择与论文撰写——这比任何编程基准都更接近"AI科学发现"的临界点。第三，与Coldcard事件（AI几分钟找到人类五年没发现的安全漏洞）并置，Astra证明AI在"生成+验证"双模式下的能力正在指数级增长，下一次安全与科学发现的边界，可能不再由人类的注意力决定。</p>
+  <div class="links">
+    <a href="https://github.com/openai/ten-proofs" target="_blank">GitHub: openai/ten-proofs</a>
+    <a href="https://openai.com/" target="_blank">OpenAI 官方公告页</a>
+    <a href="https://news.ycombinator.com/item?id=49139102" target="_blank">HN 讨论</a>
+  </div>
+</div>
+
+<div class="dive">
+  <h3><span class="num">02</span> DeepSeek V4-Flash：开源模型正式攻入Agent腹地</h3>
+  <p>DeepSeek于7月31日发布V4-Flash（0731版），MIT协议开放权重（约284B总参、13B激活的MoE），1M上下文，并同步提供极低价API（约$0.14–0.28/M tokens）。最惊人的是Agent基准的跃升：Terminal-Bench从61.8%跳到82.7%，DeepSWE（自主修bug）从7.3%跳到54.4%，CyberGym从38.7跳到76.7——这些是"会干活"而非"会聊天"的指标，前一代开源模型在这些任务上几乎是被闭源旗舰碾压的。</p>
+  <p>这条新闻与近期格局形成清晰对照：Kimi K3以2.8T参数量走"大而全"路线，DeepSeek V4-Flash则走"小激活+高效率"路线，两者共同挤压"开源=落后一个世代"的旧叙事。而Thinking Machines（Mira Murati）同期为Inkling提出的"分级开放"中间路线，说明连前沿实验室内部也承认：权重一旦放出，能力扩散就不可逆。开源阵营的竞争焦点已经从"benchmark分差"转向"Agent任务可用性+每美元能力"，这对定价体系是直接的破坏性力量——V4-Flash的API价格比GPT-5.6 Luna还低一个数量级。</p>
+  <p>深层信号在于Agent工作负载的分层正在固化：底层模型商品化（开源逼近闭源）、中间层（编排、治理、权限）成为差异化所在——这与昨日YC开源Qm、manifest弃用路由器的讨论指向同一结论。对开发者而言，V4-Flash的意义是"自主Agent的成本结构"第一次落到可以规模化的区间：当修一个bug的边际成本降到几分钱，企业部署Agent的ROI计算将被重写。对闭源厂商则是两难：继续在能力上拉开差距，还是跟进价格战——而中文开源实验室用MIT协议+极低价API的组合拳，正在把"开放生态"变成美国出口管制叙事之外最有效的全球开发者收割策略。</p>
+  <div class="links">
+    <a href="https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731" target="_blank">HF: deepseek-ai/DeepSeek-V4-Flash-0731</a>
+    <a href="https://x.com/Gvintagedave/status/2083562314226167811" target="_blank">X: Agent基准拆解</a>
+    <a href="https://x.com/jake_retrowaves/status/2083632483200102435" target="_blank">X: 定价分析</a>
+  </div>
+</div>
+
+<div class="dive">
+  <h3><span class="num">03</span> AI诉讼季开启：Apple诉OpenAI、EU法案生效、Suno败诉</h3>
+  <p>8月2日是AI法律意义上"多线开战"的一天。Apple正式起诉OpenAI窃取商业机密——尽管ChatGPT已深度集成进Apple Intelligence；OpenAI总裁Brockman回应"We Don't Need Your Secrets"，把纠纷定性为"我们不需要你的东西"。同日，欧盟AI法案的透明度与标签规则开始强制生效，高风险AI系统进入执行期；而慕尼黑地方法院则判Suno侵犯GEMA版权：模型未经许可训练（证据含11.3万小时YouTube音乐）、"记住"了至少6首受保护歌曲构成复制权侵权，须停止训练、披露收入并赔偿，且驳回了TDM豁免与fair use抗辩。</p>
+  <p>三条线揭示同一个趋势：AI行业的"免责期"正在结束。Apple诉OpenAI走的是商业秘密路线（传统雇佣/合作纠纷的升级版），Suno案走的是"模型即存储"的版权路线（把训练记忆直接认定为复制），EU AI Act则是事前监管路线。三者的共同点是都试图把责任锚定到AI公司内部的具体行为——不是抽象的"AI危害"，而是可举证的窃密、可记忆的歌、可核查的标签。尤其Suno案，"记忆即复制"的认定一旦被上诉法院维持，将动摇整个生成式音乐与图像训练的法律地基：任何在训练数据中"重现"受保护作品的行为都可能直接侵权，而不需要证明输出市场替代。</p>
+  <p>深层信号：AI合规正从"安全团队议题"升级为"董事会议题"，且地域分化明显——欧洲走监管+判例双轨（GEMA类集体管理组织正在获得判例武器），美国走商业秘密+合同纠纷（Apple案、版权集体诉讼并行），中国则继续以开源+市场换生态。对创业者的实际含义是：训练数据供应链（来源、授权、留存）从成本项变成法律责任项，透明度报告从营销材料变成法律证据；而"用AI审计AI"（Coldcard漏洞当天被发现）与"用法律管AI"在同一周内同时加速，说明这个行业的每一个维度——能力、安全、合规——都进入了由AI自身驱动的加速循环。</p>
+  <div class="links">
+    <a href="https://x.com/TarnowIP/status/2083493060340789258" target="_blank">X: Apple诉OpenAI报道</a>
+    <a href="https://x.com/WorldIPReview/status/2083523383069675602" target="_blank">X: Suno慕尼黑判决</a>
+    <a href="https://x.com/grok/status/2083546126733480342" target="_blank">X: EU AI Act生效梳理</a>
+  </div>
+</div>
+
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>📅 2026 年 8 月 2 日 · 每日 AI 精选</p>
+  <p>数据来源: Hacker News · X/Twitter · Y Combinator</p>
+  <p><a href="index.html">← 返回首页</a> · <a href="https://github.com/macmini-j/daily-ai-digest" target="_blank">GitHub</a></p>
+  <p style="margin-top:8px;font-size:11px;">由 Hermes Agent 自动生成 · 每天 09:07 更新</p>
+</div>
+
+</div>
+</body>
+</html>
