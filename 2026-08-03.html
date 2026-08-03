@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日AI精选 · 2026-08-03</title>
+<style>
+:root {
+  --page:      #fdfaf3;
+  --surface:   #fcfaf5;
+  --card:      #ffffff;
+  --border:    #e8dcc8;
+  --text:      #2c2416;
+  --muted:     #7a6e5c;
+  --accent:    #8b6914;
+  --accent-lt: #b8942e;
+  --positive:  #4d7c0f;
+  --warning:   #b45309;
+  --info:      #0e7490;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "PingFang SC", "Helvetica Neue", sans-serif;
+  background: var(--page);
+  color: var(--text);
+  line-height: 1.6;
+  padding: 40px 20px;
+}
+.container { max-width: 720px; margin: 0 auto; }
+
+/* Hero */
+.hero {
+  text-align: center;
+  margin-bottom: 40px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--border);
+}
+.badge {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 14px;
+  border-radius: 20px;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+}
+.hero h1 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--text);
+}
+.hero .subtitle {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+.hero .key-stories {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+.hero .key-stories span {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--accent);
+}
+.hero .sources {
+  font-size: 12px;
+  color: var(--muted);
+}
+.hero .sources strong { color: var(--text); }
+
+/* Theme block */
+.theme {
+  background: var(--surface);
+  border-left: 4px solid var(--accent);
+  padding: 20px 24px;
+  margin-bottom: 36px;
+  border-radius: 0 8px 8px 0;
+}
+.theme .label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+.theme p {
+  font-size: 15px;
+  color: var(--text);
+  line-height: 1.7;
+}
+
+/* Section headers */
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--accent);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.section-title small {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--muted);
+}
+
+/* News items */
+.news-list { margin-bottom: 40px; }
+.news-item {
+  display: flex;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+  align-items: flex-start;
+}
+.news-item:last-child { border-bottom: none; }
+.news-item .idx {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent);
+}
+.news-item .body { flex: 1; min-width: 0; }
+.news-item .body .title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+.news-item .body .desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.5;
+  margin-bottom: 6px;
+}
+.news-item .body .meta {
+  font-size: 12px;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.news-item .tags {
+  flex-shrink: 0;
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+.tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.3px;
+}
+.tag.hn { background: rgba(255,102,0,.1); color: #ff6600; }
+.tag.x  { background: rgba(29,161,242,.1); color: #1da1f2; }
+.tag.ph { background: rgba(218,85,47,.1); color: #da552f; }
+.tag.ih { background: rgba(34,197,94,.1); color: #22c55e; }
+.tag.ma { background: rgba(0,120,212,.1); color: #0078d4; }
+
+/* Stats */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 40px;
+}
+.stat-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+}
+.stat-card .num {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--accent);
+}
+.stat-card .label {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+/* Deep dives */
+.dives { margin-bottom: 40px; }
+.dive {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 20px;
+}
+.dive h3 {
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.dive h3 .num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 6px;
+  font-size: 13px;
+  flex-shrink: 0;
+}
+.dive p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+.dive p:last-of-type { margin-bottom: 16px; }
+.dive .links {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.dive .links a {
+  font-size: 12px;
+  color: var(--accent-lt);
+  text-decoration: none;
+  border: 1px solid var(--border);
+  padding: 4px 12px;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+.dive .links a:hover {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.8;
+}
+.footer a {
+  color: var(--accent-lt);
+  text-decoration: none;
+}
+.footer a:hover { text-decoration: underline; }
+
+@media (max-width: 520px) {
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .hero h1 { font-size: 22px; }
+  .news-item { gap: 12px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Hero -->
+<div class="hero">
+  <div class="badge">每日AI精选</div>
+  <h1>2026年8月3日 · 星期一</h1>
+  <div class="subtitle">12条精选新闻 + 3篇深度分析</div>
+  <div class="key-stories">
+    <span>🦜 Karpathy 百万token创作实验</span>
+    <span>🏭 AMD 全开放MoE 16B</span>
+    <span>🎤 WEF 双CEO谈"危机"</span>
+  </div>
+  <div class="sources">
+    来源: <strong>Hacker News</strong> · <strong>X/Twitter</strong> · WEF
+  </div>
+</div>
+
+<!-- Theme -->
+<div class="theme">
+  <div class="label">📌 今日主题</div>
+  <p><strong>长任务时代开启：AI从"答题"走向"干活"</strong> — Karpathy让Claude Opus 5用百万token预算自主写5,500行代码渲染《指环王》，宣告"pelican on a bicycle"式短prompt评测已经过时；WEF舞台上Dario与Hassabis给出惊人一致的时间线：6-12个月内模型端到端完成多数软件工程，"危机"取代"突破"成为关键词。与此同时AMD用纯自家GPU训练出全开放第一的MoE，韩国宣布全民免费主权AI Agent——算力平权与主权叙事同步推进，开源与自主正在成为这一轮的主旋律。</p>
+</div>
+
+<!-- News -->
+<h2 class="section-title">📰 精选新闻 <small>12条</small></h2>
+<div class="news-list">
+
+<div class="news-item">
+  <div class="idx">01</div>
+  <div class="body">
+    <div class="title">Karpathy百万token实验：Claude Opus 5渲染《指环王》</div>
+    <div class="desc">Karpathy给Opus 5《指环王》首章+约1M token预算（约$10），模型自主工作约2小时写下~5,500行Three.js代码生成3D动画场景，用截图自审迭代；demo已开源可玩（karpathy.ai/lotr-movie/），他戏称"GTA Hobbiton可能先于GTA VI"。HN 436pts登顶，马斯克评论"Yah"。</div>
+    <div class="meta">🔖 评测演进 · 🎮 生成式世界 · 📊 HN 436pts</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">02</div>
+  <div class="body">
+    <div class="title">WEF同台：Dario称AI进展是"危机"而非突破</div>
+    <div class="desc">Anthropic CEO与DeepMind CEO时隔一年再度同台：Dario称Anthropic工程师已"基本不写代码"、6-12个月内模型将端到端完成多数软件工程，入门/中级白领岗位1-5年内减半；两人共识"AI造AI"是决定时间线的关键变量，Hassabis给AGI约5-10年，Anthropic收入连续三年10倍增长至$10B。</div>
+    <div class="meta">🔖 行业领袖 · ⏳ AGI时间线 · 📊 6-12个月</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">03</div>
+  <div class="body">
+    <div class="title">AMD发布全开放MoE：Instella-MoE-16B-A3B</div>
+    <div class="desc">16B总参/约3B激活，7.1T tokens从头训练，64K上下文；平均分76.7为全开放模型最高（超Moonlight-16B-A3B的76.2与OLMo-3-7B的70.1）。完全用AMD自家Instinct MI300X/MI325X+ROCm训练，零NVIDIA依赖；新方法FarSkip-Collective让预训练快12.7%、TTFT降39.2%。训练代码MIT，权重ResearchRAIL。</div>
+    <div class="meta">🔖 开源模型 · 🖥️ AMD生态 · 📊 76.7分</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">04</div>
+  <div class="body">
+    <div class="title">Shipper：10个词生成完整全栈应用</div>
+    <div class="desc">新工具（shipper.now）让Claude Opus 5从不到10字的prompt自动构建含UI设计、数据库、认证、支付、修bug与迭代的完整应用，成本低至$0.12/个、几分钟出成品；工具侧注入上下文与工程规范，被认为是"短prompt+强工具"范式的样本。</div>
+    <div class="meta">🔖 开发者工具 · 🤖 自主编程 · 📊 $0.12/应用</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">05</div>
+  <div class="body">
+    <div class="title">Genspark Workspace 6.0：AI工作操作系统</div>
+    <div class="desc">大版本更新铺开完整生态：首款硬件SecondBrain Note（信用卡大小、2.95mm厚26g、$179，5米外收音、35小时录音自动转写进知识库）；GenTeam可部署营销/编码/设计等专职AI员工与人类同室协作；另有GenMail、Design与AgentBase。主打"上下文连续性"。</div>
+    <div class="meta">🔖 产品发布 · 📱 AI硬件 · 📊 $179</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">06</div>
+  <div class="body">
+    <div class="title">韩国"AI for All"：全民免费主权AI Agent</div>
+    <div class="desc">韩国科技部宣布年底前向全体公民免费提供国产AI Agent，覆盖政务服务与日常任务，法律基础为新《AI基本法》；主打数字主权、降低对外国平台依赖。配套动作密集：LG发布750B开源模型K-EXAONE 2.0（Apache 2.0）、SK Telecom推出A.X K2。</div>
+    <div class="meta">🔖 政策 · 🇰🇷 主权AI · 📊 年底前</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">07</div>
+  <div class="body">
+    <div class="title">Thinking Machines发布Inkling-Small</div>
+    <div class="desc">Mira Murati实验室第二作：276B总参/12B激活MoE，Apache 2.0全权重，原生多模态（文/图/音）+1M上下文；HLE 31.6%反超旗舰Inkling（29.7%），SWE-Bench>80%，支持可变思考强度按需换性能；配套发布"分级开放"安全路线论文，被视为美国实验室最成熟的开源策略。</div>
+    <div class="meta">🔖 开源模型 · 🧠 效率优先 · 📊 HLE 31.6%</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">08</div>
+  <div class="body">
+    <div class="title">"青蛙SVG"个人AI基准走红</div>
+    <div class="desc">开发者用"生成一只哈布斯堡下巴的青蛙SVG"作为日常AI基准，直观测出模型图形生成与迭代能力差异（frogs.vaguespac.es）；与Karpathy"简单prompt已无法区分模型"的论断呼应——社区正在把评测从一次性问答转向长任务与创造力。</div>
+    <div class="meta">🔖 评测 · 🐸 生成能力 · 📊 HN 102pts</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">09</div>
+  <div class="body">
+    <div class="title">F*：通用证明导向编程语言回归视野</div>
+    <div class="desc">微软研究院的依赖类型语言F*（fstar-lang.org）登上HN 155pts；在AI形式化证明热潮（Astra的Lean十项证明、Lean内核复盘）下，"可证明正确代码"语言重新成为焦点，被视作AI时代软件可靠性的基础设施候选。</div>
+    <div class="meta">🔖 形式化验证 · 📜 证明语言 · 📊 HN 155pts</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">10</div>
+  <div class="body">
+    <div class="title">HF每日论文：38篇里17篇是Agent研究</div>
+    <div class="desc">8月2日Hugging Face论文榜agents/multi-agent占17篇：记忆基础模型、GUI agent、物理世界模型、文件系统式agent记忆、代码即CoT等方向密集出现；评测同步转向百万token长文创作与真实桌面/Agent工作流，研究重心明确从"模型大小"转向"agent可靠性"。</div>
+    <div class="meta">🔖 研究趋势 · 🤖 Agent · 📊 17/38篇</div>
+  </div>
+  <div class="tags"><span class="tag x">X</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">11</div>
+  <div class="body">
+    <div class="title">NixOS跑上DGX Spark</div>
+    <div class="desc">社区项目（graham33/nixos-dgx-spark）让Nix/NixOS原生运行在NVIDIA DGX Spark（Blackwell架构迷你超算）上，本地跑大模型的可复现环境成为现实，被视作"本地AI基础设施走向工程化"的信号。HN 95pts。</div>
+    <div class="meta">🔖 硬件 · ⚙️ 本地推理 · 📊 HN 95pts</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span></div>
+</div>
+
+<div class="news-item">
+  <div class="idx">12</div>
+  <div class="body">
+    <div class="title">6502处理器上的自回归语言模型</div>
+    <div class="desc">极客在1975年诞生的6502 CPU上实现bitnet风格自回归语言模型（mattbeton.com/blog/bitnet-6502），展示极小硬件上的AI推理；怀旧与前沿碰撞，HN 55pts，提醒"模型效率"的下限仍在不断下探。</div>
+    <div class="meta">🔖 极客项目 · 🕹️ 复古计算 · 📊 HN 55pts</div>
+  </div>
+  <div class="tags"><span class="tag hn">HN</span></div>
+</div>
+
+</div>
+
+<!-- Stats -->
+<h2 class="section-title">📊 今日数据</h2>
+<div class="stats-grid">
+  <div class="stat-card">
+    <div class="num">436pts</div>
+    <div class="label">Karpathy实验HN热度</div>
+  </div>
+  <div class="stat-card">
+    <div class="num">5,500行</div>
+    <div class="label">Opus 5两小时写出的代码</div>
+  </div>
+  <div class="stat-card">
+    <div class="num">76.7</div>
+    <div class="label">Instella平均分（全开放最高）</div>
+  </div>
+  <div class="stat-card">
+    <div class="num">7.1T</div>
+    <div class="label">Instella训练token数</div>
+  </div>
+  <div class="stat-card">
+    <div class="num">6-12个月</div>
+    <div class="label">Dario：模型端到端做软件工程</div>
+  </div>
+  <div class="stat-card">
+    <div class="num">$0.12</div>
+    <div class="label">Shipper单个应用成本</div>
+  </div>
+</div>
+
+<!-- Deep Dives -->
+<h2 class="section-title">🔍 深度分析</h2>
+<div class="dives">
+
+<div class="dive">
+  <h3><span class="num">01</span> 百万token的自主创作：Karpathy实验与评测范式转移</h3>
+  <p>Karpathy在8月2日的爆火演示中给Claude Opus 5一个不寻常的任务：把《指环王》首章文字变成一个可玩的3D世界。没有预设脚本、没有脚手架，模型拿着约1M token预算（成本约$10）自主工作了约2小时，写下约5,500行Three.js代码，把多边形资产摆进(x,y,z)坐标、编写动画逻辑、用截图自我审查并迭代，最终产出一个"有点粗糙但好玩"的3D渲染场景，demo已开源在karpathy.ai/lotr-movie/。他明确表示"pelican on a bicycle"这类简单benchmark已经过时——模型进步太快，需要更难、更开放、更长的测试。</p>
+  <p>这不是孤例，而是评测范式集体转向的信号。同一天HN上"哈布斯堡下巴青蛙SVG"个人基准走红，开发者发现这类开放式生成任务能暴露模型在长链条推理与自我迭代上的真实差距；HF 8月2日论文榜上"百万token长文创作评测""真实桌面Agent工作流评测"密集出现；Wave 1的X综合还提到Google内部正在用"图式Agent编排（Graph Engineering）"取代传统prompting。三个独立信号指向同一结论：一次性问答式评测已经饱和，业界在寻找能区分前沿模型的"耐力测试"——长度、自主性、工具使用、多模态自我验证。</p>
+  <p>深层信号有三层。第一，Karpathy强调的"hyper-custom one-off content"（一次性定制内容）是新的能力边界——模型第一次能做"人类懒得做"的独特项目，从3D世界到微调体验，生成式内容的单位经济被改写（$10、2小时、5,500行）。第二，演示中模型"通过截图自审"的低效环节（multimodal self-auditing）恰好暴露了当前瓶颈：原生视觉反馈与游戏/世界类任务仍是短板，这为视频理解与具身模型指明方向。第三，也是最值得注意的——当"评测"从benchmark分数变成"你能不能独自完成一个2小时的项目"，行业竞争的本质就从模型智力竞赛转向"模型×工具×上下文"的复合工程，这也解释了为什么Shipper这类"工具注入上下文"的产品会在同一天爆发。评估工具正在从"试卷"变成"实习考核"。</p>
+  <div class="links">
+    <a href="https://twitter.com/karpathy/status/2083749667410727319" target="_blank">X: Karpathy原始帖</a>
+    <a href="https://karpathy.ai/lotr-movie/" target="_blank">karpathy.ai/lotr-movie/ 可玩demo</a>
+    <a href="https://frogs.vaguespac.es/" target="_blank">青蛙SVG基准</a>
+    <a href="https://news.ycombinator.com/item?id=49140998" target="_blank">HN讨论</a>
+  </div>
+</div>
+
+<div class="dive">
+  <h3><span class="num">02</span> "危机"不是夸张：Dario与Demis的软件工程时间线</h3>
+  <p>WEF 2026舞台上，Anthropic CEO Dario Amodei与Google DeepMind CEO Demis Hassabis时隔约一年再度同台，措辞罕见地一致且直接。Dario把AI在软件工程上的进展称为"a crisis"而非突破：Anthropic工程师已经越来越多地说"自己不再写代码"——他们主要编辑模型产出的内容；他预测6-12个月内模型将端到端完成大部分软件工程，"很难想象会超过几年"。Hassabis补充了为什么编码/数学最容易自动化：输出客观可验证；而实验科学更难。两人都把"AI造AI"（递归自我改进）列为决定时间线快慢的关键变量，Hassabis给AGI约5-10年。</p>
+  <p>这段对话的分量在于它把上周末所有"AI写代码"的新闻串成了同一叙事。Karpathy的5,500行LOTR代码（模型2小时完成）是能力侧证据；Shipper以$0.12生成完整应用是工具侧证据；而Dario的"入门/中级白领岗位1-5年内减半"是劳动力侧后果。当模型端到端完成软件工程，历史上第一次，一个核心白领职业的自动化路径不是"工具辅助"而是"岗位本身被重新定义"——Anthropic内部工程师的角色已经从"写代码的人"变成"评审与引导模型的人"。Dario给出的收入数据（2023 $100M→2024 $1B→2025 $10B）说明市场已经为这种能力付费。</p>
+  <p>深层信号：第一，"危机"这个词的选择耐人寻味——不是"机会"也不是"突破"，说明即便是获利方也认为社会消化速度跟不上技术速度，这与Hassabis引用《超时空接触》的问题"你们如何度过技术青春期而不自我毁灭"形成互文。第二，两人对计算出口的比喻（"为了利润向朝鲜运核武器"）表明，治理与安全讨论正在从边缘实验室走向CEO级的公开表态。第三，对从业者最实际的启示：Dario与Hassabis给出的不是预言而是已发生的现实——如果你今天的日常工作还能被"6-12个月后的模型"端到端完成，那么现在就该回答那个问题：当代码不再由人写，你在价值链上的位置是什么？这场对话最值得记住的不是AGI时间线，而是"入门级认知劳动的溢价正在以月为单位消失"。</p>
+  <div class="links">
+    <a href="https://x.com/0xShoopy/status/2083945170551046363" target="_blank">X: WEF同台片段</a>
+    <a href="https://x.com/Veltrxai/status/2083971303887753583" target="_blank">X: 时间线与AGI讨论</a>
+    <a href="https://x.com/rewind02/status/2083869622797799681" target="_blank">X: 前OpenAI/Anthropic工程视角</a>
+  </div>
+</div>
+
+<div class="dive">
+  <h3><span class="num">03</span> AMD的ROCm逆袭与开源权重的分层竞争</h3>
+  <p>AMD发布Instella-MoE-16B-A3B：16B总参/约3B激活的MoE，7.1T tokens从头训练，64K上下文，平均分76.7登顶"全开放模型"榜首（超越Moonlight-16B-A3B的76.2和OLMo-3-7B的70.1）。真正打破常规的不是分数，而是训练栈：完全跑在AMD自家Instinct MI300X/MI325X GPU与ROCm软件栈上，全程零NVIDIA依赖。配套的FarSkip-Collective技术（重叠专家并行通信与计算）带来预训练提速12.7%、推理首token延迟降低39.2%，说明AMD在MoE基础设施上拿到了真金白银的优化成果。训练代码MIT开源，权重ResearchRAIL（研究可用、商用受限）。</p>
+  <p>把它放进本周的开源海啸里看更清楚：Thinking Machines的Inkling-Small（276B/12B激活，Apache 2.0，HLE 31.6%反超自家旗舰）、Mistral Medium 3、Bonsai 27B（1-bit量化可上手机）、韩国LG K-EXAONE 2.0（750B，Apache 2.0）——加上此前已发布的Kimi K3、DeepSeek V4、GLM-5.2，约12天内9个高质量开放权重模型落地，中美欧韩四地同时发力。开源的竞争焦点已经从"benchmark差几个点"变成"谁能在不同硬件栈上跑得动、谁的分级发布策略更成熟、谁的许可证更聪明"——AMD用ResearchRAIL守住商用门槛，Thinking Machines用Apache 2.0+分级开放走中间路线，DeepSeek/Kimi用MIT+极低价API收割开发者。</p>
+  <p>深层信号有三。第一，这是"算力平权"的硬件侧证明：ROCm+自家芯片训练出全开放第一的模型，意味着前沿模型生产不再必然绑定NVIDIA——对出口管制与地缘博弈（韩国主权AI、欧盟自主算力）都是结构性变量。第二，"训练代码+数据配方+全阶段checkpoint"的开源粒度在提升，开源的定义正在从"权重可用"走向"全流程可复现"，AMD把预训练、中训练、长上下文、SFT、DPO、RL全阶段权重都放出，这可能成为新常态。第三，License的分层竞争（MIT vs Apache 2.0 vs ResearchRAIL vs 分级开放）意味着"开源"这个词本身正在裂解为不同商业策略——对开发者，选择模型不再只看能力，还要看许可证与硬件兼容性；对闭源厂商，开源与主权AI的双重挤压正在压缩"默认用美国闭源API"的惯性。这一周，开源阵营完成了从"追赶者"到"规则制定者"的姿态转变。</p>
+  <div class="links">
+    <a href="https://x.com/Marktechpost/status/2083630217302794687" target="_blank">X: MarkTechPost解读</a>
+    <a href="https://x.com/coppercode_/status/2083710267309892004" target="_blank">X: ROCm训练细节</a>
+    <a href="https://x.com/i/status/2082885869426631032" target="_blank">X: Inkling-Small公告</a>
+    <a href="https://x.com/pankajkharode/status/2083760954165338586" target="_blank">X: 韩国主权模型</a>
+  </div>
+</div>
+
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>📅 2026 年 8 月 3 日 · 每日 AI 精选</p>
+  <p>数据来源: Hacker News · X/Twitter · WEF</p>
+  <p><a href="index.html">← 返回首页</a> · <a href="https://github.com/macmini-j/daily-ai-digest" target="_blank">GitHub</a></p>
+  <p style="margin-top:8px;font-size:11px;">由 Hermes Agent 自动生成 · 每天 09:07 更新</p>
+</div>
+
+</div>
+</body>
+</html>
